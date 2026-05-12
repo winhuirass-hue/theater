@@ -25,52 +25,52 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#ifndef __TOTEM_SELECTION_TOOLBAR_H__
-#define __TOTEM_SELECTION_TOOLBAR_H__
+#ifndef __theater_SELECTION_TOOLBAR_H__
+#define __theater_SELECTION_TOOLBAR_H__
 
 #include <gtk/gtkbox.h>
 
 G_BEGIN_DECLS
 
-#define TOTEM_TYPE_SELECTION_TOOLBAR                 (totem_selection_toolbar_get_type ())
-#define TOTEM_SELECTION_TOOLBAR(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), TOTEM_TYPE_SELECTION_TOOLBAR, TotemSelectionToolbar))
-#define TOTEM_SELECTION_TOOLBAR_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), TOTEM_TYPE_SELECTION_TOOLBAR, TotemSelectionToolbarClass))
-#define TOTEM_IS_SELECTION_TOOLBAR(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TOTEM_TYPE_SELECTION_TOOLBAR))
-#define TOTEM_IS_SELECTION_TOOLBAR_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass), TOTEM_TYPE_SELECTION_TOOLBAR))
-#define TOTEM_SELECTION_TOOLBAR_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj), TOTEM_TYPE_SELECTION_TOOLBAR, TotemSelectionToolbarClass))
+#define theater_TYPE_SELECTION_TOOLBAR                 (theater_selection_toolbar_get_type ())
+#define theater_SELECTION_TOOLBAR(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), theater_TYPE_SELECTION_TOOLBAR, theaterSelectionToolbar))
+#define theater_SELECTION_TOOLBAR_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), theater_TYPE_SELECTION_TOOLBAR, theaterSelectionToolbarClass))
+#define theater_IS_SELECTION_TOOLBAR(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), theater_TYPE_SELECTION_TOOLBAR))
+#define theater_IS_SELECTION_TOOLBAR_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass), theater_TYPE_SELECTION_TOOLBAR))
+#define theater_SELECTION_TOOLBAR_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj), theater_TYPE_SELECTION_TOOLBAR, theaterSelectionToolbarClass))
 
-typedef struct _TotemSelectionToolbar        TotemSelectionToolbar;
-typedef struct _TotemSelectionToolbarPrivate TotemSelectionToolbarPrivate;
-typedef struct _TotemSelectionToolbarClass   TotemSelectionToolbarClass;
+typedef struct _theaterSelectionToolbar        theaterSelectionToolbar;
+typedef struct _theaterSelectionToolbarPrivate theaterSelectionToolbarPrivate;
+typedef struct _theaterSelectionToolbarClass   theaterSelectionToolbarClass;
 
-struct _TotemSelectionToolbar
+struct _theaterSelectionToolbar
 {
   /*< private >*/
   GtkActionBar parent;
 
-  TotemSelectionToolbarPrivate *priv;
+  theaterSelectionToolbarPrivate *priv;
 };
 
-struct _TotemSelectionToolbarClass
+struct _theaterSelectionToolbarClass
 {
   GtkActionBarClass parent_class;
 };
 
-GType           totem_selection_toolbar_get_type               (void) G_GNUC_CONST;
-GtkWidget*      totem_selection_toolbar_new                    (void);
+GType           theater_selection_toolbar_get_type               (void) G_GNUC_CONST;
+GtkWidget*      theater_selection_toolbar_new                    (void);
 
-void            totem_selection_toolbar_set_n_selected         (TotemSelectionToolbar *bar,
+void            theater_selection_toolbar_set_n_selected         (theaterSelectionToolbar *bar,
                                                                guint                  n_selected);
-guint           totem_selection_toolbar_get_n_selected         (TotemSelectionToolbar *bar);
+guint           theater_selection_toolbar_get_n_selected         (theaterSelectionToolbar *bar);
 
-void            totem_selection_toolbar_set_show_delete_button (TotemSelectionToolbar *bar,
+void            theater_selection_toolbar_set_show_delete_button (theaterSelectionToolbar *bar,
                                                                 gboolean               show_delete_button);
-gboolean        totem_selection_toolbar_get_show_delete_button (TotemSelectionToolbar *bar);
+gboolean        theater_selection_toolbar_get_show_delete_button (theaterSelectionToolbar *bar);
 
-void            totem_selection_toolbar_set_delete_button_sensitive (TotemSelectionToolbar *bar,
+void            theater_selection_toolbar_set_delete_button_sensitive (theaterSelectionToolbar *bar,
                                                                      gboolean               sensitive);
-gboolean        totem_selection_toolbar_get_delete_button_sensitive (TotemSelectionToolbar *bar);
+gboolean        theater_selection_toolbar_get_delete_button_sensitive (theaterSelectionToolbar *bar);
 
 G_END_DECLS
 
-#endif /* __TOTEM_SELECTION_TOOLBAR_H__ */
+#endif /* __theater_SELECTION_TOOLBAR_H__ */

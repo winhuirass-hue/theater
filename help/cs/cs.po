@@ -1,11 +1,11 @@
-# Czech translation of totem help.
-# Copyright (C) 2009 the author(s) of totem.
-# This file is distributed under the same license as the totem help.
+# Czech translation of theater help.
+# Copyright (C) 2009 the author(s) of theater.
+# This file is distributed under the same license as the theater help.
 # Marek Černocký <marek@manet.cz>, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: totem\n"
+"Project-Id-Version: theater\n"
 "POT-Creation-Date: 2019-07-12 10:25+0000\n"
 "PO-Revision-Date: 2019-09-10 14:38+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
@@ -204,11 +204,11 @@ msgstr "<_:media-1/><span> Videa</span>"
 #. (itstool) path: page/p
 #: C/index.page:32
 msgid ""
-"<app>Videos</app>, also known as <app>Totem</app>, is an application for "
+"<app>Videos</app>, also known as <app>theater</app>, is an application for "
 "playing videos. You can use it to watch movies or stream media from the "
 "Internet."
 msgstr ""
-"<app>Videa</app> je aplikace, dříve známá jako <app>Totem</app>, pro "
+"<app>Videa</app> je aplikace, dříve známá jako <app>theater</app>, pro "
 "přehrávání videí. Můžete ji používat ke sledování filmů nebo multimédií "
 "vysílaných přes Internet."
 
@@ -339,7 +339,7 @@ msgstr ""
 #: C/playing-DVD.page:33
 #| msgctxt "_"
 #| msgid ""
-#| "external ref='figures/totem_next_button.png' "
+#| "external ref='figures/theater_next_button.png' "
 #| "md5='c7f9041dc1804edc6777cfe68456e703'"
 msgctxt "_"
 msgid ""
@@ -380,7 +380,7 @@ msgstr ""
 #: C/playing-DVD.page:44
 #| msgctxt "_"
 #| msgid ""
-#| "external ref='figures/totem_previous_button.png' "
+#| "external ref='figures/theater_previous_button.png' "
 #| "md5='a966195040a035bf48daab94c9320afc'"
 msgctxt "_"
 msgid ""
@@ -962,14 +962,14 @@ msgstr "Vystopování problémů s videem"
 msgid ""
 "If you have already followed <link xref=\"supported-formats\"/> and <link "
 "xref=\"troubleshooting-DVD\"/> and a video still cannot be played, open a "
-"terminal window and enter the command <cmd>totem --help-gst</cmd>. This will "
+"terminal window and enter the command <cmd>theater --help-gst</cmd>. This will "
 "show a list of available options you can use to get debug output. Often the "
 "problem is in an underlying plugin, for example in <sys>GStreamer</sys> and "
 "not in <app>Videos</app> itself."
 msgstr ""
 "Pokud jste již zkusili rady uvedené v <link xref=\"supported-formats\"/> a "
 "<link xref=\"troubleshooting-DVD\"/> a video stále nejde přehrát, otevřete "
-"terminálové okno a zadejte příkaz <cmd>totem --help-gst</cmd>. Zobrazí se "
+"terminálové okno a zadejte příkaz <cmd>theater --help-gst</cmd>. Zobrazí se "
 "vám seznam dostupných voleb pro ladicí výstup. Problém je totiž často v "
 "podkladovém zásuvném modulu, například v knihovně <sys>GStreamer</sys> a ne "
 "přímo v přehrávači <app>Videa</app>."

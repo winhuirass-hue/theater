@@ -1,4 +1,4 @@
-/* totem-options.c
+/* theater-options.c
 
    Copyright (C) 2004 Bastien Nocera
 
@@ -27,12 +27,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "totem-options.h"
-#include "totem-uri.h"
+#include "theater-options.h"
+#include "theater-uri.h"
 #include "bacon-video-widget.h"
-#include "totem-private.h"
+#include "theater-private.h"
 
-TotemCmdLineOptions optionstate;	/* Decoded command line options */
+theaterCmdLineOptions optionstate;	/* Decoded command line options */
 
 G_GNUC_NORETURN static gboolean
 option_version_cb (const gchar *option_name,
@@ -67,31 +67,31 @@ const GOptionEntry all_options[] = {
 };
 
 static void
-totem_send_remote_command (Totem              *totem,
-			   TotemRemoteCommand  action,
+theater_send_remote_command (theater              *theater,
+			   theaterRemoteCommand  action,
 			   const char         *url)
 {
 	GVariant *variant;
 
 	variant = g_variant_new ("(is)", action, url ? url : "");
-	g_action_group_activate_action (G_ACTION_GROUP (totem), "remote-command", variant);
+	g_action_group_activate_action (G_ACTION_GROUP (theater), "remote-command", variant);
 }
 
 void
-totem_options_process_for_server (Totem               *totem,
-				  TotemCmdLineOptions *options)
+theater_options_process_for_server (theater               *theater,
+				  theaterCmdLineOptions *options)
 {
-	TotemRemoteCommand action;
+	theaterRemoteCommand action;
 	GList *commands, *l;
 	char **filenames;
 	int i;
 
 	commands = NULL;
-	action = TOTEM_REMOTE_COMMAND_REPLACE;
+	action = theater_REMOTE_COMMAND_REPLACE;
 
 	/* Are we quitting ? */
 	if (options->quit) {
-		totem_send_remote_command (totem, TOTEM_REMOTE_COMMAND_QUIT, NULL);
+		theater_send_remote_command (theater, theater_REMOTE_COMMAND_QUIT, NULL);
 		return;
 	}
 
@@ -99,9 +99,9 @@ totem_options_process_for_server (Totem               *totem,
 	if (options->replace && options->enqueue) {
 		g_warning (_("Can’t enqueue and replace at the same time"));
 	} else if (options->replace) {
-		action = TOTEM_REMOTE_COMMAND_REPLACE;
+		action = theater_REMOTE_COMMAND_REPLACE;
 	} else if (options->enqueue) {
-		action = TOTEM_REMOTE_COMMAND_ENQUEUE;
+		action = theater_REMOTE_COMMAND_ENQUEUE;
 	}
 
 	filenames = options->filenames;
@@ -114,16 +114,16 @@ totem_options_process_for_server (Totem               *totem,
 		char *full_path;
 
 		filename = filenames[i];
-		full_path = totem_create_full_path (filename);
+		full_path = theater_create_full_path (filename);
 
-		totem_send_remote_command (totem, action, full_path ? full_path : filename);
+		theater_send_remote_command (theater, action, full_path ? full_path : filename);
 
 		g_free (full_path);
 
 		/* Even if the default action is replace, we only want to replace with the
 		   first file.  After that, we enqueue. */
 		if (i == 0) {
-			action = TOTEM_REMOTE_COMMAND_ENQUEUE;
+			action = theater_REMOTE_COMMAND_ENQUEUE;
 		}
 	}
 
@@ -131,69 +131,69 @@ totem_options_process_for_server (Totem               *totem,
 
 	if (options->playpause) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_PLAYPAUSE));
+					  (theater_REMOTE_COMMAND_PLAYPAUSE));
 	}
 
 	if (options->play) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_PLAY));
+					  (theater_REMOTE_COMMAND_PLAY));
 	}
 
 	if (options->pause) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_PAUSE));
+					  (theater_REMOTE_COMMAND_PAUSE));
 	}
 
 	if (options->next) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_NEXT));
+					  (theater_REMOTE_COMMAND_NEXT));
 	}
 
 	if (options->previous) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_PREVIOUS));
+					  (theater_REMOTE_COMMAND_PREVIOUS));
 	}
 
 	if (options->seekfwd) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_SEEK_FORWARD));
+					  (theater_REMOTE_COMMAND_SEEK_FORWARD));
 	}
 
 	if (options->seekbwd) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_SEEK_BACKWARD));
+					  (theater_REMOTE_COMMAND_SEEK_BACKWARD));
 	}
 
 	if (options->volumeup) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_VOLUME_UP));
+					  (theater_REMOTE_COMMAND_VOLUME_UP));
 	}
 
 	if (options->volumedown) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_VOLUME_DOWN));
+					  (theater_REMOTE_COMMAND_VOLUME_DOWN));
 	}
 
 	if (options->mute) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_MUTE));
+					  (theater_REMOTE_COMMAND_MUTE));
 	}
 
 	if (options->fullscreen) {
 		commands = g_list_append (commands, GINT_TO_POINTER
-					  (TOTEM_REMOTE_COMMAND_FULLSCREEN));
+					  (theater_REMOTE_COMMAND_FULLSCREEN));
 	}
 
 	/* No commands, no files, show ourselves */
 	if (commands == NULL &&
-	    !(g_application_get_flags (G_APPLICATION (totem)) & G_APPLICATION_IS_SERVICE)) {
-		totem_send_remote_command (totem, TOTEM_REMOTE_COMMAND_SHOW, NULL);
+	    !(g_application_get_flags (G_APPLICATION (theater)) & G_APPLICATION_IS_SERVICE)) {
+		theater_send_remote_command (theater, theater_REMOTE_COMMAND_SHOW, NULL);
 		return;
 	}
 
 	/* Send commands */
 	for (l = commands; l != NULL; l = l->next) {
-		totem_send_remote_command (totem, GPOINTER_TO_INT (l->data), NULL);
+		theater_send_remote_command (theater, GPOINTER_TO_INT (l->data), NULL);
 	}
 
 	g_list_free (commands);

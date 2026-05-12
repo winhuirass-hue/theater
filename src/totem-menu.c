@@ -1,4 +1,4 @@
-/* totem-menu.c
+/* theater-menu.c
 
    Copyright (C) 2004-2005 Bastien Nocera
 
@@ -28,21 +28,21 @@
 #include <gst/tag/tag.h>
 #include <string.h>
 
-#include "totem-menu.h"
-#include "totem.h"
-#include "totem-interface.h"
-#include "totem-private.h"
+#include "theater-menu.h"
+#include "theater.h"
+#include "theater-interface.h"
+#include "theater-private.h"
 #include "bacon-video-widget.h"
-#include "totem-uri.h"
+#include "theater-uri.h"
 
-#include "totem-profile.h"
+#include "theater-profile.h"
 
 static void
 open_action_cb (GSimpleAction *action,
 		GVariant      *parameter,
 		gpointer       user_data)
 {
-	totem_object_open (TOTEM_OBJECT (user_data));
+	theater_object_open (theater_OBJECT (user_data));
 }
 
 static void
@@ -50,7 +50,7 @@ open_location_action_cb (GSimpleAction *action,
 			 GVariant      *parameter,
 			 gpointer       user_data)
 {
-	totem_object_open_location (TOTEM_OBJECT (user_data));
+	theater_object_open_location (theater_OBJECT (user_data));
 }
 
 static void
@@ -58,7 +58,7 @@ preferences_action_cb (GSimpleAction *action,
 		       GVariant      *parameter,
 		       gpointer       user_data)
 {
-	gtk_widget_show (TOTEM_OBJECT (user_data)->prefs);
+	gtk_widget_show (theater_OBJECT (user_data)->prefs);
 }
 
 static void
@@ -69,7 +69,7 @@ fullscreen_change_state (GSimpleAction *action,
 	gboolean param;
 
 	param = g_variant_get_boolean (value);
-	totem_object_set_fullscreen (TOTEM_OBJECT (user_data), param);
+	theater_object_set_fullscreen (theater_OBJECT (user_data), param);
 
 	g_simple_action_set_state (action, value);
 }
@@ -82,8 +82,8 @@ set_subtitle_action_change_state (GSimpleAction *action,
 	int rank;
 
 	rank = g_variant_get_int32 (value);
-	if (!TOTEM_OBJECT (user_data)->updating_menu)
-		bacon_video_widget_set_subtitle (TOTEM_OBJECT (user_data)->bvw, rank);
+	if (!theater_OBJECT (user_data)->updating_menu)
+		bacon_video_widget_set_subtitle (theater_OBJECT (user_data)->bvw, rank);
 
 	g_simple_action_set_state (action, value);
 }
@@ -96,8 +96,8 @@ set_language_action_change_state (GSimpleAction *action,
 	int rank;
 
 	rank = g_variant_get_int32 (value);
-	if (!TOTEM_OBJECT (user_data)->updating_menu)
-		bacon_video_widget_set_language (TOTEM_OBJECT (user_data)->bvw, rank);
+	if (!theater_OBJECT (user_data)->updating_menu)
+		bacon_video_widget_set_language (theater_OBJECT (user_data)->bvw, rank);
 
 	g_simple_action_set_state (action, value);
 }
@@ -110,7 +110,7 @@ aspect_ratio_change_state (GSimpleAction *action,
 	BvwAspectRatio ratio;
 
 	ratio = g_variant_get_int32 (value);
-	bacon_video_widget_set_aspect_ratio (TOTEM_OBJECT (user_data)->bvw, ratio);
+	bacon_video_widget_set_aspect_ratio (theater_OBJECT (user_data)->bvw, ratio);
 
 	g_simple_action_set_state (action, value);
 }
@@ -123,7 +123,7 @@ zoom_action_change_state (GSimpleAction *action,
 	gboolean expand;
 
 	expand = g_variant_get_boolean (value);
-	bacon_video_widget_set_zoom (TOTEM_OBJECT (user_data)->bvw,
+	bacon_video_widget_set_zoom (theater_OBJECT (user_data)->bvw,
 				     expand ? BVW_ZOOM_EXPAND : BVW_ZOOM_NONE);
 
 	g_simple_action_set_state (action, value);
@@ -137,7 +137,7 @@ repeat_change_state (GSimpleAction *action,
 	gboolean param;
 
 	param = g_variant_get_boolean (value);
-	totem_playlist_set_repeat (TOTEM_OBJECT (user_data)->playlist, param);
+	theater_playlist_set_repeat (theater_OBJECT (user_data)->playlist, param);
 
 	g_simple_action_set_state (action, value);
 }
@@ -167,7 +167,7 @@ help_action_cb (GSimpleAction *action,
 		GVariant      *parameter,
 		gpointer       user_data)
 {
-	totem_object_show_help (TOTEM_OBJECT (user_data));
+	theater_object_show_help (theater_OBJECT (user_data));
 }
 
 static void
@@ -175,7 +175,7 @@ keyboard_shortcuts_action_cb (GSimpleAction *action,
 			      GVariant      *parameter,
 			      gpointer       user_data)
 {
-	totem_object_show_keyboard_shortcuts (TOTEM_OBJECT (user_data));
+	theater_object_show_keyboard_shortcuts (theater_OBJECT (user_data));
 }
 
 static void
@@ -183,7 +183,7 @@ quit_action_cb (GSimpleAction *action,
 		GVariant      *parameter,
 		gpointer       user_data)
 {
-	totem_object_exit (TOTEM_OBJECT (user_data));
+	theater_object_exit (theater_OBJECT (user_data));
 }
 
 static void
@@ -191,7 +191,7 @@ dvd_root_menu_action_cb (GSimpleAction *action,
 			 GVariant      *parameter,
 			 gpointer       user_data)
 {
-        bacon_video_widget_dvd_event (TOTEM_OBJECT (user_data)->bvw, BVW_DVD_ROOT_MENU);
+        bacon_video_widget_dvd_event (theater_OBJECT (user_data)->bvw, BVW_DVD_ROOT_MENU);
 }
 
 static void
@@ -199,7 +199,7 @@ dvd_title_menu_action_cb (GSimpleAction *action,
 			  GVariant      *parameter,
 			  gpointer       user_data)
 {
-        bacon_video_widget_dvd_event (TOTEM_OBJECT (user_data)->bvw, BVW_DVD_TITLE_MENU);
+        bacon_video_widget_dvd_event (theater_OBJECT (user_data)->bvw, BVW_DVD_TITLE_MENU);
 }
 
 static void
@@ -207,7 +207,7 @@ dvd_audio_menu_action_cb (GSimpleAction *action,
 			  GVariant      *parameter,
 			  gpointer       user_data)
 {
-        bacon_video_widget_dvd_event (TOTEM_OBJECT (user_data)->bvw, BVW_DVD_AUDIO_MENU);
+        bacon_video_widget_dvd_event (theater_OBJECT (user_data)->bvw, BVW_DVD_AUDIO_MENU);
 }
 
 static void
@@ -215,7 +215,7 @@ dvd_angle_menu_action_cb (GSimpleAction *action,
 			  GVariant      *parameter,
 			  gpointer       user_data)
 {
-        bacon_video_widget_dvd_event (TOTEM_OBJECT (user_data)->bvw, BVW_DVD_ANGLE_MENU);
+        bacon_video_widget_dvd_event (theater_OBJECT (user_data)->bvw, BVW_DVD_ANGLE_MENU);
 }
 
 static void
@@ -223,7 +223,7 @@ dvd_chapter_menu_action_cb (GSimpleAction *action,
 			    GVariant      *parameter,
 			    gpointer       user_data)
 {
-        bacon_video_widget_dvd_event (TOTEM_OBJECT (user_data)->bvw, BVW_DVD_CHAPTER_MENU);
+        bacon_video_widget_dvd_event (theater_OBJECT (user_data)->bvw, BVW_DVD_CHAPTER_MENU);
 }
 
 static void
@@ -231,7 +231,7 @@ next_angle_action_cb (GSimpleAction *action,
 		      GVariant      *parameter,
 		      gpointer       user_data)
 {
-        totem_object_next_angle (TOTEM_OBJECT (user_data));
+        theater_object_next_angle (theater_OBJECT (user_data));
 }
 
 static void
@@ -239,7 +239,7 @@ eject_action_cb (GSimpleAction *action,
 		 GVariant      *parameter,
 		 gpointer       user_data)
 {
-	totem_object_eject (TOTEM_OBJECT (user_data));
+	theater_object_eject (theater_OBJECT (user_data));
 }
 
 static void
@@ -247,8 +247,8 @@ select_subtitle_action_cb (GSimpleAction *action,
 			   GVariant      *parameter,
 			   gpointer       user_data)
 {
-	totem_playlist_select_subtitle_dialog (TOTEM_OBJECT (user_data)->playlist,
-					       TOTEM_PLAYLIST_DIALOG_PLAYING);
+	theater_playlist_select_subtitle_dialog (theater_OBJECT (user_data)->playlist,
+					       theater_PLAYLIST_DIALOG_PLAYING);
 }
 
 static void
@@ -256,7 +256,7 @@ play_action_cb (GSimpleAction *action,
 		GVariant      *parameter,
 		gpointer       user_data)
 {
-	totem_object_play_pause (TOTEM_OBJECT (user_data));
+	theater_object_play_pause (theater_OBJECT (user_data));
 }
 
 static void
@@ -264,7 +264,7 @@ next_chapter_action_cb (GSimpleAction *action,
 			GVariant      *parameter,
 			gpointer       user_data)
 {
-	TOTEM_PROFILE (totem_object_seek_next (TOTEM_OBJECT (user_data)));
+	theater_PROFILE (theater_object_seek_next (theater_OBJECT (user_data)));
 }
 
 static void
@@ -272,7 +272,7 @@ previous_chapter_action_cb (GSimpleAction *action,
 			    GVariant      *parameter,
 			    gpointer       user_data)
 {
-	TOTEM_PROFILE (totem_object_seek_previous (TOTEM_OBJECT (user_data)));
+	theater_PROFILE (theater_object_seek_previous (theater_OBJECT (user_data)));
 }
 
 static void
@@ -280,20 +280,20 @@ remote_command_cb (GSimpleAction *action,
 		   GVariant      *parameter,
 		   gpointer       user_data)
 {
-	TotemObject *totem;
-	TotemRemoteCommand cmd;
+	theaterObject *theater;
+	theaterRemoteCommand cmd;
 	const char *url;
 
-	totem = TOTEM_OBJECT (user_data);
+	theater = theater_OBJECT (user_data);
 
-	g_application_activate (G_APPLICATION (totem));
+	g_application_activate (G_APPLICATION (theater));
 
 	g_variant_get (parameter, "(i&s)", &cmd, &url);
 
 	if (url && *url == '\0')
-		totem_object_remote_command (totem, cmd, NULL);
+		theater_object_remote_command (theater, cmd, NULL);
 	else
-		totem_object_remote_command (totem, cmd, url);
+		theater_object_remote_command (theater, cmd, url);
 }
 
 static GActionEntry app_entries[] = {
@@ -333,13 +333,13 @@ static GActionEntry app_entries[] = {
 };
 
 void
-totem_app_actions_setup (Totem *totem)
+theater_app_actions_setup (theater *theater)
 {
-	g_action_map_add_action_entries (G_ACTION_MAP (totem), app_entries, G_N_ELEMENTS (app_entries), totem);
+	g_action_map_add_action_entries (G_ACTION_MAP (theater), app_entries, G_N_ELEMENTS (app_entries), theater);
 }
 
 void
-totem_app_menu_setup (Totem *totem)
+theater_app_menu_setup (theater *theater)
 {
 	char *accels[] = { NULL, NULL };
 	const char * const shortcuts_accels[] = {
@@ -351,13 +351,13 @@ totem_app_menu_setup (Totem *totem)
 
 	/* FIXME: https://gitlab.gnome.org/GNOME/glib/issues/700 */
 	accels[0] = "<Primary>G";
-	gtk_application_set_accels_for_action (GTK_APPLICATION (totem), "app.next-angle", (const char * const *) accels);
+	gtk_application_set_accels_for_action (GTK_APPLICATION (theater), "app.next-angle", (const char * const *) accels);
 	accels[0] = "<Primary>M";
-	gtk_application_set_accels_for_action (GTK_APPLICATION (totem), "app.root-menu", (const char * const *) accels);
+	gtk_application_set_accels_for_action (GTK_APPLICATION (theater), "app.root-menu", (const char * const *) accels);
 	accels[0] = "<Primary>E";
-	gtk_application_set_accels_for_action (GTK_APPLICATION (totem), "app.eject", (const char * const *) accels);
-	gtk_application_set_accels_for_action (GTK_APPLICATION (totem), "app.shortcuts", shortcuts_accels);
-	gtk_window_set_application (GTK_WINDOW (totem->win), GTK_APPLICATION (totem));
+	gtk_application_set_accels_for_action (GTK_APPLICATION (theater), "app.eject", (const char * const *) accels);
+	gtk_application_set_accels_for_action (GTK_APPLICATION (theater), "app.shortcuts", shortcuts_accels);
+	gtk_window_set_application (GTK_WINDOW (theater->win), GTK_APPLICATION (theater));
 }
 
 /* Helper function to escape underscores in labels
@@ -543,7 +543,7 @@ create_lang_actions (GMenu        *menu,
 }
 
 static gboolean
-totem_sublang_equal_lists (GList *orig, GList *new)
+theater_sublang_equal_lists (GList *orig, GList *new)
 {
 	GList *o, *n;
 	gboolean retval;
@@ -576,78 +576,78 @@ totem_sublang_equal_lists (GList *orig, GList *new)
 }
 
 static void
-totem_languages_update (Totem *totem, GList *list)
+theater_languages_update (theater *theater, GList *list)
 {
 	GAction *action;
 	int current;
 
 	/* Remove old UI */
-	totem_object_empty_menu_section (totem, "languages-placeholder");
+	theater_object_empty_menu_section (theater, "languages-placeholder");
 
 	if (list != NULL) {
 		GMenu *menu;
-		menu = totem_object_get_menu_section (totem, "languages-placeholder");
+		menu = theater_object_get_menu_section (theater, "languages-placeholder");
 		create_lang_actions (menu, "app.set-language", list, BVW_TRACK_TYPE_AUDIO);
 	}
 
-	action = g_action_map_lookup_action (G_ACTION_MAP (totem), "set-language");
-	totem->updating_menu = TRUE;
-	current = bacon_video_widget_get_language (totem->bvw);
+	action = g_action_map_lookup_action (G_ACTION_MAP (theater), "set-language");
+	theater->updating_menu = TRUE;
+	current = bacon_video_widget_get_language (theater->bvw);
 	g_action_change_state (action, g_variant_new_int32 (current));
-	totem->updating_menu = FALSE;
+	theater->updating_menu = FALSE;
 
-	g_list_free_full (totem->languages_list, (GDestroyNotify) bacon_video_widget_lang_info_free);
-	totem->languages_list = list;
+	g_list_free_full (theater->languages_list, (GDestroyNotify) bacon_video_widget_lang_info_free);
+	theater->languages_list = list;
 }
 
 static void
-totem_subtitles_update (Totem *totem, GList *list)
+theater_subtitles_update (theater *theater, GList *list)
 {
 	GAction *action;
 	int current;
 
 	/* Remove old UI */
-	totem_object_empty_menu_section (totem, "subtitles-placeholder");
+	theater_object_empty_menu_section (theater, "subtitles-placeholder");
 
 	if (list != NULL) {
 		GMenu *menu;
-		menu = totem_object_get_menu_section (totem, "subtitles-placeholder");
+		menu = theater_object_get_menu_section (theater, "subtitles-placeholder");
 		create_lang_actions (menu, "app.set-subtitle", list, BVW_TRACK_TYPE_SUBTITLE);
 	}
 
-	action = g_action_map_lookup_action (G_ACTION_MAP (totem), "set-subtitle");
-	totem->updating_menu = TRUE;
-	current = bacon_video_widget_get_subtitle (totem->bvw);
+	action = g_action_map_lookup_action (G_ACTION_MAP (theater), "set-subtitle");
+	theater->updating_menu = TRUE;
+	current = bacon_video_widget_get_subtitle (theater->bvw);
 	g_action_change_state (action, g_variant_new_int32 (current));
-	totem->updating_menu = FALSE;
+	theater->updating_menu = FALSE;
 
-	g_list_free_full (totem->subtitles_list, (GDestroyNotify) bacon_video_widget_lang_info_free);
-	totem->subtitles_list = list;
+	g_list_free_full (theater->subtitles_list, (GDestroyNotify) bacon_video_widget_lang_info_free);
+	theater->subtitles_list = list;
 }
 
 void
-totem_sublang_update (Totem *totem)
+theater_sublang_update (theater *theater)
 {
 	GList *list;
 
-	list = bacon_video_widget_get_languages (totem->bvw);
-	if (totem_sublang_equal_lists (totem->languages_list, list) == TRUE) {
+	list = bacon_video_widget_get_languages (theater->bvw);
+	if (theater_sublang_equal_lists (theater->languages_list, list) == TRUE) {
 		g_list_free_full (list, (GDestroyNotify) bacon_video_widget_lang_info_free);
 	} else {
-		totem_languages_update (totem, list);
+		theater_languages_update (theater, list);
 	}
 
-	list = bacon_video_widget_get_subtitles (totem->bvw);
-	if (totem_sublang_equal_lists (totem->subtitles_list, list) == TRUE) {
+	list = bacon_video_widget_get_subtitles (theater->bvw);
+	if (theater_sublang_equal_lists (theater->subtitles_list, list) == TRUE) {
 		g_list_free_full (list, (GDestroyNotify) bacon_video_widget_lang_info_free);
 	} else {
-		totem_subtitles_update (totem, list);
+		theater_subtitles_update (theater, list);
 	}
 }
 
 void
-totem_sublang_exit (Totem *totem)
+theater_sublang_exit (theater *theater)
 {
-	g_list_free_full (totem->subtitles_list, (GDestroyNotify) bacon_video_widget_lang_info_free);
-	g_list_free_full (totem->languages_list, (GDestroyNotify) bacon_video_widget_lang_info_free);
+	g_list_free_full (theater->subtitles_list, (GDestroyNotify) bacon_video_widget_lang_info_free);
+	g_list_free_full (theater->languages_list, (GDestroyNotify) bacon_video_widget_lang_info_free);
 }

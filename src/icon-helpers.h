@@ -15,10 +15,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
@@ -28,22 +28,22 @@
 #include <gtk/gtk.h>
 #include <grilo.h>
 
-void             totem_grilo_setup_icons          (void);
-void             totem_grilo_clear_icons          (void);
-GdkPixbuf       *totem_grilo_get_icon             (GrlMedia *media,
+void             theater_grilo_setup_icons          (void);
+void             theater_grilo_clear_icons          (void);
+GdkPixbuf       *theater_grilo_get_icon             (GrlMedia *media,
 						   gboolean *thumbnailing);
-const GdkPixbuf *totem_grilo_get_video_icon       (void);
-const GdkPixbuf *totem_grilo_get_box_icon         (void);
-const GdkPixbuf *totem_grilo_get_channel_icon     (void);
-const GdkPixbuf *totem_grilo_get_optical_icon     (void);
+const GdkPixbuf *theater_grilo_get_video_icon       (void);
+const GdkPixbuf *theater_grilo_get_box_icon         (void);
+const GdkPixbuf *theater_grilo_get_channel_icon     (void);
+const GdkPixbuf *theater_grilo_get_optical_icon     (void);
 
-void             totem_grilo_pause_icon_thumbnailing  (void);
-void             totem_grilo_resume_icon_thumbnailing (void);
+void             theater_grilo_pause_icon_thumbnailing  (void);
+void             theater_grilo_resume_icon_thumbnailing (void);
 
-void             totem_grilo_get_thumbnail        (GObject             *object,
+void             theater_grilo_get_thumbnail        (GObject             *object,
 						   GCancellable        *cancellable,
 						   GAsyncReadyCallback  callback,
 						   gpointer             user_data);
-GdkPixbuf       *totem_grilo_get_thumbnail_finish (GObject             *object,
+GdkPixbuf       *theater_grilo_get_thumbnail_finish (GObject             *object,
 						   GAsyncResult        *res,
 						   GError             **error);

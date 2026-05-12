@@ -31,18 +31,18 @@
 #include <libpeas/peas-object-module.h>
 #include <libpeas/peas-activatable.h>
 
-#include "totem-plugin.h"
-#include "totem-interface.h"
+#include "theater-plugin.h"
+#include "theater-interface.h"
 
-#define TOTEM_TYPE_SAVE_FILE_PLUGIN		(totem_save_file_plugin_get_type ())
-#define TOTEM_SAVE_FILE_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), TOTEM_TYPE_SAVE_FILE_PLUGIN, TotemSaveFilePlugin))
-#define TOTEM_SAVE_FILE_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_CAST((k), TOTEM_TYPE_SAVE_FILE_PLUGIN, TotemSaveFilePluginClass))
-#define TOTEM_IS_SAVE_FILE_PLUGIN(o)	(G_TYPE_CHECK_INSTANCE_TYPE ((o), TOTEM_TYPE_SAVE_FILE_PLUGIN))
-#define TOTEM_IS_SAVE_FILE_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), TOTEM_TYPE_SAVE_FILE_PLUGIN))
-#define TOTEM_SAVE_FILE_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), TOTEM_TYPE_SAVE_FILE_PLUGIN, TotemSaveFilePluginClass))
+#define theater_TYPE_SAVE_FILE_PLUGIN		(theater_save_file_plugin_get_type ())
+#define theater_SAVE_FILE_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), theater_TYPE_SAVE_FILE_PLUGIN, theaterSaveFilePlugin))
+#define theater_SAVE_FILE_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_CAST((k), theater_TYPE_SAVE_FILE_PLUGIN, theaterSaveFilePluginClass))
+#define theater_IS_SAVE_FILE_PLUGIN(o)	(G_TYPE_CHECK_INSTANCE_TYPE ((o), theater_TYPE_SAVE_FILE_PLUGIN))
+#define theater_IS_SAVE_FILE_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), theater_TYPE_SAVE_FILE_PLUGIN))
+#define theater_SAVE_FILE_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), theater_TYPE_SAVE_FILE_PLUGIN, theaterSaveFilePluginClass))
 
 typedef struct {
-	TotemObject *totem;
+	theaterObject *theater;
 	GtkWidget   *bvw;
 
 	char        *mrl;
@@ -54,12 +54,12 @@ typedef struct {
 	gboolean      is_flatpaked;
 
 	GSimpleAction *action;
-} TotemSaveFilePluginPrivate;
+} theaterSaveFilePluginPrivate;
 
-TOTEM_PLUGIN_REGISTER(TOTEM_TYPE_SAVE_FILE_PLUGIN, TotemSaveFilePlugin, totem_save_file_plugin)
+theater_PLUGIN_REGISTER(theater_TYPE_SAVE_FILE_PLUGIN, theaterSaveFilePlugin, theater_save_file_plugin)
 
 static void
-copy_uris_with_nautilus (TotemSaveFilePlugin *pi,
+copy_uris_with_nautilus (theaterSaveFilePlugin *pi,
 			 const char          *source,
 			 const char          *dest_dir,
 			 const char          *dest_name)
@@ -85,8 +85,8 @@ copy_uris_with_nautilus (TotemSaveFilePlugin *pi,
 	if (proxy == NULL) {
 		GtkWindow *main_window;
 
-		main_window = totem_object_get_main_window (pi->priv->totem);
-		totem_interface_error (_("The video could not be made available offline."),
+		main_window = theater_object_get_main_window (pi->priv->theater);
+		theater_interface_error (_("The video could not be made available offline."),
 				       /* translators: “Files” refers to nautilus' name */
 				       _("“Files” is not available."), main_window);
 		g_object_unref (main_window);
@@ -129,7 +129,7 @@ get_cache_path (void)
 {
 	char *path;
 
-	path = g_build_filename (g_get_user_cache_dir (), "totem", "media", NULL);
+	path = g_build_filename (g_get_user_cache_dir (), "theater", "media", NULL);
 	g_mkdir_with_parents (path, 0755);
 	return path;
 }
@@ -146,7 +146,7 @@ get_videos_dir_uri (void)
 }
 
 static char *
-totem_save_file_get_filename (TotemSaveFilePlugin *pi)
+theater_save_file_get_filename (theaterSaveFilePlugin *pi)
 {
 	char *filename, *basename;
 	GFile *file;
@@ -190,15 +190,15 @@ checksum_path_for_mrl (const char *mrl)
 }
 
 static void
-totem_save_file_plugin_copy (GSimpleAction       *action,
+theater_save_file_plugin_copy (GSimpleAction       *action,
 			     GVariant            *parameter,
-			     TotemSaveFilePlugin *pi)
+			     theaterSaveFilePlugin *pi)
 {
 	char *filename;
 
 	g_assert (pi->priv->mrl != NULL);
 
-	filename = totem_save_file_get_filename (pi);
+	filename = theater_save_file_get_filename (pi);
 
 	if (pi->priv->is_tmp) {
 		char *src_path, *dest_path;
@@ -217,7 +217,7 @@ totem_save_file_plugin_copy (GSimpleAction       *action,
 				 src_path, dest_path);
 
 			file = g_file_new_for_path (dest_path);
-			totem_object_add_to_view (pi->priv->totem, file, filename);
+			theater_object_add_to_view (pi->priv->theater, file, filename);
 			g_object_unref (file);
 		}
 
@@ -225,15 +225,15 @@ totem_save_file_plugin_copy (GSimpleAction       *action,
 		g_free (dest_path);
 	} else {
 		copy_uris_with_nautilus (pi, pi->priv->mrl, get_videos_dir_uri(), filename);
-		/* We don't call Totem to bookmark it, as Tracker should pick it up */
+		/* We don't call theater to bookmark it, as Tracker should pick it up */
 	}
 
 	g_free (filename);
 }
 
 static void
-totem_save_file_file_closed (TotemObject *totem,
-				 TotemSaveFilePlugin *pi)
+theater_save_file_file_closed (theaterObject *theater,
+				 theaterSaveFilePlugin *pi)
 {
 	g_clear_pointer (&pi->priv->mrl, g_free);
 	g_clear_pointer (&pi->priv->cache_mrl, g_free);
@@ -275,9 +275,9 @@ file_has_ancestor (GFile *file,
 }
 
 static void
-totem_save_file_file_opened (TotemObject *totem,
+theater_save_file_file_opened (theaterObject *theater,
 			     const char *mrl,
-			     TotemSaveFilePlugin *pi)
+			     theaterSaveFilePlugin *pi)
 {
 	GFile *cache_dir = NULL;
 	char *cache_path, *videos_dir;
@@ -338,7 +338,7 @@ totem_save_file_file_opened (TotemObject *totem,
 	}
 
 	g_simple_action_set_enabled (G_SIMPLE_ACTION (pi->priv->action), TRUE);
-	pi->priv->name = totem_object_get_short_title (pi->priv->totem);
+	pi->priv->name = theater_object_get_short_title (pi->priv->theater);
 	pi->priv->is_tmp = FALSE;
 
 out:
@@ -351,7 +351,7 @@ cache_file_exists_cb (GObject      *source_object,
 		      GAsyncResult *res,
 		      gpointer      user_data)
 {
-	TotemSaveFilePlugin *pi;
+	theaterSaveFilePlugin *pi;
 	GFileInfo *info;
 	GError *error = NULL;
 	char *path;
@@ -379,9 +379,9 @@ cache_file_exists_cb (GObject      *source_object,
 }
 
 static void
-totem_save_file_download_filename (GObject    *gobject,
+theater_save_file_download_filename (GObject    *gobject,
 				   GParamSpec *pspec,
-				   TotemSaveFilePlugin *pi)
+				   theaterSaveFilePlugin *pi)
 {
 	char *filename, *cache_path;
 	GFile *file;
@@ -399,7 +399,7 @@ totem_save_file_download_filename (GObject    *gobject,
 
 	pi->priv->cache_mrl = g_filename_to_uri (filename, NULL, NULL);
 	g_free (filename);
-	pi->priv->name = totem_object_get_short_title (pi->priv->totem);
+	pi->priv->name = theater_object_get_short_title (pi->priv->theater);
 	pi->priv->is_tmp = TRUE;
 
 	g_debug ("Cache MRL: '%s', name: '%s'", pi->priv->cache_mrl, pi->priv->name);
@@ -417,70 +417,70 @@ totem_save_file_download_filename (GObject    *gobject,
 static void
 impl_activate (PeasActivatable *plugin)
 {
-	TotemSaveFilePlugin *pi = TOTEM_SAVE_FILE_PLUGIN (plugin);
-	TotemSaveFilePluginPrivate *priv = pi->priv;
+	theaterSaveFilePlugin *pi = theater_SAVE_FILE_PLUGIN (plugin);
+	theaterSaveFilePluginPrivate *priv = pi->priv;
 	GMenu *menu;
 	GMenuItem *item;
 	char *mrl;
 	const char * const accels[] = { "<Primary>S", "Save", NULL };
 
-	priv->totem = g_object_get_data (G_OBJECT (plugin), "object");
-	priv->bvw = totem_object_get_video_widget (priv->totem);
+	priv->theater = g_object_get_data (G_OBJECT (plugin), "object");
+	priv->bvw = theater_object_get_video_widget (priv->theater);
 	priv->cancellable = g_cancellable_new ();
 	priv->is_flatpaked = g_file_test ("/.flatpak-info", G_FILE_TEST_EXISTS);
 
-	g_signal_connect (priv->totem,
+	g_signal_connect (priv->theater,
 			  "file-opened",
-			  G_CALLBACK (totem_save_file_file_opened),
+			  G_CALLBACK (theater_save_file_file_opened),
 			  plugin);
-	g_signal_connect (priv->totem,
+	g_signal_connect (priv->theater,
 			  "file-closed",
-			  G_CALLBACK (totem_save_file_file_closed),
+			  G_CALLBACK (theater_save_file_file_closed),
 			  plugin);
 	g_signal_connect (priv->bvw,
 			  "notify::download-filename",
-			  G_CALLBACK (totem_save_file_download_filename),
+			  G_CALLBACK (theater_save_file_download_filename),
 			  plugin);
 
 	priv->action = g_simple_action_new ("save-as", NULL);
 	g_signal_connect (G_OBJECT (priv->action), "activate",
-			  G_CALLBACK (totem_save_file_plugin_copy), plugin);
-	g_action_map_add_action (G_ACTION_MAP (priv->totem), G_ACTION (priv->action));
-	gtk_application_set_accels_for_action (GTK_APPLICATION (priv->totem),
+			  G_CALLBACK (theater_save_file_plugin_copy), plugin);
+	g_action_map_add_action (G_ACTION_MAP (priv->theater), G_ACTION (priv->action));
+	gtk_application_set_accels_for_action (GTK_APPLICATION (priv->theater),
 					       "app.save-as",
 					       accels);
 	g_simple_action_set_enabled (G_SIMPLE_ACTION (priv->action), FALSE);
 
 	/* add UI */
-	menu = totem_object_get_menu_section (priv->totem, "save-placeholder");
+	menu = theater_object_get_menu_section (priv->theater, "save-placeholder");
 	item = g_menu_item_new (_("Make Available Offline"), "app.save-as");
 	g_menu_item_set_attribute (item, "accel", "s", "<Primary>s");
 	g_menu_append_item (G_MENU (menu), item);
 
-	mrl = totem_object_get_current_mrl (priv->totem);
-	totem_save_file_file_opened (priv->totem, mrl, pi);
-	totem_save_file_download_filename (NULL, NULL, pi);
+	mrl = theater_object_get_current_mrl (priv->theater);
+	theater_save_file_file_opened (priv->theater, mrl, pi);
+	theater_save_file_download_filename (NULL, NULL, pi);
 	g_free (mrl);
 }
 
 static void
 impl_deactivate (PeasActivatable *plugin)
 {
-	TotemSaveFilePlugin *pi = TOTEM_SAVE_FILE_PLUGIN (plugin);
-	TotemSaveFilePluginPrivate *priv = pi->priv;
+	theaterSaveFilePlugin *pi = theater_SAVE_FILE_PLUGIN (plugin);
+	theaterSaveFilePluginPrivate *priv = pi->priv;
 
-	g_signal_handlers_disconnect_by_func (priv->totem, totem_save_file_file_opened, plugin);
-	g_signal_handlers_disconnect_by_func (priv->totem, totem_save_file_file_closed, plugin);
-	g_signal_handlers_disconnect_by_func (priv->bvw, totem_save_file_download_filename, plugin);
+	g_signal_handlers_disconnect_by_func (priv->theater, theater_save_file_file_opened, plugin);
+	g_signal_handlers_disconnect_by_func (priv->theater, theater_save_file_file_closed, plugin);
+	g_signal_handlers_disconnect_by_func (priv->bvw, theater_save_file_download_filename, plugin);
 
-	totem_object_empty_menu_section (priv->totem, "save-placeholder");
+	theater_object_empty_menu_section (priv->theater, "save-placeholder");
 
 	if (priv->cancellable) {
 		g_cancellable_cancel (priv->cancellable);
 		g_clear_object (&priv->cancellable);
 	}
 
-	priv->totem = NULL;
+	priv->theater = NULL;
 	priv->bvw = NULL;
 
 	g_clear_pointer (&pi->priv->mrl, g_free);

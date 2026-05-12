@@ -4,10 +4,10 @@
 #define GST_USE_UNSTABLE_API 1
 #include <gst/tag/tag.h>
 
-#include "gst/totem-time-helpers.h"
+#include "gst/theater-time-helpers.h"
 #include "backend/bacon-video-widget.h"
 #include "backend/bacon-time-label.h"
-#include "totem-menu.h"
+#include "theater-menu.h"
 
 static BvwLangInfo *
 bvw_lang_info_new (const char *language,
@@ -135,23 +135,23 @@ test_time_label (void)
 		    50 * 60 * 1000, 45 * 60 * 1000,
 		    "50:00", "--:--");
 
-	str = totem_time_to_string (0, FALSE, FALSE);
+	str = theater_time_to_string (0, FALSE, FALSE);
 	g_assert_cmpstr (str, ==, "0:00");
 	g_free (str);
 
-	str = totem_time_to_string (500, FALSE, FALSE);
+	str = theater_time_to_string (500, FALSE, FALSE);
 	g_assert_cmpstr (str, ==, "0:01");
 	g_free (str);
 
-	str = totem_time_to_string (500, TRUE, FALSE);
+	str = theater_time_to_string (500, TRUE, FALSE);
 	g_assert_cmpstr (str, ==, "-0:01");
 	g_free (str);
 
-	str = totem_time_to_string (1250, FALSE, FALSE);
+	str = theater_time_to_string (1250, FALSE, FALSE);
 	g_assert_cmpstr (str, ==, "0:01");
 	g_free (str);
 
-	str = totem_time_to_string (1250, TRUE, FALSE);
+	str = theater_time_to_string (1250, TRUE, FALSE);
 	g_assert_cmpstr (str, ==, "-0:02");
 	g_free (str);
 }

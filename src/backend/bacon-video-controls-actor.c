@@ -85,7 +85,7 @@ setup_object (BaconVideoControlsActor *controls,
 	obj = gtk_builder_get_object (controls->priv->builder, name);
 
 	/* Setup an easy way to lookup the widgets by name without
-	 * exposing the API directly to totem */
+	 * exposing the API directly to theater */
 	g_object_set_data (G_OBJECT (controls), name, obj);
 }
 

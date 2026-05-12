@@ -17,50 +17,50 @@ private_headers = [
   'gstscreenshot.h',
   'icon-helpers.h',
   'screenshot-filename-builder.h',
-  'totem-aspect-frame.h',
-  'totem-dnd-menu.h',
-  'totem-dvb-setup.h',
-  'totem-edit-chapter.h',
-  'totem-fullscreen.h',
-  'totem-gallery-progress.h',
-  'totem-gallery.h',
-  'totem-grilo.h',
-  'totem-gst-helpers.h',
-  'totem-gst-pixbuf-helpers.h',
-  'totem-main-toolbar.h',
-  'totem-menu.h',
-  'totem-module.h',
-  'totem-open-location.h',
-  'totem-options.h',
-  'totem-playlist.h',
-  'totem-plugins-engine.h',
-  'totem-plugin-manager.h',
-  'totem-preferences.h',
-  'totem-private.h',
-  'totem-profile.h',
-  'totem-python-plugin.h',
-  'totem-resources.h',
-  'totem-screenshot-plugin.h',
-  'totem-screenshot.h',
-  'totem-search-entry.h',
-  'totem-selection-toolbar.h',
-  'totem-session.h',
-  'totem-skipto-plugin.h',
-  'totem-skipto.h',
-  'totem-statusbar.h',
-  'totem-subtitle-encoding.h',
-  'totem-time-entry.h',
-  'totem-time-helpers.h',
-  'totem-time-label.h',
-  'totem-tracker-widget.h',
-  'totem-uri.h',
+  'theater-aspect-frame.h',
+  'theater-dnd-menu.h',
+  'theater-dvb-setup.h',
+  'theater-edit-chapter.h',
+  'theater-fullscreen.h',
+  'theater-gallery-progress.h',
+  'theater-gallery.h',
+  'theater-grilo.h',
+  'theater-gst-helpers.h',
+  'theater-gst-pixbuf-helpers.h',
+  'theater-main-toolbar.h',
+  'theater-menu.h',
+  'theater-module.h',
+  'theater-open-location.h',
+  'theater-options.h',
+  'theater-playlist.h',
+  'theater-plugins-engine.h',
+  'theater-plugin-manager.h',
+  'theater-preferences.h',
+  'theater-private.h',
+  'theater-profile.h',
+  'theater-python-plugin.h',
+  'theater-resources.h',
+  'theater-screenshot-plugin.h',
+  'theater-screenshot.h',
+  'theater-search-entry.h',
+  'theater-selection-toolbar.h',
+  'theater-session.h',
+  'theater-skipto-plugin.h',
+  'theater-skipto.h',
+  'theater-statusbar.h',
+  'theater-subtitle-encoding.h',
+  'theater-time-entry.h',
+  'theater-time-helpers.h',
+  'theater-time-label.h',
+  'theater-tracker-widget.h',
+  'theater-uri.h',
   'video-utils.h'
 ]
 
 version_conf = configuration_data()
-version_conf.set('TOTEM_VERSION_MAJOR', totem_major_version)
-version_conf.set('TOTEM_VERSION_MINOR', totem_minor_version)
-version_conf.set('TOTEM_VERSION_MICRO', totem_micro_version)
+version_conf.set('theater_VERSION_MAJOR', theater_major_version)
+version_conf.set('theater_VERSION_MINOR', theater_minor_version)
+version_conf.set('theater_VERSION_MICRO', theater_micro_version)
 
 version_xml = 'version.xml'
 
@@ -70,13 +70,13 @@ configure_file(
   configuration: version_conf
 )
 
-doc_path = join_paths(totem_prefix, gnome.gtkdoc_html_dir(doc_module))
+doc_path = join_paths(theater_prefix, gnome.gtkdoc_html_dir(doc_module))
 
 gnome.gtkdoc(
   doc_module,
   main_xml: doc_module + '-docs.xml',
   src_dir: join_paths(meson.source_root(), 'src'),
-  dependencies: libtotem_dep,
+  dependencies: libtheater_dep,
   scan_args: '--ignore-headers=' + ' '.join(private_headers),
   mkdb_args: '--name-space=' + doc_module,
   fixxref_args: '--html-dir=' + doc_path,

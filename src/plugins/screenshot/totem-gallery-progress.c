@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
@@ -35,12 +35,12 @@
 #include <glib/gi18n-lib.h>
 #include <glib/gstdio.h>
 
-#include "totem-gallery-progress.h"
+#include "theater-gallery-progress.h"
 
-static void totem_gallery_progress_finalize (GObject *object);
-static void dialog_response_callback (GtkDialog *dialog, gint response_id, TotemGalleryProgress *self);
+static void theater_gallery_progress_finalize (GObject *object);
+static void dialog_response_callback (GtkDialog *dialog, gint response_id, theaterGalleryProgress *self);
 
-struct _TotemGalleryProgressPrivate {
+struct _theaterGalleryProgressPrivate {
 	GPid child_pid;
 	GString *line;
 	gchar *output_filename;
@@ -48,29 +48,29 @@ struct _TotemGalleryProgressPrivate {
 	GtkProgressBar *progress_bar;
 };
 
-G_DEFINE_TYPE (TotemGalleryProgress, totem_gallery_progress, GTK_TYPE_DIALOG)
-#define TOTEM_GALLERY_PROGRESS_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), TOTEM_TYPE_GALLERY_PROGRESS, TotemGalleryProgressPrivate))
+G_DEFINE_TYPE (theaterGalleryProgress, theater_gallery_progress, GTK_TYPE_DIALOG)
+#define theater_GALLERY_PROGRESS_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), theater_TYPE_GALLERY_PROGRESS, theaterGalleryProgressPrivate))
 
 static void
-totem_gallery_progress_class_init (TotemGalleryProgressClass *klass)
+theater_gallery_progress_class_init (theaterGalleryProgressClass *klass)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 
-	g_type_class_add_private (klass, sizeof (TotemGalleryProgressPrivate));
+	g_type_class_add_private (klass, sizeof (theaterGalleryProgressPrivate));
 
-	gobject_class->finalize = totem_gallery_progress_finalize;
+	gobject_class->finalize = theater_gallery_progress_finalize;
 }
 
 static void
-totem_gallery_progress_init (TotemGalleryProgress *self)
+theater_gallery_progress_init (theaterGalleryProgress *self)
 {
-	self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, TOTEM_TYPE_GALLERY_PROGRESS, TotemGalleryProgressPrivate);
+	self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, theater_TYPE_GALLERY_PROGRESS, theaterGalleryProgressPrivate);
 }
 
 static void
-totem_gallery_progress_finalize (GObject *object)
+theater_gallery_progress_finalize (GObject *object)
 {
-	TotemGalleryProgressPrivate *priv = TOTEM_GALLERY_PROGRESS_GET_PRIVATE (object);
+	theaterGalleryProgressPrivate *priv = theater_GALLERY_PROGRESS_GET_PRIVATE (object);
 
 	g_spawn_close_pid (priv->child_pid);
 	g_free (priv->output_filename);
@@ -79,18 +79,18 @@ totem_gallery_progress_finalize (GObject *object)
 		g_string_free (priv->line, TRUE);
 
 	/* Chain up to the parent class */
-	G_OBJECT_CLASS (totem_gallery_progress_parent_class)->finalize (object);
+	G_OBJECT_CLASS (theater_gallery_progress_parent_class)->finalize (object);
 }
 
-TotemGalleryProgress *
-totem_gallery_progress_new (GPid child_pid, const gchar *output_filename)
+theaterGalleryProgress *
+theater_gallery_progress_new (GPid child_pid, const gchar *output_filename)
 {
-	TotemGalleryProgress *self;
+	theaterGalleryProgress *self;
 	GtkWidget *container;
 	gchar *label_text;
 
 	/* Create the gallery */
-	self = g_object_new (TOTEM_TYPE_GALLERY_PROGRESS, NULL);
+	self = g_object_new (theater_TYPE_GALLERY_PROGRESS, NULL);
 
 	/* Create the widget and initialise class variables */
 	self->priv->progress_bar = GTK_PROGRESS_BAR (gtk_progress_bar_new ());
@@ -122,7 +122,7 @@ totem_gallery_progress_new (GPid child_pid, const gchar *output_filename)
 }
 
 static void
-dialog_response_callback (GtkDialog *dialog, gint response_id, TotemGalleryProgress *self)
+dialog_response_callback (GtkDialog *dialog, gint response_id, theaterGalleryProgress *self)
 {
 	if (response_id != GTK_RESPONSE_OK) {
 		/* Cancel the operation by killing the process */
@@ -134,7 +134,7 @@ dialog_response_callback (GtkDialog *dialog, gint response_id, TotemGalleryProgr
 }
 
 static gboolean
-process_line (TotemGalleryProgress *self, const gchar *line)
+process_line (theaterGalleryProgress *self, const gchar *line)
 {
 	gfloat percent_complete;
 
@@ -148,11 +148,11 @@ process_line (TotemGalleryProgress *self, const gchar *line)
 }
 
 static gboolean
-stdout_watch_cb (GIOChannel *source, GIOCondition condition, TotemGalleryProgress *self)
+stdout_watch_cb (GIOChannel *source, GIOCondition condition, theaterGalleryProgress *self)
 {
 	/* Code pilfered from nautilus-burn-process.c (nautilus-cd-burner) under GPLv2+
 	 * Copyright (C) 2006 William Jon McCann <mccann@jhu.edu> */
-	TotemGalleryProgressPrivate *priv = self->priv;
+	theaterGalleryProgressPrivate *priv = self->priv;
 	gboolean retval = TRUE;
 
 	if (condition & G_IO_IN) {
@@ -216,13 +216,13 @@ stdout_watch_cb (GIOChannel *source, GIOCondition condition, TotemGalleryProgres
 }
 
 void
-totem_gallery_progress_run (TotemGalleryProgress *self, gint stdout_fd)
+theater_gallery_progress_run (theaterGalleryProgress *self, gint stdout_fd)
 {
 	GIOChannel *channel;
 
 	fcntl (stdout_fd, F_SETFL, O_NONBLOCK);
 
-	/* Watch the output from totem-video-thumbnailer */
+	/* Watch the output from theater-video-thumbnailer */
 	channel = g_io_channel_unix_new (stdout_fd);
 	g_io_channel_set_flags (channel, g_io_channel_get_flags (channel) | G_IO_FLAG_NONBLOCK, NULL);
 

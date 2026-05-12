@@ -1,0 +1,4 @@
+[Thumbnailer Entry]
+TryExec=@BINDIR@/theater-video-thumbnailer
+Exec=@BINDIR@/theater-video-thumbnailer -s %s %u %o
+@MIME_TYPE@

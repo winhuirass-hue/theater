@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * See license_change file for details.
  *
@@ -35,16 +35,16 @@
 #include <libpeas/peas-object-module.h>
 #include <libpeas/peas-activatable.h>
 
-#include "totem.h"
-#include "totem-interface.h"
-#include "totem-plugin.h"
+#include "theater.h"
+#include "theater-interface.h"
+#include "theater-plugin.h"
 
-#define TOTEM_TYPE_IM_STATUS_PLUGIN		(totem_im_status_plugin_get_type ())
-#define TOTEM_IM_STATUS_PLUGIN(o)			(G_TYPE_CHECK_INSTANCE_CAST ((o), TOTEM_TYPE_IM_STATUS_PLUGIN, TotemImStatusPlugin))
-#define TOTEM_IM_STATUS_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), TOTEM_TYPE_IM_STATUS_PLUGIN, TotemImStatusPluginClass))
-#define TOTEM_IS_IM_STATUS_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), TOTEM_TYPE_IM_STATUS_PLUGIN))
-#define TOTEM_IS_IM_STATUS_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_TYPE ((k), TOTEM_TYPE_IM_STATUS_PLUGIN))
-#define TOTEM_IM_STATUS_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), TOTEM_TYPE_IM_STATUS_PLUGIN, TotemImStatusPluginClass))
+#define theater_TYPE_IM_STATUS_PLUGIN		(theater_im_status_plugin_get_type ())
+#define theater_IM_STATUS_PLUGIN(o)			(G_TYPE_CHECK_INSTANCE_CAST ((o), theater_TYPE_IM_STATUS_PLUGIN, theaterImStatusPlugin))
+#define theater_IM_STATUS_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), theater_TYPE_IM_STATUS_PLUGIN, theaterImStatusPluginClass))
+#define theater_IS_IM_STATUS_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), theater_TYPE_IM_STATUS_PLUGIN))
+#define theater_IS_IM_STATUS_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_TYPE ((k), theater_TYPE_IM_STATUS_PLUGIN))
+#define theater_IM_STATUS_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), theater_TYPE_IM_STATUS_PLUGIN, theaterImStatusPluginClass))
 
 typedef struct {
 	guint		handler_id_fullscreen;
@@ -52,7 +52,7 @@ typedef struct {
 	GCancellable   *cancellable;
 	gboolean	idle; /* Whether we're idle */
 	GDBusProxy     *proxy;
-} TotemImStatusPluginPrivate;
+} theaterImStatusPluginPrivate;
 
 enum {
 	STATUS_AVAILABLE = 0,
@@ -61,10 +61,10 @@ enum {
 	STATUS_IDLE      = 3
 };
 
-TOTEM_PLUGIN_REGISTER (TOTEM_TYPE_IM_STATUS_PLUGIN, TotemImStatusPlugin, totem_im_status_plugin);
+theater_PLUGIN_REGISTER (theater_TYPE_IM_STATUS_PLUGIN, theaterImStatusPlugin, theater_im_status_plugin);
 
 static void
-totem_im_status_set_idleness (TotemImStatusPlugin *pi,
+theater_im_status_set_idleness (theaterImStatusPlugin *pi,
 			      gboolean             idle)
 {
 	GVariant *variant;
@@ -90,36 +90,36 @@ totem_im_status_set_idleness (TotemImStatusPlugin *pi,
 }
 
 static void
-totem_im_status_update_from_state (TotemObject         *totem,
-				   TotemImStatusPlugin *pi)
+theater_im_status_update_from_state (theaterObject         *theater,
+				   theaterImStatusPlugin *pi)
 {
 	/* Session Proxy not ready yet */
 	if (pi->priv->proxy == NULL)
 		return;
 
-	if (totem_object_is_playing (totem) != FALSE
-	    && totem_object_is_fullscreen (totem) != FALSE) {
-		totem_im_status_set_idleness (pi, TRUE);
+	if (theater_object_is_playing (theater) != FALSE
+	    && theater_object_is_fullscreen (theater) != FALSE) {
+		theater_im_status_set_idleness (pi, TRUE);
 	} else {
-		totem_im_status_set_idleness (pi, FALSE);
+		theater_im_status_set_idleness (pi, FALSE);
 	}
 }
 
 static void
-property_notify_cb (TotemObject         *totem,
+property_notify_cb (theaterObject         *theater,
 		    GParamSpec          *spec,
-		    TotemImStatusPlugin *plugin)
+		    theaterImStatusPlugin *plugin)
 {
-	totem_im_status_update_from_state (totem, plugin);
+	theater_im_status_update_from_state (theater, plugin);
 }
 
 static void
 got_proxy_cb (GObject             *source_object,
 	      GAsyncResult        *res,
-	      TotemImStatusPlugin *pi)
+	      theaterImStatusPlugin *pi)
 {
 	GError *error = NULL;
-	TotemObject *totem;
+	theaterObject *theater;
 
 	pi->priv->proxy = g_dbus_proxy_new_for_bus_finish (res, &error);
 
@@ -131,16 +131,16 @@ got_proxy_cb (GObject             *source_object,
 		g_error_free (error);
 		return;
 	}
-	g_object_get (pi, "object", &totem, NULL);
-	totem_im_status_update_from_state (totem, pi);
-	g_object_unref (totem);
+	g_object_get (pi, "object", &theater, NULL);
+	theater_im_status_update_from_state (theater, pi);
+	g_object_unref (theater);
 }
 
 static void
 impl_activate (PeasActivatable *plugin)
 {
-	TotemImStatusPlugin *pi = TOTEM_IM_STATUS_PLUGIN (plugin);
-	TotemObject *totem;
+	theaterImStatusPlugin *pi = theater_IM_STATUS_PLUGIN (plugin);
+	theaterObject *theater;
 
 	pi->priv->cancellable = g_cancellable_new ();
 	g_dbus_proxy_new_for_bus (G_BUS_TYPE_SESSION,
@@ -154,25 +154,25 @@ impl_activate (PeasActivatable *plugin)
 				  (GAsyncReadyCallback) got_proxy_cb,
 				  pi);
 
-	g_object_get (plugin, "object", &totem, NULL);
+	g_object_get (plugin, "object", &theater, NULL);
 
-	pi->priv->handler_id_fullscreen = g_signal_connect (G_OBJECT (totem),
+	pi->priv->handler_id_fullscreen = g_signal_connect (G_OBJECT (theater),
 				"notify::fullscreen",
 				G_CALLBACK (property_notify_cb),
 				pi);
-	pi->priv->handler_id_playing = g_signal_connect (G_OBJECT (totem),
+	pi->priv->handler_id_playing = g_signal_connect (G_OBJECT (theater),
 				"notify::playing",
 				G_CALLBACK (property_notify_cb),
 				pi);
 
-	g_object_unref (totem);
+	g_object_unref (theater);
 }
 
 static void
 impl_deactivate (PeasActivatable *plugin)
 {
-	TotemImStatusPlugin *pi = TOTEM_IM_STATUS_PLUGIN (plugin);
-	TotemObject *totem;
+	theaterImStatusPlugin *pi = theater_IM_STATUS_PLUGIN (plugin);
+	theaterObject *theater;
 
 	/* In flight? */
 	if (pi->priv->cancellable != NULL) {
@@ -186,18 +186,18 @@ impl_deactivate (PeasActivatable *plugin)
 		pi->priv->proxy = NULL;
 	}
 
-	g_object_get (plugin, "object", &totem, NULL);
+	g_object_get (plugin, "object", &theater, NULL);
 
 	if (pi->priv->handler_id_fullscreen != 0) {
-		g_signal_handler_disconnect (G_OBJECT (totem),
+		g_signal_handler_disconnect (G_OBJECT (theater),
 					     pi->priv->handler_id_fullscreen);
 		pi->priv->handler_id_fullscreen = 0;
 	}
 	if (pi->priv->handler_id_playing != 0) {
-		g_signal_handler_disconnect (G_OBJECT (totem),
+		g_signal_handler_disconnect (G_OBJECT (theater),
 					     pi->priv->handler_id_playing);
 		pi->priv->handler_id_playing = 0;
 	}
 
-	g_object_unref (totem);
+	g_object_unref (theater);
 }

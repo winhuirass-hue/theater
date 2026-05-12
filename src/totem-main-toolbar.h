@@ -25,68 +25,68 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#ifndef __TOTEM_MAIN_TOOLBAR_H__
-#define __TOTEM_MAIN_TOOLBAR_H__
+#ifndef __theater_MAIN_TOOLBAR_H__
+#define __theater_MAIN_TOOLBAR_H__
 
 #include <gtk/gtkbox.h>
 
 G_BEGIN_DECLS
 
-#define TOTEM_TYPE_MAIN_TOOLBAR                 (totem_main_toolbar_get_type ())
-#define TOTEM_MAIN_TOOLBAR(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), TOTEM_TYPE_MAIN_TOOLBAR, TotemMainToolbar))
-#define TOTEM_MAIN_TOOLBAR_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), TOTEM_TYPE_MAIN_TOOLBAR, TotemMainToolbarClass))
-#define TOTEM_IS_MAIN_TOOLBAR(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TOTEM_TYPE_MAIN_TOOLBAR))
-#define TOTEM_IS_MAIN_TOOLBAR_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass), TOTEM_TYPE_MAIN_TOOLBAR))
-#define TOTEM_MAIN_TOOLBAR_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj), TOTEM_TYPE_MAIN_TOOLBAR, TotemMainToolbarClass))
+#define theater_TYPE_MAIN_TOOLBAR                 (theater_main_toolbar_get_type ())
+#define theater_MAIN_TOOLBAR(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), theater_TYPE_MAIN_TOOLBAR, theaterMainToolbar))
+#define theater_MAIN_TOOLBAR_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), theater_TYPE_MAIN_TOOLBAR, theaterMainToolbarClass))
+#define theater_IS_MAIN_TOOLBAR(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), theater_TYPE_MAIN_TOOLBAR))
+#define theater_IS_MAIN_TOOLBAR_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass), theater_TYPE_MAIN_TOOLBAR))
+#define theater_MAIN_TOOLBAR_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj), theater_TYPE_MAIN_TOOLBAR, theaterMainToolbarClass))
 
-typedef struct _TotemMainToolbar        TotemMainToolbar;
-typedef struct _TotemMainToolbarPrivate TotemMainToolbarPrivate;
-typedef struct _TotemMainToolbarClass   TotemMainToolbarClass;
+typedef struct _theaterMainToolbar        theaterMainToolbar;
+typedef struct _theaterMainToolbarPrivate theaterMainToolbarPrivate;
+typedef struct _theaterMainToolbarClass   theaterMainToolbarClass;
 
-struct _TotemMainToolbar
+struct _theaterMainToolbar
 {
   /*< private >*/
   GtkHeaderBar parent;
 
-  TotemMainToolbarPrivate *priv;
+  theaterMainToolbarPrivate *priv;
 };
 
-struct _TotemMainToolbarClass
+struct _theaterMainToolbarClass
 {
   GtkHeaderBarClass parent_class;
 };
 
-GType           totem_main_toolbar_get_type              (void) G_GNUC_CONST;
-GtkWidget*      totem_main_toolbar_new                   (void);
-void            totem_main_toolbar_set_search_mode       (TotemMainToolbar *bar,
+GType           theater_main_toolbar_get_type              (void) G_GNUC_CONST;
+GtkWidget*      theater_main_toolbar_new                   (void);
+void            theater_main_toolbar_set_search_mode       (theaterMainToolbar *bar,
 							  gboolean          search_mode);
-gboolean        totem_main_toolbar_get_search_mode       (TotemMainToolbar *bar);
-void            totem_main_toolbar_set_select_mode       (TotemMainToolbar *bar,
+gboolean        theater_main_toolbar_get_search_mode       (theaterMainToolbar *bar);
+void            theater_main_toolbar_set_select_mode       (theaterMainToolbar *bar,
 							  gboolean          select_mode);
-gboolean        totem_main_toolbar_get_select_mode       (TotemMainToolbar *bar);
-void            totem_main_toolbar_set_title             (TotemMainToolbar *bar,
+gboolean        theater_main_toolbar_get_select_mode       (theaterMainToolbar *bar);
+void            theater_main_toolbar_set_title             (theaterMainToolbar *bar,
 							  const char       *title);
-const char *    totem_main_toolbar_get_title             (TotemMainToolbar *bar);
-void            totem_main_toolbar_set_subtitle          (TotemMainToolbar *bar,
+const char *    theater_main_toolbar_get_title             (theaterMainToolbar *bar);
+void            theater_main_toolbar_set_subtitle          (theaterMainToolbar *bar,
 							  const char       *subtitle);
-const char *    totem_main_toolbar_get_subtitle          (TotemMainToolbar *bar);
-void            totem_main_toolbar_set_search_string     (TotemMainToolbar *bar,
+const char *    theater_main_toolbar_get_subtitle          (theaterMainToolbar *bar);
+void            theater_main_toolbar_set_search_string     (theaterMainToolbar *bar,
 						          const char       *search_string);
-const char *    totem_main_toolbar_get_search_string     (TotemMainToolbar *bar);
-void            totem_main_toolbar_set_n_selected        (TotemMainToolbar *bar,
+const char *    theater_main_toolbar_get_search_string     (theaterMainToolbar *bar);
+void            theater_main_toolbar_set_n_selected        (theaterMainToolbar *bar,
 							  guint             n_selected);
-guint           totem_main_toolbar_get_n_selected        (TotemMainToolbar *bar);
-void            totem_main_toolbar_set_custom_title      (TotemMainToolbar *bar,
+guint           theater_main_toolbar_get_n_selected        (theaterMainToolbar *bar);
+void            theater_main_toolbar_set_custom_title      (theaterMainToolbar *bar,
 							  GtkWidget        *title_widget);
-GtkWidget *     totem_main_toolbar_get_custom_title      (TotemMainToolbar *bar);
-void            totem_main_toolbar_set_select_menu_model (TotemMainToolbar *bar,
+GtkWidget *     theater_main_toolbar_get_custom_title      (theaterMainToolbar *bar);
+void            theater_main_toolbar_set_select_menu_model (theaterMainToolbar *bar,
 							  GMenuModel       *model);
-GMenuModel *    totem_main_toolbar_get_select_menu_model (TotemMainToolbar *bar);
-void            totem_main_toolbar_pack_start            (TotemMainToolbar *bar,
+GMenuModel *    theater_main_toolbar_get_select_menu_model (theaterMainToolbar *bar);
+void            theater_main_toolbar_pack_start            (theaterMainToolbar *bar,
 							  GtkWidget        *child);
-void            totem_main_toolbar_pack_end              (TotemMainToolbar *bar,
+void            theater_main_toolbar_pack_end              (theaterMainToolbar *bar,
 							  GtkWidget        *child);
 
 G_END_DECLS
 
-#endif /* __TOTEM_MAIN_TOOLBAR_H__ */
+#endif /* __theater_MAIN_TOOLBAR_H__ */

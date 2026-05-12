@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef __TOTEM_SEARCH_ENTRY_H__
-#define __TOTEM_SEARCH_ENTRY_H__
+#ifndef __theater_SEARCH_ENTRY_H__
+#define __theater_SEARCH_ENTRY_H__
 
 #include <glib-object.h>
 
@@ -28,47 +28,47 @@
 
 G_BEGIN_DECLS
 
-#define TOTEM_TYPE_SEARCH_ENTRY totem_search_entry_get_type()
-#define TOTEM_SEARCH_ENTRY(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), TOTEM_TYPE_SEARCH_ENTRY, TotemSearchEntry))
-#define TOTEM_SEARCH_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), TOTEM_TYPE_SEARCH_ENTRY, TotemSearchEntryClass))
-#define TOTEM_IS_SEARCH_ENTRY(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TOTEM_TYPE_SEARCH_ENTRY))
-#define TOTEM_IS_SEARCH_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TOTEM_TYPE_SEARCH_ENTRY))
-#define TOTEM_SEARCH_ENTRY_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), TOTEM_TYPE_SEARCH_ENTRY, TotemSearchEntryClass))
+#define theater_TYPE_SEARCH_ENTRY theater_search_entry_get_type()
+#define theater_SEARCH_ENTRY(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), theater_TYPE_SEARCH_ENTRY, theaterSearchEntry))
+#define theater_SEARCH_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), theater_TYPE_SEARCH_ENTRY, theaterSearchEntryClass))
+#define theater_IS_SEARCH_ENTRY(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), theater_TYPE_SEARCH_ENTRY))
+#define theater_IS_SEARCH_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), theater_TYPE_SEARCH_ENTRY))
+#define theater_SEARCH_ENTRY_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), theater_TYPE_SEARCH_ENTRY, theaterSearchEntryClass))
 
-typedef struct _TotemSearchEntry TotemSearchEntry;
-typedef struct _TotemSearchEntryClass TotemSearchEntryClass;
-typedef struct _TotemSearchEntryPrivate TotemSearchEntryPrivate;
+typedef struct _theaterSearchEntry theaterSearchEntry;
+typedef struct _theaterSearchEntryClass theaterSearchEntryClass;
+typedef struct _theaterSearchEntryPrivate theaterSearchEntryPrivate;
 
-struct _TotemSearchEntry
+struct _theaterSearchEntry
 {
 	GtkBox parent;
 
-	TotemSearchEntryPrivate *priv;
+	theaterSearchEntryPrivate *priv;
 };
 
-struct _TotemSearchEntryClass
+struct _theaterSearchEntryClass
 {
 	GtkBoxClass parent_class;
 };
 
-GType totem_search_entry_get_type              (void) G_GNUC_CONST;
+GType theater_search_entry_get_type              (void) G_GNUC_CONST;
 
-TotemSearchEntry *totem_search_entry_new       (void);
+theaterSearchEntry *theater_search_entry_new       (void);
 
-void totem_search_entry_add_source             (TotemSearchEntry *entry,
+void theater_search_entry_add_source             (theaterSearchEntry *entry,
 						const gchar      *id,
 						const gchar      *label,
 						int               priority);
-void totem_search_entry_remove_source          (TotemSearchEntry *self,
+void theater_search_entry_remove_source          (theaterSearchEntry *self,
 						const gchar      *id);
 
-const char *totem_search_entry_get_selected_id (TotemSearchEntry *self);
-gboolean    totem_search_entry_set_selected_id (TotemSearchEntry *self,
+const char *theater_search_entry_get_selected_id (theaterSearchEntry *self);
+gboolean    theater_search_entry_set_selected_id (theaterSearchEntry *self,
 						const char       *id);
 
-const char *totem_search_entry_get_text        (TotemSearchEntry *self);
-GtkEntry   *totem_search_entry_get_entry       (TotemSearchEntry *self);
+const char *theater_search_entry_get_text        (theaterSearchEntry *self);
+GtkEntry   *theater_search_entry_get_entry       (theaterSearchEntry *self);
 
 G_END_DECLS
 
-#endif /* __TOTEM_SEARCH_ENTRY_H__ */
+#endif /* __theater_SEARCH_ENTRY_H__ */

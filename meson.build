@@ -1,57 +1,57 @@
 project(
-  'totem', 'c',
+  'theater', 'c',
   version: '3.34.1',
   license: 'GPL2+ with exception',
   default_options: 'buildtype=debugoptimized',
   meson_version: '>= 0.49.0'
 )
 
-totem_version = meson.project_version()
-version_array = totem_version.split('.')
-totem_major_version = version_array[0].to_int()
-totem_minor_version = version_array[1].to_int()
-totem_micro_version = version_array[2].to_int()
+theater_version = meson.project_version()
+version_array = theater_version.split('.')
+theater_major_version = version_array[0].to_int()
+theater_minor_version = version_array[1].to_int()
+theater_micro_version = version_array[2].to_int()
 
-totem_api_version = '1.0'
+theater_api_version = '1.0'
 
-totem_api_path = join_paths(meson.project_name(), totem_api_version)
+theater_api_path = join_paths(meson.project_name(), theater_api_version)
 
-totem_gir_ns = 'Totem'
+theater_gir_ns = 'theater'
 
-totem_prefix = get_option('prefix')
-totem_bindir = join_paths(totem_prefix, get_option('bindir'))
-totem_datadir = join_paths(totem_prefix, get_option('datadir'))
-totem_libdir = join_paths(totem_prefix, get_option('libdir'))
-totem_libexecdir = join_paths(totem_prefix, get_option('libexecdir'))
-totem_localedir = join_paths(totem_prefix, get_option('localedir'))
-totem_mandir = join_paths(totem_prefix, get_option('mandir'))
+theater_prefix = get_option('prefix')
+theater_bindir = join_paths(theater_prefix, get_option('bindir'))
+theater_datadir = join_paths(theater_prefix, get_option('datadir'))
+theater_libdir = join_paths(theater_prefix, get_option('libdir'))
+theater_libexecdir = join_paths(theater_prefix, get_option('libexecdir'))
+theater_localedir = join_paths(theater_prefix, get_option('localedir'))
+theater_mandir = join_paths(theater_prefix, get_option('mandir'))
 
-totem_pkglibdir = join_paths(totem_libdir, meson.project_name())
-totem_pkgdatadir = join_paths(totem_datadir, meson.project_name())
+theater_pkglibdir = join_paths(theater_libdir, meson.project_name())
+theater_pkgdatadir = join_paths(theater_datadir, meson.project_name())
 
-totem_pluginsdir = join_paths(totem_pkglibdir, 'plugins')
-totem_schemadir = join_paths(totem_datadir, 'glib-2.0', 'schemas')
+theater_pluginsdir = join_paths(theater_pkglibdir, 'plugins')
+theater_schemadir = join_paths(theater_datadir, 'glib-2.0', 'schemas')
 
 soversion = 0
 current = 0
 revision = 0
 libversion = '@0@.@1@.@2@'.format(soversion, current, revision)
 
-totem_debug = get_option('buildtype').contains('debug')
+theater_debug = get_option('buildtype').contains('debug')
 
 cc = meson.get_compiler('c')
 
 config_h = configuration_data()
 
 # debug options
-config_h.set('GNOME_ENABLE_DEBUG', totem_debug)
+config_h.set('GNOME_ENABLE_DEBUG', theater_debug)
 
 # defines
 set_defines = [
   # package
   ['PACKAGE', meson.project_name()],
-  ['TOTEM_API_VERSION', totem_api_version],
-  ['VERSION', totem_version],
+  ['theater_API_VERSION', theater_api_version],
+  ['VERSION', theater_version],
   # i18n
   ['GETTEXT_PACKAGE', meson.project_name()]
 ]
@@ -84,7 +84,7 @@ common_flags = [
 
 warn_flags = []
 
-if totem_debug
+if theater_debug
   test_cflags = [
     '-fno-strict-aliasing',
     '-Wcast-align',
@@ -117,7 +117,7 @@ gtk_req_version = '>= 3.19.4'
 gst_req_version = '>= 1.6.0'
 grilo_req_version = '>= 0.3.0'
 peas_req_version = '>= 1.1.0'
-totem_plparser_req_version = '>= 3.10.1'
+theater_plparser_req_version = '>= 3.10.1'
 
 glib_dep =  dependency('glib-2.0', version: glib_req_version)
 gobject_dep =  dependency('gobject-2.0', version: glib_req_version)
@@ -129,7 +129,7 @@ gst_video_dep = dependency('gstreamer-video-1.0')
 gst_pbutils_dep = dependency('gstreamer-pbutils-1.0')
 peas_dep = dependency('libpeas-1.0', version: peas_req_version)
 peas_gtk_dep = dependency('libpeas-gtk-1.0', version: peas_req_version)
-totem_plparser_dep = dependency('totem-plparser', version: totem_plparser_req_version)
+theater_plparser_dep = dependency('theater-plparser', version: theater_plparser_req_version)
 clutter_gtk_dep = dependency('clutter-gtk-1.0', version: '>= 1.8.1')
 m_dep = cc.find_library('m', required: true)
 
@@ -223,10 +223,10 @@ meson.add_dist_script(
   find_program('check-news.sh').path(),
   '@0@'.format(meson.project_version()),
   'NEWS',
-  'data/appdata/org.gnome.Totem.appdata.xml.in'
+  'data/appdata/org.gnome.theater.appdata.xml.in'
 )
 
-message('Totem was configured with the following options:')
+message('theater was configured with the following options:')
 message('** Using the GStreamer-1.0 backend')
 
 str = 'Easy codec installation support'

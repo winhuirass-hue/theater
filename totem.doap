@@ -3,13 +3,13 @@
 	 xmlns:foaf="http://xmlns.com/foaf/0.1/"
 	 xmlns:gnome="http://api.gnome.org/doap-extensions#"
 	 xmlns="http://usefulinc.com/ns/doap#">
-	<name xml:lang="en">totem</name>
+	<name xml:lang="en">theater</name>
 	<description xml:lang="en">Movie player for the GNOME desktop based on GStreamer</description>
 	<shortdesc xml:lang="en">Movie player for the GNOME desktop based on GStreamer</shortdesc>
 	<homepage rdf:resource="https://wiki.gnome.org/Apps/Videos" />
 	<mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/gnome-multimedia" />
-	<download-page rdf:resource="http://download.gnome.org/sources/totem/" />
-	<bug-database rdf:resource="https://gitlab.gnome.org/GNOME/totem/issues" />
+	<download-page rdf:resource="http://download.gnome.org/sources/theater/" />
+	<bug-database rdf:resource="https://gitlab.gnome.org/GNOME/theater/issues" />
 	<category rdf:resource="http://api.gnome.org/doap-extensions#core" />
 	<programming-language>C</programming-language>
 	<maintainer>

@@ -29,20 +29,20 @@
 
 #include <gtk/gtk.h>
 #include <glib/gi18n-lib.h>
-#include "totem-selection-toolbar.h"
+#include "theater-selection-toolbar.h"
 #include "griloresources.h"
 
 /*
- * SECTION:totemselectiontoolbar
+ * SECTION:theaterselectiontoolbar
  * @Short_description: An toolbar with oft-used buttons.
- * @Title: TotemSelectionToolbar
+ * @Title: theaterSelectionToolbar
  *
- * #TotemSelectionToolbar is a toolbar that contains oft-used buttons such as toggles
+ * #theaterSelectionToolbar is a toolbar that contains oft-used buttons such as toggles
  * for select mode, and find mode, or a new button. The widget will also be
  * styled properly when in specific mode.
  */
 
-struct _TotemSelectionToolbarPrivate {
+struct _theaterSelectionToolbarPrivate {
   /* Template widgets */
   GtkWidget   *add_to_fav;
   GtkWidget   *play;
@@ -57,8 +57,8 @@ struct _TotemSelectionToolbarPrivate {
   guint        n_selected;
 };
 
-G_DEFINE_TYPE_WITH_CODE (TotemSelectionToolbar, totem_selection_toolbar, GTK_TYPE_ACTION_BAR,
-                         G_ADD_PRIVATE (TotemSelectionToolbar));
+G_DEFINE_TYPE_WITH_CODE (theaterSelectionToolbar, theater_selection_toolbar, GTK_TYPE_ACTION_BAR,
+                         G_ADD_PRIVATE (theaterSelectionToolbar));
 
 enum {
   PROP_0,
@@ -82,9 +82,9 @@ change_class (GtkWidget  *widget,
 }
 
 static void
-update_toolbar_state (TotemSelectionToolbar *bar)
+update_toolbar_state (theaterSelectionToolbar *bar)
 {
-  TotemSelectionToolbarPrivate *priv = bar->priv;
+  theaterSelectionToolbarPrivate *priv = bar->priv;
   gboolean sensitive;
 
   if (priv->n_selected == 0)
@@ -105,52 +105,52 @@ update_toolbar_state (TotemSelectionToolbar *bar)
 
 static void
 add_to_fav_clicked_cb (GtkButton        *button,
-                       TotemSelectionToolbar *bar)
+                       theaterSelectionToolbar *bar)
 {
   g_signal_emit_by_name (G_OBJECT (bar), "add-to-favourites-clicked", NULL);
 }
 
 static void
 delete_clicked_cb (GtkButton             *button,
-                   TotemSelectionToolbar *bar)
+                   theaterSelectionToolbar *bar)
 {
   g_signal_emit_by_name (G_OBJECT (bar), "delete-clicked", NULL);
 }
 
 static void
 play_clicked_cb (GtkButton             *button,
-                 TotemSelectionToolbar *bar)
+                 theaterSelectionToolbar *bar)
 {
   g_signal_emit_by_name (G_OBJECT (bar), "play-clicked", NULL);
 }
 
 static void
 shuffle_clicked_cb (GtkButton             *button,
-                    TotemSelectionToolbar *bar)
+                    theaterSelectionToolbar *bar)
 {
   g_signal_emit_by_name (G_OBJECT (bar), "shuffle-clicked", NULL);
 }
 
 static void
-totem_selection_toolbar_set_property (GObject         *object,
+theater_selection_toolbar_set_property (GObject         *object,
                                       guint            prop_id,
                                       const GValue    *value,
                                       GParamSpec      *pspec)
 {
-  TotemSelectionToolbar *bar = TOTEM_SELECTION_TOOLBAR (object);
+  theaterSelectionToolbar *bar = theater_SELECTION_TOOLBAR (object);
 
   switch (prop_id)
     {
     case PROP_N_SELECTED:
-      totem_selection_toolbar_set_n_selected (bar, g_value_get_uint (value));
+      theater_selection_toolbar_set_n_selected (bar, g_value_get_uint (value));
       break;
 
     case PROP_SHOW_DELETE_BUTTON:
-      totem_selection_toolbar_set_show_delete_button (bar, g_value_get_boolean (value));
+      theater_selection_toolbar_set_show_delete_button (bar, g_value_get_boolean (value));
       break;
 
     case PROP_DELETE_BUTTON_SENSITIVE:
-      totem_selection_toolbar_set_delete_button_sensitive (bar, g_value_get_boolean (value));
+      theater_selection_toolbar_set_delete_button_sensitive (bar, g_value_get_boolean (value));
       break;
 
     default:
@@ -160,18 +160,18 @@ totem_selection_toolbar_set_property (GObject         *object,
 }
 
 static void
-totem_selection_toolbar_get_property (GObject         *object,
+theater_selection_toolbar_get_property (GObject         *object,
                                       guint            prop_id,
                                       GValue          *value,
                                       GParamSpec      *pspec)
 {
-  TotemSelectionToolbar *bar = TOTEM_SELECTION_TOOLBAR (object);
-  TotemSelectionToolbarPrivate *priv = bar->priv;
+  theaterSelectionToolbar *bar = theater_SELECTION_TOOLBAR (object);
+  theaterSelectionToolbarPrivate *priv = bar->priv;
 
   switch (prop_id)
     {
     case PROP_N_SELECTED:
-      g_value_set_uint (value, totem_selection_toolbar_get_n_selected (bar));
+      g_value_set_uint (value, theater_selection_toolbar_get_n_selected (bar));
       break;
 
     case PROP_SHOW_DELETE_BUTTON:
@@ -189,13 +189,13 @@ totem_selection_toolbar_get_property (GObject         *object,
 }
 
 static void
-totem_selection_toolbar_class_init (TotemSelectionToolbarClass *klass)
+theater_selection_toolbar_class_init (theaterSelectionToolbarClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-  object_class->set_property = totem_selection_toolbar_set_property;
-  object_class->get_property = totem_selection_toolbar_get_property;
+  object_class->set_property = theater_selection_toolbar_set_property;
+  object_class->get_property = theater_selection_toolbar_get_property;
 
   g_object_class_install_property (object_class,
                                    PROP_N_SELECTED,
@@ -255,17 +255,17 @@ totem_selection_toolbar_class_init (TotemSelectionToolbarClass *klass)
                 g_cclosure_marshal_generic,
                 G_TYPE_NONE, 0, G_TYPE_NONE);
 
-  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/totem/grilo/totemselectiontoolbar.ui");
-  gtk_widget_class_bind_template_child_private (widget_class, TotemSelectionToolbar, add_to_fav);
-  gtk_widget_class_bind_template_child_private (widget_class, TotemSelectionToolbar, delete);
-  gtk_widget_class_bind_template_child_private (widget_class, TotemSelectionToolbar, play);
-  gtk_widget_class_bind_template_child_private (widget_class, TotemSelectionToolbar, shuffle);
+  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/theater/grilo/theaterselectiontoolbar.ui");
+  gtk_widget_class_bind_template_child_private (widget_class, theaterSelectionToolbar, add_to_fav);
+  gtk_widget_class_bind_template_child_private (widget_class, theaterSelectionToolbar, delete);
+  gtk_widget_class_bind_template_child_private (widget_class, theaterSelectionToolbar, play);
+  gtk_widget_class_bind_template_child_private (widget_class, theaterSelectionToolbar, shuffle);
 }
 
 static void
-totem_selection_toolbar_init (TotemSelectionToolbar *bar)
+theater_selection_toolbar_init (theaterSelectionToolbar *bar)
 {
-  bar->priv = totem_selection_toolbar_get_instance_private (bar);
+  bar->priv = theater_selection_toolbar_get_instance_private (bar);
 
   gtk_widget_init_template (GTK_WIDGET (bar));
 
@@ -285,25 +285,25 @@ totem_selection_toolbar_init (TotemSelectionToolbar *bar)
 };
 
 /**
- * totem_selection_toolbar_new:
+ * theater_selection_toolbar_new:
  *
- * Creates a #TotemSelectionToolbar.
+ * Creates a #theaterSelectionToolbar.
  *
- * Return value: a new #TotemSelectionToolbar
+ * Return value: a new #theaterSelectionToolbar
  *
  * Since: 3.10
  **/
 GtkWidget *
-totem_selection_toolbar_new (void)
+theater_selection_toolbar_new (void)
 {
-  return GTK_WIDGET (g_object_new (TOTEM_TYPE_SELECTION_TOOLBAR, NULL));
+  return GTK_WIDGET (g_object_new (theater_TYPE_SELECTION_TOOLBAR, NULL));
 }
 
 void
-totem_selection_toolbar_set_n_selected (TotemSelectionToolbar *bar,
+theater_selection_toolbar_set_n_selected (theaterSelectionToolbar *bar,
                                    guint             n_selected)
 {
-  g_return_if_fail (TOTEM_IS_SELECTION_TOOLBAR (bar));
+  g_return_if_fail (theater_IS_SELECTION_TOOLBAR (bar));
 
   if (bar->priv->n_selected == n_selected)
     return;
@@ -315,18 +315,18 @@ totem_selection_toolbar_set_n_selected (TotemSelectionToolbar *bar,
 }
 
 guint
-totem_selection_toolbar_get_n_selected (TotemSelectionToolbar *bar)
+theater_selection_toolbar_get_n_selected (theaterSelectionToolbar *bar)
 {
-  g_return_val_if_fail (TOTEM_IS_SELECTION_TOOLBAR (bar), 0);
+  g_return_val_if_fail (theater_IS_SELECTION_TOOLBAR (bar), 0);
 
   return bar->priv->n_selected;
 }
 
 void
-totem_selection_toolbar_set_show_delete_button (TotemSelectionToolbar *bar,
+theater_selection_toolbar_set_show_delete_button (theaterSelectionToolbar *bar,
                                                 gboolean               show_delete_button)
 {
-  g_return_if_fail (TOTEM_IS_SELECTION_TOOLBAR (bar));
+  g_return_if_fail (theater_IS_SELECTION_TOOLBAR (bar));
 
   if (bar->priv->show_delete_button == show_delete_button)
     return;
@@ -338,18 +338,18 @@ totem_selection_toolbar_set_show_delete_button (TotemSelectionToolbar *bar,
 }
 
 gboolean
-totem_selection_toolbar_get_show_delete_button (TotemSelectionToolbar *bar)
+theater_selection_toolbar_get_show_delete_button (theaterSelectionToolbar *bar)
 {
-  g_return_val_if_fail (TOTEM_IS_SELECTION_TOOLBAR (bar), 0);
+  g_return_val_if_fail (theater_IS_SELECTION_TOOLBAR (bar), 0);
 
   return bar->priv->show_delete_button;
 }
 
 void
-totem_selection_toolbar_set_delete_button_sensitive (TotemSelectionToolbar *bar,
+theater_selection_toolbar_set_delete_button_sensitive (theaterSelectionToolbar *bar,
                                                      gboolean               sensitive)
 {
-  g_return_if_fail (TOTEM_IS_SELECTION_TOOLBAR (bar));
+  g_return_if_fail (theater_IS_SELECTION_TOOLBAR (bar));
 
   if (bar->priv->delete_sensitive == sensitive)
     return;
@@ -361,9 +361,9 @@ totem_selection_toolbar_set_delete_button_sensitive (TotemSelectionToolbar *bar,
 }
 
 gboolean
-totem_selection_toolbar_get_delete_button_sensitive (TotemSelectionToolbar *bar)
+theater_selection_toolbar_get_delete_button_sensitive (theaterSelectionToolbar *bar)
 {
-  g_return_val_if_fail (TOTEM_IS_SELECTION_TOOLBAR (bar), 0);
+  g_return_val_if_fail (theater_IS_SELECTION_TOOLBAR (bar), 0);
 
   return bar->priv->delete_sensitive;
 }

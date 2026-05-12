@@ -1,4 +1,4 @@
-/* totem-interface.h
+/* theater-interface.h
 
    Copyright (C) 2005,2007 Bastien Nocera <hadess@hadess.net>
 
@@ -20,40 +20,40 @@
    Author: Bastien Nocera <hadess@hadess.net>
  */
 
-#ifndef TOTEM_INTERFACE_H
-#define TOTEM_INTERFACE_H
+#ifndef theater_INTERFACE_H
+#define theater_INTERFACE_H
 
 #include <gtk/gtk.h>
-#include "totem.h"
+#include "theater.h"
 
 G_BEGIN_DECLS
 
-GdkPixbuf	*totem_interface_load_pixbuf	(const char *name);
-char		*totem_interface_get_full_path	(const char *name);
-GtkBuilder	*totem_interface_load		(const char *name,
+GdkPixbuf	*theater_interface_load_pixbuf	(const char *name);
+char		*theater_interface_get_full_path	(const char *name);
+GtkBuilder	*theater_interface_load		(const char *name,
 						 gboolean fatal,
 						 GtkWindow *parent,
 						 gpointer user_data);
-GtkBuilder      *totem_interface_load_with_full_path (const char *filename, 
+GtkBuilder      *theater_interface_load_with_full_path (const char *filename, 
 						      gboolean fatal, 
 						      GtkWindow *parent,
 						      gpointer user_data);
-void		 totem_interface_error		(const char *title,
+void		 theater_interface_error		(const char *title,
 						 const char *reason,
 						 GtkWindow *parent);
-void		 totem_interface_error_blocking	(const char *title,
+void		 theater_interface_error_blocking	(const char *title,
 						 const char *reason,
 						 GtkWindow *parent);
-void		 totem_interface_error_with_link (const char *title,
+void		 theater_interface_error_with_link (const char *title,
 						  const char *reason,
 						  const char *uri,
 						  const char *label,
 						  GtkWindow *parent);
-GtkWidget *	 totem_interface_create_header_button (GtkWidget  *header,
+GtkWidget *	 theater_interface_create_header_button (GtkWidget  *header,
 						       GtkWidget  *button,
 						       const char *icon_name,
 						       GtkPackType pack_type);
 
 G_END_DECLS
 
-#endif /* TOTEM_INTERFACE_H */
+#endif /* theater_INTERFACE_H */

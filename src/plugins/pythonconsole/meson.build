@@ -1,6 +1,6 @@
 plugin_name = 'pythonconsole'
 
-plugin_dir = join_paths(totem_pluginsdir, plugin_name)
+plugin_dir = join_paths(theater_pluginsdir, plugin_name)
 
 plugin_files = files(
   plugin_name + '.py',
@@ -23,19 +23,19 @@ custom_target(
   install_dir: plugin_dir
 )
 
-schema = 'org.gnome.totem.plugins.' + plugin_name + '.gschema.xml'
+schema = 'org.gnome.theater.plugins.' + plugin_name + '.gschema.xml'
 
 configure_file(
   input: schema + '.in',
   output: schema,
   install: true,
-  install_dir: totem_schemadir,
+  install_dir: theater_schemadir,
   configuration: plugins_conf
 )
 
 install_data(
   plugin_name + '.convert',
-  install_dir: join_paths(totem_datadir, 'GConf', 'gsettings')
+  install_dir: join_paths(theater_datadir, 'GConf', 'gsettings')
 )
 
 if pylint.found()

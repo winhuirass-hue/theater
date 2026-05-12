@@ -1,11 +1,11 @@
 plugin_name = 'skipto'
 
-plugin_dir = join_paths(totem_pluginsdir, plugin_name)
+plugin_dir = join_paths(theater_pluginsdir, plugin_name)
 
 plugin_files = files(
-  'totem-' + plugin_name + '-plugin.c',
-  'totem-time-entry.c',
-  'totem-' + plugin_name + '.c'
+  'theater-' + plugin_name + '-plugin.c',
+  'theater-time-entry.c',
+  'theater-' + plugin_name + '.c'
 )
 
 shared_module(

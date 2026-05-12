@@ -1,2 +1,2 @@
-[org.gnome.totem.plugins.pythonconsole]
-rpdb2-password = /apps/totem/plugins/pythonconsole/rpdb2_password
+[org.gnome.theater.plugins.pythonconsole]
+rpdb2-password = /apps/theater/plugins/pythonconsole/rpdb2_password

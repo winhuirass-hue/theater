@@ -1,6 +1,6 @@
 # From code by James Livingston
 
-from gi.repository import GObject, Peas, Totem # pylint: disable=no-name-in-module,unused-import
+from gi.repository import GObject, Peas, theater # pylint: disable=no-name-in-module,unused-import
 
 class SamplePython (GObject.Object, Peas.Activatable):
     __gtype_name__ = 'SamplePython'

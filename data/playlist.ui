@@ -68,7 +68,7 @@
             <property name="use_action_appearance">False</property>
             <property name="use_underline">True</property>
 	    <property name="icon_name">list-add-symbolic</property>
-	    <signal name="clicked" handler="totem_playlist_add_files"/>
+	    <signal name="clicked" handler="theater_playlist_add_files"/>
 	    <property name="tooltip-text" translatable="no">Add...</property>
           </object>
           <packing>

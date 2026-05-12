@@ -1,6 +1,6 @@
 plugin_name = 'dbusservice'
 
-plugin_dir = join_paths(totem_pluginsdir, 'dbus')
+plugin_dir = join_paths(theater_pluginsdir, 'dbus')
 
 install_data(
   plugin_name + '.py',

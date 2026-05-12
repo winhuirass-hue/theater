@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
@@ -33,22 +33,22 @@
 #include <gdk/gdkkeysyms.h>
 #include <libpeas/peas-activatable.h>
 
-#include "totem-plugin.h"
-#include "totem-screenshot-plugin.h"
+#include "theater-plugin.h"
+#include "theater-screenshot-plugin.h"
 #include "screenshot-filename-builder.h"
-#include "totem-gallery.h"
-#include "totem-uri.h"
+#include "theater-gallery.h"
+#include "theater-uri.h"
 #include "backend/bacon-video-widget.h"
 
-#define TOTEM_TYPE_SCREENSHOT_PLUGIN		(totem_screenshot_plugin_get_type ())
-#define TOTEM_SCREENSHOT_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), TOTEM_TYPE_SCREENSHOT_PLUGIN, TotemScreenshotPlugin))
-#define TOTEM_SCREENSHOT_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_CAST((k), TOTEM_TYPE_SCREENSHOT_PLUGIN, TotemScreenshotPluginClass))
-#define TOTEM_IS_SCREENSHOT_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), TOTEM_TYPE_SCREENSHOT_PLUGIN))
-#define TOTEM_IS_SCREENSHOT_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), TOTEM_TYPE_SCREENSHOT_PLUGIN))
-#define TOTEM_SCREENSHOT_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), TOTEM_TYPE_SCREENSHOT_PLUGIN, TotemScreenshotPluginClass))
+#define theater_TYPE_SCREENSHOT_PLUGIN		(theater_screenshot_plugin_get_type ())
+#define theater_SCREENSHOT_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), theater_TYPE_SCREENSHOT_PLUGIN, theaterScreenshotPlugin))
+#define theater_SCREENSHOT_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_CAST((k), theater_TYPE_SCREENSHOT_PLUGIN, theaterScreenshotPluginClass))
+#define theater_IS_SCREENSHOT_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), theater_TYPE_SCREENSHOT_PLUGIN))
+#define theater_IS_SCREENSHOT_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), theater_TYPE_SCREENSHOT_PLUGIN))
+#define theater_SCREENSHOT_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), theater_TYPE_SCREENSHOT_PLUGIN, theaterScreenshotPluginClass))
 
 typedef struct {
-	Totem *totem;
+	theater *theater;
 	BaconVideoWidget *bvw;
 
 	gulong got_metadata_signal;
@@ -59,14 +59,14 @@ typedef struct {
 
 	GSimpleAction *screenshot_action;
 	GSimpleAction *gallery_action;
-} TotemScreenshotPluginPrivate;
+} theaterScreenshotPluginPrivate;
 
-TOTEM_PLUGIN_REGISTER(TOTEM_TYPE_SCREENSHOT_PLUGIN,
-		      TotemScreenshotPlugin,
-		      totem_screenshot_plugin)
+theater_PLUGIN_REGISTER(theater_TYPE_SCREENSHOT_PLUGIN,
+		      theaterScreenshotPlugin,
+		      theater_screenshot_plugin)
 
 typedef struct {
-	TotemScreenshotPlugin *plugin;
+	theaterScreenshotPlugin *plugin;
 	GdkPixbuf *pixbuf;
 } ScreenshotSaveJob;
 
@@ -119,7 +119,7 @@ save_file_create_ready_cb (GObject *source,
 					 G_OUTPUT_STREAM (stream),
 					 "png", NULL,
 					 save_pixbuf_ready_cb, job,
-					 "tEXt::Software", "org.gnome.Totem",
+					 "tEXt::Software", "org.gnome.theater",
 					 NULL);
 
 	g_object_unref (stream);
@@ -203,9 +203,9 @@ flash_area (GtkWidget *widget)
 static void
 take_screenshot_action_cb (GSimpleAction         *action,
 			   GVariant              *parameter,
-			   TotemScreenshotPlugin *self)
+			   theaterScreenshotPlugin *self)
 {
-	TotemScreenshotPluginPrivate *priv = self->priv;
+	theaterScreenshotPluginPrivate *priv = self->priv;
 	GdkPixbuf *pixbuf;
 	GError *err = NULL;
 	ScreenshotSaveJob *job;
@@ -218,7 +218,7 @@ take_screenshot_action_cb (GSimpleAction         *action,
 		if (err == NULL)
 			return;
 
-		totem_object_show_error (priv->totem, _("Totem could not get a screenshot of the video."), err->message);
+		theater_object_show_error (priv->theater, _("theater could not get a screenshot of the video."), err->message);
 		g_error_free (err);
 		return;
 	}
@@ -227,11 +227,11 @@ take_screenshot_action_cb (GSimpleAction         *action,
 
 	pixbuf = bacon_video_widget_get_current_frame (priv->bvw);
 	if (pixbuf == NULL) {
-		totem_object_show_error (priv->totem, _("Totem could not get a screenshot of the video."), _("This is not supposed to happen; please file a bug report."));
+		theater_object_show_error (priv->theater, _("theater could not get a screenshot of the video."), _("This is not supposed to happen; please file a bug report."));
 		return;
 	}
 
-	video_name = totem_object_get_short_title (self->priv->totem);
+	video_name = theater_object_get_short_title (self->priv->theater);
 
 	job = g_slice_new (ScreenshotSaveJob);
 	job->plugin = self;
@@ -245,7 +245,7 @@ take_screenshot_action_cb (GSimpleAction         *action,
 static void
 take_gallery_response_cb (GtkDialog *dialog,
 			  int response_id,
-			  TotemScreenshotPlugin *self)
+			  theaterScreenshotPlugin *self)
 {
 	if (response_id != GTK_RESPONSE_OK)
 		gtk_widget_destroy (GTK_WIDGET (dialog));
@@ -254,15 +254,15 @@ take_gallery_response_cb (GtkDialog *dialog,
 static void
 take_gallery_action_cb (GAction               *action,
 			GVariant              *parameter,
-			TotemScreenshotPlugin *self)
+			theaterScreenshotPlugin *self)
 {
-	Totem *totem = self->priv->totem;
+	theater *theater = self->priv->theater;
 	GtkDialog *dialog;
 
 	if (bacon_video_widget_get_logo_mode (self->priv->bvw) != FALSE)
 		return;
 
-	dialog = GTK_DIALOG (totem_gallery_new (totem));
+	dialog = GTK_DIALOG (theater_gallery_new (theater));
 
 	g_signal_connect (dialog, "response",
 			  G_CALLBACK (take_gallery_response_cb), self);
@@ -270,9 +270,9 @@ take_gallery_action_cb (GAction               *action,
 }
 
 static void
-update_state (TotemScreenshotPlugin *self)
+update_state (theaterScreenshotPlugin *self)
 {
-	TotemScreenshotPluginPrivate *priv = self->priv;
+	theaterScreenshotPluginPrivate *priv = self->priv;
 	gboolean sensitive;
 
 	sensitive = bacon_video_widget_can_get_frames (priv->bvw, NULL) &&
@@ -284,19 +284,19 @@ update_state (TotemScreenshotPlugin *self)
 }
 
 static void
-got_metadata_cb (BaconVideoWidget *bvw, TotemScreenshotPlugin *self)
+got_metadata_cb (BaconVideoWidget *bvw, theaterScreenshotPlugin *self)
 {
 	update_state (self);
 }
 
 static void
-notify_logo_mode_cb (GObject *object, GParamSpec *pspec, TotemScreenshotPlugin *self)
+notify_logo_mode_cb (GObject *object, GParamSpec *pspec, theaterScreenshotPlugin *self)
 {
 	update_state (self);
 }
 
 static void
-disable_save_to_disk_changed_cb (GSettings *settings, const gchar *key, TotemScreenshotPlugin *self)
+disable_save_to_disk_changed_cb (GSettings *settings, const gchar *key, theaterScreenshotPlugin *self)
 {
 	self->priv->save_to_disk = !g_settings_get_boolean (settings, "disable-save-to-disk");
 }
@@ -304,14 +304,14 @@ disable_save_to_disk_changed_cb (GSettings *settings, const gchar *key, TotemScr
 static void
 impl_activate (PeasActivatable *plugin)
 {
-	TotemScreenshotPlugin *self = TOTEM_SCREENSHOT_PLUGIN (plugin);
-	TotemScreenshotPluginPrivate *priv = self->priv;
+	theaterScreenshotPlugin *self = theater_SCREENSHOT_PLUGIN (plugin);
+	theaterScreenshotPluginPrivate *priv = self->priv;
 	GMenu *menu;
 	GMenuItem *item;
 	const char * const accels[]= { "<Primary><Alt>s", NULL };
 
-	priv->totem = g_object_get_data (G_OBJECT (plugin), "object");
-	priv->bvw = BACON_VIDEO_WIDGET (totem_object_get_video_widget (priv->totem));
+	priv->theater = g_object_get_data (G_OBJECT (plugin), "object");
+	priv->bvw = BACON_VIDEO_WIDGET (theater_object_get_video_widget (priv->theater));
 	priv->got_metadata_signal = g_signal_connect (G_OBJECT (priv->bvw),
 						      "got-metadata",
 						      G_CALLBACK (got_metadata_cb),
@@ -324,18 +324,18 @@ impl_activate (PeasActivatable *plugin)
 	priv->screenshot_action = g_simple_action_new ("take-screenshot", NULL);
 	g_signal_connect (G_OBJECT (priv->screenshot_action), "activate",
 			  G_CALLBACK (take_screenshot_action_cb), plugin);
-	g_action_map_add_action (G_ACTION_MAP (priv->totem), G_ACTION (priv->screenshot_action));
-	gtk_application_set_accels_for_action (GTK_APPLICATION (priv->totem),
+	g_action_map_add_action (G_ACTION_MAP (priv->theater), G_ACTION (priv->screenshot_action));
+	gtk_application_set_accels_for_action (GTK_APPLICATION (priv->theater),
 					       "app.take-screenshot",
 					       accels);
 
 	priv->gallery_action = g_simple_action_new ("take-gallery", NULL);
 	g_signal_connect (G_OBJECT (priv->gallery_action), "activate",
 			  G_CALLBACK (take_gallery_action_cb), plugin);
-	g_action_map_add_action (G_ACTION_MAP (priv->totem), G_ACTION (priv->gallery_action));
+	g_action_map_add_action (G_ACTION_MAP (priv->theater), G_ACTION (priv->gallery_action));
 
 	/* Install the menu */
-	menu = totem_object_get_menu_section (priv->totem, "screenshot-placeholder");
+	menu = theater_object_get_menu_section (priv->theater, "screenshot-placeholder");
 	item = g_menu_item_new (_("Take _Screenshot"), "app.take-screenshot");
 	g_menu_item_set_attribute (item, "accel", "s", "<Primary><Alt>s");
 	g_menu_item_set_attribute_value (item, "hidden-when",
@@ -360,14 +360,14 @@ impl_activate (PeasActivatable *plugin)
 static void
 impl_deactivate (PeasActivatable *plugin)
 {
-	TotemScreenshotPluginPrivate *priv = TOTEM_SCREENSHOT_PLUGIN (plugin)->priv;
+	theaterScreenshotPluginPrivate *priv = theater_SCREENSHOT_PLUGIN (plugin)->priv;
 	const char * const accels[] = { NULL };
 
 	/* Disconnect signal handlers */
 	g_signal_handler_disconnect (G_OBJECT (priv->bvw), priv->got_metadata_signal);
 	g_signal_handler_disconnect (G_OBJECT (priv->bvw), priv->notify_logo_mode_signal);
 
-	gtk_application_set_accels_for_action (GTK_APPLICATION (priv->totem),
+	gtk_application_set_accels_for_action (GTK_APPLICATION (priv->theater),
 					       "app.take-screenshot",
 					       accels);
 
@@ -375,7 +375,7 @@ impl_deactivate (PeasActivatable *plugin)
 	g_object_unref (priv->settings);
 
 	/* Remove the menu */
-	totem_object_empty_menu_section (priv->totem, "screenshot-placeholder");
+	theater_object_empty_menu_section (priv->theater, "screenshot-placeholder");
 
 	g_object_unref (priv->bvw);
 }
@@ -406,21 +406,21 @@ make_filename_for_dir (const char *directory, const char *format, const char *mo
 }
 
 gchar *
-totem_screenshot_plugin_setup_file_chooser (const char *filename_format, const char *movie_title)
+theater_screenshot_plugin_setup_file_chooser (const char *filename_format, const char *movie_title)
 {
 	GSettings *settings;
 	char *path, *filename, *full, *uri;
 	GFile *file;
 
 	/* Set the default path */
-	settings = g_settings_new (TOTEM_GSETTINGS_SCHEMA);
+	settings = g_settings_new (theater_GSETTINGS_SCHEMA);
 	path = g_settings_get_string (settings, "screenshot-save-uri");
 	g_object_unref (settings);
 
 	/* Default to the Pictures directory */
 	if (*path == '\0') {
 		g_free (path);
-		path = totem_pictures_dir ();
+		path = theater_pictures_dir ();
 		/* No pictures dir, then it's the home dir */
 		if (path == NULL)
 			path = g_strdup (g_get_home_dir ());
@@ -442,7 +442,7 @@ totem_screenshot_plugin_setup_file_chooser (const char *filename_format, const c
 }
 
 void
-totem_screenshot_plugin_update_file_chooser (const char *uri)
+theater_screenshot_plugin_update_file_chooser (const char *uri)
 {
 	GSettings *settings;
 	char *dir;
@@ -455,7 +455,7 @@ totem_screenshot_plugin_update_file_chooser (const char *uri)
 	dir = g_file_get_path (parent);
 	g_object_unref (parent);
 
-	settings = g_settings_new (TOTEM_GSETTINGS_SCHEMA);
+	settings = g_settings_new (theater_GSETTINGS_SCHEMA);
 	g_settings_set_string (settings, "screenshot-save-uri", dir);
 	g_object_unref (settings);
 	g_free (dir);

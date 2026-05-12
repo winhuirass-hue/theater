@@ -2,7 +2,7 @@ plugin_name = 'samplepython'
 
 plugin_install = false
 
-plugin_dir = join_paths(totem_pluginsdir, 'sample-python')
+plugin_dir = join_paths(theater_pluginsdir, 'sample-python')
 
 if plugin_install
   install_data(

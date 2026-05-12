@@ -16,10 +16,10 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
@@ -32,24 +32,24 @@
 #include <glib-object.h>
 #include <string.h>
 
-#include "totem-plugin.h"
-#include "totem.h"
+#include "theater-plugin.h"
+#include "theater.h"
 
-#define TOTEM_TYPE_RECENT_PLUGIN	(totem_recent_plugin_get_type ())
-#define TOTEM_RECENT_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), TOTEM_TYPE_RECENT_PLUGIN, TotemRecentPlugin))
+#define theater_TYPE_RECENT_PLUGIN	(theater_recent_plugin_get_type ())
+#define theater_RECENT_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), theater_TYPE_RECENT_PLUGIN, theaterRecentPlugin))
 
 typedef struct {
 	guint signal_id;
-	TotemObject *totem;
+	theaterObject *theater;
 	GtkRecentManager *recent_manager;
-} TotemRecentPluginPrivate;
+} theaterRecentPluginPrivate;
 
-TOTEM_PLUGIN_REGISTER(TOTEM_TYPE_RECENT_PLUGIN, TotemRecentPlugin, totem_recent_plugin)
+theater_PLUGIN_REGISTER(theater_TYPE_RECENT_PLUGIN, theaterRecentPlugin, theater_recent_plugin)
 
 static void
 recent_info_cb (GFile *file,
 		GAsyncResult *res,
-		TotemRecentPlugin *pi)
+		theaterRecentPlugin *pi)
 {
 	GtkRecentData data;
 	char *groups[] = { NULL, NULL };
@@ -66,13 +66,13 @@ recent_info_cb (GFile *file,
 	if (file_info == NULL) {
 		data.display_name = g_strdup (display_name);
 		/* Bogus mime-type, we just want it added */
-		data.mime_type = g_strdup ("video/x-totem-stream");
-		groups[0] = (gchar*) "TotemStreams";
+		data.mime_type = g_strdup ("video/x-theater-stream");
+		groups[0] = (gchar*) "theaterStreams";
 	} else {
 		data.mime_type = g_strdup (g_file_info_get_content_type (file_info));
 		data.display_name = g_strdup (g_file_info_get_display_name (file_info));
 		g_object_unref (file_info);
-		groups[0] = (gchar*) "Totem";
+		groups[0] = (gchar*) "theater";
 	}
 
 	data.app_name = g_strdup (g_get_application_name ());
@@ -92,7 +92,7 @@ recent_info_cb (GFile *file,
 }
 
 static void
-add_recent (TotemRecentPlugin *pi,
+add_recent (theaterRecentPlugin *pi,
 	    const char *uri,
 	    const char *display_name,
 	    const char *content_type)
@@ -100,7 +100,7 @@ add_recent (TotemRecentPlugin *pi,
 	GFile *file;
 
 	/* FIXME implement
-	if (totem_is_special_mrl (uri) != FALSE)
+	if (theater_is_special_mrl (uri) != FALSE)
 		return; */
 
 	/* If we already have a content-type, the display_name is
@@ -113,7 +113,7 @@ add_recent (TotemRecentPlugin *pi,
 
 		data.mime_type = (char *) content_type;
 		data.display_name = (char *) display_name;
-		groups[0] = (char*) "Totem";
+		groups[0] = (char*) "theater";
 		data.app_name = (char *) g_get_application_name ();
 		data.app_exec = g_strjoin (" ", g_get_prgname (), "%u", NULL);
 		data.groups = groups;
@@ -136,14 +136,14 @@ add_recent (TotemRecentPlugin *pi,
 }
 
 static void
-file_has_played_cb (TotemObject       *totem,
+file_has_played_cb (theaterObject       *theater,
 		    const char        *mrl,
-		    TotemRecentPlugin *pi)
+		    theaterRecentPlugin *pi)
 {
 	char *content_type;
 	char *display_name;
 
-	g_object_get (G_OBJECT (totem),
+	g_object_get (G_OBJECT (theater),
 		      "current-display-name", &display_name,
 		      "current-content-type", &content_type,
 		      NULL);
@@ -157,26 +157,26 @@ file_has_played_cb (TotemObject       *totem,
 static void
 impl_activate (PeasActivatable *plugin)
 {
-	TotemRecentPlugin *pi = TOTEM_RECENT_PLUGIN (plugin);
+	theaterRecentPlugin *pi = theater_RECENT_PLUGIN (plugin);
 
-	pi->priv->totem = g_object_ref (g_object_get_data (G_OBJECT (plugin), "object"));
+	pi->priv->theater = g_object_ref (g_object_get_data (G_OBJECT (plugin), "object"));
 	pi->priv->recent_manager = gtk_recent_manager_get_default ();
-	pi->priv->signal_id = g_signal_connect (G_OBJECT (pi->priv->totem), "file-has-played",
+	pi->priv->signal_id = g_signal_connect (G_OBJECT (pi->priv->theater), "file-has-played",
 						G_CALLBACK (file_has_played_cb), pi);
 }
 
 static void
 impl_deactivate (PeasActivatable *plugin)
 {
-	TotemRecentPlugin *pi = TOTEM_RECENT_PLUGIN (plugin);
+	theaterRecentPlugin *pi = theater_RECENT_PLUGIN (plugin);
 
 	if (pi->priv->signal_id) {
-		g_signal_handler_disconnect (pi->priv->totem, pi->priv->signal_id);
+		g_signal_handler_disconnect (pi->priv->theater, pi->priv->signal_id);
 		pi->priv->signal_id = 0;
 	}
 
-	if (pi->priv->totem) {
-		g_object_unref (pi->priv->totem);
-		pi->priv->totem = NULL;
+	if (pi->priv->theater) {
+		g_object_unref (pi->priv->theater);
+		pi->priv->theater = NULL;
 	}
 }

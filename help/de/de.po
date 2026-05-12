@@ -1,4 +1,4 @@
-# German translation of the totem manual.
+# German translation of the theater manual.
 #
 # Jan-Arne Petersen <jap@gnome.org>, 2006.
 # Stefan Horning <stefan@hornings.de>, 2009.
@@ -7,7 +7,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: totem help master\n"
+"Project-Id-Version: theater help master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-16 07:36+0000\n"
 "PO-Revision-Date: 2019-03-16 16:19+0100\n"
@@ -214,11 +214,11 @@ msgstr "<_:media-1/><span> Videos</span>"
 #. (itstool) path: page/p
 #: C/index.page:32
 msgid ""
-"<app>Videos</app>, also known as <app>Totem</app>, is an application for "
+"<app>Videos</app>, also known as <app>theater</app>, is an application for "
 "playing videos. You can use it to watch movies or stream media from the "
 "Internet."
 msgstr ""
-"<app>Videos</app>, auch als <app>Totem</app> bekannt, ist eine Anwendung zum "
+"<app>Videos</app>, auch als <app>theater</app> bekannt, ist eine Anwendung zum "
 "Abspielen von Videos. Sie können damit Filme ansehen oder Medien aus dem "
 "Internet abrufen."
 
@@ -965,7 +965,7 @@ msgstr "Andere Videoprobleme eingrenzen"
 msgid ""
 "If you have already followed <link xref=\"supported-formats\"/> and <link "
 "xref=\"troubleshooting-DVD\"/> and a video still cannot be played, open a "
-"terminal window and enter the command <cmd>totem --help-gst</cmd>. This will "
+"terminal window and enter the command <cmd>theater --help-gst</cmd>. This will "
 "show a list of available options you can use to get debug output. Often the "
 "problem is in an underlying plugin, for example in <sys>GStreamer</sys> and "
 "not in <app>Videos</app> itself."
@@ -973,7 +973,7 @@ msgstr ""
 "Wenn Sie <link xref=\"supported-formats\"/> und <link xref=\"troubleshooting-"
 "DVD\"/> bereits befolgt haben und ein Video immer noch nicht abgespielt "
 "werden kann, öffnen Sie ein Terminalfenster und geben Sie den Befehl "
-"<cmd>totem --help-gst</cmd> ein. Daraufhin wird eine Liste der verfügbaren "
+"<cmd>theater --help-gst</cmd> ein. Daraufhin wird eine Liste der verfügbaren "
 "Optionen angezeigt, die Sie verwenden können, um eine Fehlerdiagnoseausgabe "
 "zu erhalten. Oft liegt das Problem an einer zugrunde liegenden Erweiterung, "
 "zum Beispiel an <sys>GStreamer</sys> und nicht an <app>Videos</app> selbst."

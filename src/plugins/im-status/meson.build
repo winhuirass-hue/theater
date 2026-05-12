@@ -1,6 +1,6 @@
-plugin_name = 'totem-im-status'
+plugin_name = 'theater-im-status'
 
-plugin_dir = join_paths(totem_pluginsdir, 'im-status')
+plugin_dir = join_paths(theater_pluginsdir, 'im-status')
 
 shared_module(
   plugin_name,

@@ -16,29 +16,29 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
  */
 
-#ifndef TOTEM_SCREENSHOT_PLUGIN_H
-#define TOTEM_SCREENSHOT_PLUGIN_H
+#ifndef theater_SCREENSHOT_PLUGIN_H
+#define theater_SCREENSHOT_PLUGIN_H
 
 #include <glib.h>
 
-#include "totem.h"
+#include "theater.h"
 #include <libpeas/peas-extension-base.h>
 #include <libpeas/peas-object-module.h>
 
 G_BEGIN_DECLS
 
-gchar *totem_screenshot_plugin_setup_file_chooser (const char *filename_format, const char *movie_name) G_GNUC_WARN_UNUSED_RESULT G_GNUC_FORMAT (1);
-void totem_screenshot_plugin_update_file_chooser (const char *filename);
+gchar *theater_screenshot_plugin_setup_file_chooser (const char *filename_format, const char *movie_name) G_GNUC_WARN_UNUSED_RESULT G_GNUC_FORMAT (1);
+void theater_screenshot_plugin_update_file_chooser (const char *filename);
 
 G_END_DECLS
 
-#endif /* !TOTEM_SCREENSHOT_PLUGIN_H */
+#endif /* !theater_SCREENSHOT_PLUGIN_H */

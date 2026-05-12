@@ -1,7 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*-
  *
- * Plugin engine for Totem, heavily based on the code from Rhythmbox,
- * which is based heavily on the code from totem.
+ * Plugin engine for theater, heavily based on the code from Rhythmbox,
+ * which is based heavily on the code from theater.
  *
  * Copyright (C) 2002-2005 Paolo Maggi
  *               2006 James Livingston  <jrl@ids.org.au>
@@ -27,42 +27,42 @@
  *
  */
 
-#ifndef __TOTEM_PLUGINS_ENGINE_H__
-#define __TOTEM_PLUGINS_ENGINE_H__
+#ifndef __theater_PLUGINS_ENGINE_H__
+#define __theater_PLUGINS_ENGINE_H__
 
 #include <glib.h>
 #include <libpeas/peas-engine.h>
-#include <totem.h>
+#include <theater.h>
 
 G_BEGIN_DECLS
 
-#define TOTEM_TYPE_PLUGINS_ENGINE              (totem_plugins_engine_get_type ())
-#define TOTEM_PLUGINS_ENGINE(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), TOTEM_TYPE_PLUGINS_ENGINE, TotemPluginsEngine))
-#define TOTEM_PLUGINS_ENGINE_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), TOTEM_TYPE_PLUGINS_ENGINE, TotemPluginsEngineClass))
-#define TOTEM_IS_PLUGINS_ENGINE(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), TOTEM_TYPE_PLUGINS_ENGINE))
-#define TOTEM_IS_PLUGINS_ENGINE_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), TOTEM_TYPE_PLUGINS_ENGINE))
-#define TOTEM_PLUGINS_ENGINE_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj), TOTEM_TYPE_PLUGINS_ENGINE, TotemPluginsEngineClass))
+#define theater_TYPE_PLUGINS_ENGINE              (theater_plugins_engine_get_type ())
+#define theater_PLUGINS_ENGINE(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), theater_TYPE_PLUGINS_ENGINE, theaterPluginsEngine))
+#define theater_PLUGINS_ENGINE_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), theater_TYPE_PLUGINS_ENGINE, theaterPluginsEngineClass))
+#define theater_IS_PLUGINS_ENGINE(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), theater_TYPE_PLUGINS_ENGINE))
+#define theater_IS_PLUGINS_ENGINE_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), theater_TYPE_PLUGINS_ENGINE))
+#define theater_PLUGINS_ENGINE_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj), theater_TYPE_PLUGINS_ENGINE, theaterPluginsEngineClass))
 
-typedef struct _TotemPluginsEngine		TotemPluginsEngine;
-typedef struct _TotemPluginsEnginePrivate	TotemPluginsEnginePrivate;
-typedef struct _TotemPluginsEngineClass		TotemPluginsEngineClass;
+typedef struct _theaterPluginsEngine		theaterPluginsEngine;
+typedef struct _theaterPluginsEnginePrivate	theaterPluginsEnginePrivate;
+typedef struct _theaterPluginsEngineClass		theaterPluginsEngineClass;
 
-struct _TotemPluginsEngine
+struct _theaterPluginsEngine
 {
 	PeasEngine parent;
-	TotemPluginsEnginePrivate *priv;
+	theaterPluginsEnginePrivate *priv;
 };
 
-struct _TotemPluginsEngineClass
+struct _theaterPluginsEngineClass
 {
 	PeasEngineClass parent_class;
 };
 
-GType			totem_plugins_engine_get_type			(void) G_GNUC_CONST;
-TotemPluginsEngine	*totem_plugins_engine_get_default		(TotemObject *totem);
-void			totem_plugins_engine_shut_down			(TotemPluginsEngine *self);
+GType			theater_plugins_engine_get_type			(void) G_GNUC_CONST;
+theaterPluginsEngine	*theater_plugins_engine_get_default		(theaterObject *theater);
+void			theater_plugins_engine_shut_down			(theaterPluginsEngine *self);
 
 G_END_DECLS
 
-#endif  /* __TOTEM_PLUGINS_ENGINE_H__ */
+#endif  /* __theater_PLUGINS_ENGINE_H__ */
 

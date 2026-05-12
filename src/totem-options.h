@@ -1,4 +1,4 @@
-/* totem-options.h
+/* theater-options.h
 
    Copyright (C) 2004,2007 Bastien Nocera <hadess@hadess.net>
 
@@ -20,12 +20,12 @@
    Author: Bastien Nocera <hadess@hadess.net>
  */
 
-#ifndef TOTEM_OPTIONS_H
-#define TOTEM_OPTIONS_H
+#ifndef theater_OPTIONS_H
+#define theater_OPTIONS_H
 
 #include <gtk/gtk.h>
 
-#include "totem.h"
+#include "theater.h"
 
 G_BEGIN_DECLS
 
@@ -49,15 +49,15 @@ typedef struct {
 	gint64 seek;
 	gchar **filenames;
 	gboolean had_filenames;
-} TotemCmdLineOptions;
+} theaterCmdLineOptions;
 
 extern const GOptionEntry all_options[];
-extern TotemCmdLineOptions optionstate;
+extern theaterCmdLineOptions optionstate;
 
-void totem_options_register_remote_commands (Totem *totem);
-void totem_options_process_for_server (Totem *totem,
-				       TotemCmdLineOptions* options);
+void theater_options_register_remote_commands (theater *theater);
+void theater_options_process_for_server (theater *theater,
+				       theaterCmdLineOptions* options);
 
 G_END_DECLS
 
-#endif /* TOTEM_OPTIONS_H */
+#endif /* theater_OPTIONS_H */

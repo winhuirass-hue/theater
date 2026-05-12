@@ -3,10 +3,10 @@ plugins_incs = [
   plugins_inc
 ]
 
-plugins_deps = [libtotem_dep]
+plugins_deps = [libtheater_dep]
 
 plugins_cflags = common_flags + warn_flags + [
-  '-DG_LOG_DOMAIN="Totem"'
+  '-DG_LOG_DOMAIN="theater"'
 ]
 
 plugins_conf = configuration_data()

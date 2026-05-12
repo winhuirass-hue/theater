@@ -23,7 +23,7 @@
 
 #include "bacon-time-label.h"
 #include <glib/gi18n.h>
-#include "totem-time-helpers.h"
+#include "theater-time-helpers.h"
 
 struct _BaconTimeLabelPrivate {
 	gint64 time;
@@ -45,7 +45,7 @@ bacon_time_label_init (BaconTimeLabel *label)
 	char *time_string;
 	label->priv = G_TYPE_INSTANCE_GET_PRIVATE (label, BACON_TYPE_TIME_LABEL, BaconTimeLabelPrivate);
 
-	time_string = totem_time_to_string (0, FALSE, FALSE);
+	time_string = theater_time_to_string (0, FALSE, FALSE);
 	gtk_label_set_text (GTK_LABEL (label), time_string);
 	g_free (time_string);
 
@@ -108,7 +108,7 @@ update_label_text (BaconTimeLabel *label)
 	if (length <= 0 ||
 	    _time > length) {
 		if (!label->priv->remaining) {
-			label_str = totem_time_to_string (_time, FALSE, force_hour);
+			label_str = theater_time_to_string (_time, FALSE, force_hour);
 		} else {
 			/* translators: Unknown remaining time */
 			label_str = g_strdup (_("--:--"));
@@ -116,10 +116,10 @@ update_label_text (BaconTimeLabel *label)
 	} else {
 		if (!label->priv->remaining) {
 			/* Elapsed */
-			label_str = totem_time_to_string (_time, FALSE, force_hour);
+			label_str = theater_time_to_string (_time, FALSE, force_hour);
 		} else {
 			/* Remaining */
-			label_str = totem_time_to_string (length - _time, TRUE, force_hour);
+			label_str = theater_time_to_string (length - _time, TRUE, force_hour);
 		}
 	}
 

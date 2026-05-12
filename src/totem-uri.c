@@ -1,4 +1,4 @@
-/* totem-uri.c
+/* theater-uri.c
 
    Copyright (C) 2004 Bastien Nocera
 
@@ -33,16 +33,16 @@
 #define WANT_MIME_TYPES 1
 #define WANT_AUDIO_MIME_TYPES 1
 #define WANT_VIDEO_MIME_TYPES 1
-#include "totem-mime-types.h"
-#include "totem-uri.h"
-#include "totem-private.h"
+#include "theater-mime-types.h"
+#include "theater-uri.h"
+#include "theater-private.h"
 
 static GtkFileFilter *filter_all = NULL;
 static GtkFileFilter *filter_subs = NULL;
 static GtkFileFilter *filter_video = NULL;
 
 gboolean
-totem_playing_dvd (const char *uri)
+theater_playing_dvd (const char *uri)
 {
 	if (uri == NULL)
 		return FALSE;
@@ -51,7 +51,7 @@ totem_playing_dvd (const char *uri)
 }
 
 static void
-totem_ensure_dir (const char *path)
+theater_ensure_dir (const char *path)
 {
 	if (g_file_test (path, G_FILE_TEST_IS_DIR) != FALSE)
 		return;
@@ -60,51 +60,51 @@ totem_ensure_dir (const char *path)
 }
 
 const char *
-totem_dot_dir (void)
+theater_dot_dir (void)
 {
-	static char *totem_dir = NULL;
+	static char *theater_dir = NULL;
 
-	if (totem_dir != NULL) {
-		totem_ensure_dir (totem_dir);
-		return totem_dir;
+	if (theater_dir != NULL) {
+		theater_ensure_dir (theater_dir);
+		return theater_dir;
 	}
 
-	totem_dir = g_build_filename (g_get_user_config_dir (),
-				      "totem",
+	theater_dir = g_build_filename (g_get_user_config_dir (),
+				      "theater",
 				      NULL);
 
-	totem_ensure_dir (totem_dir);
+	theater_ensure_dir (theater_dir);
 
-	return (const char *)totem_dir;
+	return (const char *)theater_dir;
 }
 
 const char *
-totem_data_dot_dir (void)
+theater_data_dot_dir (void)
 {
-	static char *totem_dir = NULL;
+	static char *theater_dir = NULL;
 
-	if (totem_dir != NULL) {
-		totem_ensure_dir (totem_dir);
-		return totem_dir;
+	if (theater_dir != NULL) {
+		theater_ensure_dir (theater_dir);
+		return theater_dir;
 	}
 
-	totem_dir = g_build_filename (g_get_user_data_dir (),
-				      "totem",
+	theater_dir = g_build_filename (g_get_user_data_dir (),
+				      "theater",
 				      NULL);
 
-	totem_ensure_dir (totem_dir);
+	theater_ensure_dir (theater_dir);
 
-	return (const char *)totem_dir;
+	return (const char *)theater_dir;
 }
 
 char *
-totem_pictures_dir (void)
+theater_pictures_dir (void)
 {
 	return g_strdup (g_get_user_special_dir (G_USER_DIRECTORY_PICTURES));
 }
 
 static GMount *
-totem_get_mount_for_uri (const char *path)
+theater_get_mount_for_uri (const char *path)
 {
 	GMount *mount;
 	GFile *file;
@@ -126,7 +126,7 @@ totem_get_mount_for_uri (const char *path)
 }
 
 static GMount *
-totem_get_mount_for_dvd (const char *uri)
+theater_get_mount_for_dvd (const char *uri)
 {
 	GMount *mount;
 	char *path;
@@ -157,7 +157,7 @@ totem_get_mount_for_dvd (const char *uri)
 		}
 		g_list_free_full (volumes, (GDestroyNotify) g_object_unref);
 	} else {
-		mount = totem_get_mount_for_uri (path);
+		mount = theater_get_mount_for_uri (path);
 		g_free (path);
 	}
 	/* We have a path to the file itself */
@@ -165,13 +165,13 @@ totem_get_mount_for_dvd (const char *uri)
 }
 
 static char *
-totem_get_mountpoint_for_vcd (const char *uri)
+theater_get_mountpoint_for_vcd (const char *uri)
 {
 	return NULL;
 }
 
 GMount *
-totem_get_mount_for_media (const char *uri)
+theater_get_mount_for_media (const char *uri)
 {
 	GMount *ret;
 	char *mount_path;
@@ -182,23 +182,23 @@ totem_get_mount_for_media (const char *uri)
 	mount_path = NULL;
 
 	if (g_str_has_prefix (uri, "dvd://") != FALSE)
-		return totem_get_mount_for_dvd (uri);
+		return theater_get_mount_for_dvd (uri);
 	else if (g_str_has_prefix (uri, "vcd:") != FALSE)
-		mount_path = totem_get_mountpoint_for_vcd (uri);
+		mount_path = theater_get_mountpoint_for_vcd (uri);
 	else if (g_str_has_prefix (uri, "file:") != FALSE)
 		mount_path = g_filename_from_uri (uri, NULL, NULL);
 
 	if (mount_path == NULL)
 		return NULL;
 
-	ret = totem_get_mount_for_uri (mount_path);
+	ret = theater_get_mount_for_uri (mount_path);
 	g_free (mount_path);
 
 	return ret;
 }
 
 gboolean
-totem_is_special_mrl (const char *uri)
+theater_is_special_mrl (const char *uri)
 {
 	GMount *mount;
 
@@ -207,7 +207,7 @@ totem_is_special_mrl (const char *uri)
 	if (g_str_has_prefix (uri, "dvb:") != FALSE)
 		return TRUE;
 
-	mount = totem_get_mount_for_media (uri);
+	mount = theater_get_mount_for_media (uri);
 	if (mount != NULL)
 		g_object_unref (mount);
 
@@ -215,7 +215,7 @@ totem_is_special_mrl (const char *uri)
 }
 
 gboolean
-totem_is_block_device (const char *uri)
+theater_is_block_device (const char *uri)
 {
 	struct stat buf;
 	char *local;
@@ -238,7 +238,7 @@ totem_is_block_device (const char *uri)
 }
 
 char *
-totem_create_full_path (const char *path)
+theater_create_full_path (const char *path)
 {
 	GFile *file;
 	char *retval;
@@ -247,7 +247,7 @@ totem_create_full_path (const char *path)
 
 	if (strstr (path, "://") != NULL)
 		return NULL;
-	if (totem_is_special_mrl (path) != FALSE)
+	if (theater_is_special_mrl (path) != FALSE)
 		return NULL;
 
 	file = g_file_new_for_commandline_arg (path);
@@ -258,30 +258,30 @@ totem_create_full_path (const char *path)
 }
 
 static void
-totem_object_on_unmount (GVolumeMonitor *volume_monitor,
+theater_object_on_unmount (GVolumeMonitor *volume_monitor,
 			 GMount *mount,
-			 Totem *totem)
+			 theater *theater)
 {
-	totem_playlist_clear_with_g_mount (totem->playlist, mount);
+	theater_playlist_clear_with_g_mount (theater->playlist, mount);
 }
 
 void
-totem_setup_file_monitoring (Totem *totem)
+theater_setup_file_monitoring (theater *theater)
 {
-	totem->monitor = g_volume_monitor_get ();
+	theater->monitor = g_volume_monitor_get ();
 
-	g_signal_connect (G_OBJECT (totem->monitor),
+	g_signal_connect (G_OBJECT (theater->monitor),
 			  "mount-pre-unmount",
-			  G_CALLBACK (totem_object_on_unmount),
-			  totem);
-	g_signal_connect (G_OBJECT (totem->monitor),
+			  G_CALLBACK (theater_object_on_unmount),
+			  theater);
+	g_signal_connect (G_OBJECT (theater->monitor),
 			  "mount-removed",
-			  G_CALLBACK (totem_object_on_unmount),
-			  totem);
+			  G_CALLBACK (theater_object_on_unmount),
+			  theater);
 }
 
 /* List from xine-lib's demux_sputext.c.
- * Keep in sync with the list in totem_setup_file_filters() in this file.
+ * Keep in sync with the list in theater_setup_file_filters() in this file.
  * Don't add .txt extensions, as there are too many false positives. */
 static const char subtitle_ext[][4] = {
 	"sub",
@@ -293,7 +293,7 @@ static const char subtitle_ext[][4] = {
 };
 
 gboolean
-totem_uri_is_subtitle (const char *uri)
+theater_uri_is_subtitle (const char *uri)
 {
 	guint len, i;
 
@@ -308,7 +308,7 @@ totem_uri_is_subtitle (const char *uri)
 }
 
 char *
-totem_uri_escape_for_display (const char *uri)
+theater_uri_escape_for_display (const char *uri)
 {
 	GFile *file;
 	char *disp;
@@ -321,7 +321,7 @@ totem_uri_escape_for_display (const char *uri)
 }
 
 void
-totem_setup_file_filters (void)
+theater_setup_file_filters (void)
 {
 	guint i;
 
@@ -355,7 +355,7 @@ totem_setup_file_filters (void)
 }
 
 void
-totem_destroy_file_filters (void)
+theater_destroy_file_filters (void)
 {
 	if (filter_all != NULL) {
 		g_object_unref (filter_all);
@@ -371,7 +371,7 @@ static const GUserDirectory dir_types[] = {
 };
 
 static void
-totem_add_default_dirs (GtkFileChooser *dialog)
+theater_add_default_dirs (GtkFileChooser *dialog)
 {
 	guint i;
 	for (i = 0; i < G_N_ELEMENTS (dir_types); i++) {
@@ -385,7 +385,7 @@ totem_add_default_dirs (GtkFileChooser *dialog)
 }
 
 char *
-totem_add_subtitle (GtkWindow *parent, const char *uri)
+theater_add_subtitle (GtkWindow *parent, const char *uri)
 {
 	GtkWidget *fs;
 	GSettings *settings;
@@ -403,12 +403,12 @@ totem_add_subtitle (GtkWindow *parent, const char *uri)
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (fs), FALSE);
 	gtk_file_chooser_set_filter (GTK_FILE_CHOOSER (fs), filter_subs);
 
-	settings = g_settings_new (TOTEM_GSETTINGS_SCHEMA);
+	settings = g_settings_new (theater_GSETTINGS_SCHEMA);
 	folder_set = FALSE;
 
 	/* Add the subtitles cache dir as a shortcut */
 	new_path = g_build_filename (g_get_user_cache_dir (),
-				     "totem",
+				     "theater",
 				     "subtitles",
 				     NULL);
 	gtk_file_chooser_add_shortcut_folder_uri (GTK_FILE_CHOOSER (fs), new_path, NULL);
@@ -432,7 +432,7 @@ totem_add_subtitle (GtkWindow *parent, const char *uri)
 		gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (fs),
 						     g_get_home_dir ());
 	}
-	totem_add_default_dirs (GTK_FILE_CHOOSER (fs));
+	theater_add_default_dirs (GTK_FILE_CHOOSER (fs));
 
 	if (gtk_dialog_run (GTK_DIALOG (fs)) == GTK_RESPONSE_ACCEPT) {
 		subtitle = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (fs));
@@ -445,7 +445,7 @@ totem_add_subtitle (GtkWindow *parent, const char *uri)
 }
 
 GSList *
-totem_add_files (GtkWindow *parent, const char *path)
+theater_add_files (GtkWindow *parent, const char *path)
 {
 	GtkWidget *fs;
 	int response;
@@ -465,7 +465,7 @@ totem_add_files (GtkWindow *parent, const char *path)
 	gtk_file_chooser_set_select_multiple (GTK_FILE_CHOOSER (fs), TRUE);
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (fs), FALSE);
 
-	settings = g_settings_new (TOTEM_GSETTINGS_SCHEMA);
+	settings = g_settings_new (theater_GSETTINGS_SCHEMA);
 	set_folder = TRUE;
 	if (path != NULL) {
 		set_folder = gtk_file_chooser_set_current_folder_uri
@@ -484,7 +484,7 @@ totem_add_files (GtkWindow *parent, const char *path)
 		gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (fs),
 						     g_get_home_dir ());
 	}
-	totem_add_default_dirs (GTK_FILE_CHOOSER (fs));
+	theater_add_default_dirs (GTK_FILE_CHOOSER (fs));
 
 	response = gtk_dialog_run (GTK_DIALOG (fs));
 

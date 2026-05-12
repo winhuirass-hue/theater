@@ -1,12 +1,12 @@
 plugin_name = 'screenshot'
 
-plugin_dir = join_paths(totem_pluginsdir, plugin_name)
+plugin_dir = join_paths(theater_pluginsdir, plugin_name)
 
 plugin_files = files(
-  'totem-' + plugin_name + '-plugin.c',
+  'theater-' + plugin_name + '-plugin.c',
   'screenshot-filename-builder.c',
-  'totem-gallery.c',
-  'totem-gallery-progress.c'
+  'theater-gallery.c',
+  'theater-gallery-progress.c'
 )
 
 test_cflags = [
@@ -27,7 +27,7 @@ shared_module(
   sources: plugin_files,
   include_directories: plugins_incs,
   dependencies: plugins_deps,
-  c_args: plugin_cflags + ['-DLIBEXECDIR="@0@"'.format(totem_libexecdir)],
+  c_args: plugin_cflags + ['-DLIBEXECDIR="@0@"'.format(theater_libexecdir)],
   install: true,
   install_dir: plugin_dir
 )

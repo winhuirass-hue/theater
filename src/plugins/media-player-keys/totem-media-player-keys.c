@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * See license_change file for details.
  *
@@ -36,15 +36,15 @@
 #include <libpeas/peas-activatable.h>
 #include <string.h>
 
-#include "totem-plugin.h"
-#include "totem.h"
+#include "theater-plugin.h"
+#include "theater.h"
 
-#define TOTEM_TYPE_MEDIA_PLAYER_KEYS_PLUGIN		(totem_media_player_keys_plugin_get_type ())
-#define TOTEM_MEDIA_PLAYER_KEYS_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), TOTEM_TYPE_MEDIA_PLAYER_KEYS_PLUGIN, TotemMediaPlayerKeysPlugin))
-#define TOTEM_MEDIA_PLAYER_KEYS_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_CAST((k), TOTEM_TYPE_MEDIA_PLAYER_KEYS_PLUGIN, TotemMediaPlayerKeysPluginClass))
-#define TOTEM_IS_MEDIA_PLAYER_KEYS_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), TOTEM_TYPE_MEDIA_PLAYER_KEYS_PLUGIN))
-#define TOTEM_IS_MEDIA_PLAYER_KEYS_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), TOTEM_TYPE_MEDIA_PLAYER_KEYS_PLUGIN))
-#define TOTEM_MEDIA_PLAYER_KEYS_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), TOTEM_TYPE_MEDIA_PLAYER_KEYS_PLUGIN, TotemMediaPlayerKeysPluginClass))
+#define theater_TYPE_MEDIA_PLAYER_KEYS_PLUGIN		(theater_media_player_keys_plugin_get_type ())
+#define theater_MEDIA_PLAYER_KEYS_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), theater_TYPE_MEDIA_PLAYER_KEYS_PLUGIN, theaterMediaPlayerKeysPlugin))
+#define theater_MEDIA_PLAYER_KEYS_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_CAST((k), theater_TYPE_MEDIA_PLAYER_KEYS_PLUGIN, theaterMediaPlayerKeysPluginClass))
+#define theater_IS_MEDIA_PLAYER_KEYS_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), theater_TYPE_MEDIA_PLAYER_KEYS_PLUGIN))
+#define theater_IS_MEDIA_PLAYER_KEYS_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), theater_TYPE_MEDIA_PLAYER_KEYS_PLUGIN))
+#define theater_MEDIA_PLAYER_KEYS_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), theater_TYPE_MEDIA_PLAYER_KEYS_PLUGIN, theaterMediaPlayerKeysPluginClass))
 
 typedef struct {
 	GDBusProxy    *proxy;
@@ -52,40 +52,40 @@ typedef struct {
 	guint          watch_id;
 	GCancellable  *cancellable_init;
 	GCancellable  *cancellable;
-} TotemMediaPlayerKeysPluginPrivate;
+} theaterMediaPlayerKeysPluginPrivate;
 
-TOTEM_PLUGIN_REGISTER(TOTEM_TYPE_MEDIA_PLAYER_KEYS_PLUGIN,
-		      TotemMediaPlayerKeysPlugin,
-		      totem_media_player_keys_plugin);
+theater_PLUGIN_REGISTER(theater_TYPE_MEDIA_PLAYER_KEYS_PLUGIN,
+		      theaterMediaPlayerKeysPlugin,
+		      theater_media_player_keys_plugin);
 
 static void
-on_media_player_key_pressed (TotemObject *totem,
+on_media_player_key_pressed (theaterObject *theater,
 			     const gchar *key)
 {
 	if (strcmp ("Play", key) == 0)
-		totem_object_play_pause (totem);
+		theater_object_play_pause (theater);
 	else if (strcmp ("Previous", key) == 0)
-		totem_object_seek_previous (totem);
+		theater_object_seek_previous (theater);
 	else if (strcmp ("Next", key) == 0)
-		totem_object_seek_next (totem);
+		theater_object_seek_next (theater);
 	else if (strcmp ("Stop", key) == 0)
-		totem_object_stop (totem);
+		theater_object_stop (theater);
 	else if (strcmp ("FastForward", key) == 0)
-		totem_object_remote_command (totem, TOTEM_REMOTE_COMMAND_SEEK_FORWARD, NULL);
+		theater_object_remote_command (theater, theater_REMOTE_COMMAND_SEEK_FORWARD, NULL);
 	else if (strcmp ("Rewind", key) == 0)
-		totem_object_remote_command (totem, TOTEM_REMOTE_COMMAND_SEEK_BACKWARD, NULL);
+		theater_object_remote_command (theater, theater_REMOTE_COMMAND_SEEK_BACKWARD, NULL);
 	else if (strcmp ("Repeat", key) == 0) {
 		gboolean value;
 
-		value = totem_object_remote_get_setting (totem, TOTEM_REMOTE_SETTING_REPEAT);
-		totem_object_remote_set_setting (totem, TOTEM_REMOTE_SETTING_REPEAT, !value);
+		value = theater_object_remote_get_setting (theater, theater_REMOTE_SETTING_REPEAT);
+		theater_object_remote_set_setting (theater, theater_REMOTE_SETTING_REPEAT, !value);
 	}
 }
 
 static void
 grab_media_player_keys_cb (GDBusProxy                 *proxy,
 			   GAsyncResult               *res,
-			   TotemMediaPlayerKeysPlugin *pi)
+			   theaterMediaPlayerKeysPlugin *pi)
 {
 	GVariant *variant;
 	GError *error = NULL;
@@ -105,7 +105,7 @@ grab_media_player_keys_cb (GDBusProxy                 *proxy,
 }
 
 static void
-grab_media_player_keys (TotemMediaPlayerKeysPlugin *pi)
+grab_media_player_keys (theaterMediaPlayerKeysPlugin *pi)
 {
 	GCancellable *cancellable;
 
@@ -122,7 +122,7 @@ grab_media_player_keys (TotemMediaPlayerKeysPlugin *pi)
 
 	g_dbus_proxy_call (pi->priv->proxy,
 					  "GrabMediaPlayerKeys",
-					  g_variant_new ("(su)", "Totem", 0),
+					  g_variant_new ("(su)", "theater", 0),
 					  G_DBUS_CALL_FLAGS_NONE,
 					  -1, cancellable,
 					  (GAsyncReadyCallback) grab_media_player_keys_cb,
@@ -135,7 +135,7 @@ grab_media_player_keys (TotemMediaPlayerKeysPlugin *pi)
 static gboolean
 on_window_focus_in_event (GtkWidget                  *window,
 			  GdkEventFocus              *event,
-			  TotemMediaPlayerKeysPlugin *pi)
+			  theaterMediaPlayerKeysPlugin *pi)
 {
 	grab_media_player_keys (pi);
 
@@ -147,18 +147,18 @@ key_pressed (GDBusProxy                 *proxy,
 	     gchar                      *sender_name,
 	     gchar                      *signal_name,
 	     GVariant                   *parameters,
-	     TotemMediaPlayerKeysPlugin *pi)
+	     theaterMediaPlayerKeysPlugin *pi)
 {
 	char *app, *cmd;
 
 	if (g_strcmp0 (signal_name, "MediaPlayerKeyPressed") != 0)
 		return;
 	g_variant_get (parameters, "(ss)", &app, &cmd);
-	if (g_strcmp0 (app, "Totem") == 0) {
-		TotemObject *totem;
+	if (g_strcmp0 (app, "theater") == 0) {
+		theaterObject *theater;
 
-		totem = g_object_get_data (G_OBJECT (pi), "object");
-		on_media_player_key_pressed (totem, cmd);
+		theater = g_object_get_data (G_OBJECT (pi), "object");
+		on_media_player_key_pressed (theater, cmd);
 	}
 	g_free (app);
 	g_free (cmd);
@@ -167,7 +167,7 @@ key_pressed (GDBusProxy                 *proxy,
 static void
 got_proxy_cb (GObject                    *source_object,
 	      GAsyncResult               *res,
-	      TotemMediaPlayerKeysPlugin *pi)
+	      theaterMediaPlayerKeysPlugin *pi)
 {
 	GError *error = NULL;
 
@@ -193,7 +193,7 @@ static void
 name_appeared_cb (GDBusConnection            *connection,
 		  const gchar                *name,
 		  const gchar                *name_owner,
-		  TotemMediaPlayerKeysPlugin *pi)
+		  theaterMediaPlayerKeysPlugin *pi)
 {
 	GCancellable *cancellable;
 
@@ -218,7 +218,7 @@ name_appeared_cb (GDBusConnection            *connection,
 static void
 name_vanished_cb (GDBusConnection            *connection,
 		  const gchar                *name,
-		  TotemMediaPlayerKeysPlugin *pi)
+		  theaterMediaPlayerKeysPlugin *pi)
 {
 	if (pi->priv->proxy != NULL) {
 		g_object_unref (pi->priv->proxy);
@@ -233,8 +233,8 @@ name_vanished_cb (GDBusConnection            *connection,
 static void
 impl_activate (PeasActivatable *plugin)
 {
-	TotemMediaPlayerKeysPlugin *pi = TOTEM_MEDIA_PLAYER_KEYS_PLUGIN (plugin);
-	TotemObject *totem;
+	theaterMediaPlayerKeysPlugin *pi = theater_MEDIA_PLAYER_KEYS_PLUGIN (plugin);
+	theaterObject *theater;
 	GtkWindow *window;
 
 	pi->priv->watch_id = g_bus_watch_name (G_BUS_TYPE_SESSION,
@@ -244,8 +244,8 @@ impl_activate (PeasActivatable *plugin)
 					       (GBusNameVanishedCallback) name_vanished_cb,
 					       g_object_ref (pi), (GDestroyNotify) g_object_unref);
 
-	totem = g_object_get_data (G_OBJECT (plugin), "object");
-	window = totem_object_get_main_window (totem);
+	theater = g_object_get_data (G_OBJECT (plugin), "object");
+	window = theater_object_get_main_window (theater);
 	pi->priv->handler_id = g_signal_connect (G_OBJECT (window), "focus-in-event",
 						 G_CALLBACK (on_window_focus_in_event), pi);
 
@@ -255,7 +255,7 @@ impl_activate (PeasActivatable *plugin)
 static void
 impl_deactivate (PeasActivatable *plugin)
 {
-	TotemMediaPlayerKeysPlugin *pi = TOTEM_MEDIA_PLAYER_KEYS_PLUGIN (plugin);
+	theaterMediaPlayerKeysPlugin *pi = theater_MEDIA_PLAYER_KEYS_PLUGIN (plugin);
 	GtkWindow *window;
 
 	if (pi->priv->cancellable_init) {
@@ -272,10 +272,10 @@ impl_deactivate (PeasActivatable *plugin)
 	}
 
 	if (pi->priv->handler_id != 0) {
-		TotemObject *totem;
+		theaterObject *theater;
 
-		totem = g_object_get_data (G_OBJECT (plugin), "object");
-		window = totem_object_get_main_window (totem);
+		theater = g_object_get_data (G_OBJECT (plugin), "object");
+		window = theater_object_get_main_window (theater);
 		if (window == NULL)
 			return;
 

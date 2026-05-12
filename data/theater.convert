@@ -1,0 +1,16 @@
+[org.gnome.theater]
+brightness = /apps/theater/brightness
+contrast = /apps/theater/contrast
+hue = /apps/theater/hue
+saturation = /apps/theater/saturation
+repeat = /apps/theater/repeat
+disable-deinterlacing = /apps/theater/disable_deinterlacing
+audio-output-type = /apps/theater/audio_output_type
+network-buffer-threshold = /apps/theater/network-buffer-threshold
+subtitle-font = /apps/theater/subtitle_font
+subtitle-encoding = /apps/theater/subtitle_encoding
+open-uri = /apps/theater/open_path
+screenshot-save-uri = /apps/theater/screenshot_save_path
+disable-user-plugins = /apps/theater/disable_user_plugins
+disable-keyboard-shortcuts = /apps/theater/disable_keyboard_shortcuts
+autoload-subtitles = /apps/theater/autoload_subtitles

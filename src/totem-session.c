@@ -1,4 +1,4 @@
-/* totem-session.c
+/* theater-session.c
 
    Copyright (C) 2004 Bastien Nocera
 
@@ -22,10 +22,10 @@
 
 #include "config.h"
 
-#include "totem.h"
-#include "totem-private.h"
-#include "totem-session.h"
-#include "totem-uri.h"
+#include "theater.h"
+#include "theater-private.h"
+#include "theater-session.h"
+#include "theater-uri.h"
 
 static GFile *session_file = NULL;
 
@@ -37,7 +37,7 @@ get_session_file (void)
 	if (session_file)
 		return session_file;
 
-	path = g_build_filename (totem_dot_dir (), "session_state.xspf", NULL);
+	path = g_build_filename (theater_dot_dir (), "session_state.xspf", NULL);
 	session_file = g_file_new_for_path (path);
 	g_free (path);
 
@@ -51,35 +51,35 @@ get_session_filename (void)
 }
 
 gboolean
-totem_session_try_restore (Totem *totem)
+theater_session_try_restore (theater *theater)
 {
 	char *uri;
 	char *mrl, *subtitle;
 
-	totem_signal_block_by_data (totem->playlist, totem);
-	totem->pause_start = TRUE;
+	theater_signal_block_by_data (theater->playlist, theater);
+	theater->pause_start = TRUE;
 
-	/* Possibly the only place in Totem where it makes sense to add an MRL to the playlist synchronously, since we haven't yet entered
+	/* Possibly the only place in theater where it makes sense to add an MRL to the playlist synchronously, since we haven't yet entered
 	 * the GTK+ main loop, and thus can't freeze the application. */
 	uri = get_session_filename ();
-	if (totem_playlist_add_mrl_sync (totem->playlist, uri) == FALSE) {
-		totem->pause_start = FALSE;
-		totem_signal_unblock_by_data (totem->playlist, totem);
-		totem_object_set_mrl (totem, NULL, NULL);
+	if (theater_playlist_add_mrl_sync (theater->playlist, uri) == FALSE) {
+		theater->pause_start = FALSE;
+		theater_signal_unblock_by_data (theater->playlist, theater);
+		theater_object_set_mrl (theater, NULL, NULL);
 		g_free (uri);
 		return FALSE;
 	}
 	g_free (uri);
 
-	totem_signal_unblock_by_data (totem->playlist, totem);
+	theater_signal_unblock_by_data (theater->playlist, theater);
 
 	subtitle = NULL;
-	mrl = totem_playlist_get_current_mrl (totem->playlist, &subtitle);
+	mrl = theater_playlist_get_current_mrl (theater->playlist, &subtitle);
 
 	if (mrl != NULL)
-		totem_object_set_main_page (totem, "player");
+		theater_object_set_main_page (theater, "player");
 
-	totem_object_set_mrl (totem, mrl, subtitle);
+	theater_object_set_mrl (theater, mrl, subtitle);
 
 	/* We do the seeking after being told that the stream is seekable,
 	 * not straight away */
@@ -91,22 +91,22 @@ totem_session_try_restore (Totem *totem)
 }
 
 void
-totem_session_save (Totem *totem)
+theater_session_save (theater *theater)
 {
 	GFile *file;
 	gint64 curr = -1;
 
-	if (totem->bvw == NULL)
+	if (theater->bvw == NULL)
 		return;
 
 	file = get_session_file ();
-	if (!totem_playing_dvd (totem->mrl))
-		curr = bacon_video_widget_get_current_time (totem->bvw);
-	totem_playlist_save_session_playlist (totem->playlist, file, curr / 1000);
+	if (!theater_playing_dvd (theater->mrl))
+		curr = bacon_video_widget_get_current_time (theater->bvw);
+	theater_playlist_save_session_playlist (theater->playlist, file, curr / 1000);
 }
 
 void
-totem_session_cleanup (Totem *totem)
+theater_session_cleanup (theater *theater)
 {
 	g_file_delete (get_session_file (), NULL, NULL);
 	g_clear_object (&session_file);

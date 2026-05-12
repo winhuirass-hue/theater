@@ -1,12 +1,12 @@
-# Hungarian translation for totem help.
+# Hungarian translation for theater help.
 # Copyright (C) 2019 Free Software Foundation, Inc.
-# This file is distributed under the same license as the totem package.
+# This file is distributed under the same license as the theater package.
 #
 # Balázs Úr <ur.balazs at fsf dot hu>, 2019.
 # Gabor Kelemen <kelemeng at ubuntu dot com>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: totem master\n"
+"Project-Id-Version: theater master\n"
 "POT-Creation-Date: 2019-02-10 18:46+0000\n"
 "PO-Revision-Date: 2019-02-13 00:45+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
@@ -202,11 +202,11 @@ msgstr "<_:media-1/><span> Videók</span>"
 #. (itstool) path: page/p
 #: C/index.page:32
 msgid ""
-"<app>Videos</app>, also known as <app>Totem</app>, is an application for "
+"<app>Videos</app>, also known as <app>theater</app>, is an application for "
 "playing videos. You can use it to watch movies or stream media from the "
 "Internet."
 msgstr ""
-"A <app>Videók</app> (vagy más néven <app>Totem</app>) egy videók "
+"A <app>Videók</app> (vagy más néven <app>theater</app>) egy videók "
 "lejátszásához készült alkalmazás. Használhatja filmek vagy internetről "
 "sugárzott média megtekintéséhez."
 
@@ -955,14 +955,14 @@ msgstr "Egyéb videoproblémák felderítése"
 msgid ""
 "If you have already followed <link xref=\"supported-formats\"/> and <link "
 "xref=\"troubleshooting-DVD\"/> and a video still cannot be played, open a "
-"terminal window and enter the command <cmd>totem --help-gst</cmd>. This will "
+"terminal window and enter the command <cmd>theater --help-gst</cmd>. This will "
 "show a list of available options you can use to get debug output. Often the "
 "problem is in an underlying plugin, for example in <sys>GStreamer</sys> and "
 "not in <app>Videos</app> itself."
 msgstr ""
 "Ha már elolvasta a <link xref=\"supported-formats\"/> és a <link xref="
 "\"troubleshooting-DVD\"/> fejezeteket, de a videót még mindig nem lehet "
-"lejátszani, akkor nyisson meg egy terminálablakot, és írja be a <cmd>totem --"
+"lejátszani, akkor nyisson meg egy terminálablakot, és írja be a <cmd>theater --"
 "help-gst</cmd> parancsot. Ez az elérhető kapcsolók listáját jeleníti meg, "
 "amelyeket a hibakeresési kimenet megszerzéséhez használhat. A hiba gyakran "
 "egy mögöttes bővítményben van, mint például a <sys>GStreamer</sys> "

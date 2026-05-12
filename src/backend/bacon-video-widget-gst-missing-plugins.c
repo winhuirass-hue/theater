@@ -1,4 +1,4 @@
-/* totem-missing-plugins.c
+/* theater-missing-plugins.c
 
    Copyright (C) 2007 Tim-Philipp Müller <tim centricular net>
 
@@ -40,8 +40,8 @@
 
 #include <string.h>
 
-GST_DEBUG_CATEGORY_EXTERN (_totem_gst_debug_cat);
-#define GST_CAT_DEFAULT _totem_gst_debug_cat
+GST_DEBUG_CATEGORY_EXTERN (_theater_gst_debug_cat);
+#define GST_CAT_DEFAULT _theater_gst_debug_cat
 
 /* list of blacklisted detail strings */
 static GList *blacklisted_plugins = NULL;
@@ -53,7 +53,7 @@ typedef struct
 	gchar    **details;
 	BaconVideoWidget *bvw;
 }
-TotemCodecInstallContext;
+theaterCodecInstallContext;
 
 static gboolean
 bacon_video_widget_gst_codec_install_plugin_is_blacklisted (const gchar * detail)
@@ -78,7 +78,7 @@ bacon_video_widget_gst_codec_install_blacklist_plugin (const gchar * detail)
 }
 
 static void
-bacon_video_widget_gst_codec_install_context_free (TotemCodecInstallContext *ctx)
+bacon_video_widget_gst_codec_install_context_free (theaterCodecInstallContext *ctx)
 {
 	g_strfreev (ctx->descriptions);
 	g_strfreev (ctx->details);
@@ -88,7 +88,7 @@ bacon_video_widget_gst_codec_install_context_free (TotemCodecInstallContext *ctx
 static void
 on_plugin_installation_done (GstInstallPluginsReturn res, gpointer user_data)
 {
-	TotemCodecInstallContext *ctx = (TotemCodecInstallContext *) user_data;
+	theaterCodecInstallContext *ctx = (theaterCodecInstallContext *) user_data;
 	gchar **p;
 
 	GST_INFO ("res = %d (%s)", res, gst_install_plugins_return_get_name (res));
@@ -200,14 +200,14 @@ set_startup_notification_id (GstInstallPluginsContext *install_ctx)
 }
 
 static gboolean
-bacon_video_widget_start_plugin_installation (TotemCodecInstallContext *ctx,
+bacon_video_widget_start_plugin_installation (theaterCodecInstallContext *ctx,
                                               gboolean                  confirm_search)
 {
 	GstInstallPluginsContext *install_ctx;
 	GstInstallPluginsReturn status;
 
 	install_ctx = gst_install_plugins_context_new ();
-	gst_install_plugins_context_set_desktop_id (install_ctx, "org.gnome.Totem.desktop");
+	gst_install_plugins_context_set_desktop_id (install_ctx, "org.gnome.theater.desktop");
 	gst_install_plugins_context_set_confirm_search (install_ctx, confirm_search);
 	set_startup_notification_id (install_ctx);
 
@@ -241,7 +241,7 @@ codec_confirmation_dialog_response_cb (GtkDialog       *dialog,
                                        GtkResponseType  response_type,
                                        gpointer         user_data)
 {
-	TotemCodecInstallContext *ctx = user_data;
+	theaterCodecInstallContext *ctx = user_data;
 
 	switch (response_type) {
 	case GTK_RESPONSE_ACCEPT:
@@ -257,7 +257,7 @@ codec_confirmation_dialog_response_cb (GtkDialog       *dialog,
 }
 
 static void
-show_codec_confirmation_dialog (TotemCodecInstallContext *ctx,
+show_codec_confirmation_dialog (theaterCodecInstallContext *ctx,
                                 const gchar              *install_helper_display_name)
 {
 	GtkWidget *button;
@@ -308,7 +308,7 @@ on_packagekit_proxy_ready (GObject      *source_object,
                            GAsyncResult *res,
                            gpointer      user_data)
 {
-	TotemCodecInstallContext *ctx = (TotemCodecInstallContext *) user_data;
+	theaterCodecInstallContext *ctx = (theaterCodecInstallContext *) user_data;
 	GDBusProxy *packagekit_proxy = NULL;
 	GVariant *property = NULL;
 	GError *error = NULL;
@@ -348,13 +348,13 @@ bacon_video_widget_gst_on_missing_plugins_event (BaconVideoWidget  *bvw,
                                                  gboolean           playing,
                                                  gpointer           user_data)
 {
-	TotemCodecInstallContext *ctx;
+	theaterCodecInstallContext *ctx;
 	guint i, num;
 
 	num = g_strv_length (details);
 	g_return_val_if_fail (num > 0 && g_strv_length (descriptions) == num, FALSE);
 
-	ctx = g_new0 (TotemCodecInstallContext, 1);
+	ctx = g_new0 (theaterCodecInstallContext, 1);
 	ctx->descriptions = g_strdupv (descriptions);
 	ctx->details = g_strdupv (details);
 	ctx->playing = playing;
@@ -399,7 +399,7 @@ bacon_video_widget_gst_on_missing_plugins_event (BaconVideoWidget  *bvw,
 
 	/* if we managed to start playing, pause playback, since some install
 	 * wizard should now take over in a second anyway and the user might not
-	 * be able to use totem's controls while the wizard is running */
+	 * be able to use theater's controls while the wizard is running */
 	if (playing)
 		bacon_video_widget_pause (bvw);
 

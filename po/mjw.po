@@ -1,12 +1,12 @@
-# Karbi translation for totem.
-# Copyright (C) 2019 totem's Free Software Foundation, Inc.
-# This file is distributed under the same license as the totem package.
+# Karbi translation for theater.
+# Copyright (C) 2019 theater's Free Software Foundation, Inc.
+# This file is distributed under the same license as the theater package.
 # Jor Teron <jor.teron@gmail.com>, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: totem master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/totem/issues\n"
+"Project-Id-Version: theater master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/theater/issues\n"
 "POT-Creation-Date: 2019-07-22 04:57+0000\n"
 "PO-Revision-Date: 2019-07-23 16:32+0530\n"
 "Last-Translator: Jor Teron <jor.teron@gmail.com>\n"
@@ -18,18 +18,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: data/appdata/org.gnome.Totem.appdata.xml.in:6
-#: data/org.gnome.Totem.desktop.in.in:3 src/totem.c:66 src/totem.c:72
-#: src/totem-grilo.c:1901 src/totem-object.c:3729
+#: data/appdata/org.gnome.theater.appdata.xml.in:6
+#: data/org.gnome.theater.desktop.in.in:3 src/theater.c:66 src/theater.c:72
+#: src/theater-grilo.c:1901 src/theater-object.c:3729
 msgid "Videos"
 msgstr "Videos"
 
-#: data/appdata/org.gnome.Totem.appdata.xml.in:7
-#: data/org.gnome.Totem.desktop.in.in:4
+#: data/appdata/org.gnome.theater.appdata.xml.in:7
+#: data/org.gnome.theater.desktop.in.in:4
 msgid "Play movies"
 msgstr "Lam-arjan kerot"
 
-#: data/appdata/org.gnome.Totem.appdata.xml.in:11
+#: data/appdata/org.gnome.theater.appdata.xml.in:11
 msgid ""
 "Videos is the official movie player of the GNOME desktop environment. It "
 "features a searchable list of local videos, and DVDs, as well as local "
@@ -37,7 +37,7 @@ msgid ""
 "web sites."
 msgstr ""
 
-#: data/appdata/org.gnome.Totem.appdata.xml.in:17
+#: data/appdata/org.gnome.theater.appdata.xml.in:17
 msgid ""
 "Videos comes with added functionality such as a subtitle downloader, the "
 "ability to speed up or down playback, create screenshot galleries, and "
@@ -45,116 +45,116 @@ msgid ""
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
-#: data/org.gnome.Totem.desktop.in.in:6
-msgid "Video;Movie;Film;Clip;Series;Player;DVD;TV;Disc;Totem;"
+#: data/org.gnome.theater.desktop.in.in:6
+msgid "Video;Movie;Film;Clip;Series;Player;DVD;TV;Disc;theater;"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:6
+#: data/org.gnome.theater.gschema.xml.in:6
 msgid "The brightness of the video"
 msgstr "Video atur"
 
-#: data/org.gnome.totem.gschema.xml.in:10
+#: data/org.gnome.theater.gschema.xml.in:10
 msgid "The contrast of the video"
 msgstr "Video a cotrast"
 
-#: data/org.gnome.totem.gschema.xml.in:14
+#: data/org.gnome.theater.gschema.xml.in:14
 msgid "The hue of the video"
 msgstr "Video a hue"
 
-#: data/org.gnome.totem.gschema.xml.in:18
+#: data/org.gnome.theater.gschema.xml.in:18
 msgid "The saturation of the video"
 msgstr "Video a saturation"
 
-#: data/org.gnome.totem.gschema.xml.in:22
+#: data/org.gnome.theater.gschema.xml.in:22
 msgid "Repeat mode"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:26
+#: data/org.gnome.theater.gschema.xml.in:26
 msgid "Whether to disable deinterlacing for interlaced movies"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:30
+#: data/org.gnome.theater.gschema.xml.in:30
 msgid "Type of audio output to use"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:34
+#: data/org.gnome.theater.gschema.xml.in:34
 msgid "Network buffering threshold"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:35
+#: data/org.gnome.theater.gschema.xml.in:35
 msgid ""
 "Amount of data to buffer for network streams before starting to display the "
 "stream (in seconds)."
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:39
+#: data/org.gnome.theater.gschema.xml.in:39
 msgid "Subtitle font"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:40
+#: data/org.gnome.theater.gschema.xml.in:40
 msgid "Pango font description for subtitle rendering."
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:43
+#: data/org.gnome.theater.gschema.xml.in:43
 msgctxt "subtitle-encoding"
 msgid "'UTF-8'"
 msgstr "'UTF-8'"
 
-#: data/org.gnome.totem.gschema.xml.in:50
+#: data/org.gnome.theater.gschema.xml.in:50
 msgid "Subtitle encoding"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:51
+#: data/org.gnome.theater.gschema.xml.in:51
 msgid "Encoding character set for subtitle."
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:55
+#: data/org.gnome.theater.gschema.xml.in:55
 msgid "Default location for the “Open…” dialogs"
 msgstr "Default location for the “Kangpu…” dialogs"
 
-#: data/org.gnome.totem.gschema.xml.in:56
+#: data/org.gnome.theater.gschema.xml.in:56
 msgid ""
 "Default location for the “Open…” dialogs. Default is the current directory."
 msgstr ""
 "Default location for the “Kangpu…” dialogs. Default is the current directory."
 
-#: data/org.gnome.totem.gschema.xml.in:60
+#: data/org.gnome.theater.gschema.xml.in:60
 msgid "Default location for the “Take Screenshot” dialogs"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:61
+#: data/org.gnome.theater.gschema.xml.in:61
 msgid ""
 "Default location for the “Take Screenshot” dialogs. Default is the Pictures "
 "directory."
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:65
+#: data/org.gnome.theater.gschema.xml.in:65
 msgid "Whether to disable the plugins in the user’s home directory"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:69
+#: data/org.gnome.theater.gschema.xml.in:69
 msgid "Whether to disable the keyboard shortcuts"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:73
+#: data/org.gnome.theater.gschema.xml.in:73
 msgid "Whether to autoload text subtitle files when a movie is loaded"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:77
+#: data/org.gnome.theater.gschema.xml.in:77
 msgid "Active plugins list"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:78
+#: data/org.gnome.theater.gschema.xml.in:78
 msgid ""
 "A list of the names of the plugins which are currently active (loaded and "
 "running)."
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:82
+#: data/org.gnome.theater.gschema.xml.in:82
 msgid "Directories to show"
 msgstr ""
 
-#: data/org.gnome.totem.gschema.xml.in:83
+#: data/org.gnome.theater.gschema.xml.in:83
 msgid "Directories to show in the browse interface, none by default"
 msgstr ""
 
@@ -433,109 +433,109 @@ msgctxt "shortcut window"
 msgid "Navigate right"
 msgstr ""
 
-#: data/totem.ui:11 data/totem.ui:110
+#: data/theater.ui:11 data/theater.ui:110
 msgid "Prefere_nces"
 msgstr ""
 
-#: data/totem.ui:15 data/totem.ui:114
+#: data/theater.ui:15 data/theater.ui:114
 msgid "_Keyboard Shortcuts"
 msgstr "_Keyboard Shortcuts"
 
-#: data/totem.ui:19
+#: data/theater.ui:19
 msgid "_Help"
 msgstr "_Help"
 
-#: data/totem.ui:29
+#: data/theater.ui:29
 msgid "Add _Local Video…"
 msgstr "_Local Video kethap…"
 
-#: data/totem.ui:34
+#: data/theater.ui:34
 msgid "Add _Web Video…"
 msgstr "_Web Video kethap…"
 
-#: data/totem.ui:51
+#: data/theater.ui:51
 msgid "_Aspect Ratio"
 msgstr "_Aspect Ratio"
 
 #. Translators: an entry in the 'Aspect Ratio' menu, used to choose the displayed aspect ratio of a video
-#: data/totem.ui:54
+#: data/theater.ui:54
 msgctxt "Aspect ratio"
 msgid "Auto"
 msgstr "Auto"
 
 #. Translators: an entry in the 'Aspect Ratio' menu, used to choose the displayed aspect ratio of a video
-#: data/totem.ui:59
+#: data/theater.ui:59
 msgctxt "Aspect ratio"
 msgid "Square"
 msgstr "Square"
 
 #. Translators: an entry in the 'Aspect Ratio' menu, used to choose the displayed aspect ratio of a video
-#: data/totem.ui:64
+#: data/theater.ui:64
 msgctxt "Aspect ratio"
 msgid "4∶3 (TV)"
 msgstr "4∶3 (TV)"
 
 #. Translators: an entry in the 'Aspect Ratio' menu, used to choose the displayed aspect ratio of a video
-#: data/totem.ui:69
+#: data/theater.ui:69
 msgctxt "Aspect ratio"
 msgid "16∶9 (Widescreen)"
 msgstr "16∶9 (Widescreen)"
 
 #. Translators: an entry in the 'Aspect Ratio' menu, used to choose the displayed aspect ratio of a video
-#: data/totem.ui:74
+#: data/theater.ui:74
 msgctxt "Aspect ratio"
 msgid "2.11∶1 (DVB)"
 msgstr "2.11∶1 (DVB)"
 
-#: data/totem.ui:81
+#: data/theater.ui:81
 msgid "Zoom In"
 msgstr "Pathe"
 
-#: data/totem.ui:86
+#: data/theater.ui:86
 msgid "Switch An_gles"
 msgstr ""
 
-#: data/totem.ui:93
+#: data/theater.ui:93
 msgid "_Languages"
 msgstr "_Lam"
 
-#: data/totem.ui:97
+#: data/theater.ui:97
 msgid "S_ubtitles"
 msgstr ""
 
-#: data/totem.ui:100
+#: data/theater.ui:100
 msgid "_Select Text Subtitles…"
 msgstr ""
 
-#: data/totem.ui:123
+#: data/theater.ui:123
 msgid "_Eject"
 msgstr "Pat_et"
 
-#: data/totem.ui:134
+#: data/theater.ui:134
 msgid "_Repeat"
 msgstr "Che-rui"
 
-#: data/totem.ui:140
+#: data/theater.ui:140
 msgid "_DVD Menu"
 msgstr ""
 
-#: data/totem.ui:146
+#: data/theater.ui:146
 msgid "_Title Menu"
 msgstr ""
 
-#: data/totem.ui:151
+#: data/theater.ui:151
 msgid "A_udio Menu"
 msgstr ""
 
-#: data/totem.ui:156
+#: data/theater.ui:156
 msgid "_Angle Menu"
 msgstr ""
 
-#: data/totem.ui:161
+#: data/theater.ui:161
 msgid "_Chapter Menu"
 msgstr ""
 
-#: data/totem.ui:170
+#: data/theater.ui:170
 msgid "Speed"
 msgstr "Kechat"
 
@@ -670,7 +670,7 @@ msgstr ""
 #. * the separator that your locale uses or use "%Id" instead
 #. * of "%d" if your locale uses localized digits.
 #.
-#: src/gst/totem-time-helpers.c:70 src/plugins/skipto/totem-time-entry.c:57
+#: src/gst/theater-time-helpers.c:70 src/plugins/skipto/theater-time-entry.c:57
 #, c-format
 msgctxt "long time format"
 msgid "%d:%02d:%02d"
@@ -682,7 +682,7 @@ msgstr "%d:%02d:%02d"
 #. * change ":" to the separator that your locale uses or use
 #. * "%Id" instead of "%d" if your locale uses localized digits.
 #.
-#: src/gst/totem-time-helpers.c:78
+#: src/gst/theater-time-helpers.c:78
 #, c-format
 msgctxt "long time format"
 msgid "-%d:%02d:%02d"
@@ -694,7 +694,7 @@ msgstr "-%d:%02d:%02d"
 #. * ":" to the separator that your locale uses or use "%Id"
 #. * instead of "%d" if your locale uses localized digits.
 #.
-#: src/gst/totem-time-helpers.c:89
+#: src/gst/theater-time-helpers.c:89
 #, c-format
 msgctxt "short time format"
 msgid "-%d:%02d"
@@ -706,7 +706,7 @@ msgstr "-%d:%02d"
 #. * separator that your locale uses or use "%Id" instead of
 #. * "%d" if your locale uses localized digits.
 #.
-#: src/gst/totem-time-helpers.c:98
+#: src/gst/theater-time-helpers.c:98
 #, c-format
 msgctxt "short time format"
 msgid "%d:%02d"
@@ -720,18 +720,18 @@ msgstr ""
 msgid "Select None"
 msgstr "Angse kangwai"
 
-#: src/totem.c:67
+#: src/theater.c:67
 msgid "Could not initialize the thread-safe libraries."
 msgstr ""
 
-#: src/totem.c:67
-msgid "Verify your system installation. Totem will now exit."
+#: src/theater.c:67
+msgid "Verify your system installation. theater will now exit."
 msgstr ""
 
 #. Translators: The first string is "Filename" (as translated); the second is an actual filename.
 #. The third string is "Resolution" (as translated); the fourth and fifth are screenshot height and width, respectively.
 #. The sixth string is "Duration" (as translated); the seventh is the movie duration in words.
-#: src/totem-gallery-thumbnailer.c:631
+#: src/theater-gallery-thumbnailer.c:631
 #, c-format
 msgid ""
 "<b>%s</b>: %s\n"
@@ -742,435 +742,435 @@ msgstr ""
 "<b>%s</b>: %d×%d\n"
 "<b>%s</b>: %s"
 
-#: src/totem-gallery-thumbnailer.c:632
+#: src/theater-gallery-thumbnailer.c:632
 msgid "Filename"
 msgstr "File-men"
 
-#: src/totem-gallery-thumbnailer.c:634
+#: src/theater-gallery-thumbnailer.c:634
 msgid "Resolution"
 msgstr "Resolution"
 
-#: src/totem-gallery-thumbnailer.c:637
+#: src/theater-gallery-thumbnailer.c:637
 msgid "Duration"
 msgstr "Keding"
 
-#: src/totem-grilo.c:285
+#: src/theater-grilo.c:285
 #, c-format
 msgid "Season %d Episode %d"
 msgstr "Season %d Episode %d"
 
 #. translators: The first item is the show name, for example:
 #. * Boardwalk Empire (Season 1 Episode 1)
-#: src/totem-grilo.c:322
+#: src/theater-grilo.c:322
 #, c-format
 msgid "%s (Season %d Episode %d)"
 msgstr "%s (Season %d Episode %d)"
 
-#: src/totem-grilo.c:677
+#: src/theater-grilo.c:677
 msgid "Browse Error"
 msgstr ""
 
-#: src/totem-grilo.c:821
+#: src/theater-grilo.c:821
 msgid "Search Error"
 msgstr "Kiri chokche"
 
-#: src/totem-grilo.c:1301
+#: src/theater-grilo.c:1301
 msgid "Local"
 msgstr "Local"
 
-#: src/totem-grilo.c:1910
+#: src/theater-grilo.c:1910
 msgid "Channels"
 msgstr "Channels"
 
-#: src/totem-interface.c:179 src/totem-interface.c:222
+#: src/theater-interface.c:179 src/theater-interface.c:222
 #, c-format
 msgid "Couldn’t load the “%s” interface. %s"
 msgstr ""
 
-#: src/totem-interface.c:179
+#: src/theater-interface.c:179
 msgid "The file does not exist."
 msgstr "Laso file phurkimo longta ve."
 
-#: src/totem-interface.c:181 src/totem-interface.c:183
-#: src/totem-interface.c:224 src/totem-interface.c:226
-msgid "Make sure that Totem is properly installed."
+#: src/theater-interface.c:181 src/theater-interface.c:183
+#: src/theater-interface.c:224 src/theater-interface.c:226
+msgid "Make sure that theater is properly installed."
 msgstr ""
 
-#: src/totem-main-toolbar.c:130 src/totemmaintoolbar.ui:121
+#: src/theater-main-toolbar.c:130 src/theatermaintoolbar.ui:121
 msgid "Click on items to select them"
 msgstr ""
 
-#: src/totem-main-toolbar.c:136
+#: src/theater-main-toolbar.c:136
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d chongvai"
 msgstr[1] "%d chongvai"
 
-#: src/totem-main-toolbar.c:157
+#: src/theater-main-toolbar.c:157
 #, c-format
 msgid "Results for “%s”"
 msgstr ""
 
-#: src/totemmaintoolbar.ui:18
+#: src/theatermaintoolbar.ui:18
 msgid "Back"
 msgstr "Phi"
 
-#: src/totemmaintoolbar.ui:44
+#: src/theatermaintoolbar.ui:44
 msgid "Select"
 msgstr "Chongvai"
 
-#: src/totemmaintoolbar.ui:69 src/totemmaintoolbar.ui:72
+#: src/theatermaintoolbar.ui:69 src/theatermaintoolbar.ui:72
 msgid "Cancel"
 msgstr ""
 
-#: src/totemmaintoolbar.ui:90
+#: src/theatermaintoolbar.ui:90
 msgid "Search"
 msgstr "Kiri"
 
-#: src/totem-menu.c:408
+#: src/theater-menu.c:408
 msgid "Audio Track"
 msgstr "Lun Track"
 
-#: src/totem-menu.c:411
+#: src/theater-menu.c:411
 msgid "Subtitle"
 msgstr "Subtitle"
 
 #. Translators: an entry in the "Subtitles" menu, used to choose the subtitle language of a DVD
-#: src/totem-menu.c:531
+#: src/theater-menu.c:531
 msgid "None"
 msgstr "Angse"
 
 #. Translators: an entry in the "Languages" menu, used to choose the audio language of a DVD
-#: src/totem-menu.c:535
+#: src/theater-menu.c:535
 msgctxt "Language"
 msgid "Auto"
 msgstr ""
 
-#: src/totem-object.c:1391 src/totem-options.c:51
+#: src/theater-object.c:1391 src/theater-options.c:51
 msgid "Pause"
 msgstr "Pasang"
 
-#: src/totem-object.c:1396 src/totem-object.c:1406 src/totem-options.c:50
-#: src/totemselectiontoolbar.ui:43
+#: src/theater-object.c:1396 src/theater-object.c:1406 src/theater-options.c:50
+#: src/theaterselectiontoolbar.ui:43
 msgid "Play"
 msgstr ""
 
-#: src/totem-object.c:1473 src/totem-object.c:1501 src/totem-object.c:2048
+#: src/theater-object.c:1473 src/theater-object.c:1501 src/theater-object.c:2048
 #, c-format
-msgid "Totem could not play “%s”."
+msgid "theater could not play “%s”."
 msgstr ""
 
-#: src/totem-object.c:2220
-msgid "Totem could not display the help contents."
+#: src/theater-object.c:2220
+msgid "theater could not display the help contents."
 msgstr ""
 
-#: src/totem-object.c:2482
+#: src/theater-object.c:2482
 msgid "An error occurred"
 msgstr "Chokche do"
 
-#: src/totem-object.c:3827
+#: src/theater-object.c:3827
 msgid "Previous Chapter/Movie"
 msgstr "Aphi Chapter/Lamarjan"
 
-#: src/totem-object.c:3833
+#: src/theater-object.c:3833
 msgid "Play / Pause"
 msgstr " Play / Pasang"
 
-#: src/totem-object.c:3839
+#: src/theater-object.c:3839
 msgid "Next Chapter/Movie"
 msgstr "Dunthu Chapter/lamarjan"
 
-#: src/totem-object.c:4062
-msgid "Totem could not startup."
-msgstr "Totem chingpu un-eh det."
+#: src/theater-object.c:4062
+msgid "theater could not startup."
+msgstr "theater chingpu un-eh det."
 
-#: src/totem-object.c:4062
+#: src/theater-object.c:4062
 msgid "No reason."
 msgstr "Ason awe."
 
-#: src/totem-open-location.c:183
+#: src/theater-open-location.c:183
 msgid "Add Web Video"
 msgstr "Web Video kethap"
 
-#: src/totem-open-location.c:185 src/totem-uri.c:399 src/totem-uri.c:460
-#: src/plugins/screenshot/totem-gallery.c:98
-#: src/plugins/screenshot/totem-gallery-progress.c:103
-#: src/plugins/skipto/totem-skipto.c:221
+#: src/theater-open-location.c:185 src/theater-uri.c:399 src/theater-uri.c:460
+#: src/plugins/screenshot/theater-gallery.c:98
+#: src/plugins/screenshot/theater-gallery-progress.c:103
+#: src/plugins/skipto/theater-skipto.c:221
 msgid "_Cancel"
 msgstr ""
 
-#: src/totem-open-location.c:186 src/totem-uri.c:461
+#: src/theater-open-location.c:186 src/theater-uri.c:461
 msgid "_Add"
 msgstr "Keth_ap"
 
-#: src/totem-options.c:49
+#: src/theater-options.c:49
 msgid "Play/Pause"
 msgstr "Play/Pasang"
 
-#: src/totem-options.c:52
+#: src/theater-options.c:52
 msgid "Next"
 msgstr "Dunthu"
 
-#: src/totem-options.c:53
+#: src/theater-options.c:53
 msgid "Previous"
 msgstr "Phi"
 
-#: src/totem-options.c:54
+#: src/theater-options.c:54
 msgid "Seek Forwards"
 msgstr ""
 
-#: src/totem-options.c:55
+#: src/theater-options.c:55
 msgid "Seek Backwards"
 msgstr ""
 
-#: src/totem-options.c:56
+#: src/theater-options.c:56
 msgid "Volume Up"
 msgstr "Aseh-pathe"
 
-#: src/totem-options.c:57
+#: src/theater-options.c:57
 msgid "Volume Down"
 msgstr "Aseh-pabi"
 
-#: src/totem-options.c:58
+#: src/theater-options.c:58
 msgid "Mute sound"
 msgstr "Aseh-pawe"
 
-#: src/totem-options.c:59
+#: src/theater-options.c:59
 msgid "Toggle Fullscreen"
 msgstr ""
 
-#: src/totem-options.c:60
+#: src/theater-options.c:60
 msgid "Quit"
 msgstr ""
 
-#: src/totem-options.c:61
+#: src/theater-options.c:61
 msgid "Enqueue"
 msgstr ""
 
-#: src/totem-options.c:62
+#: src/theater-options.c:62
 msgid "Replace"
 msgstr ""
 
-#: src/totem-options.c:63
+#: src/theater-options.c:63
 msgid "Seek"
 msgstr ""
 
-#: src/totem-options.c:64
+#: src/theater-options.c:64
 msgid "Show version information and exit"
 msgstr ""
 
-#: src/totem-options.c:65
+#: src/theater-options.c:65
 msgid "Movies to play"
 msgstr "Kerot ji Lam-arjan"
 
-#: src/totem-options.c:100
+#: src/theater-options.c:100
 msgid "Can’t enqueue and replace at the same time"
 msgstr ""
 
 #. This is "Title 3", where title is a DVD title
 #. * Note: NOT a DVD chapter
-#: src/totem-playlist.c:231
+#: src/theater-playlist.c:231
 #, c-format
 msgid "Title %d"
 msgstr "Amen %d"
 
-#: src/totem-playlist.c:993
+#: src/theater-playlist.c:993
 #, c-format
 msgid "The playlist “%s” could not be parsed. It might be damaged."
 msgstr ""
 
-#: src/totem-preferences.c:184
+#: src/theater-preferences.c:184
 msgid "Configure Plugins"
 msgstr ""
 
-#: src/totem-preferences.c:187 src/plugins/opensubtitles/opensubtitles.ui:138
+#: src/theater-preferences.c:187 src/plugins/opensubtitles/opensubtitles.ui:138
 msgid "_Close"
 msgstr "Kanghap"
 
-#: src/totem-preferences.c:299
+#: src/theater-preferences.c:299
 msgid "Select Subtitle Font"
 msgstr ""
 
-#: src/totemselectiontoolbar.ui:15
+#: src/theaterselectiontoolbar.ui:15
 msgid "Add to Favourites"
 msgstr ""
 
-#: src/totemselectiontoolbar.ui:40
+#: src/theaterselectiontoolbar.ui:40
 msgctxt "button"
 msgid "Play"
 msgstr "Play"
 
-#: src/totemselectiontoolbar.ui:60 src/totemselectiontoolbar.ui:63
+#: src/theaterselectiontoolbar.ui:60 src/theaterselectiontoolbar.ui:63
 msgid "Shuffle"
 msgstr ""
 
-#: src/totemselectiontoolbar.ui:80 src/totemselectiontoolbar.ui:83
+#: src/theaterselectiontoolbar.ui:80 src/theaterselectiontoolbar.ui:83
 msgid "Delete"
 msgstr ""
 
-#: src/totem-subtitle-encoding.c:156
+#: src/theater-subtitle-encoding.c:156
 msgid "Current Locale"
 msgstr ""
 
-#: src/totem-subtitle-encoding.c:159 src/totem-subtitle-encoding.c:161
-#: src/totem-subtitle-encoding.c:163 src/totem-subtitle-encoding.c:165
+#: src/theater-subtitle-encoding.c:159 src/theater-subtitle-encoding.c:161
+#: src/theater-subtitle-encoding.c:163 src/theater-subtitle-encoding.c:165
 msgid "Arabic"
 msgstr "Arabic"
 
-#: src/totem-subtitle-encoding.c:168
+#: src/theater-subtitle-encoding.c:168
 msgid "Armenian"
 msgstr "Armenian"
 
-#: src/totem-subtitle-encoding.c:171 src/totem-subtitle-encoding.c:173
-#: src/totem-subtitle-encoding.c:175
+#: src/theater-subtitle-encoding.c:171 src/theater-subtitle-encoding.c:173
+#: src/theater-subtitle-encoding.c:175
 msgid "Baltic"
 msgstr "Baltic"
 
-#: src/totem-subtitle-encoding.c:178
+#: src/theater-subtitle-encoding.c:178
 msgid "Celtic"
 msgstr "Celtic"
 
-#: src/totem-subtitle-encoding.c:181 src/totem-subtitle-encoding.c:183
-#: src/totem-subtitle-encoding.c:185 src/totem-subtitle-encoding.c:187
+#: src/theater-subtitle-encoding.c:181 src/theater-subtitle-encoding.c:183
+#: src/theater-subtitle-encoding.c:185 src/theater-subtitle-encoding.c:187
 msgid "Central European"
 msgstr "Central European"
 
-#: src/totem-subtitle-encoding.c:190 src/totem-subtitle-encoding.c:192
-#: src/totem-subtitle-encoding.c:194 src/totem-subtitle-encoding.c:196
+#: src/theater-subtitle-encoding.c:190 src/theater-subtitle-encoding.c:192
+#: src/theater-subtitle-encoding.c:194 src/theater-subtitle-encoding.c:196
 msgid "Chinese Simplified"
 msgstr "Chinese Simplified"
 
-#: src/totem-subtitle-encoding.c:199 src/totem-subtitle-encoding.c:201
-#: src/totem-subtitle-encoding.c:203
+#: src/theater-subtitle-encoding.c:199 src/theater-subtitle-encoding.c:201
+#: src/theater-subtitle-encoding.c:203
 msgid "Chinese Traditional"
 msgstr "Chinese Traditional"
 
-#: src/totem-subtitle-encoding.c:206
+#: src/theater-subtitle-encoding.c:206
 msgid "Croatian"
 msgstr "Croatian"
 
-#: src/totem-subtitle-encoding.c:209 src/totem-subtitle-encoding.c:211
-#: src/totem-subtitle-encoding.c:213 src/totem-subtitle-encoding.c:215
-#: src/totem-subtitle-encoding.c:217 src/totem-subtitle-encoding.c:219
+#: src/theater-subtitle-encoding.c:209 src/theater-subtitle-encoding.c:211
+#: src/theater-subtitle-encoding.c:213 src/theater-subtitle-encoding.c:215
+#: src/theater-subtitle-encoding.c:217 src/theater-subtitle-encoding.c:219
 msgid "Cyrillic"
 msgstr "Cyrillic"
 
-#: src/totem-subtitle-encoding.c:222
+#: src/theater-subtitle-encoding.c:222
 msgid "Cyrillic/Russian"
 msgstr "Cyrillic/Russian"
 
-#: src/totem-subtitle-encoding.c:225 src/totem-subtitle-encoding.c:227
+#: src/theater-subtitle-encoding.c:225 src/theater-subtitle-encoding.c:227
 msgid "Cyrillic/Ukrainian"
 msgstr "Cyrillic/Ukrainian"
 
-#: src/totem-subtitle-encoding.c:230
+#: src/theater-subtitle-encoding.c:230
 msgid "Georgian"
 msgstr "Georgian"
 
-#: src/totem-subtitle-encoding.c:233 src/totem-subtitle-encoding.c:235
-#: src/totem-subtitle-encoding.c:237
+#: src/theater-subtitle-encoding.c:233 src/theater-subtitle-encoding.c:235
+#: src/theater-subtitle-encoding.c:237
 msgid "Greek"
 msgstr "Greek"
 
-#: src/totem-subtitle-encoding.c:240
+#: src/theater-subtitle-encoding.c:240
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: src/totem-subtitle-encoding.c:243
+#: src/theater-subtitle-encoding.c:243
 msgid "Gurmukhi"
 msgstr "Gurmukhi"
 
-#: src/totem-subtitle-encoding.c:246 src/totem-subtitle-encoding.c:248
-#: src/totem-subtitle-encoding.c:250 src/totem-subtitle-encoding.c:252
+#: src/theater-subtitle-encoding.c:246 src/theater-subtitle-encoding.c:248
+#: src/theater-subtitle-encoding.c:250 src/theater-subtitle-encoding.c:252
 msgid "Hebrew"
 msgstr "Hebrew"
 
-#: src/totem-subtitle-encoding.c:255
+#: src/theater-subtitle-encoding.c:255
 msgid "Hebrew Visual"
 msgstr "Hebrew Visual"
 
-#: src/totem-subtitle-encoding.c:258
+#: src/theater-subtitle-encoding.c:258
 msgid "Hindi"
 msgstr "Hindi"
 
-#: src/totem-subtitle-encoding.c:261
+#: src/theater-subtitle-encoding.c:261
 msgid "Icelandic"
 msgstr "Icelandic"
 
-#: src/totem-subtitle-encoding.c:264 src/totem-subtitle-encoding.c:266
-#: src/totem-subtitle-encoding.c:268
+#: src/theater-subtitle-encoding.c:264 src/theater-subtitle-encoding.c:266
+#: src/theater-subtitle-encoding.c:268
 msgid "Japanese"
 msgstr "Japanese"
 
-#: src/totem-subtitle-encoding.c:271 src/totem-subtitle-encoding.c:273
-#: src/totem-subtitle-encoding.c:275 src/totem-subtitle-encoding.c:277
+#: src/theater-subtitle-encoding.c:271 src/theater-subtitle-encoding.c:273
+#: src/theater-subtitle-encoding.c:275 src/theater-subtitle-encoding.c:277
 msgid "Korean"
 msgstr "Korean"
 
-#: src/totem-subtitle-encoding.c:280
+#: src/theater-subtitle-encoding.c:280
 msgid "Nordic"
 msgstr "Nordic"
 
-#: src/totem-subtitle-encoding.c:283
+#: src/theater-subtitle-encoding.c:283
 msgid "Persian"
 msgstr "Persian"
 
-#: src/totem-subtitle-encoding.c:286 src/totem-subtitle-encoding.c:288
+#: src/theater-subtitle-encoding.c:286 src/theater-subtitle-encoding.c:288
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/totem-subtitle-encoding.c:291
+#: src/theater-subtitle-encoding.c:291
 msgid "South European"
 msgstr "South European"
 
-#: src/totem-subtitle-encoding.c:294
+#: src/theater-subtitle-encoding.c:294
 msgid "Thai"
 msgstr "Thai"
 
-#: src/totem-subtitle-encoding.c:297 src/totem-subtitle-encoding.c:299
-#: src/totem-subtitle-encoding.c:301 src/totem-subtitle-encoding.c:303
+#: src/theater-subtitle-encoding.c:297 src/theater-subtitle-encoding.c:299
+#: src/theater-subtitle-encoding.c:301 src/theater-subtitle-encoding.c:303
 msgid "Turkish"
 msgstr "Turkish"
 
-#: src/totem-subtitle-encoding.c:306 src/totem-subtitle-encoding.c:308
-#: src/totem-subtitle-encoding.c:310 src/totem-subtitle-encoding.c:312
-#: src/totem-subtitle-encoding.c:314
+#: src/theater-subtitle-encoding.c:306 src/theater-subtitle-encoding.c:308
+#: src/theater-subtitle-encoding.c:310 src/theater-subtitle-encoding.c:312
+#: src/theater-subtitle-encoding.c:314
 msgid "Unicode"
 msgstr "Unicode"
 
-#: src/totem-subtitle-encoding.c:317 src/totem-subtitle-encoding.c:319
-#: src/totem-subtitle-encoding.c:321 src/totem-subtitle-encoding.c:323
-#: src/totem-subtitle-encoding.c:325
+#: src/theater-subtitle-encoding.c:317 src/theater-subtitle-encoding.c:319
+#: src/theater-subtitle-encoding.c:321 src/theater-subtitle-encoding.c:323
+#: src/theater-subtitle-encoding.c:325
 msgid "Western"
 msgstr "Western"
 
-#: src/totem-subtitle-encoding.c:328 src/totem-subtitle-encoding.c:330
-#: src/totem-subtitle-encoding.c:332
+#: src/theater-subtitle-encoding.c:328 src/theater-subtitle-encoding.c:330
+#: src/theater-subtitle-encoding.c:332
 msgid "Vietnamese"
 msgstr "Vietnamese"
 
-#: src/totem-uri.c:329
+#: src/theater-uri.c:329
 msgid "All files"
 msgstr ""
 
-#: src/totem-uri.c:335
+#: src/theater-uri.c:335
 msgid "Video files"
 msgstr "Video files"
 
-#: src/totem-uri.c:346
+#: src/theater-uri.c:346
 msgid "Subtitle files"
 msgstr ""
 
-#: src/totem-uri.c:396
+#: src/theater-uri.c:396
 msgid "Select Text Subtitles"
 msgstr ""
 
-#: src/totem-uri.c:400
+#: src/theater-uri.c:400
 msgid "_Open"
 msgstr "Kangpu"
 
-#: src/totem-uri.c:457
+#: src/theater-uri.c:457
 msgid "Add Videos"
 msgstr "Videos kethap"
 
@@ -1216,11 +1216,11 @@ msgstr ""
 msgid "Unknown property ‘%s’ requested of a MediaPlayer 2 object"
 msgstr ""
 
-#: src/plugins/im-status/totem-im-status.plugin.desktop.in:6
+#: src/plugins/im-status/theater-im-status.plugin.desktop.in:6
 msgid "Instant Messenger Status"
 msgstr "Instant Messenger Status"
 
-#: src/plugins/im-status/totem-im-status.plugin.desktop.in:7
+#: src/plugins/im-status/theater-im-status.plugin.desktop.in:7
 msgid "Set your Instant Messenger status to away when a movie is playing"
 msgstr ""
 
@@ -1240,7 +1240,7 @@ msgstr "Directory kangpu"
 msgid "Open the directory of the currently playing movie"
 msgstr ""
 
-#: src/plugins/open-directory/totem-open-directory.c:189
+#: src/plugins/open-directory/theater-open-directory.c:189
 msgid "Open containing folder"
 msgstr ""
 
@@ -1315,11 +1315,11 @@ msgstr "Subtitle a_lam:"
 msgid "_Play with Subtitle"
 msgstr ""
 
-#: src/plugins/opensubtitles/org.gnome.totem.plugins.opensubtitles.gschema.xml.in:6
+#: src/plugins/opensubtitles/org.gnome.theater.plugins.opensubtitles.gschema.xml.in:6
 msgid "Subtitle language"
 msgstr "Subtitle alam"
 
-#: src/plugins/opensubtitles/org.gnome.totem.plugins.opensubtitles.gschema.xml.in:7
+#: src/plugins/opensubtitles/org.gnome.theater.plugins.opensubtitles.gschema.xml.in:7
 msgid "The language to search for subtitles for movies in."
 msgstr ""
 
@@ -1331,38 +1331,38 @@ msgstr ""
 msgid "Adds movie properties menu item"
 msgstr ""
 
-#: src/plugins/properties/totem-movie-properties.c:152
+#: src/plugins/properties/theater-movie-properties.c:152
 #, c-format
 msgid "%d × %d"
 msgstr "%d × %d"
 
-#: src/plugins/properties/totem-movie-properties.c:155
-#: src/plugins/properties/totem-movie-properties.c:166
+#: src/plugins/properties/theater-movie-properties.c:155
+#: src/plugins/properties/theater-movie-properties.c:166
 #, c-format
 msgid "%d kbps"
 msgstr "%d kbps"
 
-#: src/plugins/properties/totem-movie-properties.c:155
-#: src/plugins/properties/totem-movie-properties.c:166
+#: src/plugins/properties/theater-movie-properties.c:155
+#: src/plugins/properties/theater-movie-properties.c:166
 msgctxt "Stream bit rate"
 msgid "N/A"
 msgstr "N/A"
 
-#: src/plugins/properties/totem-movie-properties.c:169
+#: src/plugins/properties/theater-movie-properties.c:169
 #, c-format
 msgid "%d Hz"
 msgstr "%d Hz"
 
-#: src/plugins/properties/totem-movie-properties.c:169
+#: src/plugins/properties/theater-movie-properties.c:169
 msgctxt "Sample rate"
 msgid "N/A"
 msgstr "N/A"
 
-#: src/plugins/properties/totem-movie-properties.c:280
+#: src/plugins/properties/theater-movie-properties.c:280
 msgid "Properties"
 msgstr ""
 
-#: src/plugins/properties/totem-movie-properties.c:305
+#: src/plugins/properties/theater-movie-properties.c:305
 msgid "_Properties"
 msgstr ""
 
@@ -1541,14 +1541,14 @@ msgid_plural "%0.2f frames per second"
 msgstr[0] "%0.2f fps"
 msgstr[1] "%0.2f fps"
 
-#: src/plugins/pythonconsole/org.gnome.totem.plugins.pythonconsole.gschema.xml.in:6
+#: src/plugins/pythonconsole/org.gnome.theater.plugins.pythonconsole.gschema.xml.in:6
 msgid "rpdb2 password"
 msgstr "rpdb2 password"
 
-#: src/plugins/pythonconsole/org.gnome.totem.plugins.pythonconsole.gschema.xml.in:7
+#: src/plugins/pythonconsole/org.gnome.theater.plugins.pythonconsole.gschema.xml.in:7
 msgid ""
-"A password to protect the rpdb2 server for debugging Totem from unauthorized "
-"remote access. If this is empty, a default of “totem” will be used."
+"A password to protect the rpdb2 server for debugging theater from unauthorized "
+"remote access. If this is empty, a default of “theater” will be used."
 msgstr ""
 
 #: src/plugins/pythonconsole/pythonconsole.plugin.desktop.in:6
@@ -1573,19 +1573,19 @@ msgstr "Python Debugger"
 #. pylint: disable=E1101
 #: src/plugins/pythonconsole/pythonconsole.py:97
 #, python-format
-msgid "You can access the Totem.Object through “totem_object” :\\n%s"
+msgid "You can access the theater.Object through “theater_object” :\\n%s"
 msgstr ""
 
 #: src/plugins/pythonconsole/pythonconsole.py:101
-msgid "Totem Python Console"
-msgstr "Totem Python Console"
+msgid "theater Python Console"
+msgstr "theater Python Console"
 
 #. pylint: disable=W0613
 #: src/plugins/pythonconsole/pythonconsole.py:111
 msgid ""
-"After you press OK, Totem will wait until you connect to it with winpdb or "
+"After you press OK, theater will wait until you connect to it with winpdb or "
 "rpdb2. If you have not set a debugger password in DConf, it will use the "
-"default password (“totem”)."
+"default password (“theater”)."
 msgstr ""
 
 #: src/plugins/recent/recent.plugin.desktop.in:6
@@ -1604,11 +1604,11 @@ msgstr ""
 msgid "Allows videos to be rotated if they are in the wrong orientation"
 msgstr ""
 
-#: src/plugins/rotation/totem-rotation.c:258
+#: src/plugins/rotation/theater-rotation.c:258
 msgid "_Rotate ↷"
 msgstr "Pa_rting↷"
 
-#: src/plugins/rotation/totem-rotation.c:262
+#: src/plugins/rotation/theater-rotation.c:262
 msgid "Rotate ↶"
 msgstr "Parting ↶"
 
@@ -1620,22 +1620,22 @@ msgstr ""
 msgid "Save a copy of the currently playing movie"
 msgstr ""
 
-#: src/plugins/save-file/totem-save-file.c:89
+#: src/plugins/save-file/theater-save-file.c:89
 msgid "The video could not be made available offline."
 msgstr ""
 
 #. translators: “Files” refers to nautilus' name
-#: src/plugins/save-file/totem-save-file.c:91
+#: src/plugins/save-file/theater-save-file.c:91
 msgid "“Files” is not available."
 msgstr "“Files” awe."
 
 #. translators: Movie is the default saved movie filename,
 #. * without the suffix
-#: src/plugins/save-file/totem-save-file.c:172
+#: src/plugins/save-file/theater-save-file.c:172
 msgid "Movie"
 msgstr "Lam-arjan"
 
-#: src/plugins/save-file/totem-save-file.c:456
+#: src/plugins/save-file/theater-save-file.c:456
 msgid "Make Available Offline"
 msgstr ""
 
@@ -1647,7 +1647,7 @@ msgstr ""
 msgid "Deactivates the screen saver when a movie is playing"
 msgstr ""
 
-#: src/plugins/screensaver/totem-screensaver.c:79
+#: src/plugins/screensaver/theater-screensaver.c:79
 msgid "Playing a movie"
 msgstr "Lam-arjan rot bom"
 
@@ -1686,11 +1686,11 @@ msgstr "Screenshot"
 msgid "Allows screenshots and galleries to be taken of videos"
 msgstr ""
 
-#: src/plugins/screenshot/totem-gallery.c:92
+#: src/plugins/screenshot/theater-gallery.c:92
 msgid "Save Gallery"
 msgstr ""
 
-#: src/plugins/screenshot/totem-gallery.c:99
+#: src/plugins/screenshot/theater-gallery.c:99
 msgid "_Save"
 msgstr ""
 
@@ -1698,41 +1698,41 @@ msgstr ""
 #. * argument is a number which is used to prevent overwriting files.
 #. * Just translate "Gallery", and not the ".jpg". Example:
 #. * "Galerie-%s-%d.jpg".
-#: src/plugins/screenshot/totem-gallery.c:116
+#: src/plugins/screenshot/theater-gallery.c:116
 #, c-format
 msgid "Gallery-%s-%d.jpg"
 msgstr "Gallery-%s-%d.jpg"
 
 #. Set up the window
-#: src/plugins/screenshot/totem-gallery-progress.c:101
+#: src/plugins/screenshot/theater-gallery-progress.c:101
 msgid "Creating Gallery…"
 msgstr ""
 
 #. Set the progress label
-#: src/plugins/screenshot/totem-gallery-progress.c:107
+#: src/plugins/screenshot/theater-gallery-progress.c:107
 #, c-format
 msgid "Saving gallery as “%s”"
 msgstr ""
 
-#: src/plugins/screenshot/totem-screenshot-plugin.c:221
-#: src/plugins/screenshot/totem-screenshot-plugin.c:230
-msgid "Totem could not get a screenshot of the video."
+#: src/plugins/screenshot/theater-screenshot-plugin.c:221
+#: src/plugins/screenshot/theater-screenshot-plugin.c:230
+msgid "theater could not get a screenshot of the video."
 msgstr ""
 
-#: src/plugins/screenshot/totem-screenshot-plugin.c:230
+#: src/plugins/screenshot/theater-screenshot-plugin.c:230
 msgid "This is not supposed to happen; please file a bug report."
 msgstr ""
 
-#: src/plugins/screenshot/totem-screenshot-plugin.c:339
+#: src/plugins/screenshot/theater-screenshot-plugin.c:339
 msgid "Take _Screenshot"
 msgstr "_Screenshot ke-nep"
 
-#: src/plugins/screenshot/totem-screenshot-plugin.c:345
+#: src/plugins/screenshot/theater-screenshot-plugin.c:345
 msgid "Create Screenshot _Gallery…"
 msgstr ""
 
 #: src/plugins/skipto/skipto.plugin.desktop.in:6
-#: src/plugins/skipto/totem-skipto.c:219
+#: src/plugins/skipto/theater-skipto.c:219
 msgid "Skip To"
 msgstr ""
 
@@ -1746,7 +1746,7 @@ msgstr ""
 
 #. Update the "seconds" label so that it always has the correct singular/plural form
 #. Translators: label for the seconds selector in the "Skip to" dialogue
-#: src/plugins/skipto/totem-skipto.c:176
+#: src/plugins/skipto/theater-skipto.c:176
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "second"
@@ -1756,50 +1756,50 @@ msgstr[1] "seconds"
 #. Translators: you should translate this string to a number (written in digits) which corresponds to the longer character length of the
 #. * translations for "second" and "seconds", as translated elsewhere in this file. For example, in English, "second" is 6 characters long and
 #. * "seconds" is 7 characters long, so this string should be translated to "7". See: bgo#639398
-#: src/plugins/skipto/totem-skipto.c:213
+#: src/plugins/skipto/theater-skipto.c:213
 msgctxt "Skip To label length"
 msgid "7"
 msgstr "7"
 
-#: src/plugins/skipto/totem-skipto.c:222
+#: src/plugins/skipto/theater-skipto.c:222
 msgid "_Skip To"
 msgstr ""
 
-#: src/plugins/skipto/totem-skipto-plugin.c:206
+#: src/plugins/skipto/theater-skipto-plugin.c:206
 msgid "_Skip To…"
 msgstr ""
 
-#: src/plugins/variable-rate/totem-variable-rate-plugin.c:63
+#: src/plugins/variable-rate/theater-variable-rate-plugin.c:63
 msgctxt "playback rate"
 msgid "× 0.75"
 msgstr "× 0.75"
 
-#: src/plugins/variable-rate/totem-variable-rate-plugin.c:64
+#: src/plugins/variable-rate/theater-variable-rate-plugin.c:64
 msgctxt "playback rate"
 msgid "Normal"
 msgstr "x 1.0"
 
-#: src/plugins/variable-rate/totem-variable-rate-plugin.c:65
+#: src/plugins/variable-rate/theater-variable-rate-plugin.c:65
 msgctxt "playback rate"
 msgid "× 1.1"
 msgstr "× 1.1"
 
-#: src/plugins/variable-rate/totem-variable-rate-plugin.c:66
+#: src/plugins/variable-rate/theater-variable-rate-plugin.c:66
 msgctxt "playback rate"
 msgid "× 1.25"
 msgstr "× 1.25"
 
-#: src/plugins/variable-rate/totem-variable-rate-plugin.c:67
+#: src/plugins/variable-rate/theater-variable-rate-plugin.c:67
 msgctxt "playback rate"
 msgid "× 1.5"
 msgstr "× 1.5"
 
-#: src/plugins/variable-rate/totem-variable-rate-plugin.c:68
+#: src/plugins/variable-rate/theater-variable-rate-plugin.c:68
 msgctxt "playback rate"
 msgid "× 1.75"
 msgstr "× 1.75"
 
-#: src/plugins/variable-rate/totem-variable-rate-plugin.c:76
+#: src/plugins/variable-rate/theater-variable-rate-plugin.c:76
 #, c-format
 msgid "Speed: %s"
 msgstr "Kechat: %s"

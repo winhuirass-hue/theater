@@ -21,10 +21,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission is above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
@@ -38,8 +38,8 @@
  * @include: bacon-video-widget.h
  *
  * #BaconVideoWidget is a widget to play audio or video streams, with support for visualisations for audio-only streams. It has a GStreamer
- * backend, and abstracts away the differences to provide a simple interface to the functionality required by Totem. It handles all the low-level
- * audio and video work for Totem (or passes the work off to the backend).
+ * backend, and abstracts away the differences to provide a simple interface to the functionality required by theater. It handles all the low-level
+ * audio and video work for theater (or passes the work off to the backend).
  **/
 
 #include <config.h>
@@ -64,7 +64,7 @@
 #include <gst/tag/tag.h>
 
 #include <clutter-gst/clutter-gst.h>
-#include "totem-aspect-frame.h"
+#include "theater-aspect-frame.h"
 
 /* system */
 #include <unistd.h>
@@ -79,8 +79,8 @@
 #include <gio/gio.h>
 #include <gdesktop-enums.h>
 
-#include "totem-gst-helpers.h"
-#include "totem-gst-pixbuf-helpers.h"
+#include "theater-gst-helpers.h"
+#include "theater-gst-pixbuf-helpers.h"
 #include "bacon-video-widget.h"
 #include "bacon-video-widget-gst-missing-plugins.h"
 #include "bacon-video-controls-actor.h"
@@ -321,8 +321,8 @@ static GtkWidgetClass *parent_class = NULL;
 
 static int bvw_signals[LAST_SIGNAL] = { 0 };
 
-GST_DEBUG_CATEGORY (_totem_gst_debug_cat);
-#define GST_CAT_DEFAULT _totem_gst_debug_cat
+GST_DEBUG_CATEGORY (_theater_gst_debug_cat);
+#define GST_CAT_DEFAULT _theater_gst_debug_cat
 
 typedef gchar * (* MsgToStrFunc) (GstMessage * msg);
 
@@ -748,7 +748,7 @@ schedule_hiding_popup (BaconVideoWidget *bvw)
 {
   unschedule_hiding_popup (bvw);
   bvw->priv->transition_timeout_id = g_timeout_add_seconds (POPUP_HIDING_TIMEOUT, (GSourceFunc) hide_popup_timeout_cb, bvw);
-  g_source_set_name_by_id (bvw->priv->transition_timeout_id, "[totem] hide_popup_timeout_cb");
+  g_source_set_name_by_id (bvw->priv->transition_timeout_id, "[theater] hide_popup_timeout_cb");
 }
 
 static void
@@ -1816,7 +1816,7 @@ done:
 }
 
 /* This is a hack to avoid doing poll_for_state_change() indirectly
- * from the bus message callback (via EOS => totem => close => wait for READY)
+ * from the bus message callback (via EOS => theater => close => wait for READY)
  * and deadlocking there. We need something like a
  * gst_bus_set_auto_flushing(bus, FALSE) ... */
 static gboolean
@@ -1841,7 +1841,7 @@ bvw_reconfigure_tick_timeout (BaconVideoWidget *bvw, guint msecs)
     GST_DEBUG ("adding tick timeout (at %ums)", msecs);
     bvw->priv->update_id =
       g_timeout_add (msecs, (GSourceFunc) bvw_query_timeout, bvw);
-    g_source_set_name_by_id (bvw->priv->update_id, "[totem] bvw_query_timeout");
+    g_source_set_name_by_id (bvw->priv->update_id, "[theater] bvw_query_timeout");
   }
 }
 
@@ -1857,7 +1857,7 @@ bvw_reconfigure_fill_timeout (BaconVideoWidget *bvw, guint msecs)
     GST_DEBUG ("adding fill timeout (at %ums)", msecs);
     bvw->priv->fill_id =
       g_timeout_add (msecs, (GSourceFunc) bvw_query_buffering_timeout, bvw);
-    g_source_set_name_by_id (bvw->priv->fill_id, "[totem] bvw_query_buffering_timeout");
+    g_source_set_name_by_id (bvw->priv->fill_id, "[theater] bvw_query_buffering_timeout");
   }
 }
 
@@ -2078,7 +2078,7 @@ update_orientation_from_video (BaconVideoWidget *bvw)
   g_free (orientation_str);
 
   angle = rotation * 90.0;
-  totem_aspect_frame_set_rotation (TOTEM_ASPECT_FRAME (bvw->priv->frame), angle);
+  theater_aspect_frame_set_rotation (theater_ASPECT_FRAME (bvw->priv->frame), angle);
 }
 
 static void
@@ -2168,7 +2168,7 @@ bvw_update_tags_delayed (BaconVideoWidget *bvw, GstTagList *tags, const gchar *t
 
   if (bvw->priv->tag_update_id == 0) {
     bvw->priv->tag_update_id = g_idle_add ((GSourceFunc) bvw_update_tags_dispatcher, bvw);
-    g_source_set_name_by_id (bvw->priv->tag_update_id, "[totem] bvw_update_tags_dispatcher");
+    g_source_set_name_by_id (bvw->priv->tag_update_id, "[theater] bvw_update_tags_dispatcher");
   }
 
   g_async_queue_unlock (bvw->priv->tag_update_queue);
@@ -2403,7 +2403,7 @@ bvw_bus_message_cb (GstBus * bus, GstMessage * message, BaconVideoWidget *bvw)
 
   switch (msg_type) {
     case GST_MESSAGE_ERROR: {
-      totem_gst_message_print (message, bvw->priv->play, "totem-error");
+      theater_gst_message_print (message, bvw->priv->play, "theater-error");
 
       if (!bvw_check_missing_plugins_error (bvw, message) &&
 	  !bvw_check_missing_auth (bvw, message)) {
@@ -2439,7 +2439,7 @@ bvw_bus_message_cb (GstBus * bus, GstMessage * message, BaconVideoWidget *bvw)
       bvw_query_timeout (bvw);
       if (bvw->priv->eos_id == 0) {
         bvw->priv->eos_id = g_idle_add (bvw_signal_eos_delayed, bvw);
-        g_source_set_name_by_id (bvw->priv->eos_id, "[totem] bvw_signal_eos_delayed");
+        g_source_set_name_by_id (bvw->priv->eos_id, "[theater] bvw_signal_eos_delayed");
       }
       break;
     case GST_MESSAGE_BUFFERING:
@@ -2484,7 +2484,7 @@ bvw_bus_message_cb (GstBus * bus, GstMessage * message, BaconVideoWidget *bvw)
       if (old_state == GST_STATE_READY && new_state == GST_STATE_PAUSED) {
         GST_DEBUG_BIN_TO_DOT_FILE (GST_BIN_CAST (bvw->priv->play),
             GST_DEBUG_GRAPH_SHOW_ALL ^ GST_DEBUG_GRAPH_SHOW_NON_DEFAULT_PARAMS,
-            "totem-prerolled");
+            "theater-prerolled");
 	bacon_video_widget_get_stream_length (bvw);
         bvw_update_stream_info (bvw);
         if (!bvw_check_missing_plugins_on_preroll (bvw)) {
@@ -2786,7 +2786,7 @@ playbin_element_setup_cb (GstElement *playbin,
     return;
 
   /* See also bacon_video_widget_initable_init() */
-  template = g_build_filename (g_get_user_cache_dir (), "totem", "stream-buffer", "XXXXXX", NULL);
+  template = g_build_filename (g_get_user_cache_dir (), "theater", "stream-buffer", "XXXXXX", NULL);
   g_object_set (element, "temp-template", template, NULL);
   GST_DEBUG ("Reconfigured file download template to '%s'", template);
   g_free (template);
@@ -4406,7 +4406,7 @@ bvw_stop_play_pipeline (BaconVideoWidget * bvw)
   g_clear_object (&bvw->priv->cover_pixbuf);
   clutter_actor_hide (bvw->priv->spinner);
   g_object_set (G_OBJECT (bvw->priv->spinner), "percent", 0.0, NULL);
-  totem_aspect_frame_set_internal_rotation (TOTEM_ASPECT_FRAME (bvw->priv->frame), 0.0);
+  theater_aspect_frame_set_internal_rotation (theater_ASPECT_FRAME (bvw->priv->frame), 0.0);
   GST_DEBUG ("stopped");
 }
 
@@ -5041,7 +5041,7 @@ bacon_video_widget_set_zoom (BaconVideoWidget *bvw,
   if (bvw->priv->frame == NULL)
     return;
 
-  totem_aspect_frame_set_expand (TOTEM_ASPECT_FRAME (bvw->priv->frame),
+  theater_aspect_frame_set_expand (theater_ASPECT_FRAME (bvw->priv->frame),
 			      (mode == BVW_ZOOM_EXPAND));
 }
 
@@ -5060,7 +5060,7 @@ bacon_video_widget_get_zoom (BaconVideoWidget *bvw)
 
   g_return_val_if_fail (BACON_IS_VIDEO_WIDGET (bvw), 1.0);
 
-  expand = totem_aspect_frame_get_expand (TOTEM_ASPECT_FRAME (bvw->priv->frame));
+  expand = theater_aspect_frame_get_expand (theater_ASPECT_FRAME (bvw->priv->frame));
   return expand ? BVW_ZOOM_EXPAND : BVW_ZOOM_NONE;
 }
 
@@ -5090,7 +5090,7 @@ bacon_video_widget_set_rotation (BaconVideoWidget *bvw,
   bvw->priv->rotation = rotation;
 
   angle = rotation * 90.0;
-  totem_aspect_frame_set_rotation (TOTEM_ASPECT_FRAME (bvw->priv->frame), angle);
+  theater_aspect_frame_set_rotation (theater_ASPECT_FRAME (bvw->priv->frame), angle);
 }
 
 /**
@@ -5285,7 +5285,7 @@ notify_volume_cb (GObject             *object,
   guint id;
 
   id = g_idle_add ((GSourceFunc) notify_volume_idle_cb, bvw);
-  g_source_set_name_by_id (id, "[totem] notify_volume_idle_cb");
+  g_source_set_name_by_id (id, "[theater] notify_volume_idle_cb");
 }
 
 /**
@@ -5918,7 +5918,7 @@ bacon_video_widget_get_metadata (BaconVideoWidget * bvw,
 	if (!bvw->priv->tagcache)
 	  break;
 
-	pixbuf = totem_gst_tag_list_get_cover (bvw->priv->tagcache);
+	pixbuf = theater_gst_tag_list_get_cover (bvw->priv->tagcache);
 	if (pixbuf) {
 	  g_value_init (value, GDK_TYPE_PIXBUF);
 	  g_value_take_object (value, pixbuf);
@@ -5997,7 +5997,7 @@ bacon_video_widget_get_current_frame (BaconVideoWidget * bvw)
     return NULL;
   }
 
-  return totem_gst_playbin_get_frame (bvw->priv->play);
+  return theater_gst_playbin_get_frame (bvw->priv->play);
 }
 
 /* =========================================== */
@@ -6152,9 +6152,9 @@ bacon_video_widget_initable_init (GInitable     *initable,
   bvw = BACON_VIDEO_WIDGET (initable);
 
 #ifndef GST_DISABLE_GST_DEBUG
-  if (_totem_gst_debug_cat == NULL) {
-    GST_DEBUG_CATEGORY_INIT (_totem_gst_debug_cat, "totem", 0,
-        "Totem GStreamer Backend");
+  if (_theater_gst_debug_cat == NULL) {
+    GST_DEBUG_CATEGORY_INIT (_theater_gst_debug_cat, "theater", 0,
+        "theater GStreamer Backend");
   }
 #endif
 
@@ -6193,7 +6193,7 @@ bacon_video_widget_initable_init (GInitable     *initable,
   g_object_set (bvw->priv->play, "flags", flags, NULL);
 
   /* Keep in sync with playbin_element_setup_cb() */
-  template = g_build_filename (g_get_user_cache_dir (), "totem", "stream-buffer", NULL);
+  template = g_build_filename (g_get_user_cache_dir (), "theater", "stream-buffer", NULL);
   g_mkdir_with_parents (template, 0700);
   g_free (template);
 
@@ -6238,9 +6238,9 @@ bacon_video_widget_initable_init (GInitable     *initable,
   clutter_actor_hide (CLUTTER_ACTOR (bvw->priv->logo_frame));
 
   /* The video */
-  bvw->priv->frame = totem_aspect_frame_new ();
+  bvw->priv->frame = theater_aspect_frame_new ();
   clutter_actor_set_name (bvw->priv->frame, "frame");
-  totem_aspect_frame_set_child (TOTEM_ASPECT_FRAME (bvw->priv->frame), bvw->priv->texture);
+  theater_aspect_frame_set_child (theater_ASPECT_FRAME (bvw->priv->frame), bvw->priv->texture);
 
   clutter_actor_add_child (bvw->priv->stage, bvw->priv->frame);
 

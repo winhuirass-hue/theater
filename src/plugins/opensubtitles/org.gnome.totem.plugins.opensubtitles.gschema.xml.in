@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-	<schema id="org.gnome.totem.plugins.opensubtitles" path="/org/gnome/Totem/opensubtitles/" gettext-domain="@GETTEXT_PACKAGE@">
+	<schema id="org.gnome.theater.plugins.opensubtitles" path="/org/gnome/theater/opensubtitles/" gettext-domain="@GETTEXT_PACKAGE@">
 		<key name="language" type="s">
 			<default>''</default>
 			<summary>Subtitle language</summary>

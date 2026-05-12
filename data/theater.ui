@@ -180,14 +180,14 @@
   <property name="value">0</property>
   <signal name="value-changed" handler="seek_slider_changed_cb"/>
 </object>
-  <object class="GtkApplicationWindow" id="totem_main_window">
+  <object class="GtkApplicationWindow" id="theater_main_window">
     <property name="can_focus">False</property>
     <signal name="window-state-event" handler="window_state_event_cb" swapped="no"/>
     <signal name="key-release-event" handler="window_key_press_event_cb" swapped="no"/>
     <signal name="key-press-event" handler="window_key_press_event_cb" swapped="no"/>
     <signal name="delete-event" handler="main_window_destroy_cb" swapped="no"/>
     <child>
-      <object class="GtkVBox" id="totem_main_vbox">
+      <object class="GtkVBox" id="theater_main_vbox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>

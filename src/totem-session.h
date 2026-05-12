@@ -1,4 +1,4 @@
-/* totem-session.h
+/* theater-session.h
 
    Copyright (C) 2004 Bastien Nocera <hadess@hadess.net>
 
@@ -20,17 +20,17 @@
    Author: Bastien Nocera <hadess@hadess.net>
  */
 
-#ifndef TOTEM_SESSION_H
-#define TOTEM_SESSION_H
+#ifndef theater_SESSION_H
+#define theater_SESSION_H
 
-#include "totem.h"
+#include "theater.h"
 
 G_BEGIN_DECLS
 
-gboolean totem_session_try_restore (Totem *totem);
-void totem_session_save (Totem *totem);
-void totem_session_cleanup (Totem *totem);
+gboolean theater_session_try_restore (theater *theater);
+void theater_session_save (theater *theater);
+void theater_session_cleanup (theater *theater);
 
 G_END_DECLS
 
-#endif /* TOTEM_SESSION_H */
+#endif /* theater_SESSION_H */

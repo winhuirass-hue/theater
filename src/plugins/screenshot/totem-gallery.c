@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
@@ -31,50 +31,50 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n-lib.h>
 
-#include "totem-dirs.h"
-#include "totem-gallery.h"
-#include "totem-gallery-progress.h"
-#include "totem-screenshot-plugin.h"
+#include "theater-dirs.h"
+#include "theater-gallery.h"
+#include "theater-gallery-progress.h"
+#include "theater-screenshot-plugin.h"
 
-static void dialog_response_callback (GtkDialog *dialog, gint response_id, TotemGallery *self);
+static void dialog_response_callback (GtkDialog *dialog, gint response_id, theaterGallery *self);
 
-static void default_screenshot_count_toggled_callback (GtkToggleButton *toggle_button, TotemGallery *self);
+static void default_screenshot_count_toggled_callback (GtkToggleButton *toggle_button, theaterGallery *self);
 
-struct _TotemGalleryPrivate {
-	Totem *totem;
+struct _theaterGalleryPrivate {
+	theater *theater;
 	GtkCheckButton *default_screenshot_count;
 	GtkSpinButton *screenshot_count;
 	GtkSpinButton *screenshot_width;
 };
 
-G_DEFINE_TYPE (TotemGallery, totem_gallery, GTK_TYPE_FILE_CHOOSER_DIALOG)
-#define TOTEM_GALLERY_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), TOTEM_TYPE_GALLERY, TotemGalleryPrivate))
+G_DEFINE_TYPE (theaterGallery, theater_gallery, GTK_TYPE_FILE_CHOOSER_DIALOG)
+#define theater_GALLERY_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), theater_TYPE_GALLERY, theaterGalleryPrivate))
 
 static void
-totem_gallery_class_init (TotemGalleryClass *klass)
+theater_gallery_class_init (theaterGalleryClass *klass)
 {
-	g_type_class_add_private (klass, sizeof (TotemGalleryPrivate));
+	g_type_class_add_private (klass, sizeof (theaterGalleryPrivate));
 }
 
 static void
-totem_gallery_init (TotemGallery *self)
+theater_gallery_init (theaterGallery *self)
 {
-	self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, TOTEM_TYPE_GALLERY, TotemGalleryPrivate);
+	self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, theater_TYPE_GALLERY, theaterGalleryPrivate);
 }
 
-TotemGallery *
-totem_gallery_new (Totem *totem)
+theaterGallery *
+theater_gallery_new (theater *theater)
 {
-	TotemGallery *gallery;
+	theaterGallery *gallery;
 	GtkWidget *container;
 	GtkBuilder *builder;
 	gchar *movie_title, *uri, *suggested_name;
 	GFile *file;
 
 	/* Create the gallery and its interface */
-	gallery = g_object_new (TOTEM_TYPE_GALLERY, NULL);
+	gallery = g_object_new (theater_TYPE_GALLERY, NULL);
 
-	builder = totem_plugin_load_interface ("screenshot", "gallery.ui", TRUE, NULL, gallery);
+	builder = theater_plugin_load_interface ("screenshot", "gallery.ui", TRUE, NULL, gallery);
 	if (builder == NULL) {
 		g_object_unref (gallery);
 		return NULL;
@@ -87,7 +87,7 @@ totem_gallery_new (Totem *totem)
 	g_signal_connect (gtk_builder_get_object (builder, "default_screenshot_count"), "toggled",
 			  G_CALLBACK (default_screenshot_count_toggled_callback), gallery);
 
-	gallery->priv->totem = totem;
+	gallery->priv->theater = theater;
 
 	gtk_window_set_title (GTK_WINDOW (gallery), _("Save Gallery"));
 	gtk_file_chooser_set_action (GTK_FILE_CHOOSER (gallery), GTK_FILE_CHOOSER_ACTION_SAVE);
@@ -107,13 +107,13 @@ totem_gallery_new (Totem *totem)
 				"gallery_dialog_content"));
 	gtk_file_chooser_set_extra_widget (GTK_FILE_CHOOSER (gallery), container);
 
-	movie_title = totem_object_get_short_title (totem);
+	movie_title = theater_object_get_short_title (theater);
 
 	/* Translators: The first argument is the movie title. The second
 	 * argument is a number which is used to prevent overwriting files.
 	 * Just translate "Gallery", and not the ".jpg". Example:
 	 * "Galerie-%s-%d.jpg". */
-	uri = totem_screenshot_plugin_setup_file_chooser (N_("Gallery-%s-%d.jpg"), movie_title);
+	uri = theater_screenshot_plugin_setup_file_chooser (N_("Gallery-%s-%d.jpg"), movie_title);
 	g_free (movie_title);
 
 	file = g_file_new_for_uri (uri);
@@ -135,7 +135,7 @@ totem_gallery_new (Totem *totem)
 }
 
 static void
-default_screenshot_count_toggled_callback (GtkToggleButton *toggle_button, TotemGallery *self)
+default_screenshot_count_toggled_callback (GtkToggleButton *toggle_button, theaterGallery *self)
 {
 	/* Only have the screenshot count spin button sensitive when the default screenshot count
 	 * check button is unchecked. */
@@ -143,7 +143,7 @@ default_screenshot_count_toggled_callback (GtkToggleButton *toggle_button, Totem
 }
 
 static void
-dialog_response_callback (GtkDialog *dialog, gint response_id, TotemGallery *self)
+dialog_response_callback (GtkDialog *dialog, gint response_id, theaterGallery *self)
 {
 	gchar *filename, *video_mrl, *argv[6];
 	guint screenshot_count, i;
@@ -166,11 +166,11 @@ dialog_response_callback (GtkDialog *dialog, gint response_id, TotemGallery *sel
 		screenshot_count = gtk_spin_button_get_value_as_int (self->priv->screenshot_count);
 
 	filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (self));
-	video_mrl = totem_object_get_current_mrl (self->priv->totem);
-	totem_screenshot_plugin_update_file_chooser (gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (self)));
+	video_mrl = theater_object_get_current_mrl (self->priv->theater);
+	theater_screenshot_plugin_update_file_chooser (gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (self)));
 
 	/* Build the command and arguments to pass it */
-	argv[0] = (gchar*) LIBEXECDIR "/totem-gallery-thumbnailer"; /* a little hacky, but only the allocated stuff is freed below */
+	argv[0] = (gchar*) LIBEXECDIR "/theater-gallery-thumbnailer"; /* a little hacky, but only the allocated stuff is freed below */
 	argv[1] = g_strdup_printf ("--gallery=%u", screenshot_count); /* number of screenshots to output */
 	argv[2] = g_strdup_printf ("--size=%u", gtk_spin_button_get_value_as_int (self->priv->screenshot_width)); /* screenshot width */
 	argv[3] = video_mrl; /* video to thumbnail */
@@ -186,15 +186,15 @@ dialog_response_callback (GtkDialog *dialog, gint response_id, TotemGallery *sel
 		g_free (argv[i]);
 
 	if (ret == FALSE) {
-		g_warning ("Error spawning totem-video-thumbnailer: %s", error->message);
+		g_warning ("Error spawning theater-video-thumbnailer: %s", error->message);
 		g_error_free (error);
 		return;
 	}
 
 	/* Create the progress dialogue */
-	progress_dialog = GTK_WIDGET (totem_gallery_progress_new (child_pid, filename));
+	progress_dialog = GTK_WIDGET (theater_gallery_progress_new (child_pid, filename));
 	g_free (filename);
-	totem_gallery_progress_run (TOTEM_GALLERY_PROGRESS (progress_dialog), stdout_fd);
+	theater_gallery_progress_run (theater_GALLERY_PROGRESS (progress_dialog), stdout_fd);
 	gtk_dialog_run (GTK_DIALOG (progress_dialog));
 	gtk_widget_destroy (progress_dialog);
 

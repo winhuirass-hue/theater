@@ -39,7 +39,7 @@ sources = files(
   'bacon-video-widget-gst-missing-plugins.c',
   'bacon-video-widget.c',
   'clock.c',
-  'totem-aspect-frame.c'
+  'theater-aspect-frame.c'
 )
 
 enum = 'bacon-video-widget-enums'
@@ -71,13 +71,13 @@ libbacon_video_widget_deps = missing_plugins_deps + [
   dependency('cairo', version: '>= 1.14.0'),
   dependency('gsettings-desktop-schemas'),
   m_dep,
-  libtotem_gst_helpers_dep,
-  libtotem_gst_pixbuf_helpers_dep,
-  libtotem_time_helpers_dep
+  libtheater_gst_helpers_dep,
+  libtheater_gst_pixbuf_helpers_dep,
+  libtheater_time_helpers_dep
 ]
 
 libbacon_video_widget_cflags = common_flags + warn_flags + [
-  '-DDATADIR="@0@"'.format(totem_pkgdatadir)
+  '-DDATADIR="@0@"'.format(theater_pkgdatadir)
 ]
 
 libbacon_video_widget = static_library(
@@ -104,7 +104,7 @@ if have_easy_codec
     include_directories: libbacon_video_widget_incs,
     dependencies: libbacon_video_widget_dep,
     c_args: libbacon_video_widget_cflags + [
-      '-DLOGO_PATH="@0@"'.format(join_paths(totem_pkgdatadir, meson.project_name(), 'totem_logo.png')),
+      '-DLOGO_PATH="@0@"'.format(join_paths(theater_pkgdatadir, meson.project_name(), 'theater_logo.png')),
       '-DG_LOG_DOMAIN="@0@"'.format(backend_test)
     ]
   )

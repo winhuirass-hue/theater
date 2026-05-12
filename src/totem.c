@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
@@ -40,19 +40,19 @@
 #include <X11/Xlib.h>
 #endif
 
-#include "totem.h"
-#include "totem-private.h"
-#include "totem-interface.h"
-#include "totem-options.h"
-#include "totem-menu.h"
-#include "totem-uri.h"
-#include "totem-preferences.h"
-#include "totem-session.h"
+#include "theater.h"
+#include "theater-private.h"
+#include "theater-interface.h"
+#include "theater-options.h"
+#include "theater-menu.h"
+#include "theater-uri.h"
+#include "theater-preferences.h"
+#include "theater-session.h"
 
 int
 main (int argc, char **argv)
 {
-	Totem *totem;
+	theater *theater;
 
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
@@ -64,23 +64,23 @@ main (int argc, char **argv)
 	{
 		gtk_init (&argc, &argv);
 		g_set_application_name (_("Videos"));
-		totem_object_show_error_and_exit (_("Could not initialize the thread-safe libraries."), _("Verify your system installation. Totem will now exit."), NULL);
+		theater_object_show_error_and_exit (_("Could not initialize the thread-safe libraries."), _("Verify your system installation. theater will now exit."), NULL);
 	}
 #endif
 
-	g_set_prgname ("totem");
+	g_set_prgname ("theater");
 	g_set_application_name (_("Videos"));
-	gtk_window_set_default_icon_name ("org.gnome.Totem");
+	gtk_window_set_default_icon_name ("org.gnome.theater");
 	g_setenv("PULSE_PROP_media.role", "video", TRUE);
-	g_setenv("PULSE_PROP_application.icon_name", "org.gnome.Totem", TRUE);
+	g_setenv("PULSE_PROP_application.icon_name", "org.gnome.theater", TRUE);
 
-	/* Build the main Totem object */
-	totem = g_object_new (TOTEM_TYPE_OBJECT,
-			      "application-id", "org.gnome.Totem",
+	/* Build the main theater object */
+	theater = g_object_new (theater_TYPE_OBJECT,
+			      "application-id", "org.gnome.theater",
 			      "flags", G_APPLICATION_HANDLES_OPEN,
 			      NULL);
 
-	g_application_run (G_APPLICATION (totem), argc, argv);
+	g_application_run (G_APPLICATION (theater), argc, argv);
 
 	return 0;
 }

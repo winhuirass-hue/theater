@@ -19,10 +19,10 @@
  *
  */
 
-#include "totem-search-entry.h"
+#include "theater-search-entry.h"
 #include "libgd/gd-tagged-entry.h"
 
-G_DEFINE_TYPE (TotemSearchEntry, totem_search_entry, GTK_TYPE_BOX)
+G_DEFINE_TYPE (theaterSearchEntry, theater_search_entry, GTK_TYPE_BOX)
 
 enum {
 	SIGNAL_ACTIVATE,
@@ -36,7 +36,7 @@ enum {
 
 static guint signals[LAST_SIGNAL] = { 0, };
 
-struct _TotemSearchEntryPrivate {
+struct _theaterSearchEntryPrivate {
 	GtkWidget *entry;
 	GtkWidget *popover;
 	GtkWidget *listbox;
@@ -44,19 +44,19 @@ struct _TotemSearchEntryPrivate {
 };
 
 static void
-totem_search_entry_finalize (GObject *obj)
+theater_search_entry_finalize (GObject *obj)
 {
-	TotemSearchEntry *self = TOTEM_SEARCH_ENTRY (obj);
+	theaterSearchEntry *self = theater_SEARCH_ENTRY (obj);
 
 	g_clear_object (&self->priv->tag);
 	/* The popover will be destroyed with it parent (us) */
 
-	G_OBJECT_CLASS (totem_search_entry_parent_class)->finalize (obj);
+	G_OBJECT_CLASS (theater_search_entry_parent_class)->finalize (obj);
 }
 
 static void
 entry_activate_cb (GtkEntry *entry,
-		   TotemSearchEntry *self)
+		   theaterSearchEntry *self)
 {
 	const char *text;
 
@@ -69,7 +69,7 @@ entry_activate_cb (GtkEntry *entry,
 static void
 tag_clicked_cb (GdTaggedEntry    *entry,
 		GdTaggedEntryTag *tag,
-		TotemSearchEntry *self)
+		theaterSearchEntry *self)
 {
 	cairo_rectangle_int_t rect;
 
@@ -84,7 +84,7 @@ listbox_row_activated (GtkListBox    *list_box,
 		       GtkListBoxRow *row,
 		       gpointer       user_data)
 {
-	TotemSearchEntry *self = user_data;
+	theaterSearchEntry *self = user_data;
 	GList *children, *l;
 
 	children = gtk_container_get_children (GTK_CONTAINER (list_box));
@@ -132,17 +132,17 @@ sort_sources (GtkListBoxRow *row_a,
 
 static void
 popover_closed_cb (GtkPopover       *popover,
-		   TotemSearchEntry *self)
+		   theaterSearchEntry *self)
 {
 	gtk_widget_grab_focus (self->priv->entry);
 }
 
 static void
-totem_search_entry_init (TotemSearchEntry *self)
+theater_search_entry_init (theaterSearchEntry *self)
 {
 	GtkWidget *entry;
 
-	self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, TOTEM_TYPE_SEARCH_ENTRY, TotemSearchEntryPrivate);
+	self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, theater_TYPE_SEARCH_ENTRY, theaterSearchEntryPrivate);
 
 	/* Entry */
 	entry = GTK_WIDGET (gd_tagged_entry_new ());
@@ -178,14 +178,14 @@ totem_search_entry_init (TotemSearchEntry *self)
 }
 
 static void
-totem_search_entry_set_property (GObject *object,
+theater_search_entry_set_property (GObject *object,
 				 guint property_id,
                                  const GValue *value,
                                  GParamSpec * pspec)
 {
 	switch (property_id) {
 	case PROP_SELECTED_ID:
-		totem_search_entry_set_selected_id (TOTEM_SEARCH_ENTRY (object),
+		theater_search_entry_set_selected_id (theater_SEARCH_ENTRY (object),
 						    g_value_get_string (value));
 		break;
 	default:
@@ -194,7 +194,7 @@ totem_search_entry_set_property (GObject *object,
 }
 
 static void
-totem_search_entry_get_property (GObject    *object,
+theater_search_entry_get_property (GObject    *object,
 				 guint       property_id,
                                  GValue     *value,
                                  GParamSpec *pspec)
@@ -202,7 +202,7 @@ totem_search_entry_get_property (GObject    *object,
 	switch (property_id) {
 	case PROP_SELECTED_ID:
 		g_value_set_string (value,
-				    totem_search_entry_get_selected_id (TOTEM_SEARCH_ENTRY (object)));
+				    theater_search_entry_get_selected_id (theater_SEARCH_ENTRY (object)));
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -210,17 +210,17 @@ totem_search_entry_get_property (GObject    *object,
 }
 
 static void
-totem_search_entry_class_init (TotemSearchEntryClass *klass)
+theater_search_entry_class_init (theaterSearchEntryClass *klass)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 
-	gobject_class->finalize = totem_search_entry_finalize;
-	gobject_class->set_property = totem_search_entry_set_property;
-	gobject_class->get_property = totem_search_entry_get_property;
+	gobject_class->finalize = theater_search_entry_finalize;
+	gobject_class->set_property = theater_search_entry_set_property;
+	gobject_class->get_property = theater_search_entry_get_property;
 
 	signals[SIGNAL_ACTIVATE] =
 		g_signal_new ("activate",
-			      TOTEM_TYPE_SEARCH_ENTRY,
+			      theater_TYPE_SEARCH_ENTRY,
 			      G_SIGNAL_RUN_FIRST | G_SIGNAL_DETAILED,
 			      0, NULL, NULL, NULL,
 			      G_TYPE_NONE,
@@ -232,13 +232,13 @@ totem_search_entry_class_init (TotemSearchEntryClass *klass)
 							      G_PARAM_READWRITE |
 							      G_PARAM_STATIC_STRINGS));
 
-	g_type_class_add_private (klass, sizeof (TotemSearchEntryPrivate));
+	g_type_class_add_private (klass, sizeof (theaterSearchEntryPrivate));
 }
 
-TotemSearchEntry *
-totem_search_entry_new (void)
+theaterSearchEntry *
+theater_search_entry_new (void)
 {
-	return g_object_new (TOTEM_TYPE_SEARCH_ENTRY, NULL);
+	return g_object_new (theater_TYPE_SEARCH_ENTRY, NULL);
 }
 
 static GtkWidget *
@@ -257,7 +257,7 @@ padded_label_new (const char *text)
 }
 
 void
-totem_search_entry_add_source (TotemSearchEntry *self,
+theater_search_entry_add_source (theaterSearchEntry *self,
 			       const gchar      *id,
 			       const gchar      *label,
 			       int               priority)
@@ -266,7 +266,7 @@ totem_search_entry_add_source (TotemSearchEntry *self,
 	GtkWidget *check;
 	GtkWidget *box;
 
-	g_return_if_fail (TOTEM_IS_SEARCH_ENTRY (self));
+	g_return_if_fail (theater_IS_SEARCH_ENTRY (self));
 
 	if (self->priv->tag == NULL) {
 		self->priv->tag = gd_tagged_entry_tag_new (label);
@@ -303,14 +303,14 @@ totem_search_entry_add_source (TotemSearchEntry *self,
 }
 
 void
-totem_search_entry_remove_source (TotemSearchEntry *self,
+theater_search_entry_remove_source (theaterSearchEntry *self,
 				  const gchar *id)
 {
 	GList *children, *l;
 	guint num_items;
 	gboolean current_removed = FALSE;
 
-	g_return_if_fail (TOTEM_IS_SEARCH_ENTRY (self));
+	g_return_if_fail (theater_IS_SEARCH_ENTRY (self));
 
 	children = gtk_container_get_children (GTK_CONTAINER (self->priv->listbox));
 	if (children == NULL)
@@ -333,7 +333,7 @@ totem_search_entry_remove_source (TotemSearchEntry *self,
 	}
 
 	if (current_removed)
-		totem_search_entry_set_selected_id (self, "grl-tracker-source");
+		theater_search_entry_set_selected_id (self, "grl-tracker-source");
 
 	if (num_items == 0) {
 		gd_tagged_entry_remove_tag (GD_TAGGED_ENTRY (self->priv->entry), self->priv->tag);
@@ -343,20 +343,20 @@ totem_search_entry_remove_source (TotemSearchEntry *self,
 }
 
 const char *
-totem_search_entry_get_text (TotemSearchEntry *self)
+theater_search_entry_get_text (theaterSearchEntry *self)
 {
-	g_return_val_if_fail (TOTEM_IS_SEARCH_ENTRY (self), NULL);
+	g_return_val_if_fail (theater_IS_SEARCH_ENTRY (self), NULL);
 
 	return gtk_entry_get_text (GTK_ENTRY (self->priv->entry));
 }
 
 const char *
-totem_search_entry_get_selected_id (TotemSearchEntry *self)
+theater_search_entry_get_selected_id (theaterSearchEntry *self)
 {
 	GList *children, *l;
 	const char *id = NULL;
 
-	g_return_val_if_fail (TOTEM_IS_SEARCH_ENTRY (self), NULL);
+	g_return_val_if_fail (theater_IS_SEARCH_ENTRY (self), NULL);
 	children = gtk_container_get_children (GTK_CONTAINER (self->priv->listbox));
 	for (l = children; l != NULL; l = l->next) {
 		GtkWidget *check;
@@ -373,13 +373,13 @@ totem_search_entry_get_selected_id (TotemSearchEntry *self)
 }
 
 gboolean
-totem_search_entry_set_selected_id (TotemSearchEntry *self,
+theater_search_entry_set_selected_id (theaterSearchEntry *self,
 				    const char       *id)
 {
 	GList *children, *l;
 	gboolean ret = FALSE;
 
-	g_return_val_if_fail (TOTEM_IS_SEARCH_ENTRY (self), FALSE);
+	g_return_val_if_fail (theater_IS_SEARCH_ENTRY (self), FALSE);
 	g_return_val_if_fail (id != NULL, FALSE);
 
 	children = gtk_container_get_children (GTK_CONTAINER (self->priv->listbox));
@@ -396,7 +396,7 @@ totem_search_entry_set_selected_id (TotemSearchEntry *self,
 		}
 	}
 
-	g_debug ("Could not find ID '%s' in TotemSearchEntry %p", id, self);
+	g_debug ("Could not find ID '%s' in theaterSearchEntry %p", id, self);
 
 end:
 	g_list_free (children);
@@ -404,9 +404,9 @@ end:
 }
 
 GtkEntry *
-totem_search_entry_get_entry (TotemSearchEntry *self)
+theater_search_entry_get_entry (theaterSearchEntry *self)
 {
-	g_return_val_if_fail (TOTEM_IS_SEARCH_ENTRY (self), NULL);
+	g_return_val_if_fail (theater_IS_SEARCH_ENTRY (self), NULL);
 
 	return GTK_ENTRY (self->priv->entry);
 }

@@ -9,8 +9,8 @@ echo_mime () {
 if [ x"$1" = "x--nautilus" ] ; then
 	get_video_mimetypes $2;
 
-	echo "/* generated with mime-type-include.sh in the totem module, don't edit or"
-	echo "   commit in the nautilus module without filing a bug against totem */"
+	echo "/* generated with mime-type-include.sh in the theater module, don't edit or"
+	echo "   commit in the nautilus module without filing a bug against theater */"
 
 	echo "G_GNUC_UNUSED static const char *video_mime_types[] = {"
 	for i in $MIMETYPES ; do

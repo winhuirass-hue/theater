@@ -1,9 +1,9 @@
 {
-    "app-id": "org.gnome.Totem",
+    "app-id": "org.gnome.theater",
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
-    "command": "totem",
+    "command": "theater",
     "tags": ["nightly"],
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
@@ -44,7 +44,7 @@
         /* media-player-keys plugin */
         "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
         /* MPRIS plugin */
-        "--own-name=org.mpris.MediaPlayer2.totem",
+        "--own-name=org.mpris.MediaPlayer2.theater",
         /* im-status plugin */
         "--talk-name=org.gnome.SessionManager"
     ],
@@ -82,12 +82,12 @@
             ]
         },
         {
-            "name": "totem-pl-parser",
+            "name": "theater-pl-parser",
             "buildsystem": "meson",
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/totem-pl-parser.git"
+                    "url": "https://gitlab.gnome.org/GNOME/theater-pl-parser.git"
                 }
             ],
             "cleanup": [ "/include" ]
@@ -299,14 +299,14 @@
             ]
         },
         {
-            "name": "totem",
+            "name": "theater",
             "buildsystem": "meson",
             /* Keep in sync with .gitlab-ci.yml */
             "config-opts": ["-Denable-easy-codec-installation=no"],
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/totem.git"
+                    "url": "https://gitlab.gnome.org/GNOME/theater.git"
                 }
             ]
         }

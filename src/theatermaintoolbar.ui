@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<interface domain="totem">
+<interface domain="theater">
   <!-- interface-requires gtk+ 3.11 -->
-  <template class="TotemMainToolbar" parent="GtkHeaderBar">
+  <template class="theaterMainToolbar" parent="GtkHeaderBar">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>

@@ -21,70 +21,70 @@
  *
  */
 
-#ifndef __TOTEM_ASPECT_FRAME_H__
-#define __TOTEM_ASPECT_FRAME_H__
+#ifndef __theater_ASPECT_FRAME_H__
+#define __theater_ASPECT_FRAME_H__
 
 #include <glib-object.h>
 #include <clutter/clutter.h>
 
 G_BEGIN_DECLS
 
-#define TOTEM_TYPE_ASPECT_FRAME totem_aspect_frame_get_type()
+#define theater_TYPE_ASPECT_FRAME theater_aspect_frame_get_type()
 
-#define TOTEM_ASPECT_FRAME(obj) \
+#define theater_ASPECT_FRAME(obj) \
   (G_TYPE_CHECK_INSTANCE_CAST ((obj), \
-  TOTEM_TYPE_ASPECT_FRAME, TotemAspectFrame))
+  theater_TYPE_ASPECT_FRAME, theaterAspectFrame))
 
-#define TOTEM_ASPECT_FRAME_CLASS(klass) \
+#define theater_ASPECT_FRAME_CLASS(klass) \
   (G_TYPE_CHECK_CLASS_CAST ((klass), \
-  TOTEM_TYPE_ASPECT_FRAME, TotemAspectFrameClass))
+  theater_TYPE_ASPECT_FRAME, theaterAspectFrameClass))
 
-#define TOTEM_IS_ASPECT_FRAME(obj) \
+#define theater_IS_ASPECT_FRAME(obj) \
   (G_TYPE_CHECK_INSTANCE_TYPE ((obj), \
-  TOTEM_TYPE_ASPECT_FRAME))
+  theater_TYPE_ASPECT_FRAME))
 
-#define TOTEM_IS_ASPECT_FRAME_CLASS(klass) \
+#define theater_IS_ASPECT_FRAME_CLASS(klass) \
   (G_TYPE_CHECK_CLASS_TYPE ((klass), \
-  TOTEM_TYPE_ASPECT_FRAME))
+  theater_TYPE_ASPECT_FRAME))
 
-#define TOTEM_ASPECT_FRAME_GET_CLASS(obj) \
+#define theater_ASPECT_FRAME_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), \
-  TOTEM_TYPE_ASPECT_FRAME, TotemAspectFrameClass))
+  theater_TYPE_ASPECT_FRAME, theaterAspectFrameClass))
 
-typedef struct _TotemAspectFrame TotemAspectFrame;
-typedef struct _TotemAspectFrameClass TotemAspectFrameClass;
-typedef struct _TotemAspectFramePrivate TotemAspectFramePrivate;
+typedef struct _theaterAspectFrame theaterAspectFrame;
+typedef struct _theaterAspectFrameClass theaterAspectFrameClass;
+typedef struct _theaterAspectFramePrivate theaterAspectFramePrivate;
 
-struct _TotemAspectFrame
+struct _theaterAspectFrame
 {
   ClutterActor parent;
 
-  TotemAspectFramePrivate *priv;
+  theaterAspectFramePrivate *priv;
 };
 
-struct _TotemAspectFrameClass
+struct _theaterAspectFrameClass
 {
   ClutterActorClass parent_class;
 };
 
-GType           totem_aspect_frame_get_type     (void) G_GNUC_CONST;
+GType           theater_aspect_frame_get_type     (void) G_GNUC_CONST;
 
-ClutterActor *  totem_aspect_frame_new          (void);
+ClutterActor *  theater_aspect_frame_new          (void);
 
-void            totem_aspect_frame_set_child    (TotemAspectFrame *frame,
+void            theater_aspect_frame_set_child    (theaterAspectFrame *frame,
 						 ClutterActor     *child);
 
-void            totem_aspect_frame_set_expand   (TotemAspectFrame *frame,
+void            theater_aspect_frame_set_expand   (theaterAspectFrame *frame,
                                                  gboolean          expand);
-gboolean        totem_aspect_frame_get_expand   (TotemAspectFrame *frame);
+gboolean        theater_aspect_frame_get_expand   (theaterAspectFrame *frame);
 
-void            totem_aspect_frame_set_rotation (TotemAspectFrame *frame,
+void            theater_aspect_frame_set_rotation (theaterAspectFrame *frame,
 						 gdouble           rotation);
-void            totem_aspect_frame_set_internal_rotation
-						(TotemAspectFrame *frame,
+void            theater_aspect_frame_set_internal_rotation
+						(theaterAspectFrame *frame,
 						 gdouble           rotation);
-gdouble         totem_aspect_frame_get_rotation (TotemAspectFrame *frame);
+gdouble         theater_aspect_frame_get_rotation (theaterAspectFrame *frame);
 
 G_END_DECLS
 
-#endif /* __TOTEM_ASPECT_FRAME_H__ */
+#endif /* __theater_ASPECT_FRAME_H__ */

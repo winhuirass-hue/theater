@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * See license_change file for details.
  *
@@ -37,16 +37,16 @@
 #include <libpeas/peas-activatable.h>
 #include <bacon-video-widget-properties.h>
 
-#include "totem-plugin.h"
-#include "totem.h"
+#include "theater-plugin.h"
+#include "theater.h"
 #include "bacon-video-widget.h"
 
-#define TOTEM_TYPE_MOVIE_PROPERTIES_PLUGIN		(totem_movie_properties_plugin_get_type ())
-#define TOTEM_MOVIE_PROPERTIES_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), TOTEM_TYPE_MOVIE_PROPERTIES_PLUGIN, TotemMoviePropertiesPlugin))
-#define TOTEM_MOVIE_PROPERTIES_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_CAST((k), TOTEM_TYPE_MOVIE_PROPERTIES_PLUGIN, TotemMoviePropertiesPluginClass))
-#define TOTEM_IS_MOVIE_PROPERTIES_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), TOTEM_TYPE_MOVIE_PROPERTIES_PLUGIN))
-#define TOTEM_IS_MOVIE_PROPERTIES_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), TOTEM_TYPE_MOVIE_PROPERTIES_PLUGIN))
-#define TOTEM_MOVIE_PROPERTIES_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), TOTEM_TYPE_MOVIE_PROPERTIES_PLUGIN, TotemMoviePropertiesPluginClass))
+#define theater_TYPE_MOVIE_PROPERTIES_PLUGIN		(theater_movie_properties_plugin_get_type ())
+#define theater_MOVIE_PROPERTIES_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), theater_TYPE_MOVIE_PROPERTIES_PLUGIN, theaterMoviePropertiesPlugin))
+#define theater_MOVIE_PROPERTIES_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_CAST((k), theater_TYPE_MOVIE_PROPERTIES_PLUGIN, theaterMoviePropertiesPluginClass))
+#define theater_IS_MOVIE_PROPERTIES_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), theater_TYPE_MOVIE_PROPERTIES_PLUGIN))
+#define theater_IS_MOVIE_PROPERTIES_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), theater_TYPE_MOVIE_PROPERTIES_PLUGIN))
+#define theater_MOVIE_PROPERTIES_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), theater_TYPE_MOVIE_PROPERTIES_PLUGIN, theaterMoviePropertiesPluginClass))
 
 typedef struct {
 	GtkWidget     *props;
@@ -54,11 +54,11 @@ typedef struct {
 	guint          handler_id_stream_length;
 	guint          handler_id_main_page;
 	GSimpleAction *props_action;
-} TotemMoviePropertiesPluginPrivate;
+} theaterMoviePropertiesPluginPrivate;
 
-TOTEM_PLUGIN_REGISTER(TOTEM_TYPE_MOVIE_PROPERTIES_PLUGIN,
-		      TotemMoviePropertiesPlugin,
-		      totem_movie_properties_plugin)
+theater_PLUGIN_REGISTER(theater_TYPE_MOVIE_PROPERTIES_PLUGIN,
+		      theaterMoviePropertiesPlugin,
+		      theater_movie_properties_plugin)
 
 /* used in update_properties_from_bvw() */
 #define UPDATE_FROM_STRING(type, name) \
@@ -176,26 +176,26 @@ update_properties_from_bvw (BaconVideoWidgetProperties *props,
 }
 
 static void
-main_page_notify_cb (TotemObject                *totem,
+main_page_notify_cb (theaterObject                *theater,
 		     GParamSpec                 *arg1,
-		     TotemMoviePropertiesPlugin *pi)
+		     theaterMoviePropertiesPlugin *pi)
 {
 	char *main_page;
 
-	g_object_get (G_OBJECT (totem), "main-page", &main_page, NULL);
+	g_object_get (G_OBJECT (theater), "main-page", &main_page, NULL);
 	if (g_strcmp0 (main_page, "player") == 0)
 		gtk_widget_hide (pi->priv->dialog);
 	g_free (main_page);
 }
 
 static void
-stream_length_notify_cb (TotemObject *totem,
+stream_length_notify_cb (theaterObject *theater,
 			 GParamSpec *arg1,
-			 TotemMoviePropertiesPlugin *plugin)
+			 theaterMoviePropertiesPlugin *plugin)
 {
 	gint64 stream_length;
 
-	g_object_get (G_OBJECT (totem),
+	g_object_get (G_OBJECT (theater),
 		      "stream-length", &stream_length,
 		      NULL);
 
@@ -205,13 +205,13 @@ stream_length_notify_cb (TotemObject *totem,
 }
 
 static void
-totem_movie_properties_plugin_file_opened (TotemObject *totem,
+theater_movie_properties_plugin_file_opened (theaterObject *theater,
 					   const char *mrl,
-					   TotemMoviePropertiesPlugin *plugin)
+					   theaterMoviePropertiesPlugin *plugin)
 {
 	GtkWidget *bvw;
 
-	bvw = totem_object_get_video_widget (totem);
+	bvw = theater_object_get_video_widget (theater);
 	update_properties_from_bvw
 		(BACON_VIDEO_WIDGET_PROPERTIES (plugin->priv->props), bvw);
 	g_object_unref (bvw);
@@ -219,8 +219,8 @@ totem_movie_properties_plugin_file_opened (TotemObject *totem,
 }
 
 static void
-totem_movie_properties_plugin_file_closed (TotemObject *totem,
-					   TotemMoviePropertiesPlugin *plugin)
+theater_movie_properties_plugin_file_closed (theaterObject *theater,
+					   theaterMoviePropertiesPlugin *plugin)
 {
         /* Reset the properties and wait for the signal*/
         bacon_video_widget_properties_reset
@@ -229,16 +229,16 @@ totem_movie_properties_plugin_file_closed (TotemObject *totem,
 }
 
 static void
-totem_movie_properties_plugin_metadata_updated (TotemObject *totem,
+theater_movie_properties_plugin_metadata_updated (theaterObject *theater,
 						const char *artist, 
 						const char *title, 
 						const char *album,
 						guint track_num,
-						TotemMoviePropertiesPlugin *plugin)
+						theaterMoviePropertiesPlugin *plugin)
 {
 	GtkWidget *bvw;
 
-	bvw = totem_object_get_video_widget (totem);
+	bvw = theater_object_get_video_widget (theater);
 	update_properties_from_bvw
 		(BACON_VIDEO_WIDGET_PROPERTIES (plugin->priv->props), bvw);
 	g_object_unref (bvw);
@@ -247,13 +247,13 @@ totem_movie_properties_plugin_metadata_updated (TotemObject *totem,
 static void
 properties_action_cb (GSimpleAction              *simple,
 		      GVariant                   *parameter,
-		      TotemMoviePropertiesPlugin *pi)
+		      theaterMoviePropertiesPlugin *pi)
 {
-	TotemObject *totem;
+	theaterObject *theater;
 	char *main_page;
 
-	totem = g_object_get_data (G_OBJECT (pi), "object");
-	g_object_get (G_OBJECT (totem), "main-page", &main_page, NULL);
+	theater = g_object_get_data (G_OBJECT (pi), "object");
+	g_object_get (G_OBJECT (theater), "main-page", &main_page, NULL);
 	if (g_strcmp0 (main_page, "player") == 0)
 		gtk_widget_show (pi->priv->dialog);
 	g_free (main_page);
@@ -262,21 +262,21 @@ properties_action_cb (GSimpleAction              *simple,
 static void
 impl_activate (PeasActivatable *plugin)
 {
-	TotemMoviePropertiesPlugin *pi;
-	TotemObject *totem;
+	theaterMoviePropertiesPlugin *pi;
+	theaterObject *theater;
 	GtkWindow *parent;
 	GMenu *menu;
 	GMenuItem *item;
 	const char * const accels[] = { "<Primary>p", "View", NULL };
 
-	pi = TOTEM_MOVIE_PROPERTIES_PLUGIN (plugin);
-	totem = g_object_get_data (G_OBJECT (plugin), "object");
+	pi = theater_MOVIE_PROPERTIES_PLUGIN (plugin);
+	theater = g_object_get_data (G_OBJECT (plugin), "object");
 
 	pi->priv->props = bacon_video_widget_properties_new ();
 	gtk_widget_show (pi->priv->props);
 	gtk_widget_set_sensitive (pi->priv->props, FALSE);
 
-	parent = totem_object_get_main_window (totem);
+	parent = theater_object_get_main_window (theater);
 	pi->priv->dialog = gtk_dialog_new_with_buttons (_("Properties"),
 							parent,
 							GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_USE_HEADER_BAR,
@@ -295,35 +295,35 @@ impl_activate (PeasActivatable *plugin)
 	pi->priv->props_action = g_simple_action_new ("properties", NULL);
 	g_signal_connect (G_OBJECT (pi->priv->props_action), "activate",
 			  G_CALLBACK (properties_action_cb), pi);
-	g_action_map_add_action (G_ACTION_MAP (totem), G_ACTION (pi->priv->props_action));
-	gtk_application_set_accels_for_action (GTK_APPLICATION (totem),
+	g_action_map_add_action (G_ACTION_MAP (theater), G_ACTION (pi->priv->props_action));
+	gtk_application_set_accels_for_action (GTK_APPLICATION (theater),
 					       "app.properties",
 					       accels);
 
 	/* Install the menu */
-	menu = totem_object_get_menu_section (totem, "properties-placeholder");
+	menu = theater_object_get_menu_section (theater, "properties-placeholder");
 	item = g_menu_item_new (_("_Properties"), "app.properties");
 	g_menu_item_set_attribute (item, "accel", "s", "<Primary>p");
 	g_menu_append_item (G_MENU (menu), item);
 	g_object_unref (item);
 
-	g_signal_connect (G_OBJECT (totem),
+	g_signal_connect (G_OBJECT (theater),
 			  "file-opened",
-			  G_CALLBACK (totem_movie_properties_plugin_file_opened),
+			  G_CALLBACK (theater_movie_properties_plugin_file_opened),
 			  plugin);
-	g_signal_connect (G_OBJECT (totem),
+	g_signal_connect (G_OBJECT (theater),
 			  "file-closed",
-			  G_CALLBACK (totem_movie_properties_plugin_file_closed),
+			  G_CALLBACK (theater_movie_properties_plugin_file_closed),
 			  plugin);
-	g_signal_connect (G_OBJECT (totem),
+	g_signal_connect (G_OBJECT (theater),
 			  "metadata-updated",
-			  G_CALLBACK (totem_movie_properties_plugin_metadata_updated),
+			  G_CALLBACK (theater_movie_properties_plugin_metadata_updated),
 			  plugin);
-	pi->priv->handler_id_stream_length = g_signal_connect (G_OBJECT (totem),
+	pi->priv->handler_id_stream_length = g_signal_connect (G_OBJECT (theater),
 							       "notify::stream-length",
 							       G_CALLBACK (stream_length_notify_cb),
 							       plugin);
-	pi->priv->handler_id_main_page = g_signal_connect (G_OBJECT (totem),
+	pi->priv->handler_id_main_page = g_signal_connect (G_OBJECT (theater),
 							   "notify::main-page",
 							   G_CALLBACK (main_page_notify_cb),
 							   plugin);
@@ -332,29 +332,29 @@ impl_activate (PeasActivatable *plugin)
 static void
 impl_deactivate (PeasActivatable *plugin)
 {
-	TotemMoviePropertiesPlugin *pi;
-	TotemObject *totem;
+	theaterMoviePropertiesPlugin *pi;
+	theaterObject *theater;
 	const char * const accels[] = { NULL };
 
-	pi = TOTEM_MOVIE_PROPERTIES_PLUGIN (plugin);
-	totem = g_object_get_data (G_OBJECT (plugin), "object");
+	pi = theater_MOVIE_PROPERTIES_PLUGIN (plugin);
+	theater = g_object_get_data (G_OBJECT (plugin), "object");
 
-	g_signal_handler_disconnect (G_OBJECT (totem), pi->priv->handler_id_stream_length);
-	g_signal_handler_disconnect (G_OBJECT (totem), pi->priv->handler_id_main_page);
-	g_signal_handlers_disconnect_by_func (G_OBJECT (totem),
-					      totem_movie_properties_plugin_metadata_updated,
+	g_signal_handler_disconnect (G_OBJECT (theater), pi->priv->handler_id_stream_length);
+	g_signal_handler_disconnect (G_OBJECT (theater), pi->priv->handler_id_main_page);
+	g_signal_handlers_disconnect_by_func (G_OBJECT (theater),
+					      theater_movie_properties_plugin_metadata_updated,
 					      plugin);
-	g_signal_handlers_disconnect_by_func (G_OBJECT (totem),
-					      totem_movie_properties_plugin_file_opened,
+	g_signal_handlers_disconnect_by_func (G_OBJECT (theater),
+					      theater_movie_properties_plugin_file_opened,
 					      plugin);
-	g_signal_handlers_disconnect_by_func (G_OBJECT (totem),
-					      totem_movie_properties_plugin_file_closed,
+	g_signal_handlers_disconnect_by_func (G_OBJECT (theater),
+					      theater_movie_properties_plugin_file_closed,
 					      plugin);
 	pi->priv->handler_id_stream_length = 0;
 	pi->priv->handler_id_main_page = 0;
 
-	gtk_application_set_accels_for_action (GTK_APPLICATION (totem),
+	gtk_application_set_accels_for_action (GTK_APPLICATION (theater),
 					       "app.properties",
 					       accels);
-	totem_object_empty_menu_section (totem, "properties-placeholder");
+	theater_object_empty_menu_section (theater, "properties-placeholder");
 }

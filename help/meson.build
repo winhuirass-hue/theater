@@ -23,7 +23,7 @@ sources = [
 media = [
   'figures/dvd-gnome-notification.png',
   'figures/dvd-nautilus.png',
-  'figures/org.gnome.Totem.svg',
+  'figures/org.gnome.theater.svg',
   'figures/volume-button-slider.png'
 ]
 

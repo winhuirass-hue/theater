@@ -32,30 +32,30 @@
 #include <libpeas/peas-object-module.h>
 #include <libpeas/peas-activatable.h>
 
-#include "totem-plugin.h"
-#include "totem-interface.h"
+#include "theater-plugin.h"
+#include "theater-interface.h"
 #include "backend/bacon-video-widget.h"
 
-#define TOTEM_TYPE_ROTATION_PLUGIN		(totem_rotation_plugin_get_type ())
-#define TOTEM_ROTATION_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), TOTEM_TYPE_ROTATION_PLUGIN, TotemRotationPlugin))
-#define TOTEM_ROTATION_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), TOTEM_TYPE_ROTATION_PLUGIN, TotemRotationPluginClass))
-#define TOTEM_IS_ROTATION_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), TOTEM_TYPE_ROTATION_PLUGIN))
-#define TOTEM_IS_ROTATION_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), TOTEM_TYPE_ROTATION_PLUGIN))
-#define TOTEM_ROTATION_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), TOTEM_TYPE_ROTATION_PLUGIN, TotemRotationPluginClass))
+#define theater_TYPE_ROTATION_PLUGIN		(theater_rotation_plugin_get_type ())
+#define theater_ROTATION_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), theater_TYPE_ROTATION_PLUGIN, theaterRotationPlugin))
+#define theater_ROTATION_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), theater_TYPE_ROTATION_PLUGIN, theaterRotationPluginClass))
+#define theater_IS_ROTATION_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), theater_TYPE_ROTATION_PLUGIN))
+#define theater_IS_ROTATION_PLUGIN_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), theater_TYPE_ROTATION_PLUGIN))
+#define theater_ROTATION_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), theater_TYPE_ROTATION_PLUGIN, theaterRotationPluginClass))
 
-#define GIO_ROTATION_FILE_ATTRIBUTE "metadata::totem::rotation"
+#define GIO_ROTATION_FILE_ATTRIBUTE "metadata::theater::rotation"
 #define STATE_COUNT 4
 
 typedef struct {
-	TotemObject *totem;
+	theaterObject *theater;
 	GtkWidget   *bvw;
 
 	GCancellable *cancellable;
 	GSimpleAction *rotate_left_action;
 	GSimpleAction *rotate_right_action;
-} TotemRotationPluginPrivate;
+} theaterRotationPluginPrivate;
 
-TOTEM_PLUGIN_REGISTER(TOTEM_TYPE_ROTATION_PLUGIN, TotemRotationPlugin, totem_rotation_plugin)
+theater_PLUGIN_REGISTER(theater_TYPE_ROTATION_PLUGIN, theaterRotationPlugin, theater_rotation_plugin)
 
 static void
 store_state_cb (GObject      *source_object,
@@ -74,9 +74,9 @@ store_state_cb (GObject      *source_object,
 }
 
 static void
-store_state (TotemRotationPlugin *pi)
+store_state (theaterRotationPlugin *pi)
 {
-	TotemRotationPluginPrivate *priv = pi->priv;
+	theaterRotationPluginPrivate *priv = pi->priv;
 	BvwRotation rotation;
 	char *rotation_s;
 	GFileInfo *info;
@@ -89,7 +89,7 @@ store_state (TotemRotationPlugin *pi)
 	g_file_info_set_attribute_string (info, GIO_ROTATION_FILE_ATTRIBUTE, rotation_s);
 	g_free (rotation_s);
 
-	mrl = totem_object_get_current_mrl (priv->totem);
+	mrl = theater_object_get_current_mrl (priv->theater);
 	file = g_file_new_for_uri (mrl);
 	g_free (mrl);
 	g_file_set_attributes_async (file,
@@ -107,7 +107,7 @@ restore_state_cb (GObject      *source_object,
 		  GAsyncResult *res,
 		  gpointer      user_data)
 {
-	TotemRotationPlugin *pi;
+	theaterRotationPlugin *pi;
 	GError *error = NULL;
 	GFileInfo *info;
 	const char *rotation_s;
@@ -137,13 +137,13 @@ out:
 }
 
 static void
-restore_state (TotemRotationPlugin *pi)
+restore_state (theaterRotationPlugin *pi)
 {
-	TotemRotationPluginPrivate *priv = pi->priv;
+	theaterRotationPluginPrivate *priv = pi->priv;
 	char *mrl;
 	GFile *file;
 
-	mrl = totem_object_get_current_mrl (priv->totem);
+	mrl = theater_object_get_current_mrl (priv->theater);
 	file = g_file_new_for_uri (mrl);
 	g_free (mrl);
 
@@ -158,10 +158,10 @@ restore_state (TotemRotationPlugin *pi)
 }
 
 static void
-update_state (TotemRotationPlugin *pi,
+update_state (theaterRotationPlugin *pi,
 	      const char          *mrl)
 {
-	TotemRotationPluginPrivate *priv = pi->priv;
+	theaterRotationPluginPrivate *priv = pi->priv;
 
 	if (mrl == NULL) {
 		bacon_video_widget_set_rotation (BACON_VIDEO_WIDGET (priv->bvw),
@@ -180,8 +180,8 @@ cb_rotate_left (GSimpleAction *simple,
 		GVariant      *parameter,
 		gpointer       user_data)
 {
-	TotemRotationPlugin *pi = user_data;
-	TotemRotationPluginPrivate *priv = pi->priv;
+	theaterRotationPlugin *pi = user_data;
+	theaterRotationPluginPrivate *priv = pi->priv;
         int state;
 
         state = (bacon_video_widget_get_rotation (BACON_VIDEO_WIDGET (priv->bvw)) - 1) % STATE_COUNT;
@@ -194,8 +194,8 @@ cb_rotate_right (GSimpleAction *simple,
 		 GVariant      *parameter,
 		 gpointer       user_data)
 {
-	TotemRotationPlugin *pi = user_data;
-	TotemRotationPluginPrivate *priv = pi->priv;
+	theaterRotationPlugin *pi = user_data;
+	theaterRotationPluginPrivate *priv = pi->priv;
         int state;
 
         state = (bacon_video_widget_get_rotation (BACON_VIDEO_WIDGET (priv->bvw)) + 1) % STATE_COUNT;
@@ -204,16 +204,16 @@ cb_rotate_right (GSimpleAction *simple,
 }
 
 static void
-totem_rotation_file_closed (TotemObject *totem,
-			    TotemRotationPlugin *pi)
+theater_rotation_file_closed (theaterObject *theater,
+			    theaterRotationPlugin *pi)
 {
 	update_state (pi, NULL);
 }
 
 static void
-totem_rotation_file_opened (TotemObject *totem,
+theater_rotation_file_opened (theaterObject *theater,
 			    const char *mrl,
-			    TotemRotationPlugin *pi)
+			    theaterRotationPlugin *pi)
 {
 	update_state (pi, mrl);
 }
@@ -221,38 +221,38 @@ totem_rotation_file_opened (TotemObject *totem,
 static void
 impl_activate (PeasActivatable *plugin)
 {
-	TotemRotationPlugin *pi = TOTEM_ROTATION_PLUGIN (plugin);
-	TotemRotationPluginPrivate *priv = pi->priv;
+	theaterRotationPlugin *pi = theater_ROTATION_PLUGIN (plugin);
+	theaterRotationPluginPrivate *priv = pi->priv;
 	GMenu *menu;
 	GMenuItem *item;
 	char *mrl;
 
-	priv->totem = g_object_get_data (G_OBJECT (plugin), "object");
-	priv->bvw = totem_object_get_video_widget (priv->totem);
+	priv->theater = g_object_get_data (G_OBJECT (plugin), "object");
+	priv->bvw = theater_object_get_video_widget (priv->theater);
 	priv->cancellable = g_cancellable_new ();
 
-	g_signal_connect (priv->totem,
+	g_signal_connect (priv->theater,
 			  "file-opened",
-			  G_CALLBACK (totem_rotation_file_opened),
+			  G_CALLBACK (theater_rotation_file_opened),
 			  plugin);
-	g_signal_connect (priv->totem,
+	g_signal_connect (priv->theater,
 			  "file-closed",
-			  G_CALLBACK (totem_rotation_file_closed),
+			  G_CALLBACK (theater_rotation_file_closed),
 			  plugin);
 
 	/* add UI */
-	menu = totem_object_get_menu_section (priv->totem, "rotation-placeholder");
+	menu = theater_object_get_menu_section (priv->theater, "rotation-placeholder");
 
 	priv->rotate_left_action = g_simple_action_new ("rotate-left", NULL);
 	g_signal_connect (G_OBJECT (priv->rotate_left_action), "activate",
 			  G_CALLBACK (cb_rotate_left), pi);
-	g_action_map_add_action (G_ACTION_MAP (priv->totem),
+	g_action_map_add_action (G_ACTION_MAP (priv->theater),
 				 G_ACTION (priv->rotate_left_action));
 
 	priv->rotate_right_action = g_simple_action_new ("rotate-right", NULL);
 	g_signal_connect (G_OBJECT (priv->rotate_right_action), "activate",
 			  G_CALLBACK (cb_rotate_right), pi);
-	g_action_map_add_action (G_ACTION_MAP (priv->totem),
+	g_action_map_add_action (G_ACTION_MAP (priv->theater),
 				 G_ACTION (priv->rotate_right_action));
 
 	item = g_menu_item_new (_("_Rotate ↷"), "app.rotate-right");
@@ -263,7 +263,7 @@ impl_activate (PeasActivatable *plugin)
 	g_menu_item_set_attribute (item, "accel", "s", "<Primary><Shift>R");
 	g_menu_append_item (G_MENU (menu), item);
 
-	mrl = totem_object_get_current_mrl (priv->totem);
+	mrl = theater_object_get_current_mrl (priv->theater);
 	update_state (pi, mrl);
 	g_free (mrl);
 }
@@ -271,24 +271,24 @@ impl_activate (PeasActivatable *plugin)
 static void
 impl_deactivate (PeasActivatable *plugin)
 {
-	TotemRotationPlugin *pi = TOTEM_ROTATION_PLUGIN (plugin);
-	TotemRotationPluginPrivate *priv = pi->priv;
+	theaterRotationPlugin *pi = theater_ROTATION_PLUGIN (plugin);
+	theaterRotationPluginPrivate *priv = pi->priv;
 
 	if (priv->cancellable != NULL) {
 		g_cancellable_cancel (priv->cancellable);
 		g_clear_object (&priv->cancellable);
 	}
 
-	g_signal_handlers_disconnect_by_func (priv->totem, totem_rotation_file_opened, plugin);
-	g_signal_handlers_disconnect_by_func (priv->totem, totem_rotation_file_closed, plugin);
+	g_signal_handlers_disconnect_by_func (priv->theater, theater_rotation_file_opened, plugin);
+	g_signal_handlers_disconnect_by_func (priv->theater, theater_rotation_file_closed, plugin);
 
-	totem_object_empty_menu_section (priv->totem, "rotation-placeholder");
-	g_action_map_remove_action (G_ACTION_MAP (priv->totem), "rotate-left");
-	g_action_map_remove_action (G_ACTION_MAP (priv->totem), "rotate-right");
+	theater_object_empty_menu_section (priv->theater, "rotation-placeholder");
+	g_action_map_remove_action (G_ACTION_MAP (priv->theater), "rotate-left");
+	g_action_map_remove_action (G_ACTION_MAP (priv->theater), "rotate-right");
 
 	bacon_video_widget_set_rotation (BACON_VIDEO_WIDGET (priv->bvw),
 					 BVW_ROTATION_R_ZERO);
 
-	priv->totem = NULL;
+	priv->theater = NULL;
 	priv->bvw = NULL;
 }

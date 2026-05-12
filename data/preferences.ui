@@ -76,7 +76,7 @@
   <signal name="value-changed" handler="seek_slider_changed_cb"/>
 </object>
 
-<object class="GtkDialog" id="totem_preferences_window">
+<object class="GtkDialog" id="theater_preferences_window">
   <property name="title" translatable="yes">Preferences</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_CENTER_ON_PARENT</property>

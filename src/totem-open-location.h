@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add excemption clause.
  * See license_change file for details.
@@ -27,36 +27,36 @@
  * Author: Bastien Nocera <hadess@hadess.net>, Philip Withnall <philip@tecnocode.co.uk>
  */
 
-#ifndef TOTEM_OPEN_LOCATION_H
-#define TOTEM_OPEN_LOCATION_H
+#ifndef theater_OPEN_LOCATION_H
+#define theater_OPEN_LOCATION_H
 
 #include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 
-#define TOTEM_TYPE_OPEN_LOCATION		(totem_open_location_get_type ())
-#define TOTEM_OPEN_LOCATION(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), TOTEM_TYPE_OPEN_LOCATION, TotemOpenLocation))
-#define TOTEM_OPEN_LOCATION_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), TOTEM_TYPE_OPEN_LOCATION, TotemOpenLocationClass))
-#define TOTEM_IS_OPEN_LOCATION(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), TOTEM_TYPE_OPEN_LOCATION))
-#define TOTEM_IS_OPEN_LOCATION_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), TOTEM_TYPE_OPEN_LOCATION))
+#define theater_TYPE_OPEN_LOCATION		(theater_open_location_get_type ())
+#define theater_OPEN_LOCATION(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), theater_TYPE_OPEN_LOCATION, theaterOpenLocation))
+#define theater_OPEN_LOCATION_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), theater_TYPE_OPEN_LOCATION, theaterOpenLocationClass))
+#define theater_IS_OPEN_LOCATION(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), theater_TYPE_OPEN_LOCATION))
+#define theater_IS_OPEN_LOCATION_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), theater_TYPE_OPEN_LOCATION))
 
-typedef struct TotemOpenLocation		TotemOpenLocation;
-typedef struct TotemOpenLocationClass		TotemOpenLocationClass;
-typedef struct TotemOpenLocationPrivate		TotemOpenLocationPrivate;
+typedef struct theaterOpenLocation		theaterOpenLocation;
+typedef struct theaterOpenLocationClass		theaterOpenLocationClass;
+typedef struct theaterOpenLocationPrivate		theaterOpenLocationPrivate;
 
-struct TotemOpenLocation {
+struct theaterOpenLocation {
 	GtkDialog parent;
-	TotemOpenLocationPrivate *priv;
+	theaterOpenLocationPrivate *priv;
 };
 
-struct TotemOpenLocationClass {
+struct theaterOpenLocationClass {
 	GtkDialogClass parent_class;
 };
 
-GType totem_open_location_get_type		(void);
-GtkWidget *totem_open_location_new		(void);
-char *totem_open_location_get_uri		(TotemOpenLocation *open_location);
+GType theater_open_location_get_type		(void);
+GtkWidget *theater_open_location_new		(void);
+char *theater_open_location_get_uri		(theaterOpenLocation *open_location);
 
 G_END_DECLS
 
-#endif /* TOTEM_OPEN_LOCATION_H */
+#endif /* theater_OPEN_LOCATION_H */

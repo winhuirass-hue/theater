@@ -1,10 +1,10 @@
 plugin_name = 'variable-rate'
 
-plugin_dir = join_paths(totem_pluginsdir, plugin_name)
+plugin_dir = join_paths(theater_pluginsdir, plugin_name)
 
 shared_module(
   plugin_name,
-  sources: 'totem-' + plugin_name + '-plugin.c',
+  sources: 'theater-' + plugin_name + '-plugin.c',
   include_directories: plugins_incs,
   dependencies: plugins_deps,
   c_args: plugins_cflags,

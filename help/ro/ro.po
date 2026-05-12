@@ -1,6 +1,6 @@
-# Romanian translation for totem.
-# Copyright (C) 2010 totem's COPYRIGHT HOLDER
-# This file is distributed under the same license as the totem package.
+# Romanian translation for theater.
+# Copyright (C) 2010 theater's COPYRIGHT HOLDER
+# This file is distributed under the same license as the theater package.
 # Daniel Șerbănescu <cyber19rider@gmail.com>, 2010, 2011.
 # Nichita Utiu <nikita.utiu@gmail.com>, 2010.
 # Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2011.
@@ -8,7 +8,7 @@
 # Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>, 2015, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: totem master\n"
+"Project-Id-Version: theater master\n"
 "POT-Creation-Date: 2018-03-05 15:11+0000\n"
 "PO-Revision-Date: 2018-03-07 21:34+0200\n"
 "Last-Translator: Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>\n"
@@ -30,9 +30,9 @@ msgstr ""
 
 #. (itstool) path: articleinfo/title
 #: C/index.docbook:30
-msgid "<application>Totem Movie Player</application> Manual"
+msgid "<application>theater Movie Player</application> Manual"
 msgstr ""
-"<application>Playerul pentru filme Totem</application> – Manualul "
+"<application>Playerul pentru filme theater</application> – Manualul "
 "utilizatorului"
 
 #. (itstool) path: articleinfo/copyright
@@ -48,12 +48,12 @@ msgstr "<year>2009</year> <holder>Philip Withnall</holder>"
 #. (itstool) path: abstract/para
 #: C/index.docbook:44
 msgid ""
-"<application>Totem Movie Player</application> is a media player for GNOME "
+"<application>theater Movie Player</application> is a media player for GNOME "
 "that runs on GStreamer by default, but can also be run on xine. It has "
 "support for most audio and video codecs including DVDs among many others. "
 "Features include TV-out, fullscreen, subtitles, and more."
 msgstr ""
-"<application>Playerul pentru filme Totem</application> este un player media "
+"<application>Playerul pentru filme theater</application> este un player media "
 "pentru GNOME ce rulează în mod implicit pe GStreamer, dar poate fi rulat și "
 "pe xine. Are suport pentru cele mai multe codecuri audio și video inclusiv "
 "DVD-uri. Caracteristicile includ ieșire TV, modul ecran complet, subtitrări, "
@@ -218,10 +218,10 @@ msgstr "Chee Bin HOH <email>cbhoh@gnome.org</email>"
 #. (itstool) path: revhistory/revision
 #: C/index.docbook:110
 msgid ""
-"<revnumber>Totem Movie Player Manual V2.0</revnumber> <date>August 2006</"
+"<revnumber>theater Movie Player Manual V2.0</revnumber> <date>August 2006</"
 "date> <_:revdescription-1/>"
 msgstr ""
-"<revnumber>Playerul pentru filme Totem - Manualul utilizatorului V2.0</"
+"<revnumber>Playerul pentru filme theater - Manualul utilizatorului V2.0</"
 "revnumber> <date>August 2006</date> <_:revdescription-1/>"
 
 #. (itstool) path: revdescription/para
@@ -232,17 +232,17 @@ msgstr "Philip Withnall <email>philip@tecnocode.co.uk</email>"
 #. (itstool) path: revhistory/revision
 #: C/index.docbook:120
 msgid ""
-"<revnumber>Totem Movie Player Manual V3.0</revnumber> <date>February 2009</"
+"<revnumber>theater Movie Player Manual V3.0</revnumber> <date>February 2009</"
 "date> <_:revdescription-1/>"
 msgstr ""
-"<revnumber>Playerul pentru filme Totem - Manualul utilizatorului V3.0</"
+"<revnumber>Playerul pentru filme theater - Manualul utilizatorului V3.0</"
 "revnumber> <date>Februarie 2009</date> <_:revdescription-1/>"
 
 #. (itstool) path: articleinfo/releaseinfo
 #: C/index.docbook:132
-msgid "This manual describes version 2.26 of Totem Movie Player."
+msgid "This manual describes version 2.26 of theater Movie Player."
 msgstr ""
-"Acest manual descrie versiune 2.26 a lui playerului pentru filme Totem."
+"Acest manual descrie versiune 2.26 a lui playerului pentru filme theater."
 
 #. (itstool) path: legalnotice/title
 #: C/index.docbook:135
@@ -252,30 +252,30 @@ msgstr "Sugestii"
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:136
 #| msgid ""
-#| "To report a bug or make a suggestion regarding the <application>Totem "
+#| "To report a bug or make a suggestion regarding the <application>theater "
 #| "Movie Player</application> application or this manual, follow the "
 #| "directions in the <ulink url=\"help:user-guide#feedback\" type=\"help"
 #| "\">GNOME Feedback Page</ulink>."
 msgid ""
-"To report a bug or make a suggestion regarding the <application>Totem Movie "
+"To report a bug or make a suggestion regarding the <application>theater Movie "
 "Player</application> application or this manual, follow the directions in "
 "the <ulink url=\"help:gnome-help/more-help\" type=\"help\">GNOME Feedback "
 "Page</ulink>."
 msgstr ""
 "Pentru a raporta o eroare sau a face o sugestie cu privire la aplicația "
-"<application>Playerul pentru filme Totem</application> sau la acest manual, "
+"<application>Playerul pentru filme theater</application> sau la acest manual, "
 "urmați sfaturile de la <ulink url=\"help:gnome-help/more-help\" type=\"help\""
 ">pagina de sugestii GNOME</ulink>."
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:143
-msgid "<primary>Totem Movie Player</primary>"
-msgstr "<primary>Playerul pentru filme Totem</primary>"
+msgid "<primary>theater Movie Player</primary>"
+msgstr "<primary>Playerul pentru filme theater</primary>"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:146
-msgid "<primary>totem</primary>"
-msgstr "<primary>totem</primary>"
+msgid "<primary>theater</primary>"
+msgstr "<primary>theater</primary>"
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:156
@@ -285,21 +285,21 @@ msgstr "Introducere"
 #. (itstool) path: sect1/para
 #: C/index.docbook:157
 msgid ""
-"The <application>Totem Movie Player</application> application is a movie "
+"The <application>theater Movie Player</application> application is a movie "
 "player for the GNOME desktop based on the GStreamer framework and xine "
 "library, and enables you to play movies or songs."
 msgstr ""
-"<application>Playerul pentru filme Totem</application> este un player pentru "
+"<application>Playerul pentru filme theater</application> este un player pentru "
 "filme pentru desktopul GNOME bazat pe platforma GStreamer și biblioteca "
 "xine, ce vă permite să redați filme sau melodii."
 
 #. (itstool) path: sect1/para
 #: C/index.docbook:160
 msgid ""
-"<application>Totem Movie Player</application> provides the following "
+"<application>theater Movie Player</application> provides the following "
 "features:"
 msgstr ""
-"<application>Playerul pentru filme Totem</application> oferă următoarele "
+"<application>Playerul pentru filme theater</application> oferă următoarele "
 "caracteristici:"
 
 #. (itstool) path: listitem/para
@@ -346,10 +346,10 @@ msgstr ""
 #. (itstool) path: note/para
 #: C/index.docbook:185
 msgid ""
-"<application>Totem Movie Player</application> also comes with additional "
+"<application>theater Movie Player</application> also comes with additional "
 "functionality such as:"
 msgstr ""
-"<application>Playerul pentru filme Totem</application>, vine și cu "
+"<application>Playerul pentru filme theater</application>, vine și cu "
 "funcționalități suplimentare cum ar fi:"
 
 #. (itstool) path: listitem/para
@@ -369,16 +369,16 @@ msgstr "Primii pași"
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:212
-msgid "To Start <application>Totem Movie Player</application>"
-msgstr "Pentru a porni <application>Playerul pentru filme Totem</application>"
+msgid "To Start <application>theater Movie Player</application>"
+msgstr "Pentru a porni <application>Playerul pentru filme theater</application>"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:213
 msgid ""
-"You can start <application>Totem Movie Player</application> in the following "
+"You can start <application>theater Movie Player</application> in the following "
 "ways:"
 msgstr ""
-"Puteți porni <application>Playerul pentru filme Totem</application> în "
+"Puteți porni <application>Playerul pentru filme theater</application> în "
 "următoarele moduri:"
 
 #. (itstool) path: varlistentry/term
@@ -403,46 +403,46 @@ msgstr "Din linia de comandă"
 #. (itstool) path: listitem/para
 #: C/index.docbook:230
 msgid ""
-"To start <application>Totem Movie Player</application> from a command line, "
+"To start <application>theater Movie Player</application> from a command line, "
 "type the following command, then press <keycap>Return</keycap>:"
 msgstr ""
-"Pentru a porni <application>Playerul pentru filme Totem</application> dintr-"
+"Pentru a porni <application>Playerul pentru filme theater</application> dintr-"
 "o linie de comandă, tastați următoarea comandă, apoi apăsați <keycap>Enter</"
 "keycap>:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:232
-msgid "<command>totem</command>"
-msgstr "<command>totem</command>"
+msgid "<command>theater</command>"
+msgstr "<command>theater</command>"
 
 #. (itstool) path: tip/para
 #: C/index.docbook:236
 msgid ""
-"To view other command line options that are available, type <command>totem --"
+"To view other command line options that are available, type <command>theater --"
 "help</command>, then press <keycap>Return</keycap>."
 msgstr ""
 "Pentru a vizualiza alte opțiuni disponibile în linia de comandă, tastați "
-"<command>totem --help</command>, apoi apăsați <keycap>Enter</keycap>."
+"<command>theater --help</command>, apoi apăsați <keycap>Enter</keycap>."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:246
-msgid "When You Start <application>Totem Movie Player</application>"
-msgstr "Când porniți <application>Playerul pentru filme Totem</application>"
+msgid "When You Start <application>theater Movie Player</application>"
+msgstr "Când porniți <application>Playerul pentru filme theater</application>"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:247
 msgid ""
-"When you start <application>Totem Movie Player</application>, the following "
+"When you start <application>theater Movie Player</application>, the following "
 "window is displayed."
 msgstr ""
-"Când porniți <application>Playerul pentru filme Totem</application>, "
+"Când porniți <application>Playerul pentru filme theater</application>, "
 "următoarea fereastră va fi afișată."
 
 #. (itstool) path: figure/title
 #: C/index.docbook:251
-msgid "<application>Totem Movie Player</application> Start Up Window"
+msgid "<application>theater Movie Player</application> Start Up Window"
 msgstr ""
-"Fereastra principală a <application>playerului pentru filme Totem</"
+"Fereastra principală a <application>playerului pentru filme theater</"
 "application>"
 
 #. (itstool) path: imageobject/imagedata
@@ -453,24 +453,24 @@ msgstr ""
 #: C/index.docbook:255
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_start_window.png' "
+"external ref='figures/theater_start_window.png' "
 "md5='85daf6f6aaae9262482c8f1b0b6d67b0'"
 msgstr ""
-"external ref='figures/totem_start_window.png' "
+"external ref='figures/theater_start_window.png' "
 "md5='79d2a8d79de7de529930e44799c025e7'"
 
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:253
 msgid ""
-"<imageobject> <imagedata fileref=\"figures/totem_start_window.png\" format="
-"\"PNG\"/> </imageobject> <textobject> <phrase>Shows <application>Totem Movie "
+"<imageobject> <imagedata fileref=\"figures/theater_start_window.png\" format="
+"\"PNG\"/> </imageobject> <textobject> <phrase>Shows <application>theater Movie "
 "Player</application> main window with sidebar opened on playlist. Contains "
 "menubar, display area, sidebar, elapsed time slider, seek control buttons, "
 "volume slider and statusbar. </phrase> </textobject>"
 msgstr ""
-"<imageobject> <imagedata fileref=\"figures/totem_start_window.png\" format="
+"<imageobject> <imagedata fileref=\"figures/theater_start_window.png\" format="
 "\"PNG\"/> </imageobject> <textobject> <phrase>Afișează fereastra principală "
-"a <application>playerului pentru filme Totem</application> cu bara laterală "
+"a <application>playerului pentru filme theater</application> cu bara laterală "
 "deschisă la lista de redare. Conține bara de meniu, zona de afișare, bara "
 "laterală, glisorul pentru timpul scurs, butoanele de control pentru "
 "derulare, glisorul pentru volum și bara de stare. </phrase> </textobject>"
@@ -478,10 +478,10 @@ msgstr ""
 #. (itstool) path: sect2/para
 #: C/index.docbook:271
 msgid ""
-"The <application>Totem Movie Player</application> window contains the "
+"The <application>theater Movie Player</application> window contains the "
 "following elements:"
 msgstr ""
-"Fereastra <application>Playerul pentru filme Totem</application> conține "
+"Fereastra <application>Playerul pentru filme theater</application> conține "
 "următoarele elemente:"
 
 #. (itstool) path: varlistentry/term
@@ -493,10 +493,10 @@ msgstr "Bara de meniu."
 #: C/index.docbook:277
 msgid ""
 "The menus on the menubar contain all of the commands you need to use in "
-"<application>Totem Movie Player</application>."
+"<application>theater Movie Player</application>."
 msgstr ""
 "Meniurile din bara de meniu conțin toate comenzile pe care le puteți utiliza "
-"în <application>Playerul pentru filme Totem</application>."
+"în <application>Playerul pentru filme theater</application>."
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:282
@@ -614,41 +614,41 @@ msgstr ""
 #: C/index.docbook:350
 msgid ""
 "You can drag a file from another application such as a file manager to the "
-"<application>Totem Movie Player</application> window. If you drag the file "
+"<application>theater Movie Player</application> window. If you drag the file "
 "to the display area, the file will replace the current playlist and will "
 "start playing immediately. If you drag the file to the playlist in the "
 "sidebar, the file will be appended to the current playlist. The "
-"<application>Totem Movie Player</application> application will open the file "
-"and play the movie or song. <application>Totem Movie Player</application> "
+"<application>theater Movie Player</application> application will open the file "
+"and play the movie or song. <application>theater Movie Player</application> "
 "displays the title of the movie or song in the titlebar of the window and in "
 "the playlist in the sidebar."
 msgstr ""
 "Puteți trage un fișier dintr-o altă aplicație, precum un administrator de "
-"fișiere, în fereastra <application>playerului pentru filme Totem</"
+"fișiere, în fereastra <application>playerului pentru filme theater</"
 "application>. Dacă trageți fișierul în zona de afișare, fișierul va înlocui "
 "lista de redare curentă și va începe redarea imediat. Dacă trageți fișierul "
 "în lista de redare din bara laterală, fișierul va fi adăugat listei de "
-"radare curentă. <application>Playerul pentru filme Totem</application> va "
+"radare curentă. <application>Playerul pentru filme theater</application> va "
 "deschide fișierul și va reda filmul sau melodia. <application>Playerul "
-"pentru filme Totem</application> afișează titlul filmului sau melodiei în "
+"pentru filme theater</application> afișează titlul filmului sau melodiei în "
 "bara de titlu a ferestrei și în lista de redare din bara laterală."
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:358
 msgid ""
-"If you try to open a file format that <application>Totem Movie Player</"
+"If you try to open a file format that <application>theater Movie Player</"
 "application> does not recognize, the application displays an error message. "
 "This error is most often encountered if you do not have the correct codecs "
 "installed. Information on getting codecs working can be found on the <ulink "
 "url=\"https://wiki.gnome.org/Apps/Videos/Codecs\" type=\"http"
-"\"><application>Totem Movie Player</application> website</ulink>."
+"\"><application>theater Movie Player</application> website</ulink>."
 msgstr ""
 "Dacă încercați să deschideți un format de fișier care nu este recunoscut de "
-"<application>Playerul pentru filme Totem</application>, aplicația afișează "
+"<application>Playerul pentru filme theater</application>, aplicația afișează "
 "un mesaj de eroare. Acestă eroare are loc adesea dacă nu aveți instalate "
 "codecurile corecte. Informații despre punerea în funcțiune a codecurilor pot "
 "fi găsite pe <ulink url=\"https://wiki.gnome.org/Apps/Videos/Codecs\" type="
-"\"http\">pagina <application>playerului pentru filme Totem</application></"
+"\"http\">pagina <application>playerului pentru filme theater</application></"
 "ulink>."
 
 #. (itstool) path: tip/para
@@ -656,9 +656,9 @@ msgstr ""
 msgid ""
 "You can double-click on a video or an audio file in the "
 "<application>Nautilus</application> file manager to open it in the "
-"<application>Totem Movie Player</application> window."
+"<application>theater Movie Player</application> window."
 msgstr ""
-"Puteți deschide în <application>playerul pentru filme Totem</application> "
+"Puteți deschide în <application>playerul pentru filme theater</application> "
 "fișiere video sau audio din administratorul de fișiere "
 "<application>Nautilus</application> prin dublu-clic."
 
@@ -737,17 +737,17 @@ msgstr "Pentru a întrerupe un film sau o melodie"
 #: C/index.docbook:402
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_pause_button.png' "
+"external ref='figures/theater_pause_button.png' "
 "md5='8af1d98e40e2ebda89cc2cd86550c5f2'"
 msgstr ""
-"external ref='figures/totem_pause_button.png' "
+"external ref='figures/theater_pause_button.png' "
 "md5='8af1d98e40e2ebda89cc2cd86550c5f2'"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:400
 msgid ""
 "To pause a movie or song that is playing, click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_pause_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_pause_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Shows pause button.</phrase></"
 "textobject> </inlinemediaobject> button, or choose <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Space</keycap></keycombo></"
@@ -757,7 +757,7 @@ msgid ""
 msgstr ""
 "Pentru a întrerupe un film sau o melodie în curs de redare, apăsați butonul "
 "<inlinemediaobject> <imageobject><imagedata fileref=\"figures/"
-"totem_pause_button.png\" format=\"PNG\"/></imageobject> "
+"theater_pause_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Arată butonul „pauză”.</phrase></textobject> </"
 "inlinemediaobject>, sau selectați <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Spațiu</keycap></keycombo></"
@@ -773,17 +773,17 @@ msgstr ""
 #: C/index.docbook:413
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_play_button.png' "
+"external ref='figures/theater_play_button.png' "
 "md5='feb4dec4237e6eb7ce571af2dbd0cf79'"
 msgstr ""
-"external ref='figures/totem_play_button.png' "
+"external ref='figures/theater_play_button.png' "
 "md5='feb4dec4237e6eb7ce571af2dbd0cf79'"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:411
 msgid ""
 "To resume playing a movie or song, click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_play_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_play_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Shows play button.</phrase></"
 "textobject> </inlinemediaobject> button again, or choose <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Space</keycap></keycombo></"
@@ -792,7 +792,7 @@ msgid ""
 msgstr ""
 "Pentru a relua redarea unui film sau a unei melodii, apăsați butonul "
 "<inlinemediaobject> <imageobject><imagedata fileref=\"figures/"
-"totem_play_button.png\" format=\"PNG\"/></imageobject> "
+"theater_play_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Arată butonul „redă”.</phrase></textobject> </"
 "inlinemediaobject> din nou, sau selectați <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Spațiu</keycap></keycombo></"
@@ -908,10 +908,10 @@ msgstr "Pentru a trece la următorul film sau melodia următoare"
 #: C/index.docbook:490
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_next_button.png' "
+"external ref='figures/theater_next_button.png' "
 "md5='c7f9041dc1804edc6777cfe68456e703'"
 msgstr ""
-"external ref='figures/totem_next_button.png' "
+"external ref='figures/theater_next_button.png' "
 "md5='c7f9041dc1804edc6777cfe68456e703'"
 
 #. (itstool) path: listitem/para
@@ -921,7 +921,7 @@ msgid ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Right</keycap></keycombo></"
 "shortcut> <guimenu>Go</guimenu> <guimenuitem>Next Chapter/Movie</"
 "guimenuitem> </menuchoice> or click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_next_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_next_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Shows a seek next button</"
 "phrase></textobject> </inlinemediaobject> button."
 msgstr ""
@@ -930,7 +930,7 @@ msgstr ""
 "keycap></keycombo></shortcut> <guimenu>Navigare</guimenu> "
 "<guimenuitem>Următorul capitol/film</guimenuitem> </menuchoice> sau apăsați "
 "butonul <inlinemediaobject> <imageobject><imagedata fileref=\"figures/"
-"totem_next_button.png\" format=\"PNG\"/></imageobject> "
+"theater_next_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Arată butonul „următorul”</phrase></textobject> </"
 "inlinemediaobject>."
 
@@ -947,10 +947,10 @@ msgstr "Pentru a trece la filmul sau melodia anterioară"
 #: C/index.docbook:506
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_previous_button.png' "
+"external ref='figures/theater_previous_button.png' "
 "md5='a966195040a035bf48daab94c9320afc'"
 msgstr ""
-"external ref='figures/totem_previous_button.png' "
+"external ref='figures/theater_previous_button.png' "
 "md5='a966195040a035bf48daab94c9320afc'"
 
 #. (itstool) path: listitem/para
@@ -960,7 +960,7 @@ msgid ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Left</keycap></keycombo></"
 "shortcut> <guimenu>Go</guimenu> <guimenuitem>Previous Chapter/Movie</"
 "guimenuitem> </menuchoice> or click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_previous_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_previous_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Shows a seek previous button</"
 "phrase></textobject> </inlinemediaobject> button."
 msgstr ""
@@ -968,7 +968,7 @@ msgstr ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Stânga</keycap></keycombo></"
 "shortcut> <guimenu>Navigare</guimenu> <guimenuitem>Precedentul capitol/film</"
 "guimenuitem> </menuchoice> sau apăsați butonul <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_previous_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_previous_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Arată butonul „precedentul”</"
 "phrase></textobject> </inlinemediaobject>."
 
@@ -1076,19 +1076,19 @@ msgstr "Pentru a pune fereastra întotdeauna deasupra"
 #. (itstool) path: sect2/para
 #: C/index.docbook:575
 msgid ""
-"To make the <application>Totem Movie Player</application> window always on "
+"To make the <application>theater Movie Player</application> window always on "
 "top of other application windows, choose <menuchoice> <guimenu>Edit</"
 "guimenu> <guimenuitem>Plugins</guimenuitem> </menuchoice>. Select the "
 "<guilabel>Always on Top</guilabel> plugin to enable it. The "
-"<application>Totem Movie Player</application> window will now stay on top of "
+"<application>theater Movie Player</application> window will now stay on top of "
 "all other windows while a movie is playing, but not while audio or "
 "visualizations are playing."
 msgstr ""
-"Pentru a face fereastra <application>Playerul pentru filme Totem</"
+"Pentru a face fereastra <application>Playerul pentru filme theater</"
 "application> să apară întotdeauna deasupra altor ferestre, selectați "
 "<menuchoice> <guimenu>Editare</guimenu> <guimenuitem>Module</guimenuitem> </"
 "menuchoice>. Selectați modulul <guilabel>Întotdeauna deasupra</guilabel> "
-"pentru a-l activa. Fereastra <application>Totem - playerului pentru filme</"
+"pentru a-l activa. Fereastra <application>theater - playerului pentru filme</"
 "application> va sta deasupra tuturor celorlalte ferestre în timpul redării "
 "unui film, dar nu și în timpul redării unei melodii sau unei vizualizări."
 
@@ -1096,12 +1096,12 @@ msgstr ""
 #: C/index.docbook:583
 msgid ""
 "To stop the window from always being on top, disable the <guilabel>Always on "
-"Top</guilabel> plugin again. See <xref linkend=\"totem-plugins-always-on-top"
+"Top</guilabel> plugin again. See <xref linkend=\"theater-plugins-always-on-top"
 "\"/> for more information."
 msgstr ""
 "Pentru a împiedica fereastra să fie întotdeauna deasupra, dezactivați "
 "modulul <guilabel>Întotdeauna deasupra</guilabel> din nou. Consultați <xref "
-"linkend=\"totem-plugins-always-on-top\"/> pentru mai multe informații."
+"linkend=\"theater-plugins-always-on-top\"/> pentru mai multe informații."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:588
@@ -1111,23 +1111,23 @@ msgstr "Pentru a afișa sau ascunde controale"
 #. (itstool) path: sect2/para
 #: C/index.docbook:589
 msgid ""
-"To show or hide the <application>Totem Movie Player</application> window "
+"To show or hide the <application>theater Movie Player</application> window "
 "controls, choose <menuchoice> <shortcut><keycombo><keycap>Ctrl</"
 "keycap><keycap>H</keycap></keycombo></shortcut> <guimenu>View</guimenu> "
 "<guimenuitem>Show Controls</guimenuitem> </menuchoice>, or press the "
-"<keycap>H</keycap> key. You can also right-click on the <application>Totem "
+"<keycap>H</keycap> key. You can also right-click on the <application>theater "
 "Movie Player</application> window, then choose <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></"
 "shortcut> <guimenuitem>Show Controls</guimenuitem> </menuchoice> from the "
 "popup menu."
 msgstr ""
 "Pentru a afișa sau a ascunde controalele ferestrei <application>Playerul "
-"pentru filme Totem</application>, selectați <menuchoice> "
+"pentru filme theater</application>, selectați <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></"
 "shortcut> <guimenu>Afișare</guimenu> <guimenuitem>Afișează controale</"
 "guimenuitem> </menuchoice>, sau apăsați tasta <keycap>H</keycap>. Puteți, de "
 "asemenea, apăsa clic dreapta pe fereastra <application>Playerul pentru filme "
-"Totem</application>, și să selectați <menuchoice> "
+"theater</application>, și să selectați <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></"
 "shortcut> <guimenuitem>Afișează controale</guimenuitem> </menuchoice> din "
 "meniul popup."
@@ -1136,13 +1136,13 @@ msgstr ""
 #: C/index.docbook:601
 msgid ""
 "If the <guilabel>Show Controls</guilabel> option is selected, "
-"<application>Totem Movie Player</application> will show the menubar, elapsed "
+"<application>theater Movie Player</application> will show the menubar, elapsed "
 "time slider, seek control buttons, volume slider and statusbar on the "
 "window. If the <guilabel>Show Controls</guilabel> option is unselected, the "
 "application will hide these controls and show only the display area."
 msgstr ""
 "Dacă opțiunea <guilabel>Afișează controale</guilabel> este selectată. "
-"<application>Playerul pentru filme Totem</application> va afișa în fereastră "
+"<application>Playerul pentru filme theater</application> va afișa în fereastră "
 "bara de meniu, glisorul pentru timp scurs, butoanele pentru controalele de "
 "derulare, glisorul de volum și bara de stare. Dacă opțiunea "
 "<guilabel>Afișează controale</guilabel> nu este selectată, aplicația va "
@@ -1329,17 +1329,17 @@ msgstr ""
 #. (itstool) path: note/para
 #: C/index.docbook:694
 msgid ""
-"By default, <application>Totem Movie Player</application> will choose the "
+"By default, <application>theater Movie Player</application> will choose the "
 "same language for the subtitles as the one you normally use on your computer."
 msgstr ""
-"În mod implicit, <application>Playerul pentru filme Totem</application> va "
+"În mod implicit, <application>Playerul pentru filme theater</application> va "
 "alege aceeași limbă pentru subtitrări ca și cea utilizată în mod normal pe "
 "calculator."
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:696
 msgid ""
-"<application>Totem Movie Player</application> will automatically load and "
+"<application>theater Movie Player</application> will automatically load and "
 "display subtitles for a video if it finds a subtitle file with the same name "
 "as the video being played, and the extension <filename class=\"extension"
 "\">asc</filename>, <filename class=\"extension\">txt</filename>, <filename "
@@ -1347,7 +1347,7 @@ msgid ""
 "filename>, <filename class=\"extension\">smi</filename>, <filename class="
 "\"extension\">ssa</filename> or <filename class=\"extension\">ass</filename>."
 msgstr ""
-"<application>Playerul pentru filme Totem</application> va încărca și afișa "
+"<application>Playerul pentru filme theater</application> va încărca și afișa "
 "automat subtitrări pentru un video dacă găsește un fișier subtitrare cu "
 "același nume ca și videoul redat, și cu extensia <filename class=\"extension"
 "\">asc</filename>, <filename class=\"extension\">txt</filename>, <filename "
@@ -1377,12 +1377,12 @@ msgstr ""
 #: C/index.docbook:705
 msgid ""
 "Using the <guilabel>Subtitle Downloader</guilabel> plugin, you can also "
-"download subtitles from the OpenSubtitles service. See <xref linkend=\"totem-"
+"download subtitles from the OpenSubtitles service. See <xref linkend=\"theater-"
 "plugins-opensubtitles\"/> for more information."
 msgstr ""
 "Utilizând modulul <guilabel>Descărcare subtitrări</guilabel>, puteți de "
 "asemenea descărca subtitrări prin intermediul serviciului OpenSubtitles. "
-"Consultați <xref linkend=\"totem-plugins-opensubtitles\"/> pentru mai multe "
+"Consultați <xref linkend=\"theater-plugins-opensubtitles\"/> pentru mai multe "
 "informații."
 
 #. (itstool) path: sect2/title
@@ -1410,11 +1410,11 @@ msgstr ""
 #. (itstool) path: tip/para
 #: C/index.docbook:719
 msgid ""
-"<application>Totem Movie Player</application> will display a preview of the "
+"<application>theater Movie Player</application> will display a preview of the "
 "screenshot which is to be saved on the left-hand side of the "
 "<application>Save Screenshot</application> dialog."
 msgstr ""
-"<application>Playerul pentru filme Totem</application> va afișa o "
+"<application>Playerul pentru filme theater</application> va afișa o "
 "previzualizare a capturii de ecran ce va fi salvată în partea stângă a "
 "dialogului <application>Salvare captură de ecran</application>"
 
@@ -1476,11 +1476,11 @@ msgstr "Module"
 #. (itstool) path: sect1/para
 #: C/index.docbook:743
 msgid ""
-"<application>Totem Movie Player</application> has many features which are "
+"<application>theater Movie Player</application> has many features which are "
 "present in the form of plugins — pieces of the software which are only "
 "loaded if necessary."
 msgstr ""
-"<application>Playerul pentru filme Totem</application> are multe "
+"<application>Playerul pentru filme theater</application> are multe "
 "caracteristici prezente sub formă de module — componente software care sunt "
 "încărcate doar dacă este necesar."
 
@@ -1523,12 +1523,12 @@ msgstr ""
 #: C/index.docbook:753
 msgid ""
 "To disable a plugin again, deselect its checkbox. Plugins will remain "
-"enabled or disabled as set even when <application>Totem Movie Player</"
+"enabled or disabled as set even when <application>theater Movie Player</"
 "application> is closed."
 msgstr ""
 "Pentru a dezactiva un modul din nou, deselectați-i căsuța de bifare. "
 "Modulele vor rămâne active/inactive (după cum sunt selectate) chiar și când "
-"<application>Playerul pentru filme Totem</application> este închis."
+"<application>Playerul pentru filme theater</application> este închis."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:757
@@ -1539,13 +1539,13 @@ msgstr "Întotdeauna deasupra"
 #: C/index.docbook:758
 msgid ""
 "When enabled, the <guilabel>Always on Top</guilabel> plugin will force the "
-"main <application>Totem Movie Player</application> window to be on top of "
+"main <application>theater Movie Player</application> window to be on top of "
 "all other windows while a movie is playing, but not while audio or "
 "visualizations are playing. To stop the window being on top, disable the "
 "plugin again."
 msgstr ""
 "Când este activat, modulul <guilabel>Întotdeauna deasupra</guilabel> va "
-"forța fereastra principală a <application>playerului pentru filme Totem</"
+"forța fereastra principală a <application>playerului pentru filme theater</"
 "application> să fie deasupra tuturor celorlalte ferestre când se redă un "
 "film, dar nu și când sunt redate melodii sau vizualizări. Pentru a opri "
 "fereastra să fie deasupra, dezactivați modulul."
@@ -1559,11 +1559,11 @@ msgstr "Client DLNA/UPnP Coherence"
 #: C/index.docbook:764
 msgid ""
 "The <guilabel>Coherence DLNA/UPnP Client</guilabel> plugin allows "
-"<application>Totem Movie Player</application> to play multimedia content "
+"<application>theater Movie Player</application> to play multimedia content "
 "from UPnP media servers (such as Coherence servers) on the local network."
 msgstr ""
 "Modulul <guilabel>Client DLNA/UPnP Coherence</guilabel> permite "
-"<application>Playerului pentru filme Totem</application> să redea conținut "
+"<application>Playerului pentru filme theater</application> să redea conținut "
 "multimedia de pe servere media (precum serverele Coherence) din rețeaua "
 "locală."
 
@@ -1592,7 +1592,7 @@ msgid ""
 "The tree view in the sidebar will list the available media servers. Clicking "
 "on one will expand it to show the types of media it can serve, and clicking "
 "on a media folder will expand it to list the media files available. Double-"
-"clicking on a media file will add it to <application>Totem Movie Player</"
+"clicking on a media file will add it to <application>theater Movie Player</"
 "application>'s playlist and play it. You may alternatively right-click on a "
 "file and choose <menuchoice><guimenuitem>Play</guimenuitem></menuchoice> or "
 "<menuchoice><guimenuitem>Enqueue</guimenuitem></menuchoice> to play the file "
@@ -1602,7 +1602,7 @@ msgstr ""
 "disponibile. Apăsarea unia va afișa tipurile mediilor pe care le poate "
 "servi, și apăsarea unui dosar media va afișa tipurile media disponibile. "
 "Apăsând dublu-clic pe un fișier media acesta se va adăuga la lista de redare "
-"a <application>Playerul pentru filme Totem</application> și se va reda. "
+"a <application>Playerul pentru filme theater</application> și se va reda. "
 "Puteți, alternativ, să apăsați clic-dreapta pe un fișier și să alegeți "
 "<menuchoice><guimenuitem>Redare</guimenuitem></menuchoice> sau "
 "<menuchoice><guimenuitem>Pune la coadă</guimenuitem></menuchoice> respectiv "
@@ -1664,12 +1664,12 @@ msgstr ""
 #: C/index.docbook:788
 msgid ""
 "To clear the screen of annotations, press <keycombo><keycap>Ctrl</"
-"keycap><keycap>E</keycap></keycombo>, or close <application>Totem Movie "
+"keycap><keycap>E</keycap></keycombo>, or close <application>theater Movie "
 "Player</application>."
 msgstr ""
 "Pentru a curăța ecranul de notițe, apăsați <keycombo><keycap>Ctrl</"
 "keycap><keycap>E</keycap></keycombo>, sau închideți <application>Playerul "
-"pentru filme Totem</application>."
+"pentru filme theater</application>."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:792
@@ -1818,7 +1818,7 @@ msgstr "Căutare locală"
 msgid ""
 "The <guilabel>Local Search</guilabel> plugin allows you to search for "
 "playable movies and audio files on your computer from within "
-"<application>Totem Movie Player</application>. With the plugin enabled, "
+"<application>theater Movie Player</application>. With the plugin enabled, "
 "choose <menuchoice><shortcut><keycap>F9</keycap></shortcut><guimenu>View</"
 "guimenu><guimenuitem>Sidebar</guimenuitem></menuchoice> or click on the "
 "<guibutton>Sidebar</guibutton> button to show the sidebar. Select "
@@ -1827,7 +1827,7 @@ msgid ""
 msgstr ""
 "Modulul <guilabel>Căutare locală</guilabel> vă permite să căutați filme sau "
 "fișiere audio care pot fi redate, pe calculator, cu ajutorul "
-"<application>Playerului pentru filme Totem</application>. Cu modulul "
+"<application>Playerului pentru filme theater</application>. Cu modulul "
 "activat, selectați <menuchoice><shortcut><keycap>F9</keycap></"
 "shortcut><guimenu>Afișare</guimenu><guimenuitem>Bară laterală</guimenuitem></"
 "menuchoice> sau apăsați pe butonul <guibutton>Bară laterală</guibutton> "
@@ -1888,10 +1888,10 @@ msgstr "<literal>%a</literal>"
 #. (itstool) path: listitem/para
 #: C/index.docbook:854
 msgid ""
-"Replaced with the program's name: <application>Totem Movie Player</"
+"Replaced with the program's name: <application>theater Movie Player</"
 "application>."
 msgstr ""
-"Înlocuit cu numele programului: <application>Playerul pentru filme Totem</"
+"Înlocuit cu numele programului: <application>Playerul pentru filme theater</"
 "application> ."
 
 #. (itstool) path: varlistentry/term
@@ -2068,12 +2068,12 @@ msgstr ""
 #. (itstool) path: note/para
 #: C/index.docbook:906
 msgid ""
-"Downloaded subtitle files are cached (in <filename>~/.cache/totem/subtitles</"
+"Downloaded subtitle files are cached (in <filename>~/.cache/theater/subtitles</"
 "filename>, by default) so that they do not need to be downloaded again when "
 "playing the movie again. When downloading new subtitles for a movie, any "
 "previously downloaded subtitles for that movie are deleted."
 msgstr ""
-"Fișierele subtitrare sunt salvate temporar (în <filename>~/.cache/totem/"
+"Fișierele subtitrare sunt salvate temporar (în <filename>~/.cache/theater/"
 "subtitles</filename>, în mod implicit) pentru a nu trebui să fie descărcate "
 "din nou la următoarea redare a filmului. Când se descarcă subtitrări noi "
 "pentru un film, orice subtitrări descărcate anterior pentru acel film vor fi "
@@ -2087,12 +2087,12 @@ msgstr "Miniaturi"
 #. (itstool) path: sect2/para
 #: C/index.docbook:911
 msgid ""
-"The <guilabel>Thumbnail</guilabel> plugin sets <application>Totem Movie "
+"The <guilabel>Thumbnail</guilabel> plugin sets <application>theater Movie "
 "Player</application>'s main window icon to a thumbnail of the current movie, "
 "and updates the icon when new movies are loaded."
 msgstr ""
 "Modulul <guilabel>Miniaturi</guilabel> transformă iconița ferestrei "
-"principale a <application>Playerul pentru filme Totem</application> într-o "
+"principale a <application>Playerul pentru filme theater</application> într-o "
 "miniatură a filmului curent, și actualizează iconița când sunt încărcate "
 "filme noi."
 
@@ -2100,12 +2100,12 @@ msgstr ""
 #: C/index.docbook:913
 msgid ""
 "If a thumbnail doesn't exist for the current movie (or if you're playing an "
-"audio file), the main window icon will be reset to the <application>Totem "
+"audio file), the main window icon will be reset to the <application>theater "
 "Movie Player</application> logo."
 msgstr ""
 "Dacă nu există o miniatură pentru filmul curent (sau dacă redați un fișier "
 "audio), iconița ferestrei principale va fi transformată înapoi în sigla "
-"<application>Playerul pentru filme Totem</application>."
+"<application>Playerul pentru filme theater</application>."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:917
@@ -2150,7 +2150,7 @@ msgstr "Navigator YouTube"
 msgid ""
 "The <guilabel>YouTube Browser</guilabel> plugin allows you to search and "
 "browse <ulink type=\"http\" url=\"http://www.youtube.com/\">YouTube</ulink>, "
-"and play YouTube videos directly in <application>Totem Movie Player</"
+"and play YouTube videos directly in <application>theater Movie Player</"
 "application>. With the plugin enabled, choose "
 "<menuchoice><shortcut><keycap>F9</keycap></shortcut><guimenu>View</"
 "guimenu><guimenuitem>Sidebar</guimenuitem></menuchoice> or click on the "
@@ -2161,7 +2161,7 @@ msgstr ""
 "Modulul <guilabel>Navigator YouTube</guilabel> vă permite să căutați și să "
 "navigați <ulink type=\"http\" url=\"http://www.youtube.com/\">YouTube</"
 "ulink>, și să redați videouri Youtube direct în <application>Playerul pentru "
-"filme Totem</application>. Cu modulul activat, selectați "
+"filme theater</application>. Cu modulul activat, selectați "
 "<menuchoice><shortcut><keycap>F9</keycap></shortcut><guimenu>Afișare</"
 "guimenu><guimenuitem>Bară laterală</guimenuitem></menuchoice> sau apăsați "
 "butonul <guibutton>Bară laterală</guibutton> pentru a afișa bara laterală. "
@@ -2219,18 +2219,18 @@ msgstr "Serviciu D-Bus"
 #: C/index.docbook:941
 msgid ""
 "The <guilabel>D-Bus Service</guilabel> plugin broadcasts notifications of "
-"which track is playing in <application>Totem Movie Player</application> on "
+"which track is playing in <application>theater Movie Player</application> on "
 "the D-Bus session bus. Applications such as <application>Gajim</application> "
 "can listen for such notifications and respond accordingly by, for example, "
 "updating your instant messaging status message to display the video "
-"currently being played in <application>Totem Movie Player</application>."
+"currently being played in <application>theater Movie Player</application>."
 msgstr ""
 "Modulul <guilabel>Serviciu D-Bus</guilabel> difuzează înștiințări despre "
-"piesa redată în <application>Playerul pentru filme Totem</application> pe "
+"piesa redată în <application>Playerul pentru filme theater</application> pe "
 "magistrala de sesiune D-Bus. Aplicațiile precum <application>Gajim</"
 "application> pot aștepta asemenea înștiințări și să răspundă corespunzător, "
 "de exemplu, actualizând starea clientului de mesagerie instant ca să afișeze "
-"videoul care este redat în <application>Playerul pentru filme Totem</"
+"videoul care este redat în <application>Playerul pentru filme theater</"
 "application>."
 
 #. (itstool) path: sect1/title
@@ -2241,11 +2241,11 @@ msgstr "Preferințe"
 #. (itstool) path: sect1/para
 #: C/index.docbook:953
 msgid ""
-"To modify the preferences of <application>Totem Movie Player</application>, "
+"To modify the preferences of <application>theater Movie Player</application>, "
 "choose <menuchoice> <guimenu>Edit</guimenu> <guimenuitem>Preferences</"
 "guimenuitem> </menuchoice>."
 msgstr ""
-"Pentru a modifica preferințele <application>Playerul pentru filme Totem</"
+"Pentru a modifica preferințele <application>Playerul pentru filme theater</"
 "application>, alegeți <menuchoice> <guimenu>Editare</guimenu> "
 "<guimenuitem>Preferințe</guimenuitem> </menuchoice>."
 
@@ -2311,12 +2311,12 @@ msgstr "Afișaj"
 #. (itstool) path: listitem/para
 #: C/index.docbook:999
 msgid ""
-"Select the resize option if you want <application>Totem Movie Player</"
+"Select the resize option if you want <application>theater Movie Player</"
 "application> to automatically resize the window to the size of the video "
 "when a new video is loaded."
 msgstr ""
 "Selectați opțiunea de redimensionare dacă doriți ca <application>Playerul "
-"pentru filme Totem</application> să redimensioneze automat fereastra la "
+"pentru filme theater</application> să redimensioneze automat fereastra la "
 "dimensiunea videoului când acesta este încărcat."
 
 #. (itstool) path: listitem/para
@@ -2432,39 +2432,39 @@ msgstr ""
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:1091
-msgid "About <application>Totem Movie Player</application>"
-msgstr "Despre <application>Playerul pentru filme Totem</application>"
+msgid "About <application>theater Movie Player</application>"
+msgstr "Despre <application>Playerul pentru filme theater</application>"
 
 #. (itstool) path: sect1/para
 #: C/index.docbook:1092
 msgid ""
-"<application>Totem Movie Player</application> is written by Bastien Nocera "
+"<application>theater Movie Player</application> is written by Bastien Nocera "
 "(<email>hadess@hadess.net</email>), Julien Moutte (<email>julien@moutte.net</"
 "email>) for the GStreamer backend, and Guenter Bartsch (<email>guenter@users."
-"sourceforge.net</email>). To find more information about <application>Totem "
+"sourceforge.net</email>). To find more information about <application>theater "
 "Movie Player</application>, please visit the <ulink url=\"https://wiki.gnome."
-"org/Apps/Videos\" type=\"http\"><application>Totem Movie Player</"
+"org/Apps/Videos\" type=\"http\"><application>theater Movie Player</"
 "application> website</ulink>."
 msgstr ""
-"<application>Playerul pentru filme Totem</application> este scris de Bastien "
+"<application>Playerul pentru filme theater</application> este scris de Bastien "
 "Nocera (<email>hadess@hadess.net</email>), Julien Moutte "
 "(<email>julien@moutte.net</email>) pentru suportul GStreamer, și Michael "
 "Bartsch (<email>guenter@users.sourceforge.net</email>). Pentru a afla mai "
-"multe informații despre <application>Playerul pentru filme Totem</"
+"multe informații despre <application>Playerul pentru filme theater</"
 "application>, vizitați <ulink url=\"https://wiki.gnome.org/Apps/Videos\" "
-"type=\"http\">pagina web <application>Totem Movie Player</application></"
+"type=\"http\">pagina web <application>theater Movie Player</application></"
 "ulink>."
 
 #. (itstool) path: sect1/para
 #: C/index.docbook:1100
 msgid ""
-"To report a bug or make a suggestion regarding the <application>Totem Movie "
+"To report a bug or make a suggestion regarding the <application>theater Movie "
 "Player</application> application or this manual, follow the directions in "
 "the <ulink url=\"help:user-guide#feedback\" type=\"help\">GNOME Feedback "
 "Page</ulink>."
 msgstr ""
 "Pentru a raporta o eroare sau a face o sugestie cu privire la aplicația "
-"<application>Playerul pentru filme Totem</application> sau la acest manual, "
+"<application>Playerul pentru filme theater</application> sau la acest manual, "
 "urmați sfaturile de la <ulink url=\"help:user-guide#feedback\" type=\"help"
 "\">pagina de sugestii GNOME</ulink>."
 
@@ -2553,23 +2553,23 @@ msgstr ""
 #~ msgid "philip@tecnocode.co.uk"
 #~ msgstr "philip@tecnocode.co.uk"
 
-#~ msgid "Totem Movie Player Manual V2.0"
-#~ msgstr "Playerul pentru filme Totem – Manualul utilizatorului V2.0"
+#~ msgid "theater Movie Player Manual V2.0"
+#~ msgstr "Playerul pentru filme theater – Manualul utilizatorului V2.0"
 
 #~ msgid "August 2006"
 #~ msgstr "August 2006"
 
-#~ msgid "Totem Movie Player Manual V3.0"
-#~ msgstr "Playerul pentru filme Totem – Manualul utilizatorului V3.0"
+#~ msgid "theater Movie Player Manual V3.0"
+#~ msgstr "Playerul pentru filme theater – Manualul utilizatorului V3.0"
 
 #~ msgid "February 2009"
 #~ msgstr "Februarie 2009"
 
-#~ msgid "Totem Movie Player"
-#~ msgstr "Playerul pentru filme Totem"
+#~ msgid "theater Movie Player"
+#~ msgstr "Playerul pentru filme theater"
 
-#~ msgid "totem"
-#~ msgstr "totem"
+#~ msgid "theater"
+#~ msgstr "theater"
 
 #~ msgid "Shows pause button."
 #~ msgstr "Afișează butonul de pauză."

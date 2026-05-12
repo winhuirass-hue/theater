@@ -24,23 +24,23 @@
 #include <libpeas/peas-object-module.h>
 #include <libpeas/peas-activatable.h>
 
-#include "totem-plugin.h"
-#include "totem-interface.h"
+#include "theater-plugin.h"
+#include "theater-interface.h"
 
-#define TOTEM_TYPE_OPEN_DIRECTORY_PLUGIN		(totem_open_directory_plugin_get_type ())
-#define TOTEM_OPEN_DIRECTORY_PLUGIN(o)			(G_TYPE_CHECK_INSTANCE_CAST ((o), TOTEM_TYPE_OPEN_DIRECTORY_PLUGIN, TotemOpenDirectoryPlugin))
-#define TOTEM_OPEN_DIRECTORY_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), TOTEM_TYPE_OPEN_DIRECTORY_PLUGIN, TotemOpenDirectoryPluginClass))
-#define TOTEM_IS_OPEN_DIRECTORY_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), TOTEM_TYPE_OPEN_DIRECTORY_PLUGIN))
-#define TOTEM_IS_OPEN_DIRECTORY_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_TYPE ((k), TOTEM_TYPE_OPEN_DIRECTORY_PLUGIN))
-#define TOTEM_OPEN_DIRECTORY_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), TOTEM_TYPE_OPEN_DIRECTORY_PLUGIN, TotemOpenDirectoryPluginClass))
+#define theater_TYPE_OPEN_DIRECTORY_PLUGIN		(theater_open_directory_plugin_get_type ())
+#define theater_OPEN_DIRECTORY_PLUGIN(o)			(G_TYPE_CHECK_INSTANCE_CAST ((o), theater_TYPE_OPEN_DIRECTORY_PLUGIN, theaterOpenDirectoryPlugin))
+#define theater_OPEN_DIRECTORY_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), theater_TYPE_OPEN_DIRECTORY_PLUGIN, theaterOpenDirectoryPluginClass))
+#define theater_IS_OPEN_DIRECTORY_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), theater_TYPE_OPEN_DIRECTORY_PLUGIN))
+#define theater_IS_OPEN_DIRECTORY_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_TYPE ((k), theater_TYPE_OPEN_DIRECTORY_PLUGIN))
+#define theater_OPEN_DIRECTORY_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), theater_TYPE_OPEN_DIRECTORY_PLUGIN, theaterOpenDirectoryPluginClass))
 
 typedef struct {
-	TotemObject *totem;
+	theaterObject *theater;
 	char        *mrl;
 	GSimpleAction *action;
-} TotemOpenDirectoryPluginPrivate;
+} theaterOpenDirectoryPluginPrivate;
 
-TOTEM_PLUGIN_REGISTER(TOTEM_TYPE_OPEN_DIRECTORY_PLUGIN, TotemOpenDirectoryPlugin, totem_open_directory_plugin)
+theater_PLUGIN_REGISTER(theater_TYPE_OPEN_DIRECTORY_PLUGIN, theaterOpenDirectoryPlugin, theater_open_directory_plugin)
 
 static char *
 get_notification_id (void)
@@ -48,13 +48,13 @@ get_notification_id (void)
 	GTimeVal time;
 
 	g_get_current_time (&time);
-	return g_strdup_printf ("%s_TIME%ld", "totem", time.tv_sec);
+	return g_strdup_printf ("%s_TIME%ld", "theater", time.tv_sec);
 }
 
 static void
-totem_open_directory_plugin_open (GSimpleAction       *action,
+theater_open_directory_plugin_open (GSimpleAction       *action,
 			     GVariant            *parameter,
-			     TotemOpenDirectoryPlugin *pi)
+			     theaterOpenDirectoryPlugin *pi)
 {
 
 
@@ -100,8 +100,8 @@ totem_open_directory_plugin_open (GSimpleAction       *action,
 }
 
 static void
-totem_open_directory_file_closed (TotemObject *totem,
-				 TotemOpenDirectoryPlugin *pi)
+theater_open_directory_file_closed (theaterObject *theater,
+				 theaterOpenDirectoryPlugin *pi)
 {
 	g_clear_pointer (&pi->priv->mrl, g_free);
 
@@ -130,9 +130,9 @@ scheme_is_supported (const char *scheme)
 }
 
 static void
-totem_open_directory_file_opened (TotemObject              *totem,
+theater_open_directory_file_opened (theaterObject              *theater,
 				  const char               *mrl,
-				  TotemOpenDirectoryPlugin *pi)
+				  theaterOpenDirectoryPlugin *pi)
 {
 	char *scheme;
 
@@ -156,8 +156,8 @@ totem_open_directory_file_opened (TotemObject              *totem,
 static void
 impl_activate (PeasActivatable *plugin)
 {
-	TotemOpenDirectoryPlugin *pi = TOTEM_OPEN_DIRECTORY_PLUGIN (plugin);
-	TotemOpenDirectoryPluginPrivate *priv = pi->priv;
+	theaterOpenDirectoryPlugin *pi = theater_OPEN_DIRECTORY_PLUGIN (plugin);
+	theaterOpenDirectoryPluginPrivate *priv = pi->priv;
 	GMenu *menu;
 	GMenuItem *item;
 	char *mrl;
@@ -167,45 +167,45 @@ impl_activate (PeasActivatable *plugin)
 	if (g_file_test ("/.flatpak-info", G_FILE_TEST_EXISTS))
 		return; */
 
-	priv->totem = g_object_get_data (G_OBJECT (plugin), "object");
+	priv->theater = g_object_get_data (G_OBJECT (plugin), "object");
 
-	g_signal_connect (priv->totem,
+	g_signal_connect (priv->theater,
 			  "file-opened",
-			  G_CALLBACK (totem_open_directory_file_opened),
+			  G_CALLBACK (theater_open_directory_file_opened),
 			  plugin);
-	g_signal_connect (priv->totem,
+	g_signal_connect (priv->theater,
 			  "file-closed",
-			  G_CALLBACK (totem_open_directory_file_closed),
+			  G_CALLBACK (theater_open_directory_file_closed),
 			  plugin);
 
 	priv->action = g_simple_action_new ("open-dir", NULL);
 	g_signal_connect (G_OBJECT (priv->action), "activate",
-			  G_CALLBACK (totem_open_directory_plugin_open), plugin);
-	g_action_map_add_action (G_ACTION_MAP (priv->totem), G_ACTION (priv->action));
+			  G_CALLBACK (theater_open_directory_plugin_open), plugin);
+	g_action_map_add_action (G_ACTION_MAP (priv->theater), G_ACTION (priv->action));
 	g_simple_action_set_enabled (G_SIMPLE_ACTION (priv->action), FALSE);
 
 	/* add UI */
-	menu = totem_object_get_menu_section (priv->totem, "opendirectory-placeholder");
+	menu = theater_object_get_menu_section (priv->theater, "opendirectory-placeholder");
 	item = g_menu_item_new (_("Open Containing Folder"), "app.open-dir");
 	g_menu_append_item (G_MENU (menu), item);
 
-	mrl = totem_object_get_current_mrl (priv->totem);
-	totem_open_directory_file_opened (priv->totem, mrl, pi);
+	mrl = theater_object_get_current_mrl (priv->theater);
+	theater_open_directory_file_opened (priv->theater, mrl, pi);
 	g_free (mrl);
 }
 
 static void
 impl_deactivate (PeasActivatable *plugin)
 {
-	TotemOpenDirectoryPlugin *pi = TOTEM_OPEN_DIRECTORY_PLUGIN (plugin);
-	TotemOpenDirectoryPluginPrivate *priv = pi->priv;
+	theaterOpenDirectoryPlugin *pi = theater_OPEN_DIRECTORY_PLUGIN (plugin);
+	theaterOpenDirectoryPluginPrivate *priv = pi->priv;
 
-	g_signal_handlers_disconnect_by_func (priv->totem, totem_open_directory_file_opened, plugin);
-	g_signal_handlers_disconnect_by_func (priv->totem, totem_open_directory_file_closed, plugin);
+	g_signal_handlers_disconnect_by_func (priv->theater, theater_open_directory_file_opened, plugin);
+	g_signal_handlers_disconnect_by_func (priv->theater, theater_open_directory_file_closed, plugin);
 
-	totem_object_empty_menu_section (priv->totem, "opendirectory-placeholder");
+	theater_object_empty_menu_section (priv->theater, "opendirectory-placeholder");
 
-	priv->totem = NULL;
+	priv->theater = NULL;
 
 	g_clear_pointer (&pi->priv->mrl, g_free);
 }

@@ -2,7 +2,7 @@
 <!-- Copyright 2013 Richard Hughes <richard@hughsie.com>
      Copyright 2013 William Jon McCann <william.jon.mccann@gmail.com> -->
 <component type="desktop">
-  <id>org.gnome.Totem.desktop</id>
+  <id>org.gnome.theater.desktop</id>
   <name>Videos</name>
   <summary>Play movies</summary>
   <metadata_license>CC0-1.0</metadata_license>
@@ -22,13 +22,13 @@
   </description>
   <url type="homepage">https://wiki.gnome.org/Apps/Videos</url>
   <screenshots>
-    <screenshot type="default" width="1024" height="576">https://gitlab.gnome.org/GNOME/totem/raw/master/data/appdata/ss-videos.png</screenshot>
-    <screenshot width="1024" height="576">https://gitlab.gnome.org/GNOME/totem/raw/master/data/appdata/ss-player.png</screenshot>
+    <screenshot type="default" width="1024" height="576">https://gitlab.gnome.org/GNOME/theater/raw/master/data/appdata/ss-videos.png</screenshot>
+    <screenshot width="1024" height="576">https://gitlab.gnome.org/GNOME/theater/raw/master/data/appdata/ss-player.png</screenshot>
   </screenshots>
   <update_contact>hadess@hadess.net</update_contact>
   <project_group>GNOME</project_group>
   <compulsory_for_desktop>GNOME</compulsory_for_desktop>
-  <translation type="gettext">totem</translation>
+  <translation type="gettext">theater</translation>
   <releases>
     <release version="3.34.1" date="2019-10-04">
       <description>

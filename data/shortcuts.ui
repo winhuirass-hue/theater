@@ -2,7 +2,7 @@
 <interface>
   <!-- interface-requires gtk+ 3.17 -->
 
-  <object class="GtkShortcutsWindow" id="shortcuts-totem">
+  <object class="GtkShortcutsWindow" id="shortcuts-theater">
     <property name="modal">1</property>
     <property name="visible">False</property>
     <child>

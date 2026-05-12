@@ -1,4 +1,4 @@
-/* totem-interface.c
+/* theater-interface.c
  *
  *  Copyright (C) 2005 Bastien Nocera
  *
@@ -18,10 +18,10 @@
  *
  *  Author: Bastien Nocera <hadess@hadess.net>
  * 
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
@@ -29,10 +29,10 @@
  */
 
 /**
- * SECTION:totem-interface
+ * SECTION:theater-interface
  * @short_description: interface utility/loading/error functions
  * @stability: Unstable
- * @include: totem-interface.h
+ * @include: theater-interface.h
  *
  * A collection of interface utility functions, for loading interfaces and displaying errors.
  **/
@@ -44,10 +44,10 @@
 #include <gtk/gtk.h>
 #include <gtk/gtkx.h>
 
-#include "totem-interface.h"
+#include "theater-interface.h"
 
 static GtkWidget *
-totem_interface_error_dialog (const char *title, const char *reason,
+theater_interface_error_dialog (const char *title, const char *reason,
 		GtkWindow *parent)
 {
 	GtkWidget *error_dialog;
@@ -75,7 +75,7 @@ totem_interface_error_dialog (const char *title, const char *reason,
 }
 
 /**
- * totem_interface_error:
+ * theater_interface_error:
  * @title: the error title
  * @reason: the error reason (secondary text)
  * @parent: the error dialogue's parent #GtkWindow
@@ -84,12 +84,12 @@ totem_interface_error_dialog (const char *title, const char *reason,
  * as its secondary text.
  **/
 void
-totem_interface_error (const char *title, const char *reason,
+theater_interface_error (const char *title, const char *reason,
 		GtkWindow *parent)
 {
 	GtkWidget *error_dialog;
 
-	error_dialog = totem_interface_error_dialog (title, reason, parent);
+	error_dialog = theater_interface_error_dialog (title, reason, parent);
 
 	g_signal_connect (G_OBJECT (error_dialog), "response", G_CALLBACK
 			(gtk_widget_destroy), error_dialog);
@@ -98,39 +98,39 @@ totem_interface_error (const char *title, const char *reason,
 }
 
 /**
- * totem_interface_error_blocking:
+ * theater_interface_error_blocking:
  * @title: the error title
  * @reason: the error reason (secondary text)
  * @parent: the error dialogue's parent #GtkWindow
  *
- * Display a modal error dialogue like totem_interface_error() which blocks until the user has
+ * Display a modal error dialogue like theater_interface_error() which blocks until the user has
  * dismissed it.
  **/
 void
-totem_interface_error_blocking (const char *title, const char *reason,
+theater_interface_error_blocking (const char *title, const char *reason,
 		GtkWindow *parent)
 {
 	GtkWidget *error_dialog;
 
-	error_dialog = totem_interface_error_dialog (title, reason, parent);
+	error_dialog = theater_interface_error_dialog (title, reason, parent);
 
 	gtk_dialog_run (GTK_DIALOG (error_dialog));
 	gtk_widget_destroy (error_dialog);
 }
 
 /**
- * totem_interface_error_with_link:
+ * theater_interface_error_with_link:
  * @title: the error title
  * @reason: the error reason (secondary text)
  * @uri: the URI to open
  * @label: a label for the URI's button, or %NULL to use @uri as the label
  * @parent: the error dialogue's parent #GtkWindow
  *
- * Display a modal error dialogue like totem_interface_error(),
+ * Display a modal error dialogue like theater_interface_error(),
  * but add a button which will open @uri in a browser window.
  **/
 void
-totem_interface_error_with_link (const char *title, const char *reason,
+theater_interface_error_with_link (const char *title, const char *reason,
 				 const char *uri, const char *label, GtkWindow *parent)
 {
 	GtkWidget *error_dialog, *link_button, *hbox;
@@ -138,7 +138,7 @@ totem_interface_error_with_link (const char *title, const char *reason,
 	if (label == NULL)
 		label = uri;
 
-	error_dialog = totem_interface_error_dialog (title, reason, parent);
+	error_dialog = theater_interface_error_dialog (title, reason, parent);
 	link_button = gtk_link_button_new_with_label (uri, label);
 
 	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
@@ -156,7 +156,7 @@ totem_interface_error_with_link (const char *title, const char *reason,
 }
 
 /**
- * totem_interface_load:
+ * theater_interface_load:
  * @name: the #GtkBuilder UI file to load
  * @fatal: %TRUE if errors loading the file should be fatal, %FALSE otherwise
  * @parent: (allow-none): the parent window to use when displaying error dialogues, or %NULL
@@ -167,26 +167,26 @@ totem_interface_error_with_link (const char *title, const char *reason,
  * Return value: (transfer full): the loaded #GtkBuilder object, or %NULL
  */
 GtkBuilder *
-totem_interface_load (const char *name, gboolean fatal, GtkWindow *parent, gpointer user_data)
+theater_interface_load (const char *name, gboolean fatal, GtkWindow *parent, gpointer user_data)
 {
 	GtkBuilder *builder = NULL;
 	char *filename;
 
-	filename = totem_interface_get_full_path (name);
+	filename = theater_interface_get_full_path (name);
 	if (filename == NULL) {
 		char *msg;
 
 		msg = g_strdup_printf (_("Couldn’t load the “%s” interface. %s"), name, _("The file does not exist."));
 		if (fatal == FALSE)
-			totem_interface_error (msg, _("Make sure that Totem is properly installed."), parent);
+			theater_interface_error (msg, _("Make sure that theater is properly installed."), parent);
 		else
-			totem_interface_error_blocking (msg, _("Make sure that Totem is properly installed."), parent);
+			theater_interface_error_blocking (msg, _("Make sure that theater is properly installed."), parent);
 
 		g_free (msg);
 		return NULL;
 	}
 
-	builder = totem_interface_load_with_full_path (filename, fatal, parent,
+	builder = theater_interface_load_with_full_path (filename, fatal, parent,
 						       user_data);
 	g_free (filename);
 
@@ -194,7 +194,7 @@ totem_interface_load (const char *name, gboolean fatal, GtkWindow *parent, gpoin
 }
 
 /**
- * totem_interface_load_with_full_path:
+ * theater_interface_load_with_full_path:
  * @filename: the #GtkBuilder UI file path to load
  * @fatal: %TRUE if errors loading the file should be fatal, %FALSE otherwise
  * @parent: (allow-none): the parent window to use when displaying error dialogues, or %NULL
@@ -205,7 +205,7 @@ totem_interface_load (const char *name, gboolean fatal, GtkWindow *parent, gpoin
  * Return value: (transfer full): the loaded #GtkBuilder object, or %NULL
  */
 GtkBuilder *
-totem_interface_load_with_full_path (const char *filename, gboolean fatal, 
+theater_interface_load_with_full_path (const char *filename, gboolean fatal, 
 				     GtkWindow *parent, gpointer user_data)
 {
 	GtkBuilder *builder = NULL;
@@ -221,9 +221,9 @@ totem_interface_load_with_full_path (const char *filename, gboolean fatal,
 
 		msg = g_strdup_printf (_("Couldn’t load the “%s” interface. %s"), filename, error->message);
 		if (fatal == FALSE)
-			totem_interface_error (msg, _("Make sure that Totem is properly installed."), parent);
+			theater_interface_error (msg, _("Make sure that theater is properly installed."), parent);
 		else
-			totem_interface_error_blocking (msg, _("Make sure that Totem is properly installed."), parent);
+			theater_interface_error_blocking (msg, _("Make sure that theater is properly installed."), parent);
 
 		g_free (msg);
 		g_error_free (error);
@@ -237,20 +237,20 @@ totem_interface_load_with_full_path (const char *filename, gboolean fatal,
 }
 
 /**
- * totem_interface_load_pixbuf:
+ * theater_interface_load_pixbuf:
  * @name: the image file name
  *
- * Load the image called @name in the directory given by totem_interface_get_full_path() into a #GdkPixbuf.
+ * Load the image called @name in the directory given by theater_interface_get_full_path() into a #GdkPixbuf.
  *
  * Return value: (transfer full): the loaded pixbuf, or %NULL
  */
 GdkPixbuf*
-totem_interface_load_pixbuf (const char *name)
+theater_interface_load_pixbuf (const char *name)
 {
 	GdkPixbuf *pix;
 	char *filename;
 
-	filename = totem_interface_get_full_path (name);
+	filename = theater_interface_get_full_path (name);
 	if (filename == NULL)
 		return NULL;
 	pix = gdk_pixbuf_new_from_file (filename, NULL);
@@ -259,11 +259,11 @@ totem_interface_load_pixbuf (const char *name)
 }
 
 char *
-totem_interface_get_full_path (const char *name)
+theater_interface_get_full_path (const char *name)
 {
 	char *filename;
 
-#ifdef TOTEM_RUN_IN_SOURCE_TREE
+#ifdef theater_RUN_IN_SOURCE_TREE
 	/* Try the GtkBuilder file in the source tree first */
 	filename = g_build_filename ("..", "data", name, NULL);
 	if (g_file_test (filename, G_FILE_TEST_EXISTS) == FALSE)
@@ -271,7 +271,7 @@ totem_interface_get_full_path (const char *name)
 		g_free (filename);
 		/* Try the local file */
 		filename = g_build_filename (DATADIR,
-				"totem", name, NULL);
+				"theater", name, NULL);
 
 		if (g_file_test (filename, G_FILE_TEST_EXISTS) == FALSE)
 		{
@@ -281,14 +281,14 @@ totem_interface_get_full_path (const char *name)
 	}
 #else
 	filename = g_build_filename (DATADIR,
-	                                "totem", name, NULL);
+	                                "theater", name, NULL);
 #endif
 
 	return filename;
 }
 
 /**
- * totem_interface_create_header_button:
+ * theater_interface_create_header_button:
  * @header: The header widget to put the button in
  * @button: The button to use in the header
  * @icon_name: The icon name for the button image
@@ -300,7 +300,7 @@ totem_interface_get_full_path (const char *name)
  * Return value: (transfer none): the button passed as input
  */
 GtkWidget *
-totem_interface_create_header_button (GtkWidget  *header,
+theater_interface_create_header_button (GtkWidget  *header,
 				      GtkWidget  *button,
 				      const char *icon_name,
 				      GtkPackType pack_type)

@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add excemption clause.
  * See license_change file for details.
@@ -35,24 +35,24 @@
 #include <gdk/gdkkeysyms.h>
 #include <libpeas/peas-activatable.h>
 
-#include "totem-plugin.h"
-#include "totem.h"
+#include "theater-plugin.h"
+#include "theater.h"
 
-#define TOTEM_TYPE_VARIABLE_RATE_PLUGIN		(totem_variable_rate_plugin_get_type ())
-#define TOTEM_VARIABLE_RATE_PLUGIN(o)			(G_TYPE_CHECK_INSTANCE_CAST ((o), TOTEM_TYPE_VARIABLE_RATE_PLUGIN, TotemVariableRatePlugin))
-#define TOTEM_VARIABLE_RATE_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), TOTEM_TYPE_VARIABLE_RATE_PLUGIN, TotemVariableRatePluginClass))
-#define TOTEM_IS_VARIABLE_RATE_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), TOTEM_TYPE_VARIABLE_RATE_PLUGIN))
-#define TOTEM_IS_VARIABLE_RATE_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_TYPE ((k), TOTEM_TYPE_VARIABLE_RATE_PLUGIN))
-#define TOTEM_VARIABLE_RATE_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), TOTEM_TYPE_VARIABLE_RATE_PLUGIN, TotemVariableRatePluginClass))
+#define theater_TYPE_VARIABLE_RATE_PLUGIN		(theater_variable_rate_plugin_get_type ())
+#define theater_VARIABLE_RATE_PLUGIN(o)			(G_TYPE_CHECK_INSTANCE_CAST ((o), theater_TYPE_VARIABLE_RATE_PLUGIN, theaterVariableRatePlugin))
+#define theater_VARIABLE_RATE_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), theater_TYPE_VARIABLE_RATE_PLUGIN, theaterVariableRatePluginClass))
+#define theater_IS_VARIABLE_RATE_PLUGIN(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), theater_TYPE_VARIABLE_RATE_PLUGIN))
+#define theater_IS_VARIABLE_RATE_PLUGIN_CLASS(k)		(G_TYPE_CHECK_CLASS_TYPE ((k), theater_TYPE_VARIABLE_RATE_PLUGIN))
+#define theater_VARIABLE_RATE_PLUGIN_GET_CLASS(o)	(G_TYPE_INSTANCE_GET_CLASS ((o), theater_TYPE_VARIABLE_RATE_PLUGIN, theaterVariableRatePluginClass))
 
 typedef struct {
-	TotemObject       *totem;
+	theaterObject       *theater;
 	guint              handler_id_key_press;
 	guint              handler_id_main_page;
 	GSimpleAction     *action;
 	GMenuItem         *submenu_item;
 	gboolean           player_page;
-} TotemVariableRatePluginPrivate;
+} theaterVariableRatePluginPrivate;
 
 #define NUM_RATES 6
 #define NORMAL_RATE_IDX 1
@@ -70,7 +70,7 @@ static struct {
 	{ 1.75,  NC_("playback rate", "× 1.75"), "1_75" }
 };
 
-TOTEM_PLUGIN_REGISTER(TOTEM_TYPE_VARIABLE_RATE_PLUGIN, TotemVariableRatePlugin, totem_variable_rate_plugin)
+theater_PLUGIN_REGISTER(theater_TYPE_VARIABLE_RATE_PLUGIN, theaterVariableRatePlugin, theater_variable_rate_plugin)
 
 static char *
 get_submenu_label_for_index (guint i)
@@ -82,10 +82,10 @@ get_submenu_label_for_index (guint i)
 static void
 variable_rate_action_callback (GSimpleAction           *action,
 			       GVariant                *parameter,
-			       TotemVariableRatePlugin *plugin)
+			       theaterVariableRatePlugin *plugin)
 {
-	TotemVariableRatePlugin *pi = TOTEM_VARIABLE_RATE_PLUGIN (plugin);
-	TotemVariableRatePluginPrivate *priv = pi->priv;
+	theaterVariableRatePlugin *pi = theater_VARIABLE_RATE_PLUGIN (plugin);
+	theaterVariableRatePluginPrivate *priv = pi->priv;
 	const char *rate_id;
 	char *label;
 	guint i;
@@ -97,11 +97,11 @@ variable_rate_action_callback (GSimpleAction           *action,
 
 	g_assert (i < NUM_RATES);
 
-	if (!totem_object_set_rate (priv->totem, rates[i].rate)) {
+	if (!theater_object_set_rate (priv->theater, rates[i].rate)) {
 		g_warning ("Failed to set rate to %f, resetting", rates[i].rate);
 		i = NORMAL_RATE_IDX;
 
-		if (!totem_object_set_rate (priv->totem, rates[i].rate))
+		if (!theater_object_set_rate (priv->theater, rates[i].rate))
 			g_warning ("And failed to reset rate as well...");
 	} else {
 		g_debug ("Managed to set rate to %f", rates[i].rate);
@@ -116,9 +116,9 @@ variable_rate_action_callback (GSimpleAction           *action,
 }
 
 static void
-reset_rate (TotemVariableRatePlugin *pi)
+reset_rate (theaterVariableRatePlugin *pi)
 {
-	TotemVariableRatePluginPrivate *priv = pi->priv;
+	theaterVariableRatePluginPrivate *priv = pi->priv;
 	GVariant *state;
 
 	g_debug ("Reset rate to 1.0");
@@ -128,10 +128,10 @@ reset_rate (TotemVariableRatePlugin *pi)
 }
 
 static void
-change_rate (TotemVariableRatePlugin *pi,
+change_rate (theaterVariableRatePlugin *pi,
 	     gboolean                 increase)
 {
-	TotemVariableRatePluginPrivate *priv = pi->priv;
+	theaterVariableRatePluginPrivate *priv = pi->priv;
 	GVariant *state;
 	const char *rate_id;
 	int target, i;
@@ -164,20 +164,20 @@ change_rate (TotemVariableRatePlugin *pi,
 }
 
 static void
-on_totem_main_page_notify (GObject *object, GParamSpec *spec, TotemVariableRatePlugin *plugin)
+on_theater_main_page_notify (GObject *object, GParamSpec *spec, theaterVariableRatePlugin *plugin)
 {
-	TotemVariableRatePlugin *pi = TOTEM_VARIABLE_RATE_PLUGIN (plugin);
+	theaterVariableRatePlugin *pi = theater_VARIABLE_RATE_PLUGIN (plugin);
 	char *main_page;
 
-	g_object_get (pi->priv->totem, "main-page", &main_page, NULL);
+	g_object_get (pi->priv->theater, "main-page", &main_page, NULL);
 	pi->priv->player_page = (g_strcmp0 (main_page, "player") == 0);
 	g_free (main_page);
 }
 
 static gboolean
-on_window_key_press_event (GtkWidget *window, GdkEventKey *event, TotemVariableRatePlugin *plugin)
+on_window_key_press_event (GtkWidget *window, GdkEventKey *event, theaterVariableRatePlugin *plugin)
 {
-	TotemVariableRatePlugin *pi = TOTEM_VARIABLE_RATE_PLUGIN (plugin);
+	theaterVariableRatePlugin *pi = theater_VARIABLE_RATE_PLUGIN (plugin);
 
 	if (!pi->priv->player_page ||
 	    event->state == 0 ||
@@ -206,22 +206,22 @@ static void
 impl_activate (PeasActivatable *plugin)
 {
 	GtkWindow *window;
-	TotemVariableRatePlugin *pi = TOTEM_VARIABLE_RATE_PLUGIN (plugin);
-	TotemVariableRatePluginPrivate *priv = pi->priv;
+	theaterVariableRatePlugin *pi = theater_VARIABLE_RATE_PLUGIN (plugin);
+	theaterVariableRatePluginPrivate *priv = pi->priv;
 	GMenuItem *item;
 	GMenu *menu;
 	guint i;
 
-	priv->totem = g_object_get_data (G_OBJECT (plugin), "object");
+	priv->theater = g_object_get_data (G_OBJECT (plugin), "object");
 
-	/* Cache totem's main page */
-	priv->handler_id_main_page = g_signal_connect (G_OBJECT(priv->totem),
+	/* Cache theater's main page */
+	priv->handler_id_main_page = g_signal_connect (G_OBJECT(priv->theater),
 						       "notify::main-page",
-						       G_CALLBACK (on_totem_main_page_notify),
+						       G_CALLBACK (on_theater_main_page_notify),
 						       pi);
 
 	/* Key press handler */
-	window = totem_object_get_main_window (priv->totem);
+	window = theater_object_get_main_window (priv->theater);
 	priv->handler_id_key_press = g_signal_connect (G_OBJECT(window),
 				"key-press-event",
 				G_CALLBACK (on_window_key_press_event),
@@ -234,10 +234,10 @@ impl_activate (PeasActivatable *plugin)
 						     g_variant_new_string (rates[NORMAL_RATE_IDX].id));
 	g_signal_connect (G_OBJECT (priv->action), "change-state",
 			  G_CALLBACK (variable_rate_action_callback), plugin);
-	g_action_map_add_action (G_ACTION_MAP (priv->totem), G_ACTION (priv->action));
+	g_action_map_add_action (G_ACTION_MAP (priv->theater), G_ACTION (priv->action));
 
 	/* Create the submenu */
-	menu = totem_object_get_menu_section (priv->totem, "variable-rate-placeholder");
+	menu = theater_object_get_menu_section (priv->theater, "variable-rate-placeholder");
 	for (i = 0; i < NUM_RATES; i++) {
 		char *target;
 
@@ -252,13 +252,13 @@ static void
 impl_deactivate (PeasActivatable *plugin)
 {
 	GtkWindow *window;
-	TotemObject *totem;
-	TotemVariableRatePluginPrivate *priv = TOTEM_VARIABLE_RATE_PLUGIN (plugin)->priv;
+	theaterObject *theater;
+	theaterVariableRatePluginPrivate *priv = theater_VARIABLE_RATE_PLUGIN (plugin)->priv;
 
-	totem = g_object_get_data (G_OBJECT (plugin), "object");
+	theater = g_object_get_data (G_OBJECT (plugin), "object");
 
 	if (priv->handler_id_key_press != 0) {
-		window = totem_object_get_main_window (totem);
+		window = theater_object_get_main_window (theater);
 		g_signal_handler_disconnect (G_OBJECT(window),
 					     priv->handler_id_key_press);
 		priv->handler_id_key_press = 0;
@@ -266,15 +266,15 @@ impl_deactivate (PeasActivatable *plugin)
 	}
 
 	if (priv->handler_id_main_page != 0) {
-		g_signal_handler_disconnect (G_OBJECT(priv->totem),
+		g_signal_handler_disconnect (G_OBJECT(priv->theater),
 					     priv->handler_id_main_page);
 		priv->handler_id_main_page = 0;
 	}
 
 	/* Remove the menu */
-	totem_object_empty_menu_section (priv->totem, "variable-rate-placeholder");
+	theater_object_empty_menu_section (priv->theater, "variable-rate-placeholder");
 
 	/* Reset the rate */
-	if (!totem_object_set_rate (priv->totem, 1.0))
+	if (!theater_object_set_rate (priv->theater, 1.0))
 		g_warning ("Failed to reset the playback rate to 1.0");
 }

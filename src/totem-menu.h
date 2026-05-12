@@ -1,4 +1,4 @@
-/* totem-menu.h
+/* theater-menu.h
 
    Copyright (C) 2004-2005 Bastien Nocera <hadess@hadess.net>
 
@@ -20,19 +20,19 @@
    Author: Bastien Nocera <hadess@hadess.net>
  */
 
-#ifndef TOTEM_MENU_H
-#define TOTEM_MENU_H
+#ifndef theater_MENU_H
+#define theater_MENU_H
 
-#include "totem.h"
+#include "theater.h"
 #include "bacon-video-widget.h"
 
 G_BEGIN_DECLS
 
-void totem_app_menu_setup (Totem *totem);
-void totem_app_actions_setup (Totem *totem);
+void theater_app_menu_setup (theater *theater);
+void theater_app_actions_setup (theater *theater);
 
-void totem_sublang_update (Totem *totem);
-void totem_sublang_exit (Totem *totem);
+void theater_sublang_update (theater *theater);
+void theater_sublang_exit (theater *theater);
 
 /* For test use only */
 GList *bvw_lang_info_to_menu_labels (GList        *langs,
@@ -40,4 +40,4 @@ GList *bvw_lang_info_to_menu_labels (GList        *langs,
 
 G_END_DECLS
 
-#endif /* TOTEM_MENU_H */
+#endif /* theater_MENU_H */

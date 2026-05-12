@@ -15,10 +15,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
- * The Totem project hereby grant permission for non-gpl compatible GStreamer
- * plugins to be used and distributed together with GStreamer and Totem. This
+ * The theater project hereby grant permission for non-gpl compatible GStreamer
+ * plugins to be used and distributed together with GStreamer and theater. This
  * permission are above and beyond the permissions granted by the GPL license
- * Totem is covered by.
+ * theater is covered by.
  *
  * Monday 7th February 2005: Christian Schaller: Add exception clause.
  * See license_change file for details.
@@ -32,7 +32,7 @@
 #include <glib/gstdio.h>
 #include <glib/gi18n.h>
 #include <gst/gst.h>
-#include <totem-pl-parser.h>
+#include <theater-pl-parser.h>
 
 #include <locale.h>
 #include <errno.h>
@@ -44,9 +44,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include "gst/totem-gst-helpers.h"
-#include "gst/totem-gst-pixbuf-helpers.h"
-#include "totem-resources.h"
+#include "gst/theater-gst-helpers.h"
+#include "gst/theater-gst-pixbuf-helpers.h"
+#include "theater-resources.h"
 
 #ifdef G_HAVE_ISO_VARARGS
 #define PROGRESS_DEBUG(...) { if (verbose != FALSE) g_message (__VA_ARGS__); }
@@ -81,7 +81,7 @@ static void save_pixbuf (GdkPixbuf *pixbuf, const char *path,
 			 const char *video_path, int size, gboolean is_still);
 
 static void
-entry_parsed_cb (TotemPlParser *parser,
+entry_parsed_cb (theaterPlParser *parser,
 		 const char    *uri,
 		 GHashTable    *metadata,
 		 char         **new_url)
@@ -93,8 +93,8 @@ static char *
 get_special_url (GFile *file)
 {
 	char *path, *orig_uri, *uri, *mime_type;
-	TotemPlParser *parser;
-	TotemPlParserResult res;
+	theaterPlParser *parser;
+	theaterPlParserResult res;
 
 	path = g_file_get_path (file);
 
@@ -109,16 +109,16 @@ get_special_url (GFile *file)
 	uri = NULL;
 	orig_uri = g_file_get_uri (file);
 
-	parser = totem_pl_parser_new ();
+	parser = theater_pl_parser_new ();
 	g_signal_connect (parser, "entry-parsed",
 			  G_CALLBACK (entry_parsed_cb), &uri);
 
-	res = totem_pl_parser_parse (parser, orig_uri, FALSE);
+	res = theater_pl_parser_parse (parser, orig_uri, FALSE);
 
 	g_free (orig_uri);
 	g_object_unref (parser);
 
-	if (res == TOTEM_PL_PARSER_RESULT_SUCCESS)
+	if (res == theater_PL_PARSER_RESULT_SUCCESS)
 		return uri;
 
 	g_free (uri);
@@ -169,7 +169,7 @@ error_handler (GstBus *bus,
 	msg_type = GST_MESSAGE_TYPE (message);
 	switch (msg_type) {
 	case GST_MESSAGE_ERROR:
-		totem_gst_message_print (message, play, "totem-video-thumbnailer-error");
+		theater_gst_message_print (message, play, "theater-video-thumbnailer-error");
 		exit (1);
 	case GST_MESSAGE_EOS:
 		exit (0);
@@ -242,7 +242,7 @@ check_cover_for_stream (ThumbApp   *app,
 	if (!tags)
 		return;
 
-	pixbuf = totem_gst_tag_list_get_cover (tags);
+	pixbuf = theater_gst_tag_list_get_cover (tags);
 	if (!pixbuf) {
 		gst_tag_list_unref (tags);
 		return;
@@ -282,7 +282,7 @@ assert_duration (ThumbApp *app)
 {
 	if (app->duration != -1)
 		return;
-	g_print ("totem-video-thumbnailer couldn't get the duration of file '%s'\n", app->input);
+	g_print ("theater-video-thumbnailer couldn't get the duration of file '%s'\n", app->input);
 	exit (1);
 }
 
@@ -324,7 +324,7 @@ thumb_app_start (ThumbApp *app)
 			}
 			break;
 		case GST_MESSAGE_ERROR:
-			totem_gst_message_print (message, app->play, "totem-video-thumbnailer-error");
+			theater_gst_message_print (message, app->play, "theater-video-thumbnailer-error");
 			terminate = TRUE;
 			break;
 
@@ -396,7 +396,7 @@ thumb_app_setup_play (ThumbApp *app)
 
 	app->play = play;
 
-	totem_gst_disable_display_decoders ();
+	theater_gst_disable_display_decoders ();
 }
 
 static void
@@ -516,10 +516,10 @@ save_pixbuf (GdkPixbuf *pixbuf, const char *path,
 
 	if (ret == FALSE) {
 		if (err != NULL) {
-			g_print ("totem-video-thumbnailer couldn't write the thumbnail '%s' for video '%s': %s\n", path, video_path, err->message);
+			g_print ("theater-video-thumbnailer couldn't write the thumbnail '%s' for video '%s': %s\n", path, video_path, err->message);
 			g_error_free (err);
 		} else {
-			g_print ("totem-video-thumbnailer couldn't write the thumbnail '%s' for video '%s'\n", path, video_path);
+			g_print ("theater-video-thumbnailer couldn't write the thumbnail '%s' for video '%s'\n", path, video_path);
 		}
 
 		g_object_unref (with_holes);
@@ -536,7 +536,7 @@ capture_frame_at_time (ThumbApp   *app,
 	if (milliseconds != 0)
 		thumb_app_seek (app, milliseconds);
 
-	return totem_gst_playbin_get_frame (app->play);
+	return theater_gst_playbin_get_frame (app->play);
 }
 
 static GdkPixbuf *
@@ -566,7 +566,7 @@ capture_interesting_frame (ThumbApp *app)
 
 		/* Pull the frame, if it's interesting we bail early */
 		PROGRESS_DEBUG("About to get frame for iter %d", current);
-		pixbuf = totem_gst_playbin_get_frame (app->play);
+		pixbuf = theater_gst_playbin_get_frame (app->play);
 		if (pixbuf != NULL && is_image_interesting (pixbuf) != FALSE) {
 			PROGRESS_DEBUG("Frame for iter %d is interesting", current);
 			break;
@@ -657,19 +657,19 @@ int main (int argc, char *argv[])
 	PRINT_PROGRESS (6.0);
 
 	if (time_limit != FALSE)
-		totem_resources_monitor_start (input, 0);
+		theater_resources_monitor_start (input, 0);
 
 	PROGRESS_DEBUG("About to open video file");
 
 	if (thumb_app_start (&app) == FALSE) {
-		g_print ("totem-video-thumbnailer couldn't open file '%s'\n", input);
+		g_print ("theater-video-thumbnailer couldn't open file '%s'\n", input);
 		exit (1);
 	}
 	thumb_app_set_error_handler (&app);
 
 	thumb_app_check_for_cover (&app);
 	if (thumb_app_get_has_video (&app) == FALSE) {
-		PROGRESS_DEBUG ("totem-video-thumbnailer couldn't find a video track in '%s'\n", input);
+		PROGRESS_DEBUG ("theater-video-thumbnailer couldn't find a video track in '%s'\n", input);
 		exit (1);
 	}
 	thumb_app_set_duration (&app);
@@ -689,12 +689,12 @@ int main (int argc, char *argv[])
 	PRINT_PROGRESS (90.0);
 
 	/* Cleanup */
-	totem_resources_monitor_stop ();
+	theater_resources_monitor_stop ();
 	thumb_app_cleanup (&app);
 	PRINT_PROGRESS (92.0);
 
 	if (pixbuf == NULL) {
-		g_print ("totem-video-thumbnailer couldn't get a picture from '%s'\n", input);
+		g_print ("theater-video-thumbnailer couldn't get a picture from '%s'\n", input);
 		exit (1);
 	}
 

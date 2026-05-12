@@ -2,7 +2,7 @@
                          _|_ __|_ _ ._ _  
                           |_(_)|_(/_| | | 
 
-Totem is movie player for the GNOME desktop based on GStreamer.
+theater is movie player for the GNOME desktop based on GStreamer.
 It features a playlist, a full-screen mode, seek and volume controls,
 as well as complete keyboard navigation.
 
@@ -59,7 +59,7 @@ BUGS
 ====
 
 Bugs should be filed in GNOME's GitLab:
-https://gitlab.gnome.org/GNOME/totem/issues/
+https://gitlab.gnome.org/GNOME/theater/issues/
 
 To get a better debug output, follow the instructions at:
 https://wiki.gnome.org/Apps/Videos/BugReporting

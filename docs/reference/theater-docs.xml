@@ -6,23 +6,23 @@
 ]>
 <book id="index" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<bookinfo>
-		<title>Totem Reference Manual</title>
+		<title>theater Reference Manual</title>
 		<releaseinfo>
-			for Totem &version;. The latest version of this documentation can be found online at
-			<ulink role="online-location" url="http://library.gnome.org/devel/totem/">http://library.gnome.org/devel/totem/</ulink>.
+			for theater &version;. The latest version of this documentation can be found online at
+			<ulink role="online-location" url="http://library.gnome.org/devel/theater/">http://library.gnome.org/devel/theater/</ulink>.
 		</releaseinfo>
 	</bookinfo>
 
 	<chapter id="tutorials">
 		<title>Tutorials</title>
-		<xi:include href="xml/totem-plugins.xml"/>
+		<xi:include href="xml/theater-plugins.xml"/>
 	</chapter>
 
 	<chapter id="core-api">
 		<title>Core API</title>
-		<xi:include href="xml/totem-object.xml"/>
-		<xi:include href="xml/totem-interface.xml"/>
-		<xi:include href="xml/totem-plugin.xml"/>
+		<xi:include href="xml/theater-object.xml"/>
+		<xi:include href="xml/theater-interface.xml"/>
+		<xi:include href="xml/theater-plugin.xml"/>
 		<xi:include href="xml/bacon-video-widget.xml"/>
 	</chapter>
 

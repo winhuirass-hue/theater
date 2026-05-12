@@ -1,6 +1,6 @@
 # translation of mr.po to Marathi
 # Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
-# This file is distributed under the same license as the totem package.
+# This file is distributed under the same license as the theater package.
 #
 # Onkar Shinde <onkarshinde@gmail.com>, 2006.
 # Rahul Bhalerao <b.rahul.pm@gmail.com>, 2006.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mr\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=totem&keywords=I18N+L10N&component=general\n"
+"product=theater&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-09-14 10:48+0000\n"
 "PO-Revision-Date: 2014-09-14 20:48+0530\n"
 "Last-Translator: Sandeep Shedmake <sshedmak@redhat.com>\n"
@@ -22,9 +22,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: ../data/appdata/org.gnome.Totem.appdata.xml.in.h:1
+#: ../data/appdata/org.gnome.theater.appdata.xml.in.h:1
 msgid ""
-"Videos, also known as Totem, is the official movie player of the GNOME "
+"Videos, also known as theater, is the official movie player of the GNOME "
 "desktop environment. It features a searchable list of local videos, and "
 "DVDs, as well as local network video shares (using UPnP/DLNA) and video "
 "highlights from a number of web sites."
@@ -34,100 +34,100 @@ msgstr ""
 "आणि डीवीडीज, तसेच स्थानीय नेटवर्क व्हिडीओ शेअर्स (UPnP/DLNA चा वापर करून) आणि "
 "असंख्य संकेतस्थाळांपासूनचे व्हिडीओ हायलाइट्स समाविष्टीत आहे."
 
-#: ../data/appdata/org.gnome.Totem.appdata.xml.in.h:2
+#: ../data/appdata/org.gnome.theater.appdata.xml.in.h:2
 msgid ""
-"Totem comes with added functionality such as: subtitle downloader, and "
+"theater comes with added functionality such as: subtitle downloader, and "
 "support for recording DVDs."
 msgstr ""
 "टोटेमध्ये अगाऊ कार्यक्षमता जसे कि: उपशीर्षक डाउनलोडर, आणि डीवीडीज रेकॉर्ड "
 "करण्यसाठी समर्थन समाविष्टीत आहे."
 
-#: ../data/appdata/org.gnome.Totem.appdata.xml.in.h:3
+#: ../data/appdata/org.gnome.theater.appdata.xml.in.h:3
 msgid "Video thumbnailer for the file manager"
 msgstr "फाइल व्यवस्थापककरिता व्हिडीओ थंबनेलर"
 
-#: ../data/appdata/org.gnome.Totem.appdata.xml.in.h:4
+#: ../data/appdata/org.gnome.theater.appdata.xml.in.h:4
 #| msgid "Movie Properties"
 msgid "Files properties tab"
 msgstr "फाइल्स गुणधर्म टॅब"
 
-#: ../data/org.gnome.Totem.desktop.in.in.in.h:1 ../src/totem.c:243
-#: ../src/totem.c:249 ../src/totem-grilo.c:1862 ../src/totem-object.c:3544
+#: ../data/org.gnome.theater.desktop.in.in.in.h:1 ../src/theater.c:243
+#: ../src/theater.c:249 ../src/theater-grilo.c:1862 ../src/theater-object.c:3544
 msgid "Videos"
 msgstr "व्हिडीओज्"
 
-#: ../data/org.gnome.Totem.desktop.in.in.in.h:2
+#: ../data/org.gnome.theater.desktop.in.in.in.h:2
 msgid "Play movies"
 msgstr "चित्रपट चालवा"
 
-#: ../data/org.gnome.Totem.desktop.in.in.in.h:3
+#: ../data/org.gnome.theater.desktop.in.in.in.h:3
 msgid "Video;Movie;Film;Clip;Series;Player;DVD;TV;Disc;"
 msgstr "व्हिडिओ;चित्रपट;फिल्म;क्लिप;सिरिज्;प्लेअर;DVD;TV;डिस्क;"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:1
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:1
 msgid "The brightness of the video"
 msgstr "व्हिडिओचा तेजपणा"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:2
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:2
 msgid "The contrast of the video"
 msgstr "व्हिडिओची विभिन्नता"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:3
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:3
 msgid "The hue of the video"
 msgstr "व्हिडिओचा ह्य"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:4
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:4
 msgid "The saturation of the video"
 msgstr "व्हिडीओची संपृक्तता"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:5
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:5
 msgid "Repeat mode"
 msgstr "पुन:प्रसारण मार्ग"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:6
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:6
 msgid "Whether to disable deinterlacing for interlaced movies"
 msgstr "इंटरलेस्ड् चित्रपटांकरीता डिइंटरलेसिंग बंद करायचे"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:7
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:7
 msgid "Whether to enable debug for the playback engine"
 msgstr "पार्श्वभूमीतील इंजीन करीता सदोष निर्धारण कार्यान्वीत करायचे का"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:8
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:8
 msgid "Type of audio output to use"
 msgstr "वापरण्याजोगी ऑडिओ आऊपुटचा प्रकार"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:9
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:9
 msgid "Network buffering threshold"
 msgstr "संजाळ बफरची कमाल क्षमता"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:10
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:10
 msgid ""
 "Amount of data to buffer for network streams before starting to display the "
 "stream (in seconds)."
 msgstr ""
 "स्ट्रिम (सेकंदात) दाखण्यापूर्वी नेटवर्क स्ट्रिम्स् करीता बफर करण्याजोगी डाटा"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:11
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:11
 msgid "Subtitle font"
 msgstr "उपशिर्षक फॉन्ट"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:12
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:12
 msgid "Pango font description for subtitle rendering."
 msgstr "उपशीर्षक दाखवण्याकरीता पाँगो फाँट वर्णन."
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:13
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:13
 msgid "Subtitle encoding"
 msgstr "उपशिर्षक ऐंकोडींग"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:14
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:14
 msgid "Encoding character set for subtitle."
 msgstr "उपशीर्षककरीता एंकोडिंग कॅरेक्टर."
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:15
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:15
 msgid "Default location for the \"Open...\" dialogs"
 msgstr "\"उघडा...\" संवाद करीता पूर्वनिर्धारीत ठिकाण"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:16
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:16
 msgid ""
 "Default location for the \"Open...\" dialogs. Default is the current "
 "directory."
@@ -135,11 +135,11 @@ msgstr ""
 "\"उघडा...\" संवादकरीता पूर्वनिर्धारीत ठिकाण. पूर्वनिर्धारीत सध्याचे "
 "डिरेक्ट्री आहे."
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:17
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:17
 msgid "Default location for the \"Take Screenshot\" dialogs"
 msgstr "\"Take Screenshot\" संवाद करीता पूर्वनिर्धारीत ठिकाण"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:18
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:18
 msgid ""
 "Default location for the \"Take Screenshot\" dialogs. Default is the "
 "Pictures directory."
@@ -148,42 +148,42 @@ msgstr ""
 "पूर्वनिर्धारीत "
 "आहे."
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:19
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:19
 msgid "Whether to disable the plugins in the user's home directory"
 msgstr "वापरकर्त्याची मुख्य संचयीकातील प्लगइन अकार्यान्वीत करायचे का"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:20
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:20
 msgid "Whether to disable the keyboard shortcuts"
 msgstr "किबोर्ड शार्टकट्स् बंद करायचे"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:21
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:21
 msgid "Whether to autoload text subtitle files when a movie is loaded"
 msgstr "चित्रपट दाखल केल्यावर पाठ्य उपशिर्षक आपोआप दाखल करायचे का"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:22
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:22
 msgid "Whether to autoload external chapter files when a movie is loaded"
 msgstr "चित्रपट लोड केल्यावर बाहेरील अध्याय फाइल्स् स्वयंलोड करायचे"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:23
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:23
 msgid "Active plugins list"
 msgstr "सुरू असलेल्या प्लगइन्स्ची सूची"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:24
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:24
 msgid ""
 "A list of the names of the plugins which are currently active (loaded and "
 "running)."
 msgstr "सध्या सुरू (लोड केलेले व सुरू) असलेल्या प्लगइन नावांची सूची."
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:25
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:25
 msgid "Directories to show"
 msgstr "दाखवण्याजोगी डिरेक्ट्रिज"
 
-#: ../data/org.gnome.totem.gschema.xml.in.in.h:26
+#: ../data/org.gnome.theater.gschema.xml.in.in.h:26
 msgid "Directories to show in the browse interface, none by default"
 msgstr "ब्राऊज संवादमध्ये दाखवण्याजोगी डिरेक्ट्रीज, पूर्वनिर्धारित काहीही नाही"
 
 #: ../data/preferences.ui.h:1 ../src/backend/bacon-video-widget.c:5481
-#: ../src/totem-properties-view.c:242
+#: ../src/theater-properties-view.c:242
 msgid "Stereo"
 msgstr "स्टिरिओ"
 
@@ -290,7 +290,7 @@ msgid "_Audio output type:"
 msgstr "ऑडिओ आऊटपुट प्रकार (_A):"
 
 #: ../data/preferences.ui.h:28 ../data/properties.ui.h:14
-#: ../src/totem-properties-view.c:283
+#: ../src/theater-properties-view.c:283
 msgid "Audio"
 msgstr "ऑडिओ"
 
@@ -322,7 +322,7 @@ msgstr "टीप्पणी:"
 msgid "Container:"
 msgstr "कंटेनर:"
 
-#: ../data/properties.ui.h:9 ../src/totem-properties-view.c:285
+#: ../data/properties.ui.h:9 ../src/theater-properties-view.c:285
 msgid "Video"
 msgstr "व्हिडीओ"
 
@@ -350,103 +350,103 @@ msgstr "सॅम्पल दर:"
 msgid "Channels:"
 msgstr "मार्ग:"
 
-#: ../data/totem.ui.h:1
+#: ../data/theater.ui.h:1
 msgid "Prefere_nces"
 msgstr "प्राधान्यता (_n)"
 
-#: ../data/totem.ui.h:2
+#: ../data/theater.ui.h:2
 msgid "_Help"
 msgstr "मदत (_H)"
 
-#: ../data/totem.ui.h:3
+#: ../data/theater.ui.h:3
 msgid "_Quit"
 msgstr "बाहेर पडा (_Q)"
 
-#: ../data/totem.ui.h:4
+#: ../data/theater.ui.h:4
 msgid "Add _Local Video…"
 msgstr "स्थानीय व्हिडीओ समाविष्ट करा (_L)…"
 
-#: ../data/totem.ui.h:5
+#: ../data/theater.ui.h:5
 msgid "Add _Web Video…"
 msgstr "वेब व्हिडीओ समाविष्ट करा (_W)…"
 
-#: ../data/totem.ui.h:6
+#: ../data/theater.ui.h:6
 msgid "_Aspect Ratio"
 msgstr "Aspect प्रमाण (_A)"
 
-#: ../data/totem.ui.h:7
+#: ../data/theater.ui.h:7
 msgctxt "Aspect ratio"
 msgid "Auto"
 msgstr "स्वयं"
 
-#: ../data/totem.ui.h:8
+#: ../data/theater.ui.h:8
 msgctxt "Aspect ratio"
 msgid "Square"
 msgstr "चौकोन"
 
-#: ../data/totem.ui.h:9
+#: ../data/theater.ui.h:9
 #| msgctxt "Aspect ratio"
 #| msgid "4:3 (TV)"
 msgctxt "Aspect ratio"
 msgid "4∶3 (TV)"
 msgstr "4∶3 (TV)"
 
-#: ../data/totem.ui.h:10
+#: ../data/theater.ui.h:10
 msgctxt "Aspect ratio"
 msgid "16∶9 (Widescreen)"
 msgstr "16:9 (वाइडस्क्रीन)"
 
-#: ../data/totem.ui.h:11
+#: ../data/theater.ui.h:11
 msgctxt "Aspect ratio"
 msgid "2.11∶1 (DVB)"
 msgstr "2.11∶1 (DVB)"
 
-#: ../data/totem.ui.h:12
+#: ../data/theater.ui.h:12
 msgid "Zoom In"
 msgstr "मोठे करा"
 
-#: ../data/totem.ui.h:13
+#: ../data/theater.ui.h:13
 msgid "Switch An_gles"
 msgstr "कोन बदलवा (_g)"
 
-#: ../data/totem.ui.h:14
+#: ../data/theater.ui.h:14
 msgid "_Languages"
 msgstr "भाषा (_L)"
 
-#: ../data/totem.ui.h:15
+#: ../data/theater.ui.h:15
 msgid "S_ubtitles"
 msgstr "उपशिर्षक (_u)"
 
-#: ../data/totem.ui.h:16
+#: ../data/theater.ui.h:16
 #| msgid "Select Text Subtitles"
 msgid "_Select Text Subtitles…"
 msgstr "मजकूर उपशिर्षक नीवडा (_S)..."
 
-#: ../data/totem.ui.h:17
+#: ../data/theater.ui.h:17
 msgid "_Eject"
 msgstr "बाहेर काढा (_E)"
 
-#: ../data/totem.ui.h:18
+#: ../data/theater.ui.h:18
 msgid "_Repeat"
 msgstr "पुनरावृत्त (_R)"
 
-#: ../data/totem.ui.h:19
+#: ../data/theater.ui.h:19
 msgid "_DVD Menu"
 msgstr "डिव्हिडी मेनू (_D)"
 
-#: ../data/totem.ui.h:20
+#: ../data/theater.ui.h:20
 msgid "_Title Menu"
 msgstr "शिर्षक मेनू (_T)"
 
-#: ../data/totem.ui.h:21
+#: ../data/theater.ui.h:21
 msgid "A_udio Menu"
 msgstr "ऑडिओ मेन्यु (_u)"
 
-#: ../data/totem.ui.h:22
+#: ../data/theater.ui.h:22
 msgid "_Angle Menu"
 msgstr "कोन मेनू (_A)"
 
-#: ../data/totem.ui.h:23
+#: ../data/theater.ui.h:23
 msgid "_Chapter Menu"
 msgstr "पाठ मेनू (_C)"
 
@@ -544,11 +544,11 @@ msgstr ""
 "करायचा "
 "प्रयत्न करा."
 
-#: ../src/backend/bacon-video-widget.c:5477 ../src/totem-properties-view.c:238
+#: ../src/backend/bacon-video-widget.c:5477 ../src/theater-properties-view.c:238
 msgid "Surround"
 msgstr "भोवती"
 
-#: ../src/backend/bacon-video-widget.c:5479 ../src/totem-properties-view.c:240
+#: ../src/backend/bacon-video-widget.c:5479 ../src/theater-properties-view.c:240
 msgid "Mono"
 msgstr "एकसंख्यी"
 
@@ -571,8 +571,8 @@ msgstr ""
 #. * the separator that your locale uses or use "%Id" instead
 #. * of "%d" if your locale uses localized digits.
 #.
-#: ../src/gst/totem-time-helpers.c:63
-#: ../src/plugins/skipto/totem-time-entry.c:57
+#: ../src/gst/theater-time-helpers.c:63
+#: ../src/plugins/skipto/theater-time-entry.c:57
 #, c-format
 msgctxt "long time format"
 msgid "%d:%02d:%02d"
@@ -584,7 +584,7 @@ msgstr "%d:%02d:%02d"
 #. * change ":" to the separator that your locale uses or use
 #. * "%Id" instead of "%d" if your locale uses localized digits.
 #.
-#: ../src/gst/totem-time-helpers.c:71
+#: ../src/gst/theater-time-helpers.c:71
 #, c-format
 msgctxt "long time format"
 msgid "-%d:%02d:%02d"
@@ -596,7 +596,7 @@ msgstr "-%d:%02d:%02d"
 #. * ":" to the separator that your locale uses or use "%Id"
 #. * instead of "%d" if your locale uses localized digits.
 #.
-#: ../src/gst/totem-time-helpers.c:82
+#: ../src/gst/theater-time-helpers.c:82
 #, c-format
 msgctxt "short time format"
 msgid "-%d:%02d"
@@ -608,7 +608,7 @@ msgstr "-%d:%02d"
 #. * separator that your locale uses or use "%Id" instead of
 #. * "%d" if your locale uses localized digits.
 #.
-#: ../src/gst/totem-time-helpers.c:91
+#: ../src/gst/theater-time-helpers.c:91
 #, c-format
 msgctxt "short time format"
 msgid "%d:%02d"
@@ -728,66 +728,66 @@ msgstr "सर्व निवडा"
 msgid "Select None"
 msgstr "काहीही निवडू नका"
 
-#: ../src/totem-audio-preview.c:172
+#: ../src/theater-audio-preview.c:172
 msgid "Audio Preview"
 msgstr "ऑडिओ पूर्वावलोकन"
 
-#: ../src/totem.c:244
+#: ../src/theater.c:244
 msgid "Could not initialize the thread-safe libraries."
 msgstr "थ्रेड-सेफ लायब्ररी प्रारंभ करू शकले नाही."
 
-#: ../src/totem.c:244
-msgid "Verify your system installation. Totem will now exit."
+#: ../src/theater.c:244
+msgid "Verify your system installation. theater will now exit."
 msgstr "तुमच्या प्रणालीचे प्रतिष्ठापना तपासा. टोटेम आता बाहेर पडेल."
 
-#: ../src/totem-grilo.c:280
+#: ../src/theater-grilo.c:280
 #, c-format
 msgid "Season %d Episode %d"
 msgstr "सिसजन %d एपिसोड %d"
 
 #. translators: The first item is the show name, for example:
 #. * Boardwalk Empire (Season 1 Episode 1)
-#: ../src/totem-grilo.c:317
+#: ../src/theater-grilo.c:317
 #, c-format
 msgid "%s (Season %d Episode %d)"
 msgstr "%s (सिसजन %d एपिसोड %d)"
 
-#: ../src/totem-grilo.c:687
+#: ../src/theater-grilo.c:687
 msgid "Browse Error"
 msgstr "त्रुटीची तपासणी करा"
 
-#: ../src/totem-grilo.c:824
+#: ../src/theater-grilo.c:824
 msgid "Search Error"
 msgstr "सर्च त्रुटी"
 
-#: ../src/totem-grilo.c:1275
+#: ../src/theater-grilo.c:1275
 msgid "Local"
 msgstr "स्थानीय"
 
-#: ../src/totem-grilo.c:1871
+#: ../src/theater-grilo.c:1871
 #| msgid "Channels:"
 msgid "Channels"
 msgstr "वाहिन्या"
 
-#: ../src/totem-interface.c:179 ../src/totem-interface.c:222
+#: ../src/theater-interface.c:179 ../src/theater-interface.c:222
 #, c-format
 msgid "Couldn't load the '%s' interface. %s"
 msgstr "'%1$s' संवाद दाखल करू शकले नाही. %2$s"
 
-#: ../src/totem-interface.c:179
+#: ../src/theater-interface.c:179
 msgid "The file does not exist."
 msgstr "फाइल अस्तित्वात नाही."
 
-#: ../src/totem-interface.c:181 ../src/totem-interface.c:183
-#: ../src/totem-interface.c:224 ../src/totem-interface.c:226
-msgid "Make sure that Totem is properly installed."
+#: ../src/theater-interface.c:181 ../src/theater-interface.c:183
+#: ../src/theater-interface.c:224 ../src/theater-interface.c:226
+msgid "Make sure that theater is properly installed."
 msgstr "टोटेम व्यवस्थित स्थापीत केले आहे ह्याची खात्री करा."
 
-#: ../src/totem-main-toolbar.c:130 ../src/totemmaintoolbar.ui.h:5
+#: ../src/theater-main-toolbar.c:130 ../src/theatermaintoolbar.ui.h:5
 msgid "Click on items to select them"
 msgstr "पसंतीकरिता घटकांनावरील क्लिक करा"
 
-#: ../src/totem-main-toolbar.c:137
+#: ../src/theater-main-toolbar.c:137
 #, c-format
 #| msgid "%d second"
 #| msgid_plural "%d seconds"
@@ -796,39 +796,39 @@ msgid_plural "%d selected"
 msgstr[0] "%d नीवडलेले"
 msgstr[1] "%d नीवडलेले"
 
-#: ../src/totem-main-toolbar.c:159
+#: ../src/theater-main-toolbar.c:159
 #, c-format
 msgid "Results for “%s”"
 msgstr "“%s” करिता परिणाम"
 
-#: ../src/totemmaintoolbar.ui.h:1
+#: ../src/theatermaintoolbar.ui.h:1
 msgid "Back"
 msgstr "मागे"
 
-#: ../src/totemmaintoolbar.ui.h:2
+#: ../src/theatermaintoolbar.ui.h:2
 msgid "Select"
 msgstr "निवडा"
 
-#: ../src/totemmaintoolbar.ui.h:3
+#: ../src/theatermaintoolbar.ui.h:3
 msgid "Cancel"
 msgstr "रद्द करा"
 
-#: ../src/totemmaintoolbar.ui.h:4
+#: ../src/theatermaintoolbar.ui.h:4
 msgid "Search"
 msgstr "शोधा"
 
 #. Translators: an entry in the "Languages" menu, used to choose the audio language of a DVD
-#: ../src/totem-menu.c:391
+#: ../src/theater-menu.c:391
 msgid "None"
 msgstr "काहीच नाही"
 
 #. Translators: an entry in the "Languages" menu, used to choose the audio language of a DVD
-#: ../src/totem-menu.c:395
+#: ../src/theater-menu.c:395
 msgctxt "Language"
 msgid "Auto"
 msgstr "स्वयं"
 
-#: ../src/totem-object.c:175
+#: ../src/theater-object.c:175
 #, c-format
 msgid ""
 "%s\n"
@@ -837,393 +837,393 @@ msgstr ""
 "%s\n"
 "उपलब्ध आदेश ओळ पर्याय पाहण्याकरीता '%s --help' चालवा.\n"
 
-#: ../src/totem-object.c:1334 ../src/totem-options.c:52
+#: ../src/theater-object.c:1334 ../src/theater-options.c:52
 msgid "Pause"
 msgstr "स्तब्ध करा"
 
-#: ../src/totem-object.c:1339 ../src/totem-object.c:1349
-#: ../src/totem-options.c:51 ../src/totemselectiontoolbar.ui.h:2
+#: ../src/theater-object.c:1339 ../src/theater-object.c:1349
+#: ../src/theater-options.c:51 ../src/theaterselectiontoolbar.ui.h:2
 msgid "Play"
 msgstr "चालवा"
 
-#: ../src/totem-object.c:1416 ../src/totem-object.c:1443
-#: ../src/totem-object.c:1955
+#: ../src/theater-object.c:1416 ../src/theater-object.c:1443
+#: ../src/theater-object.c:1955
 #, c-format
-msgid "Totem could not play '%s'."
+msgid "theater could not play '%s'."
 msgstr "टोटेम '%1$s' चालवू शकले नाही."
 
-#: ../src/totem-object.c:2097
-msgid "Totem could not display the help contents."
+#: ../src/theater-object.c:2097
+msgid "theater could not display the help contents."
 msgstr "टोटेम मदत अनुक्रम दर्शवू शकले नाही."
 
-#: ../src/totem-object.c:2337
+#: ../src/theater-object.c:2337
 msgid "An error occurred"
 msgstr "त्रुटी निर्माण झाली"
 
-#: ../src/totem-object.c:3641
+#: ../src/theater-object.c:3641
 msgid "Previous Chapter/Movie"
 msgstr "पूर्वीचे पाठ/चित्रपट"
 
-#: ../src/totem-object.c:3647
+#: ../src/theater-object.c:3647
 msgid "Play / Pause"
 msgstr "चालवा / स्तब्ध"
 
-#: ../src/totem-object.c:3653
+#: ../src/theater-object.c:3653
 msgid "Next Chapter/Movie"
 msgstr "पुढचाचे पाठ/चित्रपट"
 
-#: ../src/totem-object.c:3867
-msgid "Totem could not startup."
+#: ../src/theater-object.c:3867
+msgid "theater could not startup."
 msgstr "टोटेम सुरू होऊ शकले नाही."
 
-#: ../src/totem-object.c:3867
+#: ../src/theater-object.c:3867
 msgid "No reason."
 msgstr "कारण नाही."
 
-#: ../src/totem-open-location.c:183
+#: ../src/theater-open-location.c:183
 msgid "Add Web Video"
 msgstr "वेब व्हिडीओ समाविष्ट करा"
 
-#: ../src/totem-open-location.c:185 ../src/totem-uri.c:399
-#: ../src/totem-uri.c:460 ../src/plugins/chapters/totem-chapters.c:961
-#: ../src/plugins/chapters/totem-edit-chapter.c:98
-#: ../src/plugins/screenshot/totem-gallery.c:97
-#: ../src/plugins/screenshot/totem-gallery-progress.c:103
-#: ../src/plugins/skipto/totem-skipto.c:198
+#: ../src/theater-open-location.c:185 ../src/theater-uri.c:399
+#: ../src/theater-uri.c:460 ../src/plugins/chapters/theater-chapters.c:961
+#: ../src/plugins/chapters/theater-edit-chapter.c:98
+#: ../src/plugins/screenshot/theater-gallery.c:97
+#: ../src/plugins/screenshot/theater-gallery-progress.c:103
+#: ../src/plugins/skipto/theater-skipto.c:198
 #| msgid "Cancel"
 msgid "_Cancel"
 msgstr "रद्द करा (_C)"
 
-#: ../src/totem-open-location.c:186 ../src/totem-uri.c:461
-#: ../src/plugins/chapters/totem-edit-chapter.c:99
+#: ../src/theater-open-location.c:186 ../src/theater-uri.c:461
+#: ../src/plugins/chapters/theater-edit-chapter.c:99
 msgid "_Add"
 msgstr "समाविष्ट करा (_A)"
 
-#: ../src/totem-options.c:49
+#: ../src/theater-options.c:49
 msgid "Enable debug"
 msgstr "डिबग कार्यान्वीत करा"
 
-#: ../src/totem-options.c:50
+#: ../src/theater-options.c:50
 msgid "Play/Pause"
 msgstr "चालवा/ स्तब्ध करा"
 
-#: ../src/totem-options.c:53
+#: ../src/theater-options.c:53
 msgid "Next"
 msgstr "पुढचे"
 
-#: ../src/totem-options.c:54
+#: ../src/theater-options.c:54
 msgid "Previous"
 msgstr "मागचे"
 
-#: ../src/totem-options.c:55
+#: ../src/theater-options.c:55
 msgid "Seek Forwards"
 msgstr "पुढे जा"
 
-#: ../src/totem-options.c:56
+#: ../src/theater-options.c:56
 msgid "Seek Backwards"
 msgstr "मागे जा"
 
-#: ../src/totem-options.c:57
+#: ../src/theater-options.c:57
 msgid "Volume Up"
 msgstr "आवाज वाढवा"
 
-#: ../src/totem-options.c:58
+#: ../src/theater-options.c:58
 msgid "Volume Down"
 msgstr "आवाज वाढवा कमी करा"
 
-#: ../src/totem-options.c:59
+#: ../src/theater-options.c:59
 msgid "Mute sound"
 msgstr "आवाज मुक करा"
 
-#: ../src/totem-options.c:60
+#: ../src/theater-options.c:60
 msgid "Toggle Fullscreen"
 msgstr "पूर्ण पडदा टॉगल करा"
 
-#: ../src/totem-options.c:61
+#: ../src/theater-options.c:61
 msgid "Quit"
 msgstr "बाहेर पडा"
 
-#: ../src/totem-options.c:62
+#: ../src/theater-options.c:62
 msgid "Enqueue"
 msgstr "रांगेत लावा"
 
-#: ../src/totem-options.c:63
+#: ../src/theater-options.c:63
 msgid "Replace"
 msgstr "बदलवा"
 
-#: ../src/totem-options.c:64
+#: ../src/theater-options.c:64
 msgid "Seek"
 msgstr "सीक"
 
-#: ../src/totem-options.c:66
+#: ../src/theater-options.c:66
 msgid "Movies to play"
 msgstr "चालवण्याजोगी चलचित्र"
 
-#: ../src/totem-options.c:76
+#: ../src/theater-options.c:76
 msgid "- Play movies and songs"
 msgstr "- चित्रपट व गाणी चालवा"
 
-#: ../src/totem-options.c:123
+#: ../src/theater-options.c:123
 msgid "Can't enqueue and replace at the same time"
 msgstr "रांगेत लावणे व त्यास एकाचवेळी अदलाबदल करणे अशक्य"
 
 #. This is "Title 3", where title is a DVD title
 #. * Note: NOT a DVD chapter
-#: ../src/totem-playlist.c:232
+#: ../src/theater-playlist.c:232
 #, c-format
 msgid "Title %d"
 msgstr "शिर्षक %d"
 
-#: ../src/totem-playlist.c:1001
+#: ../src/theater-playlist.c:1001
 #, c-format
 msgid "The playlist '%s' could not be parsed. It might be damaged."
 msgstr "वादकसूची '%s' वाचणे अशक्य. ते कदाचित दोषीत असावे."
 
-#: ../src/totem-preferences.c:184
+#: ../src/theater-preferences.c:184
 msgid "Configure Plugins"
 msgstr "प्लगइन संयोजीत करा"
 
-#: ../src/totem-preferences.c:187
+#: ../src/theater-preferences.c:187
 msgid "_Close"
 msgstr "बंद करा (_C)"
 
-#: ../src/totem-preferences.c:303
+#: ../src/theater-preferences.c:303
 msgid "Select Subtitle Font"
 msgstr "उपशिर्षक फॉन्ट निवडा"
 
-#: ../src/totem-properties-main.c:116 ../src/totem-properties-view.c:281
+#: ../src/theater-properties-main.c:116 ../src/theater-properties-view.c:281
 msgid "Audio/Video"
 msgstr "ऑडिओ/व्हिडीओ"
 
-#: ../src/totem-properties-view.c:141
+#: ../src/theater-properties-view.c:141
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/totem-properties-view.c:170
-#: ../src/plugins/properties/totem-movie-properties.c:154
-#: ../src/plugins/properties/totem-movie-properties.c:165
+#: ../src/theater-properties-view.c:170
+#: ../src/plugins/properties/theater-movie-properties.c:154
+#: ../src/plugins/properties/theater-movie-properties.c:165
 msgctxt "Stream bit rate"
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/totem-properties-view.c:173
-#: ../src/plugins/properties/totem-movie-properties.c:154
-#: ../src/plugins/properties/totem-movie-properties.c:165
+#: ../src/theater-properties-view.c:173
+#: ../src/plugins/properties/theater-movie-properties.c:154
+#: ../src/plugins/properties/theater-movie-properties.c:165
 #, c-format
 msgid "%d kbps"
 msgstr "%d kbps"
 
-#: ../src/totem-properties-view.c:190
-#: ../src/plugins/properties/totem-movie-properties.c:151
+#: ../src/theater-properties-view.c:190
+#: ../src/plugins/properties/theater-movie-properties.c:151
 #, c-format
 msgid "%d x %d"
 msgstr "%d x %d"
 
-#: ../src/totem-properties-view.c:222
-#: ../src/plugins/properties/totem-movie-properties.c:168
+#: ../src/theater-properties-view.c:222
+#: ../src/plugins/properties/theater-movie-properties.c:168
 #, c-format
 msgid "%d Hz"
 msgstr "%d Hz"
 
-#: ../src/totem-properties-view.c:230
-#: ../src/plugins/properties/totem-movie-properties.c:168
+#: ../src/theater-properties-view.c:230
+#: ../src/plugins/properties/theater-movie-properties.c:168
 msgctxt "Sample rate"
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/totem-properties-view.c:251
+#: ../src/theater-properties-view.c:251
 msgctxt "Number of audio channels"
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/totemselectiontoolbar.ui.h:1
+#: ../src/theaterselectiontoolbar.ui.h:1
 #| msgid "Add to Playlist"
 msgid "Add to Favourites"
 msgstr "पसंतीचेमध्ये समाविष्ट करा"
 
-#: ../src/totemselectiontoolbar.ui.h:3
+#: ../src/theaterselectiontoolbar.ui.h:3
 #| msgid "Shuff_le"
 msgid "Shuffle"
 msgstr "अदलाबदल"
 
-#: ../src/totemselectiontoolbar.ui.h:4
+#: ../src/theaterselectiontoolbar.ui.h:4
 msgid "Delete"
 msgstr "नष्ट करा"
 
-#: ../src/totem-subtitle-encoding.c:156
+#: ../src/theater-subtitle-encoding.c:156
 msgid "Current Locale"
 msgstr "सध्याची लोकेल"
 
-#: ../src/totem-subtitle-encoding.c:159 ../src/totem-subtitle-encoding.c:161
-#: ../src/totem-subtitle-encoding.c:163 ../src/totem-subtitle-encoding.c:165
+#: ../src/theater-subtitle-encoding.c:159 ../src/theater-subtitle-encoding.c:161
+#: ../src/theater-subtitle-encoding.c:163 ../src/theater-subtitle-encoding.c:165
 msgid "Arabic"
 msgstr "अरबी"
 
-#: ../src/totem-subtitle-encoding.c:168
+#: ../src/theater-subtitle-encoding.c:168
 msgid "Armenian"
 msgstr "अर्मेनियन"
 
-#: ../src/totem-subtitle-encoding.c:171 ../src/totem-subtitle-encoding.c:173
-#: ../src/totem-subtitle-encoding.c:175
+#: ../src/theater-subtitle-encoding.c:171 ../src/theater-subtitle-encoding.c:173
+#: ../src/theater-subtitle-encoding.c:175
 msgid "Baltic"
 msgstr "बाल्टिक"
 
-#: ../src/totem-subtitle-encoding.c:178
+#: ../src/theater-subtitle-encoding.c:178
 msgid "Celtic"
 msgstr "सेल्टिक"
 
-#: ../src/totem-subtitle-encoding.c:181 ../src/totem-subtitle-encoding.c:183
-#: ../src/totem-subtitle-encoding.c:185 ../src/totem-subtitle-encoding.c:187
+#: ../src/theater-subtitle-encoding.c:181 ../src/theater-subtitle-encoding.c:183
+#: ../src/theater-subtitle-encoding.c:185 ../src/theater-subtitle-encoding.c:187
 msgid "Central European"
 msgstr "मध्य युरोपिअन"
 
-#: ../src/totem-subtitle-encoding.c:190 ../src/totem-subtitle-encoding.c:192
-#: ../src/totem-subtitle-encoding.c:194 ../src/totem-subtitle-encoding.c:196
+#: ../src/theater-subtitle-encoding.c:190 ../src/theater-subtitle-encoding.c:192
+#: ../src/theater-subtitle-encoding.c:194 ../src/theater-subtitle-encoding.c:196
 msgid "Chinese Simplified"
 msgstr "विश्लेषीत चिनी"
 
-#: ../src/totem-subtitle-encoding.c:199 ../src/totem-subtitle-encoding.c:201
-#: ../src/totem-subtitle-encoding.c:203
+#: ../src/theater-subtitle-encoding.c:199 ../src/theater-subtitle-encoding.c:201
+#: ../src/theater-subtitle-encoding.c:203
 msgid "Chinese Traditional"
 msgstr "पारंपारिक चिनी"
 
-#: ../src/totem-subtitle-encoding.c:206
+#: ../src/theater-subtitle-encoding.c:206
 msgid "Croatian"
 msgstr "क्रोएशीयन"
 
-#: ../src/totem-subtitle-encoding.c:209 ../src/totem-subtitle-encoding.c:211
-#: ../src/totem-subtitle-encoding.c:213 ../src/totem-subtitle-encoding.c:215
-#: ../src/totem-subtitle-encoding.c:217 ../src/totem-subtitle-encoding.c:219
+#: ../src/theater-subtitle-encoding.c:209 ../src/theater-subtitle-encoding.c:211
+#: ../src/theater-subtitle-encoding.c:213 ../src/theater-subtitle-encoding.c:215
+#: ../src/theater-subtitle-encoding.c:217 ../src/theater-subtitle-encoding.c:219
 msgid "Cyrillic"
 msgstr "सायरिलिक"
 
-#: ../src/totem-subtitle-encoding.c:222
+#: ../src/theater-subtitle-encoding.c:222
 msgid "Cyrillic/Russian"
 msgstr "सायरिलिक/रशियन"
 
-#: ../src/totem-subtitle-encoding.c:225 ../src/totem-subtitle-encoding.c:227
+#: ../src/theater-subtitle-encoding.c:225 ../src/theater-subtitle-encoding.c:227
 msgid "Cyrillic/Ukrainian"
 msgstr "सायरिलिक/युक्रेनियन"
 
-#: ../src/totem-subtitle-encoding.c:230
+#: ../src/theater-subtitle-encoding.c:230
 msgid "Georgian"
 msgstr "जॉर्जियन"
 
-#: ../src/totem-subtitle-encoding.c:233 ../src/totem-subtitle-encoding.c:235
-#: ../src/totem-subtitle-encoding.c:237
+#: ../src/theater-subtitle-encoding.c:233 ../src/theater-subtitle-encoding.c:235
+#: ../src/theater-subtitle-encoding.c:237
 msgid "Greek"
 msgstr "ग्रीक"
 
-#: ../src/totem-subtitle-encoding.c:240
+#: ../src/theater-subtitle-encoding.c:240
 msgid "Gujarati"
 msgstr "गुजराथी"
 
-#: ../src/totem-subtitle-encoding.c:243
+#: ../src/theater-subtitle-encoding.c:243
 msgid "Gurmukhi"
 msgstr "गुरमुखी"
 
-#: ../src/totem-subtitle-encoding.c:246 ../src/totem-subtitle-encoding.c:248
-#: ../src/totem-subtitle-encoding.c:250 ../src/totem-subtitle-encoding.c:252
+#: ../src/theater-subtitle-encoding.c:246 ../src/theater-subtitle-encoding.c:248
+#: ../src/theater-subtitle-encoding.c:250 ../src/theater-subtitle-encoding.c:252
 msgid "Hebrew"
 msgstr "हिब्रू"
 
-#: ../src/totem-subtitle-encoding.c:255
+#: ../src/theater-subtitle-encoding.c:255
 msgid "Hebrew Visual"
 msgstr "द्रुश्य हिब्रू"
 
-#: ../src/totem-subtitle-encoding.c:258
+#: ../src/theater-subtitle-encoding.c:258
 msgid "Hindi"
 msgstr "हिंदी"
 
-#: ../src/totem-subtitle-encoding.c:261
+#: ../src/theater-subtitle-encoding.c:261
 msgid "Icelandic"
 msgstr "आयलॅंडिक"
 
-#: ../src/totem-subtitle-encoding.c:264 ../src/totem-subtitle-encoding.c:266
-#: ../src/totem-subtitle-encoding.c:268
+#: ../src/theater-subtitle-encoding.c:264 ../src/theater-subtitle-encoding.c:266
+#: ../src/theater-subtitle-encoding.c:268
 msgid "Japanese"
 msgstr "जपानी"
 
-#: ../src/totem-subtitle-encoding.c:271 ../src/totem-subtitle-encoding.c:273
-#: ../src/totem-subtitle-encoding.c:275 ../src/totem-subtitle-encoding.c:277
+#: ../src/theater-subtitle-encoding.c:271 ../src/theater-subtitle-encoding.c:273
+#: ../src/theater-subtitle-encoding.c:275 ../src/theater-subtitle-encoding.c:277
 msgid "Korean"
 msgstr "कोरियन"
 
-#: ../src/totem-subtitle-encoding.c:280
+#: ../src/theater-subtitle-encoding.c:280
 msgid "Nordic"
 msgstr "नॉर्डिक"
 
-#: ../src/totem-subtitle-encoding.c:283
+#: ../src/theater-subtitle-encoding.c:283
 msgid "Persian"
 msgstr "पर्शियन"
 
-#: ../src/totem-subtitle-encoding.c:286 ../src/totem-subtitle-encoding.c:288
+#: ../src/theater-subtitle-encoding.c:286 ../src/theater-subtitle-encoding.c:288
 msgid "Romanian"
 msgstr "रोमानियन"
 
-#: ../src/totem-subtitle-encoding.c:291
+#: ../src/theater-subtitle-encoding.c:291
 msgid "South European"
 msgstr "दक्षिण युरोपिअन"
 
-#: ../src/totem-subtitle-encoding.c:294
+#: ../src/theater-subtitle-encoding.c:294
 msgid "Thai"
 msgstr "थाइ"
 
-#: ../src/totem-subtitle-encoding.c:297 ../src/totem-subtitle-encoding.c:299
-#: ../src/totem-subtitle-encoding.c:301 ../src/totem-subtitle-encoding.c:303
+#: ../src/theater-subtitle-encoding.c:297 ../src/theater-subtitle-encoding.c:299
+#: ../src/theater-subtitle-encoding.c:301 ../src/theater-subtitle-encoding.c:303
 msgid "Turkish"
 msgstr "तुर्किश"
 
-#: ../src/totem-subtitle-encoding.c:306 ../src/totem-subtitle-encoding.c:308
-#: ../src/totem-subtitle-encoding.c:310 ../src/totem-subtitle-encoding.c:312
-#: ../src/totem-subtitle-encoding.c:314
+#: ../src/theater-subtitle-encoding.c:306 ../src/theater-subtitle-encoding.c:308
+#: ../src/theater-subtitle-encoding.c:310 ../src/theater-subtitle-encoding.c:312
+#: ../src/theater-subtitle-encoding.c:314
 msgid "Unicode"
 msgstr "युनिकोड"
 
-#: ../src/totem-subtitle-encoding.c:317 ../src/totem-subtitle-encoding.c:319
-#: ../src/totem-subtitle-encoding.c:321 ../src/totem-subtitle-encoding.c:323
-#: ../src/totem-subtitle-encoding.c:325
+#: ../src/theater-subtitle-encoding.c:317 ../src/theater-subtitle-encoding.c:319
+#: ../src/theater-subtitle-encoding.c:321 ../src/theater-subtitle-encoding.c:323
+#: ../src/theater-subtitle-encoding.c:325
 msgid "Western"
 msgstr "पश्चिमी"
 
-#: ../src/totem-subtitle-encoding.c:328 ../src/totem-subtitle-encoding.c:330
-#: ../src/totem-subtitle-encoding.c:332
+#: ../src/theater-subtitle-encoding.c:328 ../src/theater-subtitle-encoding.c:330
+#: ../src/theater-subtitle-encoding.c:332
 msgid "Vietnamese"
 msgstr "वियेतनामी"
 
 #. Elapsed / Total Length
-#: ../src/totem-time-label.c:64
+#: ../src/theater-time-label.c:64
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. Seeking to Time / Total Length
-#: ../src/totem-time-label.c:67
+#: ../src/theater-time-label.c:67
 #, c-format
 msgid "Seek to %s / %s"
 msgstr "%s / %s करीता सीक"
 
-#: ../src/totem-uri.c:329 ../src/plugins/chapters/totem-chapters.c:982
+#: ../src/theater-uri.c:329 ../src/plugins/chapters/theater-chapters.c:982
 msgid "All files"
 msgstr "सर्व फाइली"
 
-#: ../src/totem-uri.c:335
+#: ../src/theater-uri.c:335
 msgid "Video files"
 msgstr "व्हिडीओ फाइल्स्"
 
-#: ../src/totem-uri.c:346
+#: ../src/theater-uri.c:346
 msgid "Subtitle files"
 msgstr "उपशिर्षक फाइल्स्"
 
-#: ../src/totem-uri.c:396
+#: ../src/theater-uri.c:396
 msgid "Select Text Subtitles"
 msgstr "मजकूर उपशिर्षक नीवडा"
 
-#: ../src/totem-uri.c:400 ../src/plugins/chapters/totem-chapters.c:962
+#: ../src/theater-uri.c:400 ../src/plugins/chapters/theater-chapters.c:962
 msgid "_Open"
 msgstr "उघडा (_O)"
 
-#: ../src/totem-uri.c:457
+#: ../src/theater-uri.c:457
 #| msgid "Videos"
 msgid "Add Videos"
 msgstr "व्हिडीओज समाविष्ट करा"
@@ -1231,7 +1231,7 @@ msgstr "व्हिडीओज समाविष्ट करा"
 #. Translators: The first string is "Filename" (as translated); the second is an actual filename.
 #. The third string is "Resolution" (as translated); the fourth and fifth are screenshot height and width, respectively.
 #. The sixth string is "Duration" (as translated); the seventh is the movie duration in words.
-#: ../src/totem-video-thumbnailer.c:785
+#: ../src/theater-video-thumbnailer.c:785
 #, c-format
 msgid ""
 "<b>%s</b>: %s\n"
@@ -1242,15 +1242,15 @@ msgstr ""
 "<b>%s</b>: %d×%d\n"
 "<b>%s</b>: %s"
 
-#: ../src/totem-video-thumbnailer.c:786
+#: ../src/theater-video-thumbnailer.c:786
 msgid "Filename"
 msgstr "फाइलचेनाव"
 
-#: ../src/totem-video-thumbnailer.c:788
+#: ../src/theater-video-thumbnailer.c:788
 msgid "Resolution"
 msgstr "रेजॉल्यूशन"
 
-#: ../src/totem-video-thumbnailer.c:791
+#: ../src/theater-video-thumbnailer.c:791
 msgid "Duration"
 msgstr "कार्यकाळ"
 
@@ -1278,32 +1278,32 @@ msgstr "व्हिडीओ डिस्क रेकॉर्डर"
 msgid "Records (S)VCDs or video DVDs"
 msgstr "(S)VCDs किंवा व्हिडीओ DVDs रेकॉर्ड करतो"
 
-#: ../src/plugins/brasero-disc-recorder/totem-disc-recorder.c:120
+#: ../src/plugins/brasero-disc-recorder/theater-disc-recorder.c:120
 msgid "The video disc could not be duplicated."
 msgstr "व्हिडीओ डिस्कचे हुबेहुब प्रत बनवणे अशक्य."
 
-#: ../src/plugins/brasero-disc-recorder/totem-disc-recorder.c:122
-#: ../src/plugins/brasero-disc-recorder/totem-disc-recorder.c:268
+#: ../src/plugins/brasero-disc-recorder/theater-disc-recorder.c:122
+#: ../src/plugins/brasero-disc-recorder/theater-disc-recorder.c:268
 msgid "The movie could not be recorded."
 msgstr "चित्रपटला रेकॉर्ड करणे अशक्य."
 
-#: ../src/plugins/brasero-disc-recorder/totem-disc-recorder.c:148
-#: ../src/plugins/brasero-disc-recorder/totem-disc-recorder.c:158
-#: ../src/plugins/brasero-disc-recorder/totem-disc-recorder.c:254
+#: ../src/plugins/brasero-disc-recorder/theater-disc-recorder.c:148
+#: ../src/plugins/brasero-disc-recorder/theater-disc-recorder.c:158
+#: ../src/plugins/brasero-disc-recorder/theater-disc-recorder.c:254
 msgid "Unable to write a project."
 msgstr "प्रकल्प लिहण्यास अशक्य."
 
-#: ../src/plugins/brasero-disc-recorder/totem-disc-recorder.c:394
+#: ../src/plugins/brasero-disc-recorder/theater-disc-recorder.c:394
 #| msgid "_Create Video Disc..."
 msgid "_Create Video Disc…"
 msgstr "व्हिडीओ डिस्क निर्माण करा (_C)..."
 
-#: ../src/plugins/brasero-disc-recorder/totem-disc-recorder.c:395
+#: ../src/plugins/brasero-disc-recorder/theater-disc-recorder.c:395
 #| msgid "Copy Vide_o DVD..."
 msgid "Copy Vide_o DVD…"
 msgstr "व्हिडीओ डीवीडीचे प्रत करा (_o)..."
 
-#: ../src/plugins/brasero-disc-recorder/totem-disc-recorder.c:396
+#: ../src/plugins/brasero-disc-recorder/theater-disc-recorder.c:396
 #| msgid "Copy (S)VCD..."
 msgid "Copy (S)VCD…"
 msgstr "(S)VCD चे प्रत करा..."
@@ -1367,7 +1367,7 @@ msgid "Create a new chapter list for the movie"
 msgstr "चित्रपटकरीता नवीन अध्याय सूची निर्माण करा"
 
 #: ../src/plugins/chapters/chapters.plugin.in.h:1
-#: ../src/plugins/chapters/totem-chapters.c:1122
+#: ../src/plugins/chapters/theater-chapters.c:1122
 msgid "Chapters"
 msgstr "अध्याय"
 
@@ -1375,7 +1375,7 @@ msgstr "अध्याय"
 msgid "Support chapter markers in movies"
 msgstr "चित्रपटात अध्याय मार्करकरीता समर्थन"
 
-#: ../src/plugins/chapters/totem-chapters.c:56
+#: ../src/plugins/chapters/theater-chapters.c:56
 #, c-format
 msgid ""
 "<b>Title: </b>%s\n"
@@ -1384,27 +1384,27 @@ msgstr ""
 "<b>शीर्षक: </b>%s\n"
 "<b>सुरूवातीचा वेळ: </b>%s"
 
-#: ../src/plugins/chapters/totem-chapters.c:324
+#: ../src/plugins/chapters/theater-chapters.c:324
 msgid "Error while reading file with chapters"
 msgstr "अध्यायसह फाइल वाचतेवेळी त्रुटी"
 
-#: ../src/plugins/chapters/totem-chapters.c:542
+#: ../src/plugins/chapters/theater-chapters.c:542
 msgid "Chapter with the same time already exists"
 msgstr "समान वेळसह अध्याय आधिपासूनच अस्तित्वात आहे"
 
-#: ../src/plugins/chapters/totem-chapters.c:543
+#: ../src/plugins/chapters/theater-chapters.c:543
 msgid "Try another name or remove an existing chapter."
 msgstr "इतर नाव किंवा अस्तित्वातील अध्याय वापरून पहा."
 
-#: ../src/plugins/chapters/totem-chapters.c:702
+#: ../src/plugins/chapters/theater-chapters.c:702
 msgid "Error while writing file with chapters"
 msgstr "अध्यायसह फाइलकरीता लिहतेवेळी त्रुटी"
 
-#: ../src/plugins/chapters/totem-chapters.c:826
+#: ../src/plugins/chapters/theater-chapters.c:826
 msgid "Error occurred while saving chapters"
 msgstr "अध्याय साठवतेवेळी त्रुटी आढळली"
 
-#: ../src/plugins/chapters/totem-chapters.c:827
+#: ../src/plugins/chapters/theater-chapters.c:827
 msgid ""
 "Please check you have permission to write to the folder containing the movie."
 msgstr ""
@@ -1412,41 +1412,41 @@ msgstr ""
 "कृपया याची "
 "तपासणी करा."
 
-#: ../src/plugins/chapters/totem-chapters.c:960
+#: ../src/plugins/chapters/theater-chapters.c:960
 msgid "Open Chapter File"
 msgstr "अध्याय फाइल उघडा"
 
-#: ../src/plugins/chapters/totem-chapters.c:979
+#: ../src/plugins/chapters/theater-chapters.c:979
 msgid "Supported files"
 msgstr "मदत करणाऱ्या फाइल"
 
-#: ../src/plugins/chapters/totem-chapters.c:1076
+#: ../src/plugins/chapters/theater-chapters.c:1076
 msgid "Chapter Screenshot"
 msgstr "अध्याय स्क्रीनशॉट"
 
-#: ../src/plugins/chapters/totem-chapters.c:1087
+#: ../src/plugins/chapters/theater-chapters.c:1087
 msgid "Chapter Title"
 msgstr "अध्याय शीर्षक"
 
-#: ../src/plugins/chapters/totem-chapters.c:1167
+#: ../src/plugins/chapters/theater-chapters.c:1167
 msgid "Save changes to chapter list before closing?"
 msgstr "बंद करण्यापूर्वी अध्याय सूचीकरीता बदल साठवा?"
 
-#. Translators: close Totem without saving changes to the chapter list of the current movie.
-#: ../src/plugins/chapters/totem-chapters.c:1172
+#. Translators: close theater without saving changes to the chapter list of the current movie.
+#: ../src/plugins/chapters/theater-chapters.c:1172
 msgid "Close without Saving"
 msgstr "न साठवता बंद करा"
 
-#. Translators: save changes to the chapter list of the current movie before closing Totem.
-#: ../src/plugins/chapters/totem-chapters.c:1174
+#. Translators: save changes to the chapter list of the current movie before closing theater.
+#: ../src/plugins/chapters/theater-chapters.c:1174
 msgid "Save"
 msgstr "साठवा"
 
-#: ../src/plugins/chapters/totem-chapters.c:1177
+#: ../src/plugins/chapters/theater-chapters.c:1177
 msgid "If you don't save, changes to the chapter list will be lost."
 msgstr "न साठवल्यास, अध्याय सूचीरीता बदल गमवाल."
 
-#: ../src/plugins/chapters/totem-edit-chapter.c:95
+#: ../src/plugins/chapters/theater-edit-chapter.c:95
 msgid "Add Chapter"
 msgstr "अध्याय समाविष्ट करा"
 
@@ -1489,15 +1489,15 @@ msgstr "Gromit टिप्पणी"
 msgid "Presentation helper to make annotations on screen"
 msgstr "टिप्पणी पडद्यावर दर्शविण्याकरीताचे प्रस्तुती मदतकार"
 
-#: ../src/plugins/gromit/totem-gromit.c:232
+#: ../src/plugins/gromit/theater-gromit.c:232
 msgid "The gromit binary was not found."
 msgstr "gromit बायनरी आढळले नाही."
 
-#: ../src/plugins/im-status/totem-im-status.plugin.in.h:1
+#: ../src/plugins/im-status/theater-im-status.plugin.in.h:1
 msgid "Instant Messenger Status"
 msgstr "इंस्टंट मेसेंजर स्थिती"
 
-#: ../src/plugins/im-status/totem-im-status.plugin.in.h:2
+#: ../src/plugins/im-status/theater-im-status.plugin.in.h:2
 msgid "Set your Instant Messenger status to away when a movie is playing"
 msgstr ""
 "चित्रपट चालवितेवेळी त्वरीत संदेश पाठवाची स्थिती उपलब्ध नाही म्हणून निश्चित करा"
@@ -1510,11 +1510,11 @@ msgstr "इंफ्रारेड दुर्रस्थ नियंत्�
 msgid "Support infrared remote control"
 msgstr "इंफ्रारेड दुर्रस्थ नियंत्रकास समर्थन द्या"
 
-#: ../src/plugins/lirc/totem-lirc.c:239
+#: ../src/plugins/lirc/theater-lirc.c:239
 msgid "Couldn't initialize lirc."
 msgstr "lirc प्रारंभ करू शकले नाही."
 
-#: ../src/plugins/lirc/totem-lirc.c:251
+#: ../src/plugins/lirc/theater-lirc.c:251
 msgid "Couldn't read lirc configuration."
 msgstr "lirc संयोजना वाचू शकले नाही."
 
@@ -1604,11 +1604,11 @@ msgstr "उपशिर्षक भाषा (_l):"
 msgid "_Play with Subtitle"
 msgstr "Subtitle सह चालवा (_P)"
 
-#: ../src/plugins/opensubtitles/org.gnome.totem.plugins.opensubtitles.gschema.xml.in.in.h:1
+#: ../src/plugins/opensubtitles/org.gnome.theater.plugins.opensubtitles.gschema.xml.in.in.h:1
 msgid "Subtitle language"
 msgstr "उपशीर्षक भाषा"
 
-#: ../src/plugins/opensubtitles/org.gnome.totem.plugins.opensubtitles.gschema.xml.in.in.h:2
+#: ../src/plugins/opensubtitles/org.gnome.theater.plugins.opensubtitles.gschema.xml.in.in.h:2
 msgid "The language to search for subtitles for movies in."
 msgstr "चित्रपटकरीता उपशीर्षक शोधण्याकरीता भाषा."
 
@@ -1621,26 +1621,26 @@ msgstr "चित्रपट गुणधर्म"
 msgid "Adds movie properties menu item"
 msgstr "चित्रपट गुणधर्म मेन्यु घटक समाविष्ट करते"
 
-#: ../src/plugins/properties/totem-movie-properties.c:261
+#: ../src/plugins/properties/theater-movie-properties.c:261
 msgid "Properties"
 msgstr "गुणधर्म"
 
-#: ../src/plugins/properties/totem-movie-properties.c:286
+#: ../src/plugins/properties/theater-movie-properties.c:286
 msgid "_Properties"
 msgstr "वैशिष्ट्ये (_P)"
 
-#: ../src/plugins/pythonconsole/org.gnome.totem.plugins.pythonconsole.gschema.xml.in.in.h:1
+#: ../src/plugins/pythonconsole/org.gnome.theater.plugins.pythonconsole.gschema.xml.in.in.h:1
 msgid "rpdb2 password"
 msgstr "rpdb2 पासवर्ड"
 
-#: ../src/plugins/pythonconsole/org.gnome.totem.plugins.pythonconsole.gschema.xml.in.in.h:2
+#: ../src/plugins/pythonconsole/org.gnome.theater.plugins.pythonconsole.gschema.xml.in.in.h:2
 msgid ""
-"A password to protect the rpdb2 server for debugging Totem from unauthorized "
-"remote access. If this is empty, a default of 'totem' will be used."
+"A password to protect the rpdb2 server for debugging theater from unauthorized "
+"remote access. If this is empty, a default of 'theater' will be used."
 msgstr ""
 "अनोळखी रिमोट प्रवेशपासून टोटेमला डिबग करण्यासाठी rpdb2 सर्व्हर सुरक्षित "
 "करण्यासाठी "
-"पासवर्ड. हे रिकामे असल्यास, 'totem' चे पूर्वनिर्धारित वापरले जाईल."
+"पासवर्ड. हे रिकामे असल्यास, 'theater' चे पूर्वनिर्धारित वापरले जाईल."
 
 #: ../src/plugins/pythonconsole/pythonconsole.plugin.in.h:1
 msgid "Python Console"
@@ -1661,24 +1661,24 @@ msgstr "Python डीबगर"
 #. pylint: disable-msg=E1101
 #: ../src/plugins/pythonconsole/pythonconsole.py:90
 #, python-format
-msgid "You can access the Totem.Object through 'totem_object' :\\n%s"
-msgstr "Totem.Object करीता 'totem_object' :\\n%s तर्फे प्रवेश शक्य आहे"
+msgid "You can access the theater.Object through 'theater_object' :\\n%s"
+msgstr "theater.Object करीता 'theater_object' :\\n%s तर्फे प्रवेश शक्य आहे"
 
 #: ../src/plugins/pythonconsole/pythonconsole.py:94
-msgid "Totem Python Console"
-msgstr "Totem Python कंसोल"
+msgid "theater Python Console"
+msgstr "theater Python कंसोल"
 
 #. pylint: disable-msg=W0613
 #: ../src/plugins/pythonconsole/pythonconsole.py:104
 msgid ""
-"After you press OK, Totem will wait until you connect to it with winpdb or "
+"After you press OK, theater will wait until you connect to it with winpdb or "
 "rpdb2. If you have not set a debugger password in DConf, it will use the "
-"default password ('totem')."
+"default password ('theater')."
 msgstr ""
-"ठिक आहे दाबल्यावर, winpdb किंवा rpdb2 शी जुळवणी स्थापीत होईपर्यंत Totem "
+"ठिक आहे दाबल्यावर, winpdb किंवा rpdb2 शी जुळवणी स्थापीत होईपर्यंत theater "
 "प्रतिक्षा "
 "करेल. DConf मध्ये डीबगर गुप्तशब्द निश्चित न केल्यास, पूर्वनिर्धारित पासवर्ड "
-"('totem') "
+"('theater') "
 "याचा वापर केला जाईल."
 
 #: ../src/plugins/recent/recent.plugin.in.h:1
@@ -1697,11 +1697,11 @@ msgstr "गोलाकार प्लगइन"
 msgid "Allows videos to be rotated if they are in the wrong orientation"
 msgstr "चुकिच्या दिशेने असल्यास व्हिडिओज्ना फिरवण्यस परवानगी देतो"
 
-#: ../src/plugins/rotation/totem-rotation-plugin.vala:52
+#: ../src/plugins/rotation/theater-rotation-plugin.vala:52
 msgid "_Rotate ↷"
 msgstr "फिरवा (_R) ↷"
 
-#: ../src/plugins/rotation/totem-rotation-plugin.vala:56
+#: ../src/plugins/rotation/theater-rotation-plugin.vala:56
 msgid "Rotate ↶"
 msgstr "फिरवा ↶"
 
@@ -1715,11 +1715,11 @@ msgstr "सध्याचे चालवत असलेल्या चित
 
 #. translators: Movie is the default saved movie filename,
 #. * without the suffix
-#: ../src/plugins/save-file/totem-save-file.c:158
+#: ../src/plugins/save-file/theater-save-file.c:158
 msgid "Movie"
 msgstr "चित्रपट"
 
-#: ../src/plugins/save-file/totem-save-file.c:366
+#: ../src/plugins/save-file/theater-save-file.c:366
 msgid "Make Available Offline"
 msgstr "ऑफलाइन उपलब्ध करा"
 
@@ -1731,7 +1731,7 @@ msgstr "स्क्रीनसेवर"
 msgid "Deactivates the screen saver when a movie is playing"
 msgstr "चित्रपट चालवतेवेळी स्क्रिनसेवरला बंद करतो"
 
-#: ../src/plugins/screensaver/totem-screensaver.c:79
+#: ../src/plugins/screensaver/theater-screensaver.c:79
 msgid "Playing a movie"
 msgstr "चित्रपट चालवत आहे"
 
@@ -1770,11 +1770,11 @@ msgstr "स्क्रीनशॉट"
 msgid "Allows screenshots and galleries to be taken of videos"
 msgstr "व्हिडिओज्चे स्क्रीनशॉटस् व दालनकरीता परवानगी देतो"
 
-#: ../src/plugins/screenshot/totem-gallery.c:91
+#: ../src/plugins/screenshot/theater-gallery.c:91
 msgid "Save Gallery"
 msgstr "कलादालन साठवा"
 
-#: ../src/plugins/screenshot/totem-gallery.c:98
+#: ../src/plugins/screenshot/theater-gallery.c:98
 #| msgid "Save"
 msgid "_Save"
 msgstr "साठवा (_S)"
@@ -1783,43 +1783,43 @@ msgstr "साठवा (_S)"
 #. * argument is a number which is used to prevent overwriting files.
 #. * Just translate "Gallery", and not the ".jpg". Example:
 #. * "Galerie-%s-%d.jpg".
-#: ../src/plugins/screenshot/totem-gallery.c:115
+#: ../src/plugins/screenshot/theater-gallery.c:115
 #, c-format
 msgid "Gallery-%s-%d.jpg"
 msgstr "Gallery-%s-%d.jpg"
 
 #. Set up the window
-#: ../src/plugins/screenshot/totem-gallery-progress.c:101
+#: ../src/plugins/screenshot/theater-gallery-progress.c:101
 #| msgid "Creating Gallery..."
 msgid "Creating Gallery…"
 msgstr "कलादालन निर्माण करणे..."
 
 #. Set the progress label
-#: ../src/plugins/screenshot/totem-gallery-progress.c:107
+#: ../src/plugins/screenshot/theater-gallery-progress.c:107
 #, c-format
 msgid "Saving gallery as \"%s\""
 msgstr "कलादालन यांस \"%s\""
 
-#: ../src/plugins/screenshot/totem-screenshot-plugin.c:221
-#: ../src/plugins/screenshot/totem-screenshot-plugin.c:230
-msgid "Totem could not get a screenshot of the video."
+#: ../src/plugins/screenshot/theater-screenshot-plugin.c:221
+#: ../src/plugins/screenshot/theater-screenshot-plugin.c:230
+msgid "theater could not get a screenshot of the video."
 msgstr "टोटेम चित्रपटाचे स्क्रीनशॉट प्राप्त करण्यास अशक्य."
 
-#: ../src/plugins/screenshot/totem-screenshot-plugin.c:230
+#: ../src/plugins/screenshot/theater-screenshot-plugin.c:230
 msgid "This is not supposed to happen; please file a bug report."
 msgstr "हे घडायला नको हवे होते; कृपया बग अहवाल दाखल करा."
 
-#: ../src/plugins/screenshot/totem-screenshot-plugin.c:339
+#: ../src/plugins/screenshot/theater-screenshot-plugin.c:339
 msgid "Take _Screenshot"
 msgstr "स्क्रीनशॉट घ्या (_S)"
 
-#: ../src/plugins/screenshot/totem-screenshot-plugin.c:345
+#: ../src/plugins/screenshot/theater-screenshot-plugin.c:345
 #| msgid "Create Screenshot _Gallery..."
 msgid "Create Screenshot _Gallery…"
 msgstr "स्क्रीनशॉट कलादालन निर्माण करा (_G)..."
 
 #: ../src/plugins/skipto/skipto.plugin.in.h:1
-#: ../src/plugins/skipto/totem-skipto.c:196
+#: ../src/plugins/skipto/theater-skipto.c:196
 msgid "Skip To"
 msgstr "याकरीता वगळा"
 
@@ -1833,7 +1833,7 @@ msgstr "येथे चला (_S):"
 
 #. Update the "seconds" label so that it always has the correct singular/plural form
 #. Translators: label for the seconds selector in the "Skip to" dialogue
-#: ../src/plugins/skipto/totem-skipto.c:159
+#: ../src/plugins/skipto/theater-skipto.c:159
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "सेकंद"
@@ -1843,17 +1843,17 @@ msgstr[1] "सेकंद"
 #. Translators: you should translate this string to a number (written in digits) which corresponds to the longer character length of the
 #. * translations for "second" and "seconds", as translated elsewhere in this file. For example, in English, "second" is 6 characters long and
 #. * "seconds" is 7 characters long, so this string should be translated to "7". See: bgo#639398
-#: ../src/plugins/skipto/totem-skipto.c:189
+#: ../src/plugins/skipto/theater-skipto.c:189
 msgctxt "Skip To label length"
 msgid "7"
 msgstr "7"
 
-#: ../src/plugins/skipto/totem-skipto.c:199
+#: ../src/plugins/skipto/theater-skipto.c:199
 #| msgid "Skip To"
 msgid "_Skip To"
 msgstr "येथे जा (_S)"
 
-#: ../src/plugins/skipto/totem-skipto-plugin.c:206
+#: ../src/plugins/skipto/theater-skipto-plugin.c:206
 #| msgid "Skip To"
 msgid "_Skip To…"
 msgstr "येथे जा (_S)…"
@@ -1880,7 +1880,7 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgid "_Open with \"%s\""
 #~ msgstr "\"%s\" सह उघडा (_O)"
 
-#~ msgid "Totem Movie Player"
+#~ msgid "theater Movie Player"
 #~ msgstr "टोटेम चित्रपट वादक"
 
 #~ msgid "No playlist or playlist empty"
@@ -1889,7 +1889,7 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgid "Movie browser plugin"
 #~ msgstr "चलचित्र ब्राऊजर प्लगइन"
 
-#~ msgid "Verify your system installation. The Totem plugin will now exit."
+#~ msgid "Verify your system installation. The theater plugin will now exit."
 #~ msgstr "तुमचे प्रणाली प्रतिष्ठपना तपासून पहा. टोटेम प्लगइन आता बाहेर पडेल."
 
 #~ msgid "Allow the screensaver to activate when playing audio"
@@ -1966,7 +1966,7 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgid "Extra Large"
 #~ msgstr "अगाऊ वाढीव"
 
-#~ msgid "Totem Preferences"
+#~ msgid "theater Preferences"
 #~ msgstr "टोटेम प्राधान्यता"
 
 #~ msgid "Playback"
@@ -2081,42 +2081,42 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgstr "वादकयादी मध्ये जोडा (_A)"
 
 #~ msgid ""
-#~ "Totem is free software; you can redistribute it and/or modify it under "
+#~ "theater is free software; you can redistribute it and/or modify it under "
 #~ "the terms of the GNU General Public License as published by the Free "
 #~ "Software Foundation; either version 2 of the License, or (at your option) "
 #~ "any later version."
 #~ msgstr ""
-#~ "Totem मुक्त सॉफ्टवेअर आहे; तुम्ही याचे वितरण व/किंवा संपादन Free Software "
+#~ "theater मुक्त सॉफ्टवेअर आहे; तुम्ही याचे वितरण व/किंवा संपादन Free Software "
 #~ "Foundation प्रकाशीत GNU General Public License च्या अंतर्गत; एकतर परवानातील "
 #~ "आवृत्ती 2 , किंवा (तुमच्या पर्यायनुसारे) पुढील कुठल्याही आवृत्तीनुसारे करू शकता."
 
 #~ msgid ""
-#~ "Totem is distributed in the hope that it will be useful, but WITHOUT ANY "
+#~ "theater is distributed in the hope that it will be useful, but WITHOUT ANY "
 #~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 #~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 #~ "details."
 #~ msgstr ""
-#~ "Totem चा वापर लाभदायी ठरावा या हेतुने त्याचे वितरन केले आहे, पण कुठल्याही हमी विना; "
+#~ "theater चा वापर लाभदायी ठरावा या हेतुने त्याचे वितरन केले आहे, पण कुठल्याही हमी विना; "
 #~ "व्यापारहेतु अंतर्भुतीत किंवा कुठल्याही हेतुकरीता वापरकरीतायेण्याजोगी हमी विना.  अधिक "
 #~ "माहितीकरीता GNU General Public License पहा."
 
 #~ msgid ""
 #~ "You should have received a copy of the GNU General Public License along "
-#~ "with Totem; if not, write to the Free Software Foundation, Inc., 59 "
+#~ "with theater; if not, write to the Free Software Foundation, Inc., 59 "
 #~ "Temple Place, Suite 330, Boston, MA  02111-1307  USA"
 #~ msgstr ""
-#~ "तुमच्याकडे Totem सह GNU General Public License ची एक प्रत असायला हवी; नसल्यास, "
+#~ "तुमच्याकडे theater सह GNU General Public License ची एक प्रत असायला हवी; नसल्यास, "
 #~ "Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  "
 #~ "02111-1307  USA कडे लिहून पाठवा"
 
 #~ msgid ""
-#~ "Totem contains an exception to allow the use of proprietary GStreamer "
+#~ "theater contains an exception to allow the use of proprietary GStreamer "
 #~ "plugins."
 #~ msgstr ""
 #~ "टोटेम मधला एक अपवाद असा की सर्वोतया मालकीचे GStreamer प्लगइनच्या वापर करीता "
 #~ "दिली जाते."
 
-#~ msgid "Totem %s"
+#~ msgid "theater %s"
 #~ msgstr "टोटेम %s"
 
 #~ msgid "Open Location..."
@@ -2400,7 +2400,7 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ "संदिप शेडमाके <sandeep.shedmake@gmail.com>, 2008; संदिप शेडमाके "
 #~ "<sshedmak@redhat.com>, 2009, 2010."
 
-#~ msgid "Totem Website"
+#~ msgid "theater Website"
 #~ msgstr "टोटेम संकेतस्थळ"
 
 #~ msgid "No error message"
@@ -2461,8 +2461,8 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgid "Python Console Menu"
 #~ msgstr "Python कंसोल मेन्यू"
 
-#~ msgid "Show Totem's Python console"
-#~ msgstr "Totem चे Python कंसोल दाखवा"
+#~ msgid "Show theater's Python console"
+#~ msgstr "theater चे Python कंसोल दाखवा"
 
 #~ msgid "Enable remote Python debugging with rpdb2"
 #~ msgstr "दूरस्थ Python डीबगींग rpdb2 सह चालू करा"
@@ -2631,7 +2631,7 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgstr "%s सह Movie Player वापरा"
 
 #~ msgid ""
-#~ "Totem could not play this media (%s) although a plugin is present to "
+#~ "theater could not play this media (%s) although a plugin is present to "
 #~ "handle it."
 #~ msgstr ""
 #~ "मिडीया हाताळणी करीता योग्य प्लगइन उपलब्ध असल्यावरही टोटेम या प्रकारची मिडीया "
@@ -2648,33 +2648,33 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgstr "मिडीया प्लगइन विषयी अधिक माहिती"
 
 #~ msgid ""
-#~ "Please install the necessary plugins and restart Totem to be able to play "
+#~ "Please install the necessary plugins and restart theater to be able to play "
 #~ "this media."
 #~ msgstr ""
 #~ "कृपया आवश्यक प्लगइन प्रतिष्ठापीत करा व ही मिडीया चालविण्याकरीता टोटेम पुनःसुरू करा."
 
 #~ msgid ""
-#~ "Totem cannot play this type of media (%s) because it does not have the "
+#~ "theater cannot play this type of media (%s) because it does not have the "
 #~ "appropriate plugins to be able to read from the disc."
 #~ msgstr ""
 #~ "टोटेम या प्रकारची मिडीया (%s) चालवू शकत नाही कारण त्याकडे डीस्क पासून "
 #~ "वाचण्याकरीताचे योग्य प्लगइन नाही."
 
 #~ msgid ""
-#~ "Totem cannot play this type of media (%s) because you do not have the "
+#~ "theater cannot play this type of media (%s) because you do not have the "
 #~ "appropriate plugins to handle it."
 #~ msgstr ""
 #~ "टोटेम या प्रकारची मिडीया (%s) चालवू शकत नाही कारण त्याकडे हाताळण्याकरीताचे योग्य "
 #~ "प्लगइन नाही."
 
 #~ msgid ""
-#~ "Totem cannot play this type of media (%s) because it is not supported."
+#~ "theater cannot play this type of media (%s) because it is not supported."
 #~ msgstr "टोटेम या प्रकारची मिडीया (%s) चालवू शकत नाही कराण प्रकार समर्थीत नाही."
 
 #~ msgid "Please insert another disc to play back."
 #~ msgstr "चालविण्याकरीता कृपया आणखी डीस्क अंतर्भूत करा."
 
-#~ msgid "Totem does not support playback of Audio CDs"
+#~ msgid "theater does not support playback of Audio CDs"
 #~ msgstr "टोटेम ऑडिओ CD चे गायन करीता समर्थन करीत नाही"
 
 #~ msgid ""
@@ -2688,7 +2688,7 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgstr "दृष्य प्रभाव चालू करायचे का?"
 
 #~ msgid ""
-#~ "It seems you are running Totem remotely.\n"
+#~ "It seems you are running theater remotely.\n"
 #~ "Are you sure you want to enable the visual effects?"
 #~ msgstr ""
 #~ "टोटेमला दूर्रस्थरित्या चालविले जात आहे असे दिसून येते.\n"
@@ -2699,7 +2699,7 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgstr "दृश्य प्रभाव प्रकार बदल प्रभावी होण्याकरीता पुन्हसुरू करणे आवश्यक आहे."
 
 #~ msgid ""
-#~ "The change of audio output type will only take effect when Totem is "
+#~ "The change of audio output type will only take effect when theater is "
 #~ "restarted."
 #~ msgstr "टोटेम पुन्हा सूरू केल्यावरच ऑडिओ आऊटपुट प्रकार मधिल बदल प्रभावी पडेल."
 
@@ -2709,7 +2709,7 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgid "Could not open link"
 #~ msgstr "दुवा उघडा"
 
-#~ msgid "Totem could not initialize the configuration engine."
+#~ msgid "theater could not initialize the configuration engine."
 #~ msgstr "संयोजना इंजिन टोटेम प्रारंभ करू शकले नाही."
 
 #~ msgid "Make sure that GNOME is properly installed."
@@ -2806,23 +2806,23 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgid "Bemused"
 #~ msgstr "Bemused"
 
-#~ msgid "Control Totem through a mobile phone with a Bemused client"
+#~ msgid "Control theater through a mobile phone with a Bemused client"
 #~ msgstr "टोटेमला मोबाईल फोनच्या द्वारे Bemused क्लाऐंटचा वापर करून नियंत्रीत करा"
 
 #~ msgid "Untitled %d"
 #~ msgstr "शिर्षकहीन %d"
 
-#~ msgid "Totem Bemused Server"
+#~ msgid "theater Bemused Server"
 #~ msgstr "टोटेम Bemused सर्वर"
 
-#~ msgid "Totem Bemused Server version 1.0"
+#~ msgid "theater Bemused Server version 1.0"
 #~ msgstr "टोटेम Bemused सर्वर आवृत्ती 1.0"
 
 #~ msgid "Coherence DLNA/UPnP Client"
 #~ msgstr "Coherence DLNA/UPnP क्लाएंट"
 
-#~ msgid "A DLNA/UPnP client for Totem powered by Coherence"
-#~ msgstr "Coherence कडून Totem सक्षम करीता DLNA/UPnP क्लाएंट"
+#~ msgid "A DLNA/UPnP client for theater powered by Coherence"
+#~ msgstr "Coherence कडून theater सक्षम करीता DLNA/UPnP क्लाएंट"
 
 #~ msgid "Could not connect to the Galago daemon."
 #~ msgstr "Galago डीमनशी जुळवणी करू शकले नाही."
@@ -3068,5 +3068,5 @@ msgstr "झिटगिस्ट करिता प्लगइन सेंड
 #~ msgid "Browser Plugin using %s"
 #~ msgstr "%s चा वापर करणारे ब्राऊजर प्लगइन"
 
-#~ msgid "Totem Browser Plugin"
+#~ msgid "theater Browser Plugin"
 #~ msgstr "टोटेम ब्राऊजर प्लगइन"

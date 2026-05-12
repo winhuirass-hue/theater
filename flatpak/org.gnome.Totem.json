@@ -1,0 +1,314 @@
+{
+    "app-id": "org.gnome.Totem",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "command": "totem",
+    "tags": ["nightly"],
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Wayland access */
+        "--socket=wayland",
+        /* OpenGL access */
+        "--device=dri",
+        /* Needs to talk to the network: */
+        "--share=network",
+        /* Online accounts support */
+        "--talk-name=org.gnome.OnlineAccounts",
+        /* Tracker */
+        "--talk-name=org.freedesktop.Tracker1",
+        "--env=TRACKER_SPARQL_BACKEND=bus",
+        /* XXX This sucks */
+        "--filesystem=home",
+        /* Avahi */
+        "--system-talk-name=org.freedesktop.Avahi",
+        /* DLNA server */
+        "--talk-name=com.intel.dleyna-server",
+        /* Play sounds */
+        "--socket=pulseaudio",
+        /* Browse user's Videos directory */
+        "--filesystem=xdg-videos",
+        /* Browse gvfs */
+        "--talk-name=org.gtk.vfs", "--talk-name=org.gtk.vfs.*",
+        /* Needed for dconf to work */
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+        /* screensaver plugin */
+        "--talk-name=org.gnome.ScreenSaver",
+        /* screenshot plugin */
+        "--talk-name=org.gnome.Shell",
+        /* save-file plugin */
+        "--talk-name=org.gnome.Nautilus",
+        /* media-player-keys plugin */
+        "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
+        /* MPRIS plugin */
+        "--own-name=org.mpris.MediaPlayer2.totem",
+        /* im-status plugin */
+        "--talk-name=org.gnome.SessionManager"
+    ],
+    "cleanup": [ "/include", "/share/bash-completion" ],
+    "modules": [
+        "shared-modules/lua5.3/lua-5.3.2.json",
+        {
+            "name": "gnome-common",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gnome-common.git"
+                }
+            ]
+        },
+        {
+            "name": "intltool",
+            "cleanup": [ "*" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz",
+                    "sha256": "67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
+                }
+            ]
+        },
+        {
+            "name": "libpeas",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libpeas.git"
+                }
+            ]
+        },
+        {
+            "name": "totem-pl-parser",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/totem-pl-parser.git"
+                }
+            ],
+            "cleanup": [ "/include" ]
+        },
+        {
+            "name": "grilo",
+            "buildsystem": "meson",
+            "config-opts": [ "-Denable-grl-net=true", "-Denable-grl-pls=true" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/grilo.git"
+                }
+            ],
+            "cleanup": [ "/include" ]
+        },
+        {
+            "name": "librest",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/librest.git"
+                }
+            ]
+        },
+        {
+            "name": "gnome-online-accounts",
+            "buildsystem": "meson",
+            "config-opts": [ "-Dgtk_doc=false", "-Dgoabackend=false", "-Dman=false" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gnome-online-accounts.git"
+                }
+            ]
+        },
+        {
+            "name": "liboauth",
+            "config-opts": [ "--enable-nss" ],
+            "cleanup": [ "/bin/*oauth*", "share/man/man1/*oauth*" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://netix.dl.sourceforge.net/project/liboauth/liboauth-1.0.3.tar.gz",
+                    "sha256": "0df60157b052f0e774ade8a8bac59d6e8d4b464058cc55f9208d72e41156811f"
+                }
+            ]
+        },
+        {
+            "name": "libgdata",
+            "buildsystem": "meson",
+            "config-opts": [
+                 "-Dalways_build_tests=false",
+                 "-Dgtk=disabled",
+                 "-Dgtk_doc=false",
+                 "-Dinstalled_tests=false",
+                 "-Dintrospection=false",
+                 "-Dvapi=false"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libgdata.git"
+                }
+            ]
+        },
+        {
+            "name": "gom",
+            "buildsystem": "meson",
+            "config-opts": [ "-Denable-introspection=false" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gom.git"
+                }
+            ]
+        },
+        {
+            "name": "tracker",
+            "cleanup": [ "/bin", "/etc", "/libexec" ],
+            "buildsystem": "meson",
+            "config-opts" : [
+                "-Ddocs=false",
+                "-Dfunctional_tests=false",
+                "-Djournal=false",
+                "-Dnetwork_manager=disabled",
+                "-Dstemmer=disabled",
+                "-Dbash_completion=no",
+                "-Dsystemd_user_services=no"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/tracker.git"
+                }
+            ]
+        },
+        {
+            "name": "libmediaart",
+            "cleanup": [ "/bin", "/etc", "/libexec" ],
+            "config-opts": [ "--disable-qt" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libmediaart.git"
+                }
+            ]
+        },
+        {
+            "name": "avahi",
+            "cleanup": [ "/bin/*avahi*", "share/man/man1/*avahi*" ],
+            "config-opts": [
+                "--with-distro=none",
+                "--enable-gobject",
+                "--with-xml=expat",
+                "--disable-libdaemon",
+                "--disable-core-docs",
+                "--disable-manpages",
+                "--disable-mono",
+                "--disable-qt3",
+                "--disable-qt4",
+                "--disable-python",
+                "--disable-gtk",
+                "--disable-gtk3"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://avahi.org/download/avahi-0.7.tar.gz",
+                    "sha256": "57a99b5dfe7fdae794e3d1ee7a62973a368e91e414bd0dfa5d84434de5b14804"
+                }
+            ]
+        },
+        /* XXX Remove the Lua sources we won't use */
+        {
+            "name": "grilo-plugins",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Denable-filesystem=yes",
+                "-Denable-optical-media=yes",
+                "-Denable-youtube=yes",
+                "-Denable-bookmarks=yes",
+                "-Denable-lua-factory=yes",
+                "-Denable-metadata-store=yes",
+                "-Denable-vimeo=yes",
+                "-Denable-tracker=yes",
+                "-Denable-local-metadata=yes",
+                "-Denable-dleyna=yes",
+                "-Denable-thetvdb=yes",
+                "-Denable-tmdb=yes",
+                "-Denable-freebox=yes",
+                "-Denable-opensubtitles=yes"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/grilo-plugins.git"
+                }
+            ],
+            "cleanup": [ "/include" ]
+        },
+        {
+            "name": "gnome-desktop",
+            "buildsystem": "meson",
+            "config-opts": ["-Ddebug_tools=false", "-Dudev=disabled"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gnome-desktop.git"
+                }
+            ]
+        },
+        {
+            "name": "dbus-glib",
+            "cleanup": [
+                "*.la",
+                "/bin",
+                "/etc",
+                "/include",
+                "/libexec",
+                "/share/gtk-doc",
+                "/share/man"
+            ],
+            "config-opts": [
+                "--disable-static",
+                "--disable-gtk-doc"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.freedesktop.org/dbus/dbus-glib.git",
+                    "tag": "dbus-glib-0.110",
+                    "commit": "ffeb6909967ff79585a7ede85227da94f04ecb01"
+                }
+            ]
+        },
+        {
+            "name": "python3-dbus-python",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} dbus-python"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://pypi.python.org/packages/ad/1b/76adc363212c642cabbf9329457a918308c0b9b5d38ce04d541a67255174/dbus-python-1.2.4.tar.gz",
+                    "sha256": "e2f1d6871f74fba23652e51d10873e54f71adab0525833c19bad9e99b1b2f9cc"
+                }
+            ]
+        },
+        {
+            "name": "totem",
+            "buildsystem": "meson",
+            /* Keep in sync with .gitlab-ci.yml */
+            "config-opts": ["-Denable-easy-codec-installation=no"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/totem.git"
+                }
+            ]
+        }
+    ]
+}

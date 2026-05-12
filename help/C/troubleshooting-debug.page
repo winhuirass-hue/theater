@@ -20,7 +20,7 @@
 
 <p>If you have already followed <link xref="supported-formats"/> and
 <link xref="troubleshooting-DVD"/> and a video still cannot be played, open a
-terminal window and enter the command <cmd>totem --help-gst</cmd>. This will
+terminal window and enter the command <cmd>theater --help-gst</cmd>. This will
 show a list of available options you can use to get debug output. Often the
 problem is in an underlying plugin, for example in <sys>GStreamer</sys> and not
 in <app>Videos</app> itself.</p>

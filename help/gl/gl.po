@@ -1,11 +1,11 @@
-# Galician translation for totem.
-# Copyright (C) 2011 totem's COPYRIGHT HOLDER
-# This file is distributed under the same license as the totem package.
+# Galician translation for theater.
+# Copyright (C) 2011 theater's COPYRIGHT HOLDER
+# This file is distributed under the same license as the theater package.
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2011.
 # Fran Dieguez <frandieguez@gnome.org>, 2012, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: totem master\n"
+"Project-Id-Version: theater master\n"
 "POT-Creation-Date: 2018-02-21 22:03+0000\n"
 "PO-Revision-Date: 2018-02-28 14:44+0100\n"
 "Last-Translator: marcos <marcoslansgarza@gmail.com>\n"
@@ -265,8 +265,8 @@ msgstr "<primary>Reprodutor de filmes Totem</primary>"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:146
-msgid "<primary>totem</primary>"
-msgstr "<primary>totem</primary>"
+msgid "<primary>theater</primary>"
+msgstr "<primary>theater</primary>"
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:156
@@ -401,17 +401,17 @@ msgstr ""
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:232
-msgid "<command>totem</command>"
-msgstr "<command>totem</command>"
+msgid "<command>theater</command>"
+msgstr "<command>theater</command>"
 
 #. (itstool) path: tip/para
 #: C/index.docbook:236
 msgid ""
-"To view other command line options that are available, type <command>totem --"
+"To view other command line options that are available, type <command>theater --"
 "help</command>, then press <keycap>Return</keycap>."
 msgstr ""
 "Para ver as diferentes opcións de liña de ordes dispoñíbeis escriba "
-"<command>totem --help</command> e prema <keycap>Intro</keycap>."
+"<command>theater --help</command> e prema <keycap>Intro</keycap>."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:246
@@ -440,22 +440,22 @@ msgstr "Xanela inicial do <application>reprodutor de filmes Totem</application>"
 #: C/index.docbook:255
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_start_window.png' "
+"external ref='figures/theater_start_window.png' "
 "md5='85daf6f6aaae9262482c8f1b0b6d67b0'"
 msgstr ""
-"external ref='figures/totem_start_window.png' "
+"external ref='figures/theater_start_window.png' "
 "md5='85daf6f6aaae9262482c8f1b0b6d67b0'"
 
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:253
 msgid ""
-"<imageobject> <imagedata fileref=\"figures/totem_start_window.png\" format=\"PNG"
+"<imageobject> <imagedata fileref=\"figures/theater_start_window.png\" format=\"PNG"
 "\"/> </imageobject> <textobject> <phrase>Shows <application>Totem Movie Player</"
 "application> main window with sidebar opened on playlist. Contains menubar, "
 "display area, sidebar, elapsed time slider, seek control buttons, volume slider "
 "and statusbar. </phrase> </textobject>"
 msgstr ""
-"<imageobject> <imagedata fileref=\"figures/totem_start_window.png\" format=\"PNG"
+"<imageobject> <imagedata fileref=\"figures/theater_start_window.png\" format=\"PNG"
 "\"/> </imageobject> <textobject> <phrase>Mostra a xanela principal do  "
 "<application>Reprodutor de filmes Totem</application> coa barra lateral aberta "
 "na lista de reprodución. Contén a barra do menú, área da pantalla, barra "
@@ -724,17 +724,17 @@ msgstr "Deter un filme ou canción"
 #: C/index.docbook:402
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_pause_button.png' "
+"external ref='figures/theater_pause_button.png' "
 "md5='8af1d98e40e2ebda89cc2cd86550c5f2'"
 msgstr ""
-"external ref='figures/totem_pause_button.png' "
+"external ref='figures/theater_pause_button.png' "
 "md5='8af1d98e40e2ebda89cc2cd86550c5f2'"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:400
 msgid ""
 "To pause a movie or song that is playing, click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_pause_button.png\" format=\"PNG"
+"<imageobject><imagedata fileref=\"figures/theater_pause_button.png\" format=\"PNG"
 "\"/></imageobject> <textobject><phrase>Shows pause button.</phrase></"
 "textobject> </inlinemediaobject> button, or choose <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Space</keycap></keycombo></"
@@ -744,7 +744,7 @@ msgid ""
 msgstr ""
 "Para deter un filme ou canción en reprodución prema no botón "
 "<inlinemediaobject> <imageobject><imagedata fileref=\"figures/"
-"totem_pause_button.png\" format=\"PNG\"/></imageobject> "
+"theater_pause_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Mostra botón de pausa.</phrase></textobject> </"
 "inlinemediaobject>  ou seleccione <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Espazo</keycap></keycombo></"
@@ -760,17 +760,17 @@ msgstr ""
 #: C/index.docbook:413
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_play_button.png' "
+"external ref='figures/theater_play_button.png' "
 "md5='feb4dec4237e6eb7ce571af2dbd0cf79'"
 msgstr ""
-"external ref='figures/totem_play_button.png' "
+"external ref='figures/theater_play_button.png' "
 "md5='feb4dec4237e6eb7ce571af2dbd0cf79'"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:411
 msgid ""
 "To resume playing a movie or song, click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_play_button.png\" format=\"PNG"
+"<imageobject><imagedata fileref=\"figures/theater_play_button.png\" format=\"PNG"
 "\"/></imageobject> <textobject><phrase>Shows play button.</phrase></textobject> "
 "</inlinemediaobject> button again, or choose <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Space</keycap></keycombo></"
@@ -778,7 +778,7 @@ msgid ""
 "menuchoice>."
 msgstr ""
 "Para continuar reproducindo unha película ou canción, prema de novo no botón "
-"<inlinemediaobject> <imageobject><imagedata fileref=\"figures/totem_play_button."
+"<inlinemediaobject> <imageobject><imagedata fileref=\"figures/theater_play_button."
 "png\" format=\"PNG\"/></imageobject> <textobject><phrase>Mostra botón de "
 "reprodución.</phrase></textobject> </inlinemediaobject> ou seleccione "
 "<menuchoice> <shortcut><keycombo><keycap>Ctrl</keycap><keycap>Espazo</keycap></"
@@ -891,10 +891,10 @@ msgstr "Ir ao seguinte filme ou canción"
 #: C/index.docbook:490
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_next_button.png' "
+"external ref='figures/theater_next_button.png' "
 "md5='c7f9041dc1804edc6777cfe68456e703'"
 msgstr ""
-"external ref='figures/totem_next_button.png' "
+"external ref='figures/theater_next_button.png' "
 "md5='c7f9041dc1804edc6777cfe68456e703'"
 
 #. (itstool) path: listitem/para
@@ -904,7 +904,7 @@ msgid ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Right</keycap></keycombo></"
 "shortcut> <guimenu>Go</guimenu> <guimenuitem>Next Chapter/Movie</guimenuitem> </"
 "menuchoice> or click on the <inlinemediaobject> <imageobject><imagedata fileref="
-"\"figures/totem_next_button.png\" format=\"PNG\"/></imageobject> "
+"\"figures/theater_next_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Shows a seek next button</phrase></textobject> </"
 "inlinemediaobject> button."
 msgstr ""
@@ -913,7 +913,7 @@ msgstr ""
 "dereita</keycap></keycombo></shortcut><guimenu>Ir</"
 "guimenu><guimenuitem>Capítulo ou filme seguinte</guimenuitem></menuchoice> ou "
 "prema no botón <inlinemediaobject> <imageobject><imagedata fileref=\"figures/"
-"totem_next_button.png\" format=\"PNG\"/></imageobject> "
+"theater_next_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Mostra un botón de ir ao seguinte</phrase></textobject> </"
 "inlinemediaobject>."
 
@@ -930,10 +930,10 @@ msgstr "Ir ao anterior filme ou canción"
 #: C/index.docbook:506
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_previous_button.png' "
+"external ref='figures/theater_previous_button.png' "
 "md5='a966195040a035bf48daab94c9320afc'"
 msgstr ""
-"external ref='figures/totem_previous_button.png' "
+"external ref='figures/theater_previous_button.png' "
 "md5='a966195040a035bf48daab94c9320afc'"
 
 #. (itstool) path: listitem/para
@@ -943,7 +943,7 @@ msgid ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Left</keycap></keycombo></"
 "shortcut> <guimenu>Go</guimenu> <guimenuitem>Previous Chapter/Movie</"
 "guimenuitem> </menuchoice> or click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_previous_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_previous_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Shows a seek previous button</"
 "phrase></textobject> </inlinemediaobject> button."
 msgstr ""
@@ -952,7 +952,7 @@ msgstr ""
 "esquerda</keycap></keycombo></shortcut><guimenu>Ir</"
 "guimenu><guimenuitem>Capítulo ou filme anterior</guimenuitem></menuchoice> ou "
 "prema no botón <inlinemediaobject> <imageobject><imagedata fileref=\"figures/"
-"totem_previous_button.png\" format=\"PNG\"/></imageobject> "
+"theater_previous_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Mostra un botón de ir ao anterior</phrase></textobject> </"
 "inlinemediaobject> button."
 
@@ -1080,12 +1080,12 @@ msgstr ""
 #: C/index.docbook:583
 msgid ""
 "To stop the window from always being on top, disable the <guilabel>Always on "
-"Top</guilabel> plugin again. See <xref linkend=\"totem-plugins-always-on-top\"/"
+"Top</guilabel> plugin again. See <xref linkend=\"theater-plugins-always-on-top\"/"
 "> for more information."
 msgstr ""
 "Para facer que a xanela non estea sempre en primeiro plano, desactive o "
 "engadido <guilabel>Sempre en primeiro plano</guilabel>. Consulte <xref linkend="
-"\"totem-plugins-always-on-top\"/> para obter máis información."
+"\"theater-plugins-always-on-top\"/> para obter máis información."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:588
@@ -1359,12 +1359,12 @@ msgstr ""
 #: C/index.docbook:705
 msgid ""
 "Using the <guilabel>Subtitle Downloader</guilabel> plugin, you can also "
-"download subtitles from the OpenSubtitles service. See <xref linkend=\"totem-"
+"download subtitles from the OpenSubtitles service. See <xref linkend=\"theater-"
 "plugins-opensubtitles\"/> for more information."
 msgstr ""
 "Usando o engadido do <guilabel>Descargador de subtítulos</guilabel> tamén pode "
 "descargar os subtítulos do servizo OpenSubtitles. Consulte <xref linkend="
-"\"totem-plugins-opensubtitles\"/> para obter máis información."
+"\"theater-plugins-opensubtitles\"/> para obter máis información."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:710
@@ -2046,13 +2046,13 @@ msgstr ""
 #. (itstool) path: note/para
 #: C/index.docbook:906
 msgid ""
-"Downloaded subtitle files are cached (in <filename>~/.cache/totem/subtitles</"
+"Downloaded subtitle files are cached (in <filename>~/.cache/theater/subtitles</"
 "filename>, by default) so that they do not need to be downloaded again when "
 "playing the movie again. When downloading new subtitles for a movie, any "
 "previously downloaded subtitles for that movie are deleted."
 msgstr ""
 "Os ficheiros de subtítulos descargados gárdanse nunha caché (por defecto en "
-"<filename>~/.cache/totem/subtitles</filename>) de xeito que non é necesario "
+"<filename>~/.cache/theater/subtitles</filename>) de xeito que non é necesario "
 "volvelos descargar ao volver reproducir o filme. Ao descargar novos subtítulos "
 "para un filme, elimínanse os subtítulos descargados anteriormente para ese "
 "filme."
@@ -2543,8 +2543,8 @@ msgstr ""
 #~ msgid "Totem Movie Player"
 #~ msgstr "Reprodutor de filmes Totem"
 
-#~ msgid "totem"
-#~ msgstr "totem"
+#~ msgid "theater"
+#~ msgstr "theater"
 
 #~ msgid "Shows pause button."
 #~ msgstr "Mostra o botón de deter."

@@ -1,6 +1,6 @@
-# French translation of totem documentation.
+# French translation of theater documentation.
 # Copyright (C) 2006-2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the totem
+# This file is distributed under the same license as the theater
 # documentation package.
 #
 # Christophe Bliard <christophe.bliard@trux.info>, 2006.
@@ -10,7 +10,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: totem-help.HEAD\n"
+"Project-Id-Version: theater-help.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-03 09:52+0000\n"
 "PO-Revision-Date: 2020-04-04 11:54+0200\n"
@@ -981,7 +981,7 @@ msgstr "Découverte d’autres problèmes vidéo"
 msgid ""
 "If you have already followed <link xref=\"supported-formats\"/> and <link "
 "xref=\"troubleshooting-DVD\"/> and a video still cannot be played, open a "
-"terminal window and enter the command <cmd>totem --help-gst</cmd>. This will "
+"terminal window and enter the command <cmd>theater --help-gst</cmd>. This will "
 "show a list of available options you can use to get debug output. Often the "
 "problem is in an underlying plugin, for example in <sys>GStreamer</sys> and "
 "not in <app>Videos</app> itself."
@@ -989,7 +989,7 @@ msgstr ""
 "Si vous avez déjà suivi <link xref=\"supported-formats\"/> et <link xref="
 "\"troubleshooting-DVD\"/> et que, malgré cela, une vidéo ne peut toujours "
 "pas être lue, ouvrez une fenêtre de terminal puis entrez la commande "
-"<cmd>totem --help-gst</cmd>. Ceci affichera une liste des options "
+"<cmd>theater --help-gst</cmd>. Ceci affichera une liste des options "
 "disponibles que vous pouvez utiliser pour obtenir une sortie de débogage. "
 "Souvent, le problème provient d’un greffon sous-jacent, par exemple dans "
 "<sys>GStreamer</sys> et non dans <app>Vidéos</app> lui-même."

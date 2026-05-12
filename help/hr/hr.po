@@ -1,11 +1,11 @@
-# Croatian translation for totem.
-# Copyright (C) 2016 totem's COPYRIGHT HOLDER
-# This file is distributed under the same license as the totem package.
+# Croatian translation for theater.
+# Copyright (C) 2016 theater's COPYRIGHT HOLDER
+# This file is distributed under the same license as the theater package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: totem master\n"
+"Project-Id-Version: theater master\n"
 "POT-Creation-Date: 2016-11-02 15:59+0000\n"
 "PO-Revision-Date: 2018-04-08 21:24+0200\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 #: C/index.docbook:258
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_start_window.png' "
+"external ref='figures/theater_start_window.png' "
 "md5='85daf6f6aaae9262482c8f1b0b6d67b0'"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr ""
 #: C/index.docbook:405
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_pause_button.png' "
+"external ref='figures/theater_pause_button.png' "
 "md5='8af1d98e40e2ebda89cc2cd86550c5f2'"
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 #: C/index.docbook:416
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_play_button.png' "
+"external ref='figures/theater_play_button.png' "
 "md5='feb4dec4237e6eb7ce571af2dbd0cf79'"
 msgstr ""
 
@@ -69,7 +69,7 @@ msgstr ""
 #: C/index.docbook:493
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_next_button.png' "
+"external ref='figures/theater_next_button.png' "
 "md5='c7f9041dc1804edc6777cfe68456e703'"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 #: C/index.docbook:509
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_previous_button.png' "
+"external ref='figures/theater_previous_button.png' "
 "md5='a966195040a035bf48daab94c9320afc'"
 msgstr ""
 
@@ -312,8 +312,8 @@ msgstr "<primary>Totem reproduktor filmova</primary>"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:146
-msgid "<primary>totem</primary>"
-msgstr "<primary>totem</primary>"
+msgid "<primary>theater</primary>"
+msgstr "<primary>theater</primary>"
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:156
@@ -453,17 +453,17 @@ msgstr ""
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:235
-msgid "<command>totem</command>"
-msgstr "<command>totem</command>"
+msgid "<command>theater</command>"
+msgstr "<command>theater</command>"
 
 #. (itstool) path: tip/para
 #: C/index.docbook:239
 msgid ""
-"To view other command line options that are available, type <command>totem --"
+"To view other command line options that are available, type <command>theater --"
 "help</command>, then press <keycap>Return</keycap>."
 msgstr ""
 "Kako bi vidjeli ostale dostupne mogućnosti naredbenog redka, upišite "
-"<command>totem --help</command>, zatim pritisnite <keycap>Return</keycap>."
+"<command>theater --help</command>, zatim pritisnite <keycap>Return</keycap>."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:249
@@ -488,7 +488,7 @@ msgstr ""
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:256
 msgid ""
-"<imageobject> <imagedata fileref=\"figures/totem_start_window.png\" format="
+"<imageobject> <imagedata fileref=\"figures/theater_start_window.png\" format="
 "\"PNG\"/> </imageobject> <textobject> <phrase>Shows <application>Totem Movie "
 "Player</application> main window with sidebar opened on playlist. Contains "
 "menubar, display area, sidebar, elapsed time slider, seek control buttons, "
@@ -733,7 +733,7 @@ msgstr "Pauziranje filma ili pjesme"
 #: C/index.docbook:403
 msgid ""
 "To pause a movie or song that is playing, click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_pause_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_pause_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Shows pause button.</phrase></"
 "textobject> </inlinemediaobject> button, or choose <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Space</keycap></keycombo></"
@@ -743,7 +743,7 @@ msgid ""
 msgstr ""
 "Za pauziranje filma ili pjesme koja se reproducira, kliknite na "
 "<inlinemediaobject> <imageobject><imagedata fileref=\"figures/"
-"totem_pause_button.png\" format=\"PNG\"/></imageobject> "
+"theater_pause_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Prikazuje pauza tipku.</phrase></textobject> </"
 "inlinemediaobject> tipku, ili odaberite <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Space</keycap></keycombo></"
@@ -755,7 +755,7 @@ msgstr ""
 #: C/index.docbook:414
 msgid ""
 "To resume playing a movie or song, click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_play_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_play_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Shows play button.</phrase></"
 "textobject> </inlinemediaobject> button again, or choose <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Space</keycap></keycombo></"
@@ -764,7 +764,7 @@ msgid ""
 msgstr ""
 "Za nastavak repordukcije filma ili pjesme, kliknite ponovno na "
 "<inlinemediaobject> <imageobject><imagedata fileref=\"figures/"
-"totem_play_button.png\" format=\"PNG\"/></imageobject> "
+"theater_play_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Prikaz slike repodukcije.</phrase></textobject> </"
 "inlinemediaobject> tipku, ili odaberite <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Space</keycap></keycombo></"
@@ -873,7 +873,7 @@ msgid ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Right</keycap></keycombo></"
 "shortcut> <guimenu>Go</guimenu> <guimenuitem>Next Chapter/Movie</"
 "guimenuitem> </menuchoice> or click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_next_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_next_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Shows a seek next button</"
 "phrase></textobject> </inlinemediaobject> button."
 msgstr ""
@@ -881,7 +881,7 @@ msgstr ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Right</keycap></keycombo></"
 "shortcut> <guimenu>Idi</guimenu> <guimenuitem>Sljedeće poglavlje/film</"
 "guimenuitem> </menuchoice> ili kliknite na <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_next_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_next_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Prikazuje tipku sljedećeg "
 "prebacivanja</phrase></textobject> </inlinemediaobject> tipku."
 
@@ -897,7 +897,7 @@ msgid ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Left</keycap></keycombo></"
 "shortcut> <guimenu>Go</guimenu> <guimenuitem>Previous Chapter/Movie</"
 "guimenuitem> </menuchoice> or click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_previous_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_previous_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Shows a seek previous button</"
 "phrase></textobject> </inlinemediaobject> button."
 msgstr ""
@@ -905,7 +905,7 @@ msgstr ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Left</keycap></keycombo></"
 "shortcut> <guimenu>Idi</guimenu> <guimenuitem>Prijašnje poglavlje/film</"
 "guimenuitem> </menuchoice> ili kliknite na <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_previous_button.png\" format="
+"<imageobject><imagedata fileref=\"figures/theater_previous_button.png\" format="
 "\"PNG\"/></imageobject> <textobject><phrase>Prikazuje tipku prijašnjeg "
 "odabira</phrase></textobject> </inlinemediaobject> tipku."
 
@@ -1026,12 +1026,12 @@ msgstr ""
 #: C/index.docbook:586
 msgid ""
 "To stop the window from always being on top, disable the <guilabel>Always on "
-"Top</guilabel> plugin again. See <xref linkend=\"totem-plugins-always-on-top"
+"Top</guilabel> plugin again. See <xref linkend=\"theater-plugins-always-on-top"
 "\"/> for more information."
 msgstr ""
 "Kako bi spriječili da prozor bude uvijek na vrhu, onemogućite ponovno "
 "<guilabel>Uvijek na vrhu</guilabel> priključak. Pogledajte <xref linkend="
-"\"totem-plugins-always-on-top\"/> za više informacija."
+"\"theater-plugins-always-on-top\"/> za više informacija."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:591
@@ -1289,12 +1289,12 @@ msgstr ""
 #: C/index.docbook:708
 msgid ""
 "Using the <guilabel>Subtitle Downloader</guilabel> plugin, you can also "
-"download subtitles from the OpenSubtitles service. See <xref linkend=\"totem-"
+"download subtitles from the OpenSubtitles service. See <xref linkend=\"theater-"
 "plugins-opensubtitles\"/> for more information."
 msgstr ""
 "Koristeći priključak <guilabel>Preuzimatelj podnaslova</guilabel>, možete "
 "preuzeti podnaslove sa OpenSubtitles usluge. Pogledajte <xref linkend="
-"\"totem-plugins-opensubtitles\"/> za više informacija."
+"\"theater-plugins-opensubtitles\"/> za više informacija."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:713
@@ -1861,12 +1861,12 @@ msgstr ""
 #. (itstool) path: note/para
 #: C/index.docbook:909
 msgid ""
-"Downloaded subtitle files are cached (in <filename>~/.cache/totem/subtitles</"
+"Downloaded subtitle files are cached (in <filename>~/.cache/theater/subtitles</"
 "filename>, by default) so that they do not need to be downloaded again when "
 "playing the movie again. When downloading new subtitles for a movie, any "
 "previously downloaded subtitles for that movie are deleted."
 msgstr ""
-"Preuzeti podnaslovi su spremljeni (u <naziv_datoteke>~/.cache/totem/"
+"Preuzeti podnaslovi su spremljeni (u <naziv_datoteke>~/.cache/theater/"
 "subtitles</naziv_datoteke>, po zadanome) stoga ne moraju biti ponovno "
 "preuzeti kada ponovno gledate film. Kada preuzimate novi podnaslov za film, "
 "svaki prijašnji preuzeti podnaslovi za taj film biti će obrisani."

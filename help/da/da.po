@@ -1,6 +1,6 @@
-# Documentation for totem-help.
+# Documentation for theater-help.
 # Copyright (C) 2009-10, Free Software Foundation, Inc.
-# This file is distributed under the same license as the totem package.
+# This file is distributed under the same license as the theater package.
 #
 # Ask Hjorth Larsen <asklarsen@gmail.com>, 2009-10.
 # scootergrisen, 2015.
@@ -12,7 +12,7 @@
 # display area -> fremvisningsområde
 msgid ""
 msgstr ""
-"Project-Id-Version: totem-help master\n"
+"Project-Id-Version: theater-help master\n"
 "POT-Creation-Date: 2016-03-18 15:03+0000\n"
 "PO-Revision-Date: 2016-10-02 15:50+0200\n"
 "Last-Translator: scootergrisen\n"
@@ -41,7 +41,7 @@ msgstr ""
 #: C/index.docbook:258
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_start_window.png' "
+"external ref='figures/theater_start_window.png' "
 "md5='85daf6f6aaae9262482c8f1b0b6d67b0'"
 msgstr "[Strengen bruges ikke]"
 
@@ -53,7 +53,7 @@ msgstr "[Strengen bruges ikke]"
 #: C/index.docbook:405
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_pause_button.png' "
+"external ref='figures/theater_pause_button.png' "
 "md5='8af1d98e40e2ebda89cc2cd86550c5f2'"
 msgstr "[Strengen bruges ikke]"
 
@@ -65,7 +65,7 @@ msgstr "[Strengen bruges ikke]"
 #: C/index.docbook:416
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_play_button.png' "
+"external ref='figures/theater_play_button.png' "
 "md5='feb4dec4237e6eb7ce571af2dbd0cf79'"
 msgstr "[Strengen bruges ikke]"
 
@@ -77,7 +77,7 @@ msgstr "[Strengen bruges ikke]"
 #: C/index.docbook:493
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_next_button.png' "
+"external ref='figures/theater_next_button.png' "
 "md5='c7f9041dc1804edc6777cfe68456e703'"
 msgstr "[Strengen bruges ikke]"
 
@@ -89,7 +89,7 @@ msgstr "[Strengen bruges ikke]"
 #: C/index.docbook:509
 msgctxt "_"
 msgid ""
-"external ref='figures/totem_previous_button.png' "
+"external ref='figures/theater_previous_button.png' "
 "md5='a966195040a035bf48daab94c9320afc'"
 msgstr "[Strengen bruges ikke]"
 
@@ -330,8 +330,8 @@ msgstr "<primary>Totem</primary>"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:146
-msgid "<primary>totem</primary>"
-msgstr "<primary>totem</primary>"
+msgid "<primary>theater</primary>"
+msgstr "<primary>theater</primary>"
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:156
@@ -465,16 +465,16 @@ msgstr ""
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:235
-msgid "<command>totem</command>"
-msgstr "<command>totem</command>"
+msgid "<command>theater</command>"
+msgstr "<command>theater</command>"
 
 #. (itstool) path: tip/para
 #: C/index.docbook:239
 msgid ""
-"To view other command line options that are available, type <command>totem "
+"To view other command line options that are available, type <command>theater "
 "--help</command>, then press <keycap>Return</keycap>."
 msgstr ""
-"Skriv <command>totem --help</command> efterfulgt af <keycap>Retur</keycap> "
+"Skriv <command>theater --help</command> efterfulgt af <keycap>Retur</keycap> "
 "for at se andre kommandolinjetilvalg."
 
 #. (itstool) path: sect2/title
@@ -498,14 +498,14 @@ msgstr "<application>Totem</application>s opstartsvindue"
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:256
 msgid ""
-"<imageobject> <imagedata fileref=\"figures/totem_start_window.png\" "
+"<imageobject> <imagedata fileref=\"figures/theater_start_window.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>Shows "
 "<application>Totem Movie Player</application> main window with sidebar "
 "opened on playlist. Contains menubar, display area, sidebar, elapsed time "
 "slider, seek control buttons, volume slider and statusbar. </phrase> "
 "</textobject>"
 msgstr ""
-"<imageobject> <imagedata fileref=\"figures/totem_start_window.png\" "
+"<imageobject> <imagedata fileref=\"figures/theater_start_window.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>Viser hovedvinduet for "
 "<application>Totem</application> med sidepanelet åbent med afspilningsliste. "
 "Indeholder menubjælke, fremvisningsområde, sidepanelet, spilletid, "
@@ -769,7 +769,7 @@ msgstr "Sæt en film eller sang på pause"
 #: C/index.docbook:403
 msgid ""
 "To pause a movie or song that is playing, click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_pause_button.png\" "
+"<imageobject><imagedata fileref=\"figures/theater_pause_button.png\" "
 "format=\"PNG\"/></imageobject> <textobject><phrase>Shows pause "
 "button.</phrase></textobject> </inlinemediaobject> button, or choose "
 "<menuchoice> "
@@ -779,7 +779,7 @@ msgid ""
 "a movie."
 msgstr ""
 "Vil du sætte en film eller sang på pause, så klik på <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_pause_button.png\" "
+"<imageobject><imagedata fileref=\"figures/theater_pause_button.png\" "
 "format=\"PNG\"/></imageobject> <textobject><phrase>Viser "
 "pause-knap.</phrase></textobject> </inlinemediaobject>-knappen eller vælg "
 "<menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Space</keycap></keycombo></shortcut><guimenu>Film</guimenu><guimenuitem>Afspil "
@@ -790,7 +790,7 @@ msgstr ""
 #: C/index.docbook:414
 msgid ""
 "To resume playing a movie or song, click on the <inlinemediaobject> "
-"<imageobject><imagedata fileref=\"figures/totem_play_button.png\" "
+"<imageobject><imagedata fileref=\"figures/theater_play_button.png\" "
 "format=\"PNG\"/></imageobject> <textobject><phrase>Shows play "
 "button.</phrase></textobject> </inlinemediaobject> button again, or choose "
 "<menuchoice> "
@@ -800,7 +800,7 @@ msgid ""
 msgstr ""
 "Vil du fortsætte afspilningen af en film eller sang, så klik på "
 "<inlinemediaobject> <imageobject><imagedata "
-"fileref=\"figures/totem_play_button.png\" format=\"PNG\"/></imageobject> "
+"fileref=\"figures/theater_play_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Viser afspil-knap.</phrase></textobject> "
 "</inlinemediaobject>-knappen igen, eller vælg <menuchoice> "
 "<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Mellemrum</keycap></keycombo></shortcut> "
@@ -914,7 +914,7 @@ msgid ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Right</keycap></keycombo></shortcut> "
 "<guimenu>Go</guimenu> <guimenuitem>Next Chapter/Movie</guimenuitem> "
 "</menuchoice> or click on the <inlinemediaobject> <imageobject><imagedata "
-"fileref=\"figures/totem_next_button.png\" format=\"PNG\"/></imageobject> "
+"fileref=\"figures/theater_next_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Shows a seek next button</phrase></textobject> "
 "</inlinemediaobject> button."
 msgstr ""
@@ -922,7 +922,7 @@ msgstr ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Højre</keycap></keycombo></shortcut> "
 "<guimenu>Start</guimenu> <guimenuitem>Næste kapitel/film</guimenuitem> "
 "</menuchoice> eller klik på <inlinemediaobject> <imageobject><imagedata "
-"fileref=\"figures/totem_next_button.png\" format=\"PNG\"/></imageobject> "
+"fileref=\"figures/theater_next_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Viser en søg næste-knap</phrase></textobject> "
 "</inlinemediaobject>-knappen for at gå til næste film eller sang."
 
@@ -938,7 +938,7 @@ msgid ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Left</keycap></keycombo></shortcut> "
 "<guimenu>Go</guimenu> <guimenuitem>Previous Chapter/Movie</guimenuitem> "
 "</menuchoice> or click on the <inlinemediaobject> <imageobject><imagedata "
-"fileref=\"figures/totem_previous_button.png\" format=\"PNG\"/></imageobject> "
+"fileref=\"figures/theater_previous_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Shows a seek previous button</phrase></textobject> "
 "</inlinemediaobject> button."
 msgstr ""
@@ -946,7 +946,7 @@ msgstr ""
 "<shortcut><keycombo><keycap>Alt</keycap><keycap>Venstre</keycap></keycombo></shortcut> "
 "<guimenu>Start</guimenu> <guimenuitem>Forrige kapitel/film</guimenuitem> "
 "</menuchoice> eller klik på <inlinemediaobject> <imageobject><imagedata "
-"fileref=\"figures/totem_previous_button.png\" format=\"PNG\"/></imageobject> "
+"fileref=\"figures/theater_previous_button.png\" format=\"PNG\"/></imageobject> "
 "<textobject><phrase>Viser en søg forrige-knap</phrase></textobject> "
 "</inlinemediaobject>-knappen for at gå til forrige film eller sang."
 
@@ -1076,11 +1076,11 @@ msgstr ""
 msgid ""
 "To stop the window from always being on top, disable the <guilabel>Always on "
 "Top</guilabel> plugin again. See <xref "
-"linkend=\"totem-plugins-always-on-top\"/> for more information."
+"linkend=\"theater-plugins-always-on-top\"/> for more information."
 msgstr ""
 "Du kan få vinduet til ikke længere altid at være øverst, ved igen at "
 "deaktivere <guilabel>Altid øverst</guilabel>-modulet. Se <xref "
-"linkend=\"totem-plugins-always-on-top\"/> for yderligere information."
+"linkend=\"theater-plugins-always-on-top\"/> for yderligere information."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:591
@@ -1359,11 +1359,11 @@ msgstr ""
 msgid ""
 "Using the <guilabel>Subtitle Downloader</guilabel> plugin, you can also "
 "download subtitles from the OpenSubtitles service. See <xref "
-"linkend=\"totem-plugins-opensubtitles\"/> for more information."
+"linkend=\"theater-plugins-opensubtitles\"/> for more information."
 msgstr ""
 "Ved hjælp af udvidelsesmodulet <guilabel>Underteksthenter</guilabel> kan du "
 "også hente undertekster via tjenesten OpenSubtitles. Se <xref "
-"linkend=\"totem-plugins-opensubtitles\"/> for yderligere information."
+"linkend=\"theater-plugins-opensubtitles\"/> for yderligere information."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:713
@@ -2051,13 +2051,13 @@ msgstr ""
 #: C/index.docbook:909
 msgid ""
 "Downloaded subtitle files are cached (in "
-"<filename>~/.cache/totem/subtitles</filename>, by default) so that they do "
+"<filename>~/.cache/theater/subtitles</filename>, by default) so that they do "
 "not need to be downloaded again when playing the movie again. When "
 "downloading new subtitles for a movie, any previously downloaded subtitles "
 "for that movie are deleted."
 msgstr ""
 "Hentede undertekstfiler gemmes (som standard i "
-"<filename>~/.cache/totem/subtitles</filename>), så de ikke behøver blive "
+"<filename>~/.cache/theater/subtitles</filename>), så de ikke behøver blive "
 "hentet igen næste gang filmen afspilles. Når nye undertekster for en film "
 "hentes, vil eventuelle tidligere hentede undertekster for den pågældende "
 "film blive slettet."

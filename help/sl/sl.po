@@ -1,12 +1,12 @@
-# Slovenian translations for totem help.
-# Copyright (C) 2009 totem COPYRIGHT HOLDER
-# This file is distributed under the same license as the totem package.
+# Slovenian translations for theater help.
+# Copyright (C) 2009 theater COPYRIGHT HOLDER
+# This file is distributed under the same license as the theater package.
 #
 # Matej Urbančič <mateju@svn.gnome.org>, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: totem help master\n"
+"Project-Id-Version: theater help master\n"
 "POT-Creation-Date: 2019-02-26 18:04+0000\n"
 "PO-Revision-Date: 2019-03-24 20:11+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
@@ -804,7 +804,7 @@ msgstr ""
 msgid ""
 "If you have already followed <link xref=\"supported-formats\"/> and <link "
 "xref=\"troubleshooting-DVD\"/> and a video still cannot be played, open a "
-"terminal window and enter the command <cmd>totem --help-gst</cmd>. This will "
+"terminal window and enter the command <cmd>theater --help-gst</cmd>. This will "
 "show a list of available options you can use to get debug output. Often the "
 "problem is in an underlying plugin, for example in <sys>GStreamer</sys> and "
 "not in <app>Videos</app> itself."
@@ -995,38 +995,38 @@ msgid ""
 msgstr ""
 
 #~ msgid ""
-#~ "@@image: 'figures/totem_start_window.png'; "
+#~ "@@image: 'figures/theater_start_window.png'; "
 #~ "md5=85daf6f6aaae9262482c8f1b0b6d67b0"
 #~ msgstr ""
-#~ "@@image: 'figures/totem_start_window.png'; "
+#~ "@@image: 'figures/theater_start_window.png'; "
 #~ "md5=85daf6f6aaae9262482c8f1b0b6d67b0"
 
 #~ msgid ""
-#~ "@@image: 'figures/totem_pause_button.png'; "
+#~ "@@image: 'figures/theater_pause_button.png'; "
 #~ "md5=8af1d98e40e2ebda89cc2cd86550c5f2"
 #~ msgstr ""
-#~ "@@image: 'figures/totem_pause_button.png'; "
+#~ "@@image: 'figures/theater_pause_button.png'; "
 #~ "md5=8af1d98e40e2ebda89cc2cd86550c5f2"
 
 #~ msgid ""
-#~ "@@image: 'figures/totem_play_button.png'; "
+#~ "@@image: 'figures/theater_play_button.png'; "
 #~ "md5=feb4dec4237e6eb7ce571af2dbd0cf79"
 #~ msgstr ""
-#~ "@@image: 'figures/totem_play_button.png'; "
+#~ "@@image: 'figures/theater_play_button.png'; "
 #~ "md5=feb4dec4237e6eb7ce571af2dbd0cf79"
 
 #~ msgid ""
-#~ "@@image: 'figures/totem_next_button.png'; "
+#~ "@@image: 'figures/theater_next_button.png'; "
 #~ "md5=c7f9041dc1804edc6777cfe68456e703"
 #~ msgstr ""
-#~ "@@image: 'figures/totem_next_button.png'; "
+#~ "@@image: 'figures/theater_next_button.png'; "
 #~ "md5=c7f9041dc1804edc6777cfe68456e703"
 
 #~ msgid ""
-#~ "@@image: 'figures/totem_previous_button.png'; "
+#~ "@@image: 'figures/theater_previous_button.png'; "
 #~ "md5=a966195040a035bf48daab94c9320afc"
 #~ msgstr ""
-#~ "@@image: 'figures/totem_previous_button.png'; "
+#~ "@@image: 'figures/theater_previous_button.png'; "
 #~ "md5=a966195040a035bf48daab94c9320afc"
 
 #~ msgid "2003"

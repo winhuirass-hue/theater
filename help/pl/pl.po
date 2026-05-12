@@ -1,12 +1,12 @@
-# Polish translation for totem help.
-# Copyright © 2019 the totem authors.
-# This file is distributed under the same license as the totem help.
+# Polish translation for theater help.
+# Copyright © 2019 the theater authors.
+# This file is distributed under the same license as the theater help.
 # Piotr Drąg <piotrdrag@gmail.com>, 2019.
 # Aviary.pl <community-poland@mozilla.org>, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: totem-help\n"
+"Project-Id-Version: theater-help\n"
 "POT-Creation-Date: 2019-02-10 18:46+0000\n"
 "PO-Revision-Date: 2019-02-10 23:23+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
@@ -949,14 +949,14 @@ msgstr "Rozwiązywanie innych problemów z filmami"
 msgid ""
 "If you have already followed <link xref=\"supported-formats\"/> and <link "
 "xref=\"troubleshooting-DVD\"/> and a video still cannot be played, open a "
-"terminal window and enter the command <cmd>totem --help-gst</cmd>. This will "
+"terminal window and enter the command <cmd>theater --help-gst</cmd>. This will "
 "show a list of available options you can use to get debug output. Often the "
 "problem is in an underlying plugin, for example in <sys>GStreamer</sys> and "
 "not in <app>Videos</app> itself."
 msgstr ""
 "Jeśli już skorzystano z instrukcji zawartych w <link xref=\"supported-formats"
 "\"/> i <link xref=\"troubleshooting-DVD\"/>, a nadal nie można odtworzyć "
-"filmu, to otwórz okno terminala i wpisz polecenie <cmd>totem --help-gst</"
+"filmu, to otwórz okno terminala i wpisz polecenie <cmd>theater --help-gst</"
 "cmd>. Wyświetli to listę dostępnych opcji, których można użyć do uzyskania "
 "informacji debugowania. Często problemem jest wtyczka, na przykład "
 "w bibliotece <sys>GStreamer</sys>, a nie sam program <app>Filmy</app>."
